@@ -9,17 +9,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct team {
+typedef struct Team {
 	char name[30];
 	int scored_goals_number;
 	int against_goals_number;
-	int wins_number;
-};
+	int wins;
+	int ties;
+	int losses;
+} team;
 
-struct tournament {
+typedef struct Tournament {
 	char name[100];
-	struct team teams[30];
-};
+	team teams[30];
+} tournament;
 
 unsigned int N = 0;
 unsigned int T = 0;
@@ -56,7 +58,15 @@ unsigned int G = 0;
 //  }
 //}
 
-int fill_data(unsigned int N, unsigned int T, unsigned int G){
+void sort() {
+
+}
+
+void output() {
+
+}
+
+int get_data(unsigned int N, unsigned int T, unsigned int G, tournament **data) {
 	FILE *fp;
 	int i, j, k, g;
 	char game[67];
@@ -86,7 +96,7 @@ int fill_data(unsigned int N, unsigned int T, unsigned int G){
 	}
 
 	// define tournaments
-	struct tournament tournaments[N];
+	tournament *tournaments = calloc(N, sizeof(tournament));
 
 	// fill tournaments
 	for(i = 0; i < N; ++i) {
@@ -120,7 +130,9 @@ int fill_data(unsigned int N, unsigned int T, unsigned int G){
 
 			tournaments[i].teams[j].scored_goals_number = 0;
 			tournaments[i].teams[j].against_goals_number = 0;
-			tournaments[i].teams[j].wins_number = 0;
+			tournaments[i].teams[j].wins= 0;
+			tournaments[i].teams[j].ties = 0;
+			tournaments[i].teams[j].losses = 0;
 		}
 
 		// assign G
@@ -170,27 +182,52 @@ int fill_data(unsigned int N, unsigned int T, unsigned int G){
 					tournaments[i].teams[g].against_goals_number += team2_goals;
 
 					if (team1_goals > team2_goals) {
-						tournaments[i].teams[g].wins_number += 1;
+						tournaments[i].teams[g].wins += 1;
+					} else if (team1_goals == team2_goals) {
+						tournaments[i].teams[g].ties += 1;
+					} else {
+						tournaments[i].teams[g].losses +=1;
 					}
 				} else if (strcmp(tournaments[i].teams[g].name, team2_name) == 0) {
 					tournaments[i].teams[g].scored_goals_number += team2_goals;
 					tournaments[i].teams[g].against_goals_number += team1_goals;
 
 					if (team2_goals > team1_goals) {
-						tournaments[i].teams[g].wins_number += 1;
+						tournaments[i].teams[g].wins += 1;
+					} else if (team1_goals == team2_goals) {
+						tournaments[i].teams[g].ties += 1;
+					} else {
+						tournaments[i].teams[g].losses +=1;
 					}
 				}
 			}
 		}
+
+		for(g = 0; g < T; ++g) {
+			printf("%s\n", tournaments[i].teams[g].name);
+			printf("%d\n", tournaments[i].teams[g].scored_goals_number);
+			printf("%d\n", tournaments[i].teams[g].against_goals_number);
+			printf("%d\n", tournaments[i].teams[g].wins);
+			printf("%d\n", tournaments[i].teams[g].ties);
+			printf("%d\n", tournaments[i].teams[g].losses);
+		}
 	}
 
-  fclose(fp);
+	fclose(fp);
 
-  return 0;
+	*data = tournaments;
+
+	return 0;
 }
 
 int main(void) {
-  fill_data(N, T, G);
+	tournament *tournaments;
 
-  return 0;
+	get_data(N, T, G, &tournaments);
+
+	sort(data);
+
+	output(data);
+
+    return 0;
 }
