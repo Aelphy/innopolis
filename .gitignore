@@ -1,0 +1,6 @@
+*.log
+*.aux
+./*/.settings/*
+./*/Debug/*
+./*/.cproject
+./*/.project
