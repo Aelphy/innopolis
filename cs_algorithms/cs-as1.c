@@ -11,7 +11,7 @@
 #include <ctype.h>
 
 typedef struct Team {
-	char name[30];
+	char name[31];
 	int scored_goals_number;
 	int against_goals_number;
 	int wins;
@@ -31,19 +31,26 @@ typedef int (*comparator)(const team *, const team *);
 
 char* downcase(const char *str) {
 	int i;
-	char *str2 = calloc(30, sizeof(char));
+	char *str2 = calloc(31, sizeof(char));
 
 	strcpy(str2, str);
 
 	for(i = 0; str2[i]; i++) {
-	  str2[i] = tolower(str2[i]);
+		str2[i] = tolower(str2[i]);
 	}
 
 	return str2;
 }
 
 int case_insenitive_lexicographic_ordr_cmpr(const team *a, const team *b) {
-	return strcmp(downcase(a->name), downcase(b->name));
+	char *lowA = downcase(a->name);
+	char *lowB = downcase(b->name);
+	int val = strcmp(lowA, lowB);
+
+	free(lowA);
+	free(lowB);
+
+	return val;
 }
 
 int fewest_games_played_cmpr(const team *a, const team *b) {
@@ -59,7 +66,7 @@ int most_goal_difference_cmpr(const team *a, const team *b){
 }
 
 int most_wins_cmpr(const team *a, const team *b) {
-	return(a->wins - b->wins - 1);
+	return(a->wins - b->wins);
 }
 
 int most_points_cmpr(const team *a, const team *b) {
@@ -74,15 +81,19 @@ void swap(team *a, team *b){
 }
 
 void bubble_sort(team *teams, unsigned int T, comparator cmpr) {
-	int i, j;
+	int i;
+	int sorted = 0;
 
-	for(i = 0; i < T; ++i) {
-		for(j = 0; j < T; ++j) {
-			if (cmpr(&teams[i], &teams[j]) > 0) {
-				swap(&teams[i], &teams[j]);
+	while (!sorted)	{
+		sorted = 1;
+		for (i = 0; i < T - 1; ++i) {
+			if (cmpr(&teams[i], &teams[i+1]) < 0) {
+				swap(&teams[i], &teams[i+1]);
+				sorted = 0;
 			}
 		}
 	}
+
 }
 
 void sort(tournament *tournaments) {
@@ -127,7 +138,7 @@ int get_data(tournament **data) {
 	int i, j, k, g;
 	int team1_goals, team2_goals;
 	char game[67];
-	char team1_name[30], team2_name[30];
+	char team1_name[31], team2_name[31];
 	char goals[4];
 	char *substr;
 	unsigned int T = 0;
@@ -147,7 +158,7 @@ int get_data(tournament **data) {
 
 	// check N
 	if (N > 0 && N < 1000) {
-		printf("N is %d\n", N);
+//		printf("N is %d\n", N);
 	} else {
 		printf("N is wrong.\n");
 		exit(1);
@@ -162,7 +173,6 @@ int get_data(tournament **data) {
 			printf("File read error.\n");
 			exit(1);
 		}
-		printf("Tournament %d - %s\n", i, tournaments[i].name);
 
 		// assign T
 		if (fscanf(fp, "%d", &T) != 1) {
@@ -202,7 +212,7 @@ int get_data(tournament **data) {
 
 		// check G
 		if (G <= 1000) {
-			printf("G is %d\n", G);
+//			printf("G is %d\n", G);
 		} else {
 			printf("G is wrong.\n");
 			exit(1);
@@ -214,7 +224,6 @@ int get_data(tournament **data) {
 				printf("File read error.\n");
 				exit(1);
 			}
-//			printf("G %d - %s\n", k, game);
 
 			substr = strtok(game, "#");
 			strcpy(team1_name, substr);
@@ -239,7 +248,7 @@ int get_data(tournament **data) {
 					} else if (team1_goals == team2_goals) {
 						tournaments[i].teams[g].ties += 1;
 					} else {
-						tournaments[i].teams[g].losses +=1;
+						tournaments[i].teams[g].losses += 1;
 					}
 				} else if (strcmp(tournaments[i].teams[g].name, team2_name) == 0) {
 					tournaments[i].teams[g].scored_goals_number += team2_goals;
@@ -250,20 +259,11 @@ int get_data(tournament **data) {
 					} else if (team1_goals == team2_goals) {
 						tournaments[i].teams[g].ties += 1;
 					} else {
-						tournaments[i].teams[g].losses +=1;
+						tournaments[i].teams[g].losses += 1;
 					}
 				}
 			}
 		}
-
-//		for(g = 0; g < T; ++g) {
-//			printf("%s\n", tournaments[i].teams[g].name);
-//			printf("%d\n", tournaments[i].teams[g].scored_goals_number);
-//			printf("%d\n", tournaments[i].teams[g].against_goals_number);
-//			printf("%d\n", tournaments[i].teams[g].wins);
-//			printf("%d\n", tournaments[i].teams[g].ties);
-//			printf("%d\n", tournaments[i].teams[g].losses);
-//		}
 	}
 
 	fclose(fp);
@@ -281,6 +281,8 @@ int main(void) {
 	sort(tournaments);
 
 	output(tournaments);
+
+	free(tournaments);
 
 	return 0;
 }
