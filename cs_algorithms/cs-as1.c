@@ -3,11 +3,12 @@
  Name        : cs-as1.c
  Author      : Aelphy
  ============================================================================
- */
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef struct Team {
 	char name[30];
@@ -20,60 +21,117 @@ typedef struct Team {
 
 typedef struct Tournament {
 	char name[100];
+	int teams_number;
 	team teams[30];
 } tournament;
 
 unsigned int N = 0;
-unsigned int T = 0;
-unsigned int G = 0;
 
-//void exchange(char *init, char *result) {
-//  char *buff;
-//
-//  buff = init;
-//  init = result;
-//  result = buff;
-//}
-//
-//void quicksort(char A[], int L, int R) {
-//  int i, j, pivot;
-//
-//  if ( R > L) {
-//    i = L; j = R;
-//    pivot = A[i];
-//
-//    do {
-//      while (strcmp(A[i], pivot) <= 0) i = i + 1;
-//      while ((strcmp(A[j], pivot) >= 0) && (j > L)) j = j - 1;
-//
-//      if (i < j) {
-//        exchange(A[i],A[j]);
-//        i = i + 1; j = j - 1;
-//      }
-//    } while (i <= j);
-//
-//    exchange(A[L], A[j]);
-//    quicksort(A, L, j);
-//    quicksort(A, i, R);
-//  }
-//}
+typedef int (*comparator)(const team *, const team *);
 
-void sort() {
+char* downcase(const char *str) {
+	int i;
+	char *str2 = calloc(30, sizeof(char));
 
+	strcpy(str2, str);
+
+	for(i = 0; str2[i]; i++) {
+	  str2[i] = tolower(str2[i]);
+	}
+
+	return str2;
 }
 
-void output() {
-
+int case_insenitive_lexicographic_ordr_cmpr(const team *a, const team *b) {
+	return strcmp(downcase(a->name), downcase(b->name));
 }
 
-int get_data(unsigned int N, unsigned int T, unsigned int G, tournament **data) {
+int fewest_games_played_cmpr(const team *a, const team *b) {
+	return ((b->wins + b->losses + b->ties) - (a->wins + a->losses + a->ties));
+}
+
+int most_goals_scored_cmpr(const team *a, const team *b){
+	return (a->scored_goals_number - b->scored_goals_number);
+}
+
+int most_goal_difference_cmpr(const team *a, const team *b){
+	return((a->scored_goals_number - a->against_goals_number) - (b->scored_goals_number - b->against_goals_number));
+}
+
+int most_wins_cmpr(const team *a, const team *b) {
+	return(a->wins - b->wins - 1);
+}
+
+int most_points_cmpr(const team *a, const team *b) {
+	return((a->wins * 3 + a->ties) - (b->wins * 3 + b->ties));
+}
+
+void swap(team *a, team *b){
+	team buff = *a;
+
+	*a = *b;
+	*b = buff;
+}
+
+void bubble_sort(team *teams, unsigned int T, comparator cmpr) {
+	int i, j;
+
+	for(i = 0; i < T; ++i) {
+		for(j = 0; j < T; ++j) {
+			if (cmpr(&teams[i], &teams[j]) > 0) {
+				swap(&teams[i], &teams[j]);
+			}
+		}
+	}
+}
+
+void sort(tournament *tournaments) {
+	int i;
+
+	for(i = 0; i < N; ++i) {
+		bubble_sort(tournaments[i].teams, tournaments[i].teams_number, case_insenitive_lexicographic_ordr_cmpr);
+		bubble_sort(tournaments[i].teams, tournaments[i].teams_number, fewest_games_played_cmpr);
+		bubble_sort(tournaments[i].teams, tournaments[i].teams_number, most_goals_scored_cmpr);
+		bubble_sort(tournaments[i].teams, tournaments[i].teams_number, most_goal_difference_cmpr);
+		bubble_sort(tournaments[i].teams, tournaments[i].teams_number, most_wins_cmpr);
+		bubble_sort(tournaments[i].teams, tournaments[i].teams_number, most_points_cmpr);
+	}
+}
+
+void output(tournament *tournaments) {
+	int i, j;
+
+	for(i = 0; i < N; ++i) {
+		printf("%s\n", tournaments[i].name);
+
+		for(j = 0; j < tournaments[i].teams_number; ++j) {
+			printf("%d) %s %dp, %dg (%d-%d-%d), %dgd (%d-%d)\n",
+				j + 1,
+				tournaments[i].teams[j].name,
+				tournaments[i].teams[j].wins * 3 + tournaments[i].teams[j].ties,
+				tournaments[i].teams[j].wins + tournaments[i].teams[j].losses + tournaments[i].teams[j].ties,
+				tournaments[i].teams[j].wins,
+				tournaments[i].teams[j].ties,
+				tournaments[i].teams[j].losses,
+				tournaments[i].teams[j].scored_goals_number - tournaments[i].teams[j].against_goals_number,
+				tournaments[i].teams[j].scored_goals_number,
+				tournaments[i].teams[j].against_goals_number);
+		}
+
+		printf("\n");
+	}
+}
+
+int get_data(tournament **data) {
 	FILE *fp;
 	int i, j, k, g;
+	int team1_goals, team2_goals;
 	char game[67];
 	char team1_name[30], team2_name[30];
-	char *substr;
 	char goals[4];
-	int team1_goals, team2_goals;
+	char *substr;
+	unsigned int T = 0;
+	unsigned int G = 0;
 
 	// open file
 	if ((fp = fopen("data.txt", "r")) == NULL) {
@@ -114,11 +172,13 @@ int get_data(unsigned int N, unsigned int T, unsigned int G, tournament **data) 
 
 		// check T
 		if (T > 1 && T <= 30) {
-			printf("T is %d\n", T);
+//			printf("T is %d\n", T);
 		} else {
 			printf("T is wrong.\n");
 			exit(1);
 		}
+
+		tournaments[i].teams_number = T;
 
 		// assign teams
 		for(j = 0; j < T; ++j) {
@@ -126,7 +186,6 @@ int get_data(unsigned int N, unsigned int T, unsigned int G, tournament **data) 
 				printf("File read error.\n");
 				exit(1);
 			}
-			printf("Team %d - %s\n", j, tournaments[i].teams[j].name);
 
 			tournaments[i].teams[j].scored_goals_number = 0;
 			tournaments[i].teams[j].against_goals_number = 0;
@@ -155,7 +214,7 @@ int get_data(unsigned int N, unsigned int T, unsigned int G, tournament **data) 
 				printf("File read error.\n");
 				exit(1);
 			}
-			printf("G %d - %s\n", k, game);
+//			printf("G %d - %s\n", k, game);
 
 			substr = strtok(game, "#");
 			strcpy(team1_name, substr);
@@ -168,12 +227,6 @@ int get_data(unsigned int N, unsigned int T, unsigned int G, tournament **data) 
 			team1_goals = atoi(substr);
 			substr = strtok(NULL, "@");
 			team2_goals = atoi(substr);
-
-
-//			printf ("%s\n", team1_name);
-//			printf ("%d\n", team1_goals);
-//			printf ("%d\n", team2_goals);
-//			printf ("%s\n", team2_name);
 
 			// process score
 			for(g = 0; g < G; ++g) {
@@ -203,14 +256,14 @@ int get_data(unsigned int N, unsigned int T, unsigned int G, tournament **data) 
 			}
 		}
 
-		for(g = 0; g < T; ++g) {
-			printf("%s\n", tournaments[i].teams[g].name);
-			printf("%d\n", tournaments[i].teams[g].scored_goals_number);
-			printf("%d\n", tournaments[i].teams[g].against_goals_number);
-			printf("%d\n", tournaments[i].teams[g].wins);
-			printf("%d\n", tournaments[i].teams[g].ties);
-			printf("%d\n", tournaments[i].teams[g].losses);
-		}
+//		for(g = 0; g < T; ++g) {
+//			printf("%s\n", tournaments[i].teams[g].name);
+//			printf("%d\n", tournaments[i].teams[g].scored_goals_number);
+//			printf("%d\n", tournaments[i].teams[g].against_goals_number);
+//			printf("%d\n", tournaments[i].teams[g].wins);
+//			printf("%d\n", tournaments[i].teams[g].ties);
+//			printf("%d\n", tournaments[i].teams[g].losses);
+//		}
 	}
 
 	fclose(fp);
@@ -223,11 +276,11 @@ int get_data(unsigned int N, unsigned int T, unsigned int G, tournament **data) 
 int main(void) {
 	tournament *tournaments;
 
-	get_data(N, T, G, &tournaments);
+	get_data(&tournaments);
 
-	sort(data);
+	sort(tournaments);
 
-	output(data);
+	output(tournaments);
 
-    return 0;
+	return 0;
 }
