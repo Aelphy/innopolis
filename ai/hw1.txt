@@ -51,3 +51,20 @@ Now let us add more nodes. In that way an optimal solution exists on the node N.
 Until we find the optimal solution we will not stop our search. If we reach N node then all the nodes before with less cost have been already checked. So N is optimal solution.
 
 If cost value is not constant we can finish not in optimal node.
+
+Exercises 3.17  (4 points)
+
+A) Suppose that actions can have arbitrarily large negative costs; explain why this possi-
+bility would force any optimal algorithm to explore the entire state space.
+
+Arbitrarily big negative costs automaticaly create concurent for optimal solution.
+
+B) Does it help if we insist that step costs must be greater than or equal to some negative
+constant c? Consider both trees and graphs.
+
+In case of graphs it wouldn't help because we can create loop wich summary cost will be negative.
+In case of trees If we find the optimal solution with cost X we don't need to consider sutree with costs greater or equal to X + |d * C| where d is depth of tree because d steps with price C will produce the cost wich is greater than X.
+
+C) Suppose that there is a set of operators that form a loop, so that executing the set in some
+order results in no net change to the state. If all of these operators have neg<ative cost,
+what does this imply about the optimal behavior for an agent in such an environment?
