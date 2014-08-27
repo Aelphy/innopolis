@@ -1,0 +1,53 @@
+Kusterskiy Dmitriy
+Lapin Andrew
+Markeeva Larisa
+Usvyatsov Mikhail
+
+Exercises 3.7  (4 point)
+
+Give the initial state, goal test, successor function, and cost function for each of the
+following. Choose a formulation that is precise enough to be implemented.
+
+A) You have to color a planar map using only four colors, in such a way that no two
+adjacent regions have the same color.
+
+Initial state - uncolored map
+goal test - planar map doesn't have adjacent regions colored with the same colour and each region is colored with one of 4 colours.
+successor function - assign color to region
+cost function - number of colored regions
+
+B) A 3-foot-tall monkey is in a room where some bananas are suspended from the 8-foot
+ceiling. He would like to get the bananas. The room contains two stackable, movable,
+climbable 3-foot-high crates.
+
+Initial state - monkey is on the floor, crates are on the floor.
+goal test - monkey has bananna
+successor function - [take bananna, move crate, jump on/off crate, take crate on/off the crate]
+cost function - nomber of actions to reach bananna
+
+C) You have a program that outputs the message "illegal input record" when fed a certain
+file of input records. You know that processing of each record is independent of the
+other records. You want to discover what record is illegal.
+
+Initial state - a set of records with undefined status
+goal test - is a single record illegal
+successor function - [process record]
+cost function - constant value per step
+
+D) You have three jugs, measuring 12 gallons, 8 gallons, and 3 gallons, and a water faucet.
+You can fill the jugs up or empty them out from one to another or onto the ground. You
+need to measure out exactly one gallon.
+
+Initial state - jugs are empty
+goal test - we have exactly one galone in the jug
+successor function - [fill jug from water faucet , pour water from one jug to another, empty jug]
+cost function - constant value per step
+
+Exercises 3.12  (4 points)
+
+Uniform cost search and breadth-fisrt search expands nodes according to the cost. Supposing our graph consists of one node and an optimal solution exists we will find it.
+Then let us add two more nodes. If an optimal solution exists we will find it because the cost of every step is constant and all the nodes with less costs have been already checked.
+Now let us add more nodes. In that way an optimal solution exists on the node N.
+Until we find the optimal solution we will not stop our search. If we reach N node then all the nodes before with less cost have been already checked. So N is optimal solution.
+
+If cost value is not constant we can finish not in optimal node.
