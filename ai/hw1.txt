@@ -68,3 +68,43 @@ In case of trees If we find the optimal solution with cost X we don't need to co
 C) Suppose that there is a set of operators that form a loop, so that executing the set in some
 order results in no net change to the state. If all of these operators have neg<ative cost,
 what does this imply about the optimal behavior for an agent in such an environment?
+
+It is nesessery to continue looping forever becase it decreses the cost function value
+
+D) One can easily imagine operators with high negative cost, even in domain such as route finding.
+For example, some stretches of road might have such beautiful scenery
+as to far outweigh the normal costs in terms of time and fuel. Explain, in precise terms,
+within the context (of state-space search, why humans do not drive round scenic loops
+indefinitely, and explain how to define the state space and operators for route ,finding so
+that artificial agents can also avoid looping.
+
+According to the fact that resources are limited peolple will no have enough resources for infinite loop.
+We expand our states with few parametrs (resources, f.e. money, fuel) and some steps are able to decrease resources. If resources are not enough to reach another state then previous state is the deadlock.
+
+E) Can you think of a real domain in which step costs are such as to cause looping?
+
+Let us define domain with person and celery. Person's hunger makes him eat celery, but celery increases the hunger.
+
+Exercises 4.1  (4 points)
+
+step 1: Lugoj(144, 0, 244)            Fringe = Lugoj(144, 0, 244)
+step 2: Mehadia(311, 90, 341)     Fringe = Timsoara(440, 111, 324) Mehadia(311, 90, 341)
+step 3: Drobeto(387, 145, 242)    Fringe = Timsoara(440, 111, 324) Drobeto(387, 145, 242)
+step 4: Cratova(425, 265, 160)    Fringe = Timsoara(440, 111, 324) Cratova(425, 265, 160)
+step 5: Timsoara(440, 111, 324) Fringe = Timsoara(440, 111, 324) Pitesti(503, 403, 100) Rimnicu(604, 411, 193)
+step 6: Pitesti(503, 403, 100)      Fringe = Arad(595, 229, 366) Pitesti(503, 403, 100) Rimnicu(604, 411, 193)
+step 7: Bucharest(504, 504, 0)    Fringe = Bucharest(504, 504, 0) Arad(595, 229, 366) Rimnicu(604, 411, 193)
+
+Exercises 4.2  (4 points)
+
+Considering:
+
+f(n) = (2 - w) * (g(n) + w/(w - 2) * h(n))
+
+Before h(n) must be no more than 1 to f(n) be admissible.
+
+So that when w = (0, 1] algorithm guaranteed to be optimal becouse it will be weighted variant of A*
+
+when w = 0 it behaves like uniform cost search f(n) = 2 g(n)
+when w = 1 it behaves like A* f(n) = g(n) + h(n)
+when w = 2 it behaves like Greedy best first search f(n) = 2 h(n)
