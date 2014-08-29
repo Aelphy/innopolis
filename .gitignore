@@ -1,6 +1,8 @@
 *.log
 *.aux
-./*/.settings/*
-./*/Debug/*
-./*/.cproject
-./*/.project
+/*/.settings/*
+/*/Debug/*
+/*/.cproject
+/*/.project
+/*/*.out
+/*/*.gz
