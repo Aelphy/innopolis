@@ -1,0 +1,361 @@
+ \documentclass[12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}        % Кодировка входного документа;
+                                    % при необходимости, вместо cp1251
+                                    % можно указать cp866 (Alt-кодировка
+                                    % DOS) или koi8-r.
+
+\usepackage[english,russian]{babel} % Включение русификации, русских и
+                                    % английских стилей и переносов
+%%\usepackage{a4}
+%%\usepackage{moreverb}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,amsbsy,amstext,amscd,amsxtra,multicol}
+\usepackage{verbatim}
+\usepackage{tikz} %Рисование автоматов
+\usetikzlibrary{automata,positioning}
+\usepackage{multicol} %Несколько колонок
+\usepackage{graphicx}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage[stable]{footmisc}
+
+%% \voffset-5mm
+%% \def\baselinestretch{1.44}
+\renewcommand{\theequation}{\arabic{equation}}
+\def\hm#1{#1\nobreak\discretionary{}{\hbox{$#1$}}{}}
+\newtheorem{Lemma}{Лемма}
+\theoremstyle{definiton}
+\newtheorem{Remark}{Замечание}
+%%\newtheorem{Def}{Определение}
+\newtheorem{Claim}{Утверждение}
+\newtheorem{Cor}{Следствие}
+\newtheorem{Theorem}{Теорема}
+\theoremstyle{definition}
+\newtheorem{Example}{Пример}
+\newtheorem*{known}{Теорема}
+\def\proofname{Доказательство}
+\theoremstyle{definition}
+\newtheorem{Def}{Определение}
+
+
+
+%\date{22 июня 2011 г.}
+\let\leq\leqslant
+\let\geq\geqslant
+\def\MT{\mathrm{MT}}
+%Обозначения ``ажуром''
+\def\BB{\mathbb B}
+\def\CC{\mathbb C}
+\def\RR{\mathbb R}
+\def\SS{\mathbb S}
+\def\ZZ{\mathbb Z}
+\def\NN{\mathbb N}
+\def\FF{\mathbb F}
+%греческие буквы
+\let\epsilon\varepsilon
+\let\es\emptyset
+\let\eps\varepsilon
+\let\al\alpha
+\let\sg\sigma
+\let\ga\gamma
+\let\ph\varphi
+\let\om\omega
+\let\ld\lambda
+\let\Ld\Lambda
+\let\vk\varkappa
+\let\Om\Omega
+\def\abstractname{}
+
+\def\R{{\cal R}}
+\def\A{{\cal A}}
+\def\B{{\cal B}}
+\def\C{{\cal C}}
+\def\D{{\cal D}}
+\let\w\omega
+
+%классы сложности
+\def\REG{{\mathsf{REG}}}
+\def\CFL{{\mathsf{CFL}}}
+\newcounter{problem}
+\newcounter{uproblem}
+\newcounter{subproblem}
+\def\pr{\medskip\noindent\stepcounter{problem}{\bf \theproblem .  }\setcounter{subproblem}{0}}
+\def\prstar{\medskip\noindent\stepcounter{problem}{\bf $\theproblem^*$\negthickspace.  }\setcounter{subproblem}{0} }
+\def\prpfrom[#1]{\medskip\noindent\stepcounter{problem}{\bf Задача \theproblem~(№#1 из задания).  }\setcounter{subproblem}{0} }
+\def\prp{\medskip\noindent\stepcounter{problem}{\bf Задача \theproblem .  }\setcounter{subproblem}{0} }
+\def\prpstar{\medskip\noindent\stepcounter{problem}{\bf Задача $\bf\theproblem^*$\negthickspace.  }\setcounter{subproblem}{0} }
+\def\prdag{\medskip\noindent\stepcounter{problem}{\bf Задача $\theproblem^{^\dagger}$\negthickspace\,.  }\setcounter{subproblem}{0} }
+\def\upr{\medskip\noindent\stepcounter{uproblem}{\bf Упражнение \theuproblem .  }\setcounter{subproblem}{0} }
+%\def\prp{\vspace{5pt}\stepcounter{problem}{\bf Задача \theproblem .  } }
+%\def\prs{\vspace{5pt}\stepcounter{problem}{\bf \theproblem .*   }
+\def\prsub{\medskip\noindent\stepcounter{subproblem}{\rm \thesubproblem .  } }
+\def\prsubstar{\medskip\noindent\stepcounter{subproblem}{\rm $\thesubproblem^*$\negthickspace.  } }
+%прочее
+\def\quotient{\backslash\negthickspace\sim}
+\begin{document}
+	Markeeva Larisa
+	
+	
+	\centerline{\LARGE Assignment 1}
+
+	\bigskip
+	
+		\textbf{Exercises 1}		
+		
+		In a class of 23 students, what is the probability that at least two people have the same
+birthday?
+		\medskip
+		
+		\textbf{Solution}
+		Estimate the probability that no one matched birthdays at the group - $\overline{p}(n)$ Fix the random person from the group. Take second random person from group. The birthdays are not the same. Probability of this event is $1 - \dfrac{1}{365}$. Take third random person. Probability	is $1 - \dfrac{2}{365}$. Take fourth and so on.			
+		
+		$\overline{p}\left(n\right) = \left(1-\dfrac{1}{365}\right)\left(1-\dfrac{2}{365}\right)\left(1-\dfrac{3}{365}\right)\ldots\left(1-\dfrac{n-1}{365}\right)=\dfrac{365!}{365^n\left(365-n\right)!}$
+		
+		If there is 23 students at the group:
+		
+		$\overline{p}\left(n\right) = \dfrac{365!}{365^{23}\left(365-23\right)!}=0.4927$
+		
+		The probability that at least two people have the same birthday is:
+	
+		$p\left(n\right)=1-\overline{p}\left(n\right)=0.5073$
+		
+		\medskip
+		\textbf{Answer}: $p\left(n\right)=0.5073$
+		
+		
+		\bigskip
+		\textbf{Exercises 2}		
+		
+		From a group of families with two children, one family is selected. Describe the space of elementary events. Assuming all elementary events equally probable, consider the random event A: there are a boy and a girl in that family, and the random event B: there is no more than one girl in the family. Calculate $P\left(A\right)$, $P\left(B\right)$, and $P\left(A \cap B\right)$. Are the events A and B independent?
+		\medskip
+		
+		\textbf{Solution}
+		
+		Calculate $P\left(B|A\right)$. 
+
+		The probability that the child is boy is equal $\dfrac{1}{2}$.
+	
+		The probability that the child is girl is equal $\dfrac{1}{2}$.
+		
+		The probability of A is:
+		
+		$P\left(A\right) = P\left(boy, girl\right) + P\left(girl, boy\right)= \dfrac{1}{2}\cdot\dfrac{1}{2} + \dfrac{1}{2}\cdot\dfrac{1}{2} = \dfrac{1}{2}$
+		
+		If event A is occurred it means that there is one boy and one boy in the family. It B occurred always if A had occurred. Thus
+		
+		$P\left(B|A\right) = 1$
+		
+		Hence, 
+		
+		$P(A\cap B) = P\left(B|A\right)\cdot\left(A\right) = 1 \cdot \dfrac{1}{2}=\dfrac{1}{2}$.
+		
+		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              		\textbf{Answer}:  $P(A\cap B) = \dfrac{1}{2}$.
+		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     		\bigskip
+		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+		\textbf{Exercises 3}
+		
+		Three fair dice are rolled. What is the probability of obtaining at least one 6 if it is known that all the three dice showed different faces?
+
+		\medskip
+		
+		\textbf{Solution}
+		
+		The number of three dices with different faces: 
+		
+		$C^3_6=\dfrac{6!}{3!\cdot3!}=\dfrac{4\cdot5\cdot6}{6}=20$
+		
+		The number of three dices with different faces and without face 6:
+		
+		$C^3_5=\dfrac{5!}{2!\cdot3!}=\dfrac{4\cdot5}{2}=10$
+		
+		The probability of three dices with different faces and without face 6:
+		
+		$\overline{p} = \dfrac{C^3_5}{C^3_6}=\dfrac{1}{2}$
+		
+		The probability of probability of obtaining at least one 6 if it is known that all the three dice showed different faces is:
+		
+		$p = 1-\overline{p} = 1 - \dfrac{1}{2} = \dfrac{1}{2}$
+		
+		\medskip
+		\textbf{Answer}: $p = \dfrac{1}{2}$
+		
+		\bigskip
+		
+		\textbf{Exercises 4}
+		
+Suppose a breathalyzer has $5\%$  false positives and $8\%$ false negatives. That is, only $5\%$ of the time will it indicate that a person is drunk when he is actually sober and $8\%$ of the time will it indicate that a person is sober when the person is in fact drunk. Using this test, the police spot test a population of drivers, $99\%$ of whom are sober.
+What is the chance that a person, who tests as drunk, is actually sober?
+
+		\medskip
+		
+		\textbf{Solution}
+
+		$p\left(D\right)$ - the test "drunk" probability is:
+		
+		$p\left(D\right) = p\left(D|drunk\right)\cdotp\left(drunk\right)+p\left(D|sober\right)\cdot p\left(sober\right) = \left(1-0.08\right)\cdot 0.01+0.05\cdot 0.99 = 0.0587$
+		
+		According to Bayes' rule:
+		
+		$p\left(D\right)=\dfrac{p(D|sober)\cdot p\left(sober\right)}{p\left(D\right)}=\dfrac{0.05\cdot 0.99}{0.0587}=0.843$
+		
+		\medskip
+		\textbf{Answer}: $p\left(D\right) = 0.843$
+		
+		\bigskip
+		
+		\textbf{Exercises 5}
+		
+		Two fair dice are rolled. Let $X_1$ denote the number of points shown by the first die and $X_2$ denote the number of points shown by the second die. Consider the following events:
+		
+$A_1$ = $\left\lbrace X_1\ is\ divisible\ by\ 2,\ X_2\ is\ divisible\ by\ 3 \right\rbrace$
+
+$A_2$ = $\left\lbrace X_1\ is\ divisible\ by\ 3,\ X_2\ is\ divisible\ by\ 2 \right\rbrace$
+
+$A_3$ = $\left\lbrace X_1\ is\ divisible\ by\ X_2 \right\rbrace$
+
+$A_4$ = $\left\lbrace X_2\ is\ divisible\ by\ X_1 \right\rbrace$
+
+$A_5$ = $\left\lbrace X_1\ +\ X_2\ is\ divisible\ by\ 2 \right\rbrace$
+
+$A_6$ = $\left\lbrace X_1\ +\ X_2\ is\ divisible\ by\ 3 \right\rbrace$
+		
+		\medskip
+		
+		\textbf{Solution}
+
+It is obvious that:
+\medskip		
+
+P$\left(A_1\right)$ = $\dfrac{1}{6}$
+P$\left(A_2\right)$ = $\dfrac{1}{6}$
+P$\left(A_3\right)$ = $\dfrac{7}{18}$
+P$\left(A_4\right)$ = $\dfrac{7}{18}$
+P$\left(A_5\right)$ = $\dfrac{1}{2}$
+P$\left(A_6\right)$ = $\dfrac{1}{3}$
+\medskip
+
+So let's find all jointly probabilities
+\medskip
+
+\begin{table}[h]
+\begin{tabular}{llllll}
+P$\left(A_1 \cap A_2\right)$ = $\dfrac{1}{36}$  & P$\left(A_2 \cap A_3\right)$ = $\dfrac{1}{18}$ & P$\left(A_3 \cap A_4\right)$ = $\dfrac{1}{6}$ & P$\left(A_4 \cap A_5\right)$ = $\dfrac{1}{4}$ & P$\left(A_5 \cap A_6\right)$ = $\dfrac{1}{6}$ \\[7pt]
+P$\left(A_1 \cap A_3\right)$ = $\dfrac{1}{36}$  & P$\left(A_2 \cap A_4\right)$ = $\dfrac{1}{18}$ & P$\left(A_3 \cap A_5\right)$ = $\dfrac{1}{4}$ & P$\left(A_4 \cap A_6\right)$ = $\dfrac{1}{6}$ \\[7pt]
+P$\left(A_1 \cap A_4\right)$ = $\dfrac{1}{36}$  & P$\left(A_2 \cap A_5\right)$ = $\dfrac{1}{36}$ & P$\left(A_3 \cap A_6\right)$ = $\dfrac{1}{6}$ &  \\[7pt]
+P$\left(A_1 \cap A_5\right)$ = $\dfrac{1}{36}$  & P$\left(A_2 \cap A_6\right)$ = $\dfrac{1}{36}$ &  &  \\[7pt]
+P$\left(A_1 \cap A_6\right)$ = $\dfrac{1}{36}$  &  &  &
+\end{tabular}
+\end{table}				
+
+		\medskip
+		\textbf{Answer}:	
+			
+By definition of independence only 		
+$\left\lbrace A_1\ and\ A_2 \right\rbrace$,
+$\left\lbrace A_5\ and\ A_6 \right\rbrace$ are independent.
+
+There is no reason to check triples and another combinations because it will include not independent events and so will not be independent.
+		
+		\bigskip
+		
+		\textbf{Exercises 6}
+
+A)  Let X be a random variable with a uniform distribution, i.e. with pdf equal to 1 for
+x $\in$ [0, 1] and 0 otherwise. Find the pdf of Y = exp(tX) for a fixed t. (This transformation is known as the moment generation function)
+
+B) Find the pdf for this transformation (exp(t*x)) if the pdf of X is equal to exp(-x) for x positive and 0 otherwise.
+		
+		\medskip
+		
+		\textbf{Solution}
+		
+According to the theorem from George Casella book
+\medskip
+
+$f_y(y)$ = $f_x(g^{-1}(y))$ * $\dfrac{g^{-1}(y)}{dy}$ if g(x) increases
+\medskip
+
+$f_y(y)$ = -$f_x(g^{-1}(y))$ * $\dfrac{g^{-1}(y)}{dy}$ if g(x) decreases
+\medskip
+
+A) 
+\medskip
+
+\[f_x(x) = \left\{
+\begin{array}{l l}
+  1,\ x \in [0, 1]\\
+  0\ otherwise
+\end{array} \right.\]
+\medskip
+
+x $\in$ [0, 1] so 
+y $\in$ [1, $e^t$]
+\medskip
+
+g(x) = $e^{tx}$	
+\medskip
+
+$g^{-1}(y)$ = $\dfrac{ln(y)}{t}$
+\medskip
+
+$\dfrac{g^{-1}(y)}{dy}$ = $\dfrac{1}{ty}$
+\medskip
+
+$f_y(y)$ = $\dfrac{1}{ty}$
+\medskip
+
+B)
+\medskip
+
+\[f_x(x) = \left\{
+\begin{array}{l l}
+  e^{-x},\ x > 0\\
+  0\ otherwise
+\end{array} \right.\]
+\medskip
+
+g(x) = $e^{tx}$	
+\medskip
+
+$g^{-1}(y)$ = $\dfrac{ln(y)}{t}$
+\medskip
+
+$\dfrac{g^{-1}(y)}{dy}$ = $\dfrac{1}{ty}$
+\medskip
+
+$f_y(y)$ = $e^{-\dfrac{ln(y)}{t}}$ * $\dfrac{1}{ty}$
+\medskip
+
+
+		\medskip
+		\textbf{Answer}:
+
+A)
+\medskip
+
+\[f_y(y) = \left\{
+\begin{array}{l l}
+  \dfrac{1}{ty}, y \in [1, e^t]\\
+  0\ otherwise
+\end{array} \right.\]
+
+B)
+\medskip
+
+\[f_y(y) = \left\{
+\begin{array}{l l}
+  \dfrac{y^{-\dfrac{1}{t}-1}}{t}, x > 0\\
+  0\ otherwise
+\end{array} \right.\]
+		
+		\bigskip
+		
+		\textbf{Exercises 7}
+		
+		\medskip
+		
+		\textbf{Solution}
+		
+
+		\medskip
+		\textbf{Answer}:
+\end{document}
