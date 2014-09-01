@@ -15,6 +15,7 @@
 \usetikzlibrary{automata,positioning}
 \usepackage{multicol} %Несколько колонок
 \usepackage{graphicx}
+\graphicspath{ {images/} }
 \usepackage[colorlinks,urlcolor=blue]{hyperref}
 \usepackage[stable]{footmisc}
 
@@ -92,7 +93,7 @@
 %прочее
 \def\quotient{\backslash\negthickspace\sim}
 \begin{document}
-	Markeeva Larisa
+	Usvyatsov Mikhail
 	
 	
 	\centerline{\LARGE Assignment 1}
@@ -106,7 +107,8 @@ birthday?
 		\medskip
 		
 		\textbf{Solution}
-		Estimate the probability that no one matched birthdays at the group - $\overline{p}(n)$ Fix the random person from the group. Take second random person from group. The birthdays are not the same. Probability of this event is $1 - \dfrac{1}{365}$. Take third random person. Probability	is $1 - \dfrac{2}{365}$. Take fourth and so on.			
+
+		Let's estimate the probability that no one matched birthdays at the group - $\overline{p}(n)$. We can do it by fixing the random person in the group. Then we have to take the second random person in the group. Probability of the fact that birthdays are not the same is $1 - \dfrac{1}{365}$. Then let us to take the third random person. Probability of the fact that their birthdays are not the same is $1 - \dfrac{2}{365}$. E.t.c.
 		
 		$\overline{p}\left(n\right) = \left(1-\dfrac{1}{365}\right)\left(1-\dfrac{2}{365}\right)\left(1-\dfrac{3}{365}\right)\ldots\left(1-\dfrac{n-1}{365}\right)=\dfrac{365!}{365^n\left(365-n\right)!}$
 		
@@ -114,7 +116,7 @@ birthday?
 		
 		$\overline{p}\left(n\right) = \dfrac{365!}{365^{23}\left(365-23\right)!}=0.4927$
 		
-		The probability that at least two people have the same birthday is:
+		The probability that at least two people from the group have the same birthday is:
 	
 		$p\left(n\right)=1-\overline{p}\left(n\right)=0.5073$
 		
@@ -129,16 +131,19 @@ birthday?
 		\medskip
 		
 		\textbf{Solution}
-		
-		Calculate $P\left(B|A\right)$. 
 
-		The probability that the child is boy is equal $\dfrac{1}{2}$.
+We have the following space of events: two girls, two boys, the first child is a boy and the second is a girl, the first child is a girl, the second one is a boy.
+
+		C - the probability that the child is boy is equal $\dfrac{1}{2}$.
 	
-		The probability that the child is girl is equal $\dfrac{1}{2}$.
+		D - the probability that the child is girl is equal $\dfrac{1}{2}$.
 		
 		The probability of A is:
 		
-		$P\left(A\right) = P\left(boy, girl\right) + P\left(girl, boy\right)= \dfrac{1}{2}\cdot\dfrac{1}{2} + \dfrac{1}{2}\cdot\dfrac{1}{2} = \dfrac{1}{2}$
+		$P\left(A\right) = P\left(C|D\right) + P\left(D|C\right)= \dfrac{1}{2}\cdot\dfrac{1}{2} + \dfrac{1}{2}\cdot\dfrac{1}{2} = \dfrac{1}{2}$
+		
+			
+		$P\left(B\right) = \dfrac{1}{2}$ according to our sample space.
 		
 		If event A is occurred it means that there is one boy and one boy in the family. It B occurred always if A had occurred. Thus
 		
@@ -146,9 +151,9 @@ birthday?
 		
 		Hence, 
 		
-		$P(A\cap B) = P\left(B|A\right)\cdot\left(A\right) = 1 \cdot \dfrac{1}{2}=\dfrac{1}{2}$.
+		$P(A\cap B) = P\left(B|A\right)\cdot P \left(A\right) = 1 \cdot \dfrac{1}{2}=\dfrac{1}{2}$.
 		
-		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              		\textbf{Answer}:  $P(A\cap B) = \dfrac{1}{2}$.
+		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              		\textbf{Answer}:  A and B are not independent by definition of independence. 
 		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     		\bigskip
 		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 		\textbf{Exercises 3}
@@ -159,21 +164,9 @@ birthday?
 		
 		\textbf{Solution}
 		
-		The number of three dices with different faces: 
-		
-		$C^3_6=\dfrac{6!}{3!\cdot3!}=\dfrac{4\cdot5\cdot6}{6}=20$
-		
-		The number of three dices with different faces and without face 6:
-		
-		$C^3_5=\dfrac{5!}{2!\cdot3!}=\dfrac{4\cdot5}{2}=10$
-		
-		The probability of three dices with different faces and without face 6:
-		
-		$\overline{p} = \dfrac{C^3_5}{C^3_6}=\dfrac{1}{2}$
-		
-		The probability of probability of obtaining at least one 6 if it is known that all the three dice showed different faces is:
-		
-		$p = 1-\overline{p} = 1 - \dfrac{1}{2} = \dfrac{1}{2}$
+Let us define the requested probability p.
+
+p = 1 - $\overline{p}$ = 1 - $\dfrac{5}{6}*\dfrac{4}{5}*\dfrac{3}{4}$ = $\dfrac{1}{2}$
 		
 		\medskip
 		\textbf{Answer}: $p = \dfrac{1}{2}$
@@ -189,13 +182,15 @@ What is the chance that a person, who tests as drunk, is actually sober?
 		
 		\textbf{Solution}
 
-		$p\left(D\right)$ - the test "drunk" probability is:
+		$p\left(D\right)$ - the probability the test shows that a person is is drunk:
 		
-		$p\left(D\right) = p\left(D|drunk\right)\cdotp\left(drunk\right)+p\left(D|sober\right)\cdot p\left(sober\right) = \left(1-0.08\right)\cdot 0.01+0.05\cdot 0.99 = 0.0587$
+		$p\left(D\right) = p\left(D|drunk\right)\cdotp p \left(drunk\right)+p\left(D|sober\right)\cdot p\left(sober\right) =$
+		
+$\left(1-0.08\right)\cdot 0.01+0.05\cdot 0.99 = 0.0587$
 		
 		According to Bayes' rule:
 		
-		$p\left(D\right)=\dfrac{p(D|sober)\cdot p\left(sober\right)}{p\left(D\right)}=\dfrac{0.05\cdot 0.99}{0.0587}=0.843$
+		$p\left(D\right)=\dfrac{p(D|sober)\cdot p\left(sober\right)}{p\left(D\right)}=\dfrac{0.05\cdot 0.99}{0.0587}=0.84327$
 		
 		\medskip
 		\textbf{Answer}: $p\left(D\right) = 0.843$
@@ -256,6 +251,7 @@ $\left\lbrace A_5\ and\ A_6 \right\rbrace$ are independent.
 There is no reason to check triples and another combinations because it will include not independent events and so will not be independent.
 		
 		\bigskip
+
 		
 		\textbf{Exercises 6}
 
@@ -347,15 +343,162 @@ B)
   0\ otherwise
 \end{array} \right.\]
 		
+
+		
 		\bigskip
 		
-		\textbf{Exercises 7}
+		\bigskip
 		
+		\textbf{Exercises 7}		
+		\medskip
+
+The random variable X has an exponential distribution:
+$F_x(x)$ = P(X<x) = 1 - $e^{-x}$, (x > 0). What is the pdf $f_x$ of X? Find the probability density functions of the following random variables:
+\medskip
+
+\newcounter{fcounter}
+\begin{list}{\alph{fcounter}) ~}{\usecounter{fcounter}}
+	\item $Y_1$ = $\sqrt{X}$
+	\item $Y_2$ = $X^2$
+	\item $Y_3$ = ln(X)
+	\item $Y_4$ = $\dfrac{1}{X}$
+	\item $Y_5$ = 1 - $e^{-X}$
+	\item Simulate 10000 draws of the random variable X: Use a histogram to show that the
+simulated X has the pdf $f_X(x)$
+	\item Use the simulated X to generate 10000 draws of the random variable $Y_1$ = $\sqrt{X}$.
+Use a histogram for simulated $Y_1$ to show that your answer to (a) is correct.
+\end{list}
+		
+\textbf{Solution}
+\medskip
+
+$F_x(X)$ = P(X$\leq$ x) = 1 - $e^{-x}$,
+x $\geq$ 0
+\medskip
+
+$f_x(x)$ = $e^{-x}$
+\bigskip
+
+\newcounter{gcounter}
+\begin{list}{\alph{gcounter}) ~}{\usecounter{gcounter}}
+	\item $Y_1$ = $\sqrt{X}$
+
+		$g^{-1}(y)$ = $y^2$
+
+		$\dfrac{g^{-1}(y)}{dy} = 2y$
+		
+		$f_y(y)$ = $f_x(g^{-1}(y)) * \dfrac{g^{-1}(y)}{dy}$ = $e^{-y^2} * 2y$
+
+\[f_y(y) = \left\{
+\begin{array}{l l}
+  e^{-y^2} * 2y, y \geq 0\\
+  0\ otherwise
+\end{array} \right.\]
+
+		\item $Y_2$ = $X^2$
+		
+		$F_y(y) = P(-\sqrt{y} \leq X \leq \sqrt{y} ) = P(-\sqrt{y} < X \leq \sqrt{y} ) = P(x \leq \sqrt{y}) - P(x\leq-\sqrt{y}) = F_x(\sqrt{y}) - F_x(-\sqrt{y}) = e^{\sqrt{y}} - e^{-\sqrt{y}}$
+
+		$f_y(y)$ = $\dfrac{ e^{\sqrt{y}}+e^{-\sqrt{y}} }{2\sqrt{y}}$
+
+\[f_y(y) = \left\{
+\begin{array}{l l}
+  \dfrac{ e^{\sqrt{y}}+e^{-\sqrt{y}} }{2\sqrt{y}}, y \geq 0\\
+  0\ otherwise
+\end{array} \right.\]
+
+		\item $Y_3 = ln(X)$
+
+		$g^{-1}(y) = e^y$
+
+		$\dfrac{g^{-1}(y)}{dy} = e^y$
+
+		$f_y(y) = f_x(g^{-1}(y)) * \dfrac{g^{-1}(y)}{dy} = e^{-e^y} * e^y$
+
+		\item $Y_4 = \dfrac{1}{X}$
+
+			$g^{-1}(y) = \dfrac{1}{y}$
+
+			$\dfrac{g^{-1}(y)}{dy} = - \dfrac{1}{y^2}$
+
+			$f_y(y) = - f_x(g^{-1}(y)) * \dfrac{g^{-1}(y)}{dy} = \dfrac{e^{-\dfrac{1}{y}}}{y^2}$
+
+\[f_y(y) = \left\{
+\begin{array}{l l}
+  \dfrac{e^{-\dfrac{1}{y}}}{y^2}, y \geq 0\\
+  0\ otherwise
+\end{array} \right.\]
+
+		\item $Y_5 = 1 - e^{-X}$
+
+		$g^{-1}(y) = - ln(1 - y)$
+
+
+		$\dfrac{g^{-1}(y)}{dy} = \dfrac{1}{1-y}$
+
+		$f_y(y) = - f_x(g^{-1}(y)) * \dfrac{g^{-1}(y)}{dy} = 1$
+
+\[f_y(y) = \left\{
+\begin{array}{l l}
+  1, y \in [0,1]\\
+  0\ otherwise
+\end{array} \right.\]
+
+		\item Using Inverse transform sampling we can get random variable distributed by the given low, using uniform distributed variable for generation.
+
+$Y = - ln(1 - X)$, $X \in N[0,1]$
+
+\includegraphics[width=1\textwidth]{Rplot.png}
+
+		\item Using Inverse transform sampling we can get random variable distributed by the given low, using uniform distributed variable for generation.
+		{\includegraphics[width=1\textwidth]{Rplot01.png}}
+
+\end{list}
+		\medskip
+		\textbf{Answer}:
+
+		\bigskip
+		\textbf{Exercises 8}
+
+		The pdf of a random vector $(X, Y)$ is 
+		
+$f_{X,Y}\left(x, y\right) = 24x^2 y\left(1-x\right)$, $0<x<1$, $0<y<1$ and $f_{X,Y}\left(x, y\right) = 0$ otherwise. Find
+\newcounter{qcounter}
+\begin{list}{\alph{qcounter}) ~}{\usecounter{qcounter}}
+\item The pdf and cdf of X;
+\item The pdf and cdf of Y ;
+\item Are the random variables X and Y independent?
+\end{list}
 		\medskip
 		
 		\textbf{Solution}
+\newcounter{bcounter}
+\begin{list}{\alph{bcounter}) ~}{\usecounter{bcounter}}		
+		\item $f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y)dy = \int_0^1 24x^2 y\left(1-x\right)dy=-12\left(1-x\right)x^2$
 		
+		\item $f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y)dx = \int_0^1 24x^2 y\left(1-x\right)dx=2y$
+		
+		\item According to the Lemma 4.2.7 from "Statistical Inference"    \ the X and Y are independent if:
+		
+		$f(x,y) = g(x)h(y)$
+		
+		Hence, 
+		
+		$f_X(x)f_Y(y) = -12\left(1-x\right)x^2 \cdot 2y = -24x^2 y\left(1-x\right)$
+		
+		$f_X(x)f_Y(y) \neq f_{X, Y}$ - X and Y are depend
+		
+\end{list}
 
 		\medskip
-		\textbf{Answer}:
+		\textbf{Answer}:		
+\newcounter{ccounter}
+\begin{list}{\alph{ccounter}) ~}{\usecounter{ccounter}}			
+		\item $f_X(x)= -12\left(1-x\right)x^2$;
+		
+		\item $f_Y(y) =2y$;
+		
+		\item X and Y are dependent.
+\end{list}
+
 \end{document}
