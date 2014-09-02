@@ -15,3 +15,7 @@ curve(exp(-x), ann=FALSE, axes=FALSE, xlim=c(0,8), col="red")
 hist(sqrt(data), breaks=100)
 par(new=TRUE)
 curve(2*x*exp(-x^2), ann=FALSE, axes=FALSE, xlim=c(0,3), col="red")
+
+hist(data^2, breaks=100)
+par(new=TRUE)
+curve(((exp(1))^(sqrt(x)) + (exp(1))^(-sqrt(x)))/(2*sqrt(x)), ann=FALSE, axes=FALSE, xlim=c(0,3), col="red")
