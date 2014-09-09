@@ -1,0 +1,377 @@
+ \documentclass[12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}        % Кодировка входного документа;
+                                    % при необходимости, вместо cp1251
+                                    % можно указать cp866 (Alt-кодировка
+                                    % DOS) или koi8-r.
+
+\usepackage[english,russian]{babel} % Включение русификации, русских и
+                                    % английских стилей и переносов
+%%\usepackage{a4}
+%%\usepackage{moreverb}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,amsbsy,amstext,amscd,amsxtra,multicol}
+\usepackage{verbatim}
+\usepackage{tikz} %Рисование автоматов
+\usetikzlibrary{automata,positioning}
+\usepackage{multicol} %Несколько колонок
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage[stable]{footmisc}
+\usepackage{tabularx}
+\usepackage{blindtext}
+\usepackage{pdflscape}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{tabularx}
+\newcolumntype{M}{>{\centering\arraybackslash}X}
+\renewcommand\arraystretch{1.5}
+
+%% \voffset-5mm
+%% \def\baselinestretch{1.44}
+\renewcommand{\theequation}{\arabic{equation}}
+\def\hm#1{#1\nobreak\discretionary{}{\hbox{$#1$}}{}}
+\newtheorem{Lemma}{Лемма}
+\theoremstyle{definiton}
+\newtheorem{Remark}{Замечание}
+%%\newtheorem{Def}{Определение}
+\newtheorem{Claim}{Утверждение}
+\newtheorem{Cor}{Следствие}
+\newtheorem{Theorem}{Теорема}
+\theoremstyle{definition}
+\newtheorem{Example}{Пример}
+\newtheorem*{known}{Теорема}
+\def\proofname{Доказательство}
+\theoremstyle{definition}
+\newtheorem{Def}{Определение}
+
+
+
+%\date{22 июня 2011 г.}
+\let\leq\leqslant
+\let\geq\geqslant
+\def\MT{\mathrm{MT}}
+%Обозначения ``ажуром''
+\def\BB{\mathbb B}
+\def\CC{\mathbb C}
+\def\RR{\mathbb R}
+\def\SS{\mathbb S}
+\def\ZZ{\mathbb Z}
+\def\NN{\mathbb N}
+\def\FF{\mathbb F}
+%греческие буквы
+\let\epsilon\varepsilon
+\let\es\emptyset
+\let\eps\varepsilon
+\let\al\alpha
+\let\sg\sigma
+\let\ga\gamma
+\let\ph\varphi
+\let\om\omega
+\let\ld\lambda
+\let\Ld\Lambda
+\let\vk\varkappa
+\let\Om\Omega
+\def\abstractname{}
+
+\def\R{{\cal R}}
+\def\A{{\cal A}}
+\def\B{{\cal B}}
+\def\C{{\cal C}}
+\def\D{{\cal D}}
+\let\w\omega
+
+%классы сложности
+\def\REG{{\mathsf{REG}}}
+\def\CFL{{\mathsf{CFL}}}
+\newcounter{problem}
+\newcounter{uproblem}
+\newcounter{subproblem}
+\def\pr{\medskip\noindent\stepcounter{problem}{\bf \theproblem .  }\setcounter{subproblem}{0}}
+\def\prstar{\medskip\noindent\stepcounter{problem}{\bf $\theproblem^*$\negthickspace.  }\setcounter{subproblem}{0} }
+\def\prpfrom[#1]{\medskip\noindent\stepcounter{problem}{\bf Задача \theproblem~(№#1 из задания).  }\setcounter{subproblem}{0} }
+\def\prp{\medskip\noindent\stepcounter{problem}{\bf Задача \theproblem .  }\setcounter{subproblem}{0} }
+\def\prpstar{\medskip\noindent\stepcounter{problem}{\bf Задача $\bf\theproblem^*$\negthickspace.  }\setcounter{subproblem}{0} }
+\def\prdag{\medskip\noindent\stepcounter{problem}{\bf Задача $\theproblem^{^\dagger}$\negthickspace\,.  }\setcounter{subproblem}{0} }
+\def\upr{\medskip\noindent\stepcounter{uproblem}{\bf Упражнение \theuproblem .  }\setcounter{subproblem}{0} }
+%\def\prp{\vspace{5pt}\stepcounter{problem}{\bf Задача \theproblem .  } }
+%\def\prs{\vspace{5pt}\stepcounter{problem}{\bf \theproblem .*   }
+\def\prsub{\medskip\noindent\stepcounter{subproblem}{\rm \thesubproblem .  } }
+\def\prsubstar{\medskip\noindent\stepcounter{subproblem}{\rm $\thesubproblem^*$\negthickspace.  } }
+%прочее
+\def\quotient{\backslash\negthickspace\sim}
+\begin{document}
+	Kusterskiy Dmitriy
+	
+	Lapin Andrew
+
+	Markeeva Larisa
+
+	Usvyatsov Mikhail1
+	
+	
+	\centerline{\LARGE Assignment 2}
+
+	\bigskip
+	
+		\textbf{Exercises 6.1}
+		
+		his problem exercises the basic concepts of game playing, using tic-tac-toe (noughts and crosses) as an example. We define X , as the number of rows, columns, or diagonals with exactly n X's and no 0's. Similarly, 0, is the number of rows, columns, or diagonals with just n 0's. The utility function assigns +1 to any position with X g = 1 and -1 to any position with $O3 = 1$. All other terminal positions have utility 0. For nonterminal positions, we use a linear evaluation function defined as $Eva1 ( s ) = 3X2 (s) +X1 (s) - ( 302 (s) +O1(s))$. 
+		
+\newcounter{acounter}
+\begin{list}{\alph{acounter}) ~}{\usecounter{acounter}}
+\item Approximately how many possible games of tic-tac-toe are there?
+\item Show the whole game tree starting from an empty board down to depth 2 (i.e., one X and one 0 on the board), taking symmetry into account.
+\item Mark on your tree the evaluations of all the positions at depth 2.
+\item Using the minimax algorithm, mark on your tree the backed-up values for the positions
+at depths 1 and 0, and use those values to choose the best starting move.
+\item Circle the nodes at depth 2 that would not be evaluated if alpha-beta pruning were
+applied, assuming the nodes are generated in the optimal order for alpha-beta pruning.
+\end{list}
+		\medskip
+		
+		\textbf{Solution}
+\newcounter{bcounter}
+\begin{list}{\alph{bcounter}) ~}{\usecounter{bcounter}}
+\item  9! = 362880
+\item
+\item
+\item
+\item
+\end{list}
+
+\begin{landscape}
+\begin{center}
+\resizebox{\paperwidth}{!}{
+\begin{tikzpicture}[every node/.style={circle,draw},level 1/.style={sibling distance=150mm, level distance=6cm},level 2/.style={sibling distance=40mm, level distance=6cm}]
+
+\node[label={[above]\Huge 1}] [circle,draw] (z){
+	\begin{tabularx}{2.1cm}{ M | M | M }
+		\ &\ &\ \\
+		\hline
+		\ &\ &\ \\
+		\hline
+		\ &\ &\ \\
+	\end{tabularx}
+}
+
+  child {node [label={[above]\Huge [-1]}] (a) { 
+  \
+	\begin{tabularx}{2.1cm}{ M | M | M }
+		\textcolor {red}X&\ &X\\
+		\hline
+		\ &\ &\ \\
+		\hline
+		X&\ &X\\
+	\end{tabularx}
+    } 
+    child {node [label=below:{\Huge 2-1=1}] (a1) {
+		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    X & O &  \\ \hline
+    	    		\textcolor {red}O&  &  \\ \hline
+        		 &  &  
+		\end{tabularx}
+      } 
+    }
+    child {node [label=below:{\Huge 2-2=0}](a2) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    X &\  & O  \\ \hline
+    	    		\ &\  &\  \\ \hline
+        		\textcolor {red}O &\  &\  
+		\end{tabularx}
+      } 
+    }
+    child {node [label=below:{\Huge 2-3=-1}] (a3) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    X &\  &\  \\ \hline
+    	    		\ & O &\  \\ \hline
+        		\ &\  &\  
+		\end{tabularx}    
+      } 
+    }
+    child {node[label=below:{\Huge 3-2=1}] (a4) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    X &\  &\  \\ \hline
+    	    		\ & \ & O \\ \hline
+        		\ &\textcolor {red}O&\  
+		\end{tabularx}        
+      } 
+    }
+    child {node[label=below:{\Huge 2-2=0}] (a5) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    X &\  &\  \\ \hline
+    	    		\ & \ &\ \\ \hline
+        		\ &\ &O 
+		\end{tabularx}            
+      } 
+    }
+  }
+  child {node[label={[above,xshift=0.5cm]\Huge [1]}] (b) {
+	\begin{tabularx}{2.1cm}{ M | M | M }
+	    \ &\  &\  \\ \hline
+    		\ & X &\ \\ \hline
+    		\ &\ &\  
+	\end{tabularx}        
+    } 
+    child {node[label=below:{\Huge 3-2=1}] (b1) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    \textcolor {red}O &\  & O \\ \hline
+    	    		\ & X &\ \\ \hline
+        		O &\ & O  
+		\end{tabularx}      
+      } 
+    }
+    child {node[label=below:{\Huge 3-1=2}] (b2) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    \ &\textcolor {red}O &\ \\ \hline
+    	    		O & X & O\\ \hline
+        		\ & O &\  
+		\end{tabularx}     
+      } 
+    }
+  }
+  child {node[label=above:{\Huge [-2]}] (c) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    \ &\textcolor {red}X &\ \\ \hline
+    	    		X &  & X\\ \hline
+        		\ & X &\  
+		\end{tabularx}       
+    } 
+    child {node[label=below:{\Huge 1-2=-1}] (c1) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    \textcolor {red}O& X & O\\ \hline
+    	    		\ &\  &\ \\ \hline
+        		\ &\ &\  
+		\end{tabularx}           
+      } 
+    }
+    child {node[label=below:{\Huge 2-2=0}] (c2) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    \ & X &\ \\ \hline
+    	    		\textcolor {red}O&\  &O \\ \hline
+        		\ &\ &\  
+		\end{tabularx}           
+      } 
+    }
+    child {node[label=below:{\Huge 2-3=-1}] (c3) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    \ & X &\ \\ \hline
+        		\ &\ &\  \\ \hline
+    	    		\textcolor {red}O&\  &O 
+		\end{tabularx}               
+      } 
+    }
+    child {node[label=below:{\Huge 1-3=-2}] (c4) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    \ & X &\ \\ \hline
+        		\ & O &\  \\ \hline
+    	    		\ &\  &\  
+		\end{tabularx}                   
+      } 
+    }
+    child {node[label=below:{\Huge 1-1=0}](c5) {
+    		\begin{tabularx}{2.1cm}{ M | M | M }
+    		    \ & X &\ \\ \hline
+        		\ &\ &\  \\ \hline
+    	    		\ & O &\  
+		\end{tabularx}                   
+      }
+    }
+  };
+\draw  (z) edge[->, very thick]  (b);
+\draw (c5) circle(1.5cm);
+\draw (c3) circle(1.5cm);
+\draw (c2) circle(1.5cm);
+\draw (c1) circle(1.5cm);
+\draw (a5) circle(1.5cm);
+\draw (a4) circle(1.5cm);
+\draw (a2) circle(1.5cm);
+\draw (a1) circle(1.5cm);
+\end{tikzpicture}
+}
+\end{center}
+\end{landscape}
+
+\bigskip
+	
+		\textbf{Exercises 6.5}
+		
+		Develop a formal proof of correctness for alpha-beta pruning. To do this, consider the situation shown in Figure 6.15. The question is whether to prune node $n_j$, which is a max-node and a descendant of node $n_1$. The basic idea is to prune it if and only if the minimax value of $n_1$ can be shown to be independent of the value of $n_j$.
+\newcounter{ccounter}
+\begin{list}{\alph{ccounter}) ~}{\usecounter{ccounter}}
+\item The value of $n_1$ is given by 
+
+$n_1=max(n_2, n_{2_{1}}, \cdots, n_{2_{b2}})$
+
+Find a similar expression for $n_2$ and hence an expression for $n_1$ in terms of $n_j$.
+
+\item Let $l_i$ be the minimum (or maximum) value of the nodes to the left of node $n_i$ at depth $i$, whose minimax value is already known. Similarly, let r.i be the minimum (or maximum) value of the unexplored nodes to the right of $n_i$ at depth $i$. Rewrite your expression for
+$n_l$ in terms of the $l_i$ and $r_i$ values.
+
+\item Now reformulate the expression to show that in order to affect $n_l$, $n_j$ must not exceed a certain bound derived from the $l_i$ values.
+
+\item Repeat the process for the case where $n_j$ is a min-node.
+\end{list}	
+		\medskip
+		
+		\textbf{Solution}
+
+\newcounter{dcounter}
+\begin{list}{\alph{dcounter}) ~}{\usecounter{dcounter}}
+\item  
+
+$n_2 = max\left(n_3, n_{3_1}, ..., n_{3_{b3}}\right)$
+
+$n_1 = min\left(max\left(n_3, n_{3_1}, ..., n_{3_{b3}}\right), n_{2_1}, \cdots, {n_{2_b2}}\right)$
+
+Then we replace $n_3$ the same way and so on recursively
+
+\item 
+
+$n_1 = min\left(l_2, max\left(l_3, n_3, r_3\right), r_2\right)$
+
+Then we again replace $n_3$ until we reach the step where $n_j-1 = min\left(l_j, n_j, r_j\right)$
+
+\item 
+
+L nodes contains all the values that are less then $n_j$, $n_2$ node will only increase while going down. So it will be rejected. It is the thing what alpha-beta does.
+
+\item
+
+ The corresponding bound for min nodes $n_k = max\left(l_3, l_5, ...,l_k\right)$
+\end{list}		
+
+\bigskip
+	
+		\textbf{Exercises 6.8}
+		Consider the following procedure for choosing moves in games with chance nodes:
+		
+\newcounter{icounter}
+\begin{list}{\alph{icounter}) ~}{\usecounter{icounter}}
+\item Generate some die-roll sequences (say, 50) down to a suitable depth (say, 8).
+\item With known die rolls, the game tree becomes deterministic. For each die-roll sequence, solve the resulting deterministic game tree using alpha-beta.
+\item Use the results to estimate the value of each move and to choose the best.
+\end{list}
+Will this procedure work well? Why (not)?	
+		
+		\medskip
+		
+		\textbf{Solution}
+		
+Minmax algorithm for nonzero sum will works similarly to minmax for zero sum games. But we will represent the weight of node as a vector. Alpha beta pruning here is impossible because there are states which weight we cannot compute(doesn't clear about their profit).		
+
+\bigskip
+	
+		\textbf{Exercises 6.15}
+		
+		Describe how the minimax and alpha-beta algorithms change for two-player, non-zero-sum games in which each player has his or her own utility function. You may assume that each player knows the other's utility function. If there are no constraints on the two terminal utilities, is it possible for any node to be pruned by alpha-beta?
+		
+		\medskip
+		
+		\textbf{Solution}
+		
+		The evaluation function is a vector of values, one for each player, and the backup step selects which ever vector has the highest value for the player whose turn it is to move. Alpha-beta pruning is not possible in general non-zero-sum games, because an unexamined leaf node might be optimal for both players
+			
+\end{document}

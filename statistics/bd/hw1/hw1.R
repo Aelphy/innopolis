@@ -1,4 +1,4 @@
-data <- read.csv('Desktop/innopolis/stata/data.csv')
+data <- read.csv('Desktop/innopolis/statistics/bd/hw1/data.csv')
 
 n = length(data$X)
 
