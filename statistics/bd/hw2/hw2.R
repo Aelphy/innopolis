@@ -64,12 +64,8 @@ data$lorgdp60 = 0
 
 for(i in 1:n) { if(data$rgdp60[i] <= quantile(data$rgdp60)[2]){ data$lorgdp60[i] = 1 } }
 
-summarize(data$growth, by = data$lorgdp60, FUN=mean)
-
-mean(data$growth)
-
 rlm(growth ~ lorgdp60, data=data)
 lm(growth ~ lorgdp60, data=data)
 
-lmRob()
+(mean(neg_lorgdp60$growth) - mean(poslorgdp60$growth))/sqrt(sd(neg_lorgdp60$growth)^2/length(neg_lorgdp60$growth) + sd(poslorgdp60$growth)^2/length(poslorgdp60$growth))
 
