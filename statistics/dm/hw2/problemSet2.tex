@@ -61,7 +61,7 @@ $f_{y}=\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{\left(ln\left(y\right)-\mu\right)^2}{2\s
 Suppose the random variable $X_n$ is equal to the total obtained in the $n$ tosses of a symmetric die.
 \newcounter{acounter}
 \begin{list}{(\alph{acounter})~}{\usecounter{acounter}}
-\item Applying Chebyshev's inequality, estimate $P\left(\left|X_n - 3.5\right| > \epsilon\right)$. For what values of n one has $P\left(\left|X_n - 3.5\right| > \epsilon\right)\leq0.1$?
+\item Applying Chebyshev's inequality, estimate $P\left(\left|X_n - 3.5\right| > \epsilon\right)$. For what values of n one has $P\left(\left|X_n - 3.5\right| > 0.1\right)\leq0.1$?
 \item Applying the central limit theorem, choose n such that the inequality $P\left(\left|X_n - 3.5\right| > 0.1\right)\leq 0.1$ in $2a$ holds.
 \end{list}
 
@@ -81,6 +81,13 @@ According to the Chebyshev's inequality:
 
 $P\left(\left|\dfrac{X_n}{n}-3.5\right|>\epsilon\right)\leq\dfrac{35}{12n\epsilon^2}$
 
+For $P\left(\left|X_n - 3.5\right| > 0.1\right)\leq0.1$,
+
+$\dfrac{35}{12n\left(0.1\right)^2}\leq 0.1$
+
+$n \geq \dfrac{3500}{12}$
+
+$n \geq 2917$
 \item
 
 $P\left(\left|\dfrac{X_n}{n}-3.5\right|> 0.1\right)=P\left(\dfrac{\sqrt{n}}{\sigma}\left|\dfrac{X_n}{n}-3.5\right|> \dfrac{0.1\sqrt{n}}{\sigma}\right)\approx P\left(\left|N\left(0,1\right)\right|>\dfrac{0.1\sqrt{n}}{\sigma}\right)$
@@ -367,5 +374,26 @@ p-value = 2$\Phi(-|t|)$ = 0.132
 p-value = 1-$\Phi(t)$ = 0.066
 \item
 According to D and С we can not reject $H_0$ hypothesis because t statistic is less than 1.645. Moreover p-value is 0.066 that is bigger 0.05. So statisticaly the survey was wrong.
+\end{list}
+
+\textbf{Exercise 7} Suppose $X_i ~ i.i.d.\ N\left(0, \sigma^2\right)$, and let $\hat{\sigma^2}=\dfrac{\sum_{i=1}^n X_i^2}{n}$.
+\newcounter{kcounter}
+\begin{list}{(\alph{kcounter})~}{\usecounter{kcounter}}
+\item Show that $\hat{\sigma^2}$ is unbiased.
+\item Compute the variance of $\hat{\sigma^2}$.
+\item Compute the Rao-Cramer lower bound on the variance of any unbiased estimator of $\hat{\sigma^2}$.
+\end{list}
+
+\medskip
+
+\textbf{Solution}
+
+\newcounter{lcounter}
+\begin{list}{(\alph{lcounter})~}{\usecounter{lcounter}}
+\item $E\left(\hat{\sigma^2}\right)=E\left(\dfrac{\sum_{i=1}^n X_i^2}{n}\right)=\dfrac{1}{n}\sum_{i=1}^n E\left(X_i^2\right)=E\left(X_i^2\right)=\sigma^2$
+\item $Var\left(\hat{\sigma^2}\right)=Var\left(\dfrac{\sum_{i=1}^n X_i^2}{n}\right)=\dfrac{1}{n^2}\sum_{i=1}^n Var\left(X_i^2\right)=\dfrac{1}{n^2}\sum_{i=1}^n\cdot 2\sigma^4=\dfrac{2\sigma^4}{n}$
+\item $I\left(\sigma^2\right)=-E\left[\dfrac{\partial^2 L_n\left(\sigma^2\right)}{\partial\left(\sigma^2\right)^2}=-E\left[\dfrac{n}{2\sigma^4} - \sum_{i=1}^n\dfrac{X_i^2}{\sigma^6}\right]\right]=-\dfrac{n}{2\sigma^4}+\sum_{i=1}^n\dfrac{E\left[X_i^2\right]}{\sigma^6}=-\dfrac{n}{2\sigma^4}+\dfrac{n\sigma^2}{\sigma^6}=\dfrac{n}{2\sigma^4}$
+
+Therefore, the lower bound on the variance of any unbiased estimated $\sigma^2$ is $\dfrac{n}{2\sigma^4}$
 \end{list}
 \end{document}
