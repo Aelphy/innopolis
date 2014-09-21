@@ -15,7 +15,7 @@ unsigned int N = 0;
 
 char* downcase(const char *str) {
     int i;
-    char *str2 = calloc(31, sizeof(char));
+    char *str2 = malloc(31 * sizeof(char));
 
     strcpy(str2, str);
 
@@ -165,7 +165,7 @@ int get_data(tournament **data) {
     }
 
     // define tournaments
-    tournament *tournaments = calloc(N, sizeof(tournament));
+    tournament *tournaments = malloc(N * sizeof(tournament));
 
     // fill tournaments
     for(i = 0; i < N; ++i) {
