@@ -15,6 +15,7 @@
 \usetikzlibrary{automata,positioning, graphs}
 \usepackage{multicol} %Несколько колонок
 \usepackage{graphicx}
+\usepackage{mathdots}
 \usepackage[colorlinks,urlcolor=blue]{hyperref}
 \usepackage[stable]{footmisc}
 
@@ -108,26 +109,51 @@
 If h(n) is consistent, A* using GRAPH-SEARCH is optimal
 \bigskip
 
-1) By definition the cost not decreases during all the path.
+Solution
 
-2) Let us imagine, that theorem doesn't work. So there is optimal path to target node and nonoptimal through the point A.
+Suppose that the algorithm chose non optimal path in the graph on the picture. This path goes through the node A. Whereas the optimal path goes through the node B. 
+Let us consider the common node for optimal path and non optimal path named begin. Furthermore end node is the union point of these paths.
 
 \begin{center}
 	\begin{tikzpicture}[scale=.8,auto=left,every node/.style={circle,fill=blue!20}]
-  \node (n1) at (6,5){start};
-  \node (n2) at (6,-3){target};
-  \node (n3) at (3,1){A};
+  \node (n0) at (7,9) {Start};
+  \node (n1) at (7,6){begin};
+  \node (n2) at (7,-3){end};
+  \node (n3) at (1,1.5){A};
+  \node (n4) at (7,3){B};
+  \node (n5) at (7,0){C};
+  \node[draw=none, rectangle, fill=none] (n7) at (7,4.5){$\vdots$};
+  \node[draw=none, rectangle, fill=none] (n7) at (7,1.69999){$\vdots$};
+  \node[draw=none, rectangle, fill=none] (n8) at (3.5,3.5){$\iddots$};
+  \node (n9) at (12,-3){GOAL};
 
-  \foreach \from/\to in {n1,n1/n2,n2/n3,n3/n1}
+  \foreach \from/\to in {n2/n3,n2/n5,n2/n9,n0/n1}
     \draw (\from) -- (\to);
 
 \end{tikzpicture}
 \end{center}		
 
-Imagine, that algorithm chooses nonoptimal path.
-But it cannot be because the cost is not decreasing and f(n) is consistent.
+Imagine that the algorithm is in node A. And Node B cost is bigger than A's cost. But C node cost is less than A's node cost. So Path trough C node is optimal. Then:
 
-f(start) = g(start) + h(start) $\leq$ f(A) = g(A) + h(A)
+f(B) = g(B) + h(B)
+
+f(A) = g(A) + h(A)
+
+f(C) = g(C) + h(C)
+
+f(A) < f(C) Because the cost though C is less than though A. 
+
+f(B) > f(A) Because the cost of B node is bigger than C's cost
+
+\[\left\{
+\begin{array}{l}
+  g(B) + g(B \rightarrow C) + h(C) < g(A) + h(A), \text{it is because the path through A node is not optimal}\\
+  g(A) + h(A) < g(B) + h(B) \ 
+\end{array} \right. \]
+
+Than $g(B \rightarrow C) < h(B) - h(C)$
+
+That breaks consistency condition. So algorithm had to go through B node with less cost than the cost of A node. This solution is always optimal that is why GRAPH-SEARCH with $A^*$ is optimal
 
 QED
 \end{document}
