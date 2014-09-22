@@ -229,8 +229,17 @@ What is the asymptotic distribution of the maximum likelihood estimator?
 
 \begin{list}{(\alph{ccounter})~}{\usecounter{ccounter}}
 \item
+$\lambda_{MLE} = \sum^{n}_{i=1}ln(f(x_i,y))$
+
+So, $\lambda_{MLE} = \dfrac{1}{\sum^{n}_{i=1} x^{2}_i}$
+
+\item $I\left(\Theta\right)=-n\cdot E\left(\dfrac{\partial^2 \emph{l}\left(x, \lambda\right)}{\partial\lambda^2}\right)=\dfrac{n}{\lambda^2}$
+
+Hence,
+
+$Var\left(\lambda\right) \geq \dfrac{\lambda^2}{n}$
 \item
-\item
+The asymptotic distribution of the estimator is N($\lambda, \dfrac{\lambda^2}{n}$)
 \end{list}
 
 \end{document}
