@@ -138,7 +138,7 @@ int get_data(tournament **data) {
     int team1_goals, team2_goals;
     char game[67];
     char team1_name[31], team2_name[31];
-    char goals[4];
+    char goals[31];
     char *substr;
     unsigned int T = 0;
     unsigned int G = 0;
