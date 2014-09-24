@@ -235,7 +235,7 @@ $Var\left(W_n\right)=Var\left(\dfrac{1}{\sqrt{n}}\sum_{i=1}^n\left(Z_i-1\right)\
 
 Lets find third moment of $W_n$:
 
-$E\left(W_n^3\right)=E\left(\left(\dfrac{Z_i-1}{\sqrt{n}}\right)^3\right)=\left(\dfrac{1}{\sqrt{n}}\right)^3 E\left(\left(Z_i-1\right)^3\right)=\left(\dfrac{1}{\sqrt{n}}\right)^3 \left(E\left(Z_i-1\right)\right)^3=\left(\dfrac{1}{\sqrt{n}}\right)^3\left(E\left(Z_i\right)-E\left(1\right)\right)^3=\left(\dfrac{1}{\sqrt{n}}\right)^3\left(1-1\right)=0$
+$E\left(W_n^3\right)=E\left(\left(\dfrac{Z_i-1}{\sqrt{n}}\right)^3\right)=\left(\dfrac{1}{\sqrt{n}}\right)^3n\cdot \left(E\left(Z_i^3\right)-3E\left(Z_i^2\right) + 3E\left(Z_i\right)-1\right)=\dfrac{1}{\sqrt{n}}\left(6-6+3-1\right)=\dfrac{2}{\sqrt{n}}$
 
 \item 
 \newcounter{gcounter}
@@ -392,8 +392,15 @@ According to D and С we can not reject $H_0$ hypothesis because t statistic is 
 \begin{list}{(\alph{lcounter})~}{\usecounter{lcounter}}
 \item $E\left(\hat{\sigma^2}\right)=E\left(\dfrac{\sum_{i=1}^n X_i^2}{n}\right)=\dfrac{1}{n}\sum_{i=1}^n E\left(X_i^2\right)=E\left(X_i^2\right)=\sigma^2$
 \item $Var\left(\hat{\sigma^2}\right)=Var\left(\dfrac{\sum_{i=1}^n X_i^2}{n}\right)=\dfrac{1}{n^2}\sum_{i=1}^n Var\left(X_i^2\right)=\dfrac{1}{n^2}\sum_{i=1}^n\cdot 2\sigma^4=\dfrac{2\sigma^4}{n}$
-\item $I\left(\sigma^2\right)=-E\left[\dfrac{\partial^2 L_n\left(\sigma^2\right)}{\partial\left(\sigma^2\right)^2}=-E\left[\dfrac{n}{2\sigma^4} - \sum_{i=1}^n\dfrac{X_i^2}{\sigma^6}\right]\right]=-\dfrac{n}{2\sigma^4}+\sum_{i=1}^n\dfrac{E\left[X_i^2\right]}{\sigma^6}=-\dfrac{n}{2\sigma^4}+\dfrac{n\sigma^2}{\sigma^6}=\dfrac{n}{2\sigma^4}$
+\item
+$f\left(x, \sigma^2\right)=N\left(0, 1\right)=\dfrac{1}{\sqrt{2\pi\sigma}}e^{-\dfrac{x^2}{2\sigma^2}}$
 
-Therefore, the lower bound on the variance of any unbiased estimated $\sigma^2$ is $\dfrac{n}{2\sigma^4}$
+$l\left(x, \sigma^2\right)=log\left(f\left(x, \sigma^2\right)\right)=-\dfrac{1}{2}log\left(2\pi\sigma^2\right)-\dfrac{x^2}{2\sigma^2}$
+
+$I\left(\sigma^2\right)=-n\cdot E\left[\dfrac{\partial^2l\left(x, \sigma^2\right)}{\partial\left(\sigma^2\right)^2}\right]=-n\cdot E\left[\dfrac{1}{2\sigma^2}-\dfrac{x^2}{\sigma^6}\right]=\dfrac{n}{2\sigma^2}$
+
+The Crao-Ramer lower bound is:
+
+$Var\left(\sigma^2\right)\geq \dfrac{2\sigma^2}{n}$
 \end{list}
 \end{document}
