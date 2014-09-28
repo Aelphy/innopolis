@@ -252,7 +252,7 @@ int get_data(tournament **data) {
             team2_goals = atoi(substr);
 
             // process score
-            for (g = 0; g < G; ++g) {
+            for (g = 0; g < T; ++g) {
                 // chack that team didn't play with itself
                 if (strcmp(team1_name, team2_name) != 0) {
                     if (strcmp(tournaments[i].teams[g].name, team1_name) == 0) {
