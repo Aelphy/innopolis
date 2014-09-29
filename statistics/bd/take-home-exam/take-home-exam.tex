@@ -17,14 +17,13 @@
 \makeatletter
 \renewcommand{\@oddhead}{%
 \vbox{%
-\hbox to \textwidth{\strut \textit{SABD, Problem set 2, Usvyatsov Mikhail} \hfill }
+\hbox to \textwidth{\strut \textit{SABD, Take home exam, Usvyatsov Mikhail} \hfill }
 %\hbox to\textwidth{Лист\hfill Страница~\arabic{page}~из 2}
 \hrule
 \vspace{12pt}
 }}
 \renewcommand{\@oddfoot}{}
 \makeatother
-
 
 \begin{document}
 
@@ -33,43 +32,164 @@
 %\newpage
 
 \begin{center}
-\textbf{Problem set 2 \\
-DUE: Mon. September 8, 2014 \\}
+\textbf{Take home exam;\\
+Due: Wednesday September 24}
 \end{center}
-
-\newcounter{qcounter}
 
 \bigskip
 	
-\textbf{Exercise 1}	
-\medskip	
-		
-\textbf{Solution}
-\medskip
+\textbf{Exercise 1}		
 
-\textbf{Exercise 2}	
+\newcounter{acounter}
+\begin{list}{(\alph{acounter})~}{\usecounter{acounter}}
+\item The increasing/decreasing reputation by 1 unit change tuition by 3,985.20 dollars. Each student decrease tuition by 0.20 dollars. If university is private - it's increase tuition by 8406.79 dollars. If university is liberal arts college - it's decrease tuition by 416.38. And if university is religious it's decrease tuition by 2376.51 dollar. All coefficient have an expected sign.
 
-You have collected data for 104 countries to address the difficult questions of the determinants for differences in the standard of living among the countries of the world. An extension of the neoclassical growth model in economics suggests that output per worker (per capita income) levels are determined by, among others, the saving rate, population growth rate and human capital. To test the predictions of this theory you estimate the regressions in Table 2 with the variables defined in Table 1.
-\medskip
-		
-\textbf{Solution}
-\medskip
+\item $\hat{Cost} = 7311.17 + 3985.20 \cdot 4.5 - 0.20 \cdot 1500 + 8406.79 \cdot 1 - 416.38 \cdot 1 - 2376.51 \cdot 0 = 32935$
 
-\textbf{Exercise 3}
-\medskip
+\item If out college become to the public, it get -0.5 points in rank and 10 000 more students. The new tuition is:
 
-\textbf{Solution}
-\medskip
+$\hat{Cost} = 7311.17 + 3985.20 \cdot 4.0 - 0.20 \cdot 11500 + 8406.79 \cdot 0 - 416.38 \cdot 1 - 2376.51 \cdot 0 = 20535.6$
 
+The difference tuition is 12 400 dollars. It's very substantial. Is student study at the college 4 years he can save 49600 dollars. Student can by a small flat in Moscow region by this money.
+
+\item It's increased because Size and Dlibart had a negative sign before the coefficient.
+
+\item It's possible that the university president and chief academic officer have personal reasons for rising a tuition. This can cause serious damage to the validity of the regression.
+
+\end{list}
+
+\bigskip
+
+\textbf{Exercise 2}
+
+\newcounter{bcounter}
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item
+We can calculate t statistic
+
+$t_n = \dfrac{\beta_N}{SE_N} = \dfrac{-12.694}{0.377} = -3.99$
+$t_s = \dfrac{\beta_S}{SE_S} = \dfrac{1.397}{0.229} = 6.100437$
+
+We tested at 5\% significance level that coefficients are equal to zero. We have to reject it because all |t-statistics| > 1.96
+
+$R^2$ shows that our regression fits the data better than 50\% but worse than 100\% beacuse it is 62.1\%.
+\item
+Our regression is -5.869*N + 0.738*S + 0.055*Educ + 0.046 = 0.239973.
+Thus the regression underpredicts. If Brazil diubles Educ then the regression gives us 0.432473.
+\item
+$R_{inc} = -0.063 * N + 0.719 * S + 0.044 * Educ -0.068$ when OECD = 0
+
+$R_{inc} = -0.063 * N + 0.719 * S + 0.044 * Educ -0.068 + 0.381 + -8.038 * N - 0.430 * S + 0.003 * Educ$ when OECD = 1
+That is equal to: 
+
+$R_{inc} = -8.101 * N + 0.289 * S + 0.047 * Educ  + 0.313$ 
+
+Then we can find from appendix in introduction to econometric that critical value on 5\% for А statistic with 4 parameters is 2.37. According to the task F-statistic is 6.76 for hypothesis that all coefficients with OECD are equal to zero. We have to reject it due to the fact that 6.76 is bigger than 2.37.
+\item
+$t-statistc = \dfrac{0.241}{0.055}=4.381818$, so we have to reject the hypothesis that coefficient on OECВ is close to zero because 4.38 is bigger than 1.96 - critical value on 5\% value. 
+
+Confidence intervals are 0.241 $\pm$ 1.96 * 0.055
+
+[0.1332, 0.3488]
+\item
+F-statistic is 1.05. The critical value is 2.6. So we cannot reject the hypothesis that coefficients of joint OECD are equal to zero. The difference between previous example is the fact that we didn't count coefficient on OECD. That shows that joint events are very unlikely in our data.
+\end{list}
+\medskip		
+	
+\textbf{Exercise 3}		
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item Obviously, the farm status = false, and education decrease probability for live woman for her own. It's true for all race. Also for white woman the probability of independent live increase during the age, but after the one point this probability is start to decrease it cause the square of age in the regression. The white women in the south are more likely live for their own then non-white women. An increase in expected family earnings and family composition increase the probability of females living on their own
+
+\item 
+
+	\newcounter{ccounter}
+	\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
+	\item The signification interval for age with 5\% signification level is (for whites women) is:
+
+	${ -0.275 - 1.96 \cdot  0.037, -0.275 + 1.96 \cdot 0.037} = { -0.34752, -0.20248 }$
+
+	Zero isn't in this signification interval, hence age is significantly different from zero with 5\% signification level.
+
+	\item The signification interval for age with 5\% signification level is (for nonwhites women) is:
+
+	$\{0.084 - 1.96 \cdot 0.068, 0.084 + 1.96 \cdot  0.068\} = \{-0.04928, 0.21728\}$.
+	
+	Zero is in this signification interval, hence age isn't significantly different from zero with 5\% signification level.
+	
+	\item  The signification interval for age squared with 5\% signification level is (for whites women) is:
+	$\{0.00463-1.96 \cdot 0.00044, 0.00463 + 1.96 \cdot 0.00044\} = \{0.0037676, 0.0054924\}$
+	
+		Zero isn't in this signification interval, hence age squared is significantly different from zero with 5\% signification level.
+	
+	\item The signification interval for age squared with 5\% signification level is (for nonwhites women) is:
+
+	$\{0.00021 - 1.96 \cdot 0.00081, 0.00021 + 1.96 \cdot 0.00081\} = \{-0.0013776, 0.0017976\}$.
+	
+	Zero is in this signification interval, hence age squared isn't significantly different from zero with 5\% signification level.
+	\end{list}
+	
+\item The F-statistic is greater then 3.00 for white women. That's why we reject this null hypothesis with 5\% signification level.
+
+And for nonwhite women F-statistic is less then 3.00. That's why we accept this null hypothesis with 5\% signification level.
+
+\item For white women: $0.90$
+
+For nonwhite women: $0.88$
+
+If we mix white and nonwhite women we need have the same coefficients in the regression. And it's reduces the accuracy of forecasting.
+
+\item It's decrease to 0.81
+
+\bigskip
+	
 \textbf{Exercise 4}
-\medskip
+\newcounter{dcounter}
+\begin{list}{\alph{dcounter})~}{\usecounter{dcounter}}	
+\item We have next constraints for valid using IV method:
+\newcounter{icounter}
+\begin{list}{\arabic{icounter})~}{\usecounter{icounter}}	
+\item Correlation with parameters: $corr\left(Z_i, X_i\right) \neq 0$
+\item Exogeneity: $corr\left(Z_i, u_i\right)= 0$
+\end{list}
+Obviously, the temperature one month ahead in previous year is correlated with current month. But it's doesn't correlated with current residuals, such us the hurricane, storms,rains and etc.
+\item We can use first-stage F-statistic. If F < 10 - we have a weak instrument. 
+\item The F-statistic > 10, hence we have strong instrument.
+I assume that TSLS estimator calculate by software and S.E. is correct. Hence, the significant interval with 5\% signification level is:
 
-\textbf{Solution}
-\medskip
+$\{ 1.07-1.96 \cdot 0.06, 1.07+1.96 \cdot 0.06 \} = \{ 0.9524, 1.1876 \}$
 
+One is in significant interval, hence we accept this hypothesis with 5\% signification level.
+
+\end{list}
+
+\bigskip
+	
 \textbf{Exercise 5}
-\medskip
+\newcounter{fcounter}
+\begin{list}{\alph{fcounter})~}{\usecounter{fcounter}}	
+\item
+Lets calculate signification interval with 5\% signification level for $\sigma_{t-1}^2$:
 
-\textbf{Solution}
-\medskip
+$\{0.53-1.96\cdot 0.15, 0.53+1.96\cdot 0.15\}=\{0.236, 0.824\}$
+
+Zero isn't in interval, that's why we reject hypothesis $\sigma_{t-1}^2=0$ at the 5\% signification level.
+
+Lets calculate signification interval with 5\% signification level for $u_{t-1}^2$:
+
+$\{0.27-1.96\cdot 0.11, 0.27+1.96\cdot 0.11\}=\{0.0544, 0.4856\}$
+
+Zero isn't in interval, that's why we reject hypothesis $u_{t-1}^2=0$ at the 5\% signification level.
+
+Both $\sigma_{t-1}^2$ and $u_{t-1}^2$ are statistical significant on 5\% signification level.
+
+\item 
+\item
+All the models do the regression by the same variables but with different coefficients. Moreover regression 2 assumes that error $u_t$ is exact. GARCH model assumes that $\nu_t$ is a random variable with N(0,1) distribution. I personaly think that due to the fact that as regressors we use lags we have do deal with GARCH model and OLS will give us wrong results. 
+\item
+According to a) the variance of the error terms in the Phillips Curve for Canada is statistically significant. Moreover we know that it has autoregresive character (depends on previous values of itself). So there will be volatility clustering in this regression.
+\item
+We can see that residuals depends on self previous values and so we can observe volatility clustering. Also we see that the process fluctuates across zero, so the mean is obviously close to zero. Also we can see crisis e.g. on 91 period there is big positive crisis.  
+\end{list}
+
+\end{list}
 \end{document}
