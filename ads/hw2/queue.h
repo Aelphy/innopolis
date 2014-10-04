@@ -3,59 +3,27 @@
 class Queue {
     public:
 
-    Queue() {
-        storage = new LinkedList;
-    }
+    Queue();
 
-    Node* dequeue() {
-        Node* first = storage->get_first_node();
+    Node* dequeue();
 
-        if (first == NULL) {
-            error("cannot dequeue empty queue");
-        } else {
-            storage->set_first_node(first->get_next_node());
+    Node* get_first_node();
 
-            if (storage->get_first_node() == NULL) {
-                storage->set_first_node(NULL);
-                storage->set_current_node(NULL);
-                storage->set_last_node(NULL);
-            } else {
-                storage->get_first_node()->set_previous_node(NULL);
-            }
+    Node* get_next_node();
 
-            first->set_next_node(NULL);
-            first->set_previous_node(NULL);
+    Node* get_current_node();
 
-            return first;
-        }
-    }
+    void enqueue(Node* node);
 
-    void enqueue(Node* node) {
-        // set current pointer to the last list node
-        storage->get_last_node();
+    int length();
 
-        storage->insert_element(node);
-    }
+    void print();
 
-    int length() {
-        int counter = 0;
-        Node *node = storage->get_first_node();
+    bool is_empty();
 
-        if (node != NULL) {
-            counter = 1;
-        }
-
-        while (node != storage->get_last_node()) {
-            counter++;
-        }
-
-        return counter;
-    }
-
-    void print() {
-        storage->print();
-    }
+    void empty();
 
     private:
+
     LinkedList *storage;
 };

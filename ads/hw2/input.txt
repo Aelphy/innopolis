@@ -1,0 +1,7 @@
+1
+Arrival 10
+Departure 5
+Runtime 5
+Increment 10
+Red 10
+Green 10

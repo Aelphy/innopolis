@@ -1,0 +1,10 @@
+Usvyatsov Mikhail
+Arrival rate: 10.000000 cars per minute
+Departure: 5.000000 seconds per car
+Runtime: 5.000000 minutes
+Time increment: 10.000000 milliseconds
+Light squence: Red 10.000000 seconds, Green 10.000000 seconds
+Average length: 15.079967 cars
+Maximum length: 27 cars
+Average wait: 45.718750 seconds
+Maximum wait: 160.390000 seconds
