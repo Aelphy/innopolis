@@ -3,27 +3,26 @@
 class Queue {
     public:
 
+    // constructor
     Queue();
 
+    // pop
     Node* dequeue();
 
-    Node* get_first_node();
-
-    Node* get_next_node();
-
-    Node* get_current_node();
-
+    // push
     void enqueue(Node* node);
 
+    // get length of the queue
     int length();
 
+    // output all the queue
     void print();
 
-    bool is_empty();
-
+    // clear the queue
     void empty();
 
     private:
 
+    // linked list that stores all the data
     LinkedList *storage;
 };

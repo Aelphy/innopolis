@@ -35,18 +35,6 @@ void Queue::enqueue(Node* node) {
     storage->insert_element(node);
 }
 
-Node* Queue::get_first_node() {
-    return storage->get_first_node();
-}
-
-Node* Queue::get_current_node() {
-    return storage->get_current_node();
-}
-
-Node* Queue::get_next_node() {
-    return storage->get_next_node();
-}
-
 int Queue::length() {
     int counter = 0;
     Node *node = storage->get_first_node();
@@ -65,10 +53,6 @@ int Queue::length() {
 
 void Queue::print() {
     storage->print();
-}
-
-bool Queue::is_empty() {
-    storage->is_empty();
 }
 
 void Queue::empty() {

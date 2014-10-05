@@ -22,9 +22,14 @@ void simulate(double arrival, double departure, double runtime, double increment
     int current_state = TRAFFIC_LIGHT_RED;
     Queue* q = new Queue;
 
+    // all the runtime
+    /* it is finished when number of tics multiplied by increment per tic in seconds
+       become bigger than runtime in seconds*/
     while((current_time = tic_counter * increment / 1000) < runtime * 60) {
-        // compute traffic light state
+        // compute current traffic light state
         if (current_state == TRAFFIC_LIGHT_GREEN) {
+            // checks the need to toogle the light
+            // it was tested by outputing the number of toogling per simulation
             if (traffic_light_counter * increment / 1000 < green) {
                 traffic_light_counter++;
             } else {
@@ -36,6 +41,7 @@ void simulate(double arrival, double departure, double runtime, double increment
                 traffic_light_counter++;
             } else {
                 traffic_light_counter = 0;
+                // before red light changes to green first car is not ready to leave
                 departure_counter = 0;
                 current_state = TRAFFIC_LIGHT_GREEN;
                 //printf("GREEN\n");
@@ -47,24 +53,28 @@ void simulate(double arrival, double departure, double runtime, double increment
 
         total_cars_number += border;
 
-        // cars incoming
+        // all the cars incoming per tic
         for(i = 0; i < border; ++i) {
             //printf("Car arrived: tic - %d.\n", tic_counter);
             q->enqueue(new Node (current_time));
         }
 
-        // cars outcoming
+        // cars outcoming per tic
         if (current_state == TRAFFIC_LIGHT_GREEN) {
             if (departure_counter * increment / 1000 > departure) {
                 departure_counter = 0;
 
+                // more than one car can leave the crossroad
                 for (j = 0; j < (increment / (departure * 1000) + 1); ++j) {
+                    // if queue is not empty
                     if (q->length() > 0) {
+                        // variable to handle poped value
                         Node *car;
 
                         //printf("Car destroyed: tic - %d.\n", tic_counter);
                         car = q->dequeue();
 
+                        // checking was waiting time reached maximum
                         if (max_waiting_time < current_time - car->get_arrival_time()) {
                             max_waiting_time = current_time - car->get_arrival_time();
                         }
@@ -97,6 +107,7 @@ void simulate(double arrival, double departure, double runtime, double increment
 
     //printf("%d - %d", q->length(), total_cars_number);
 
+    // output the simulation results
     fprintf(fw, "Average length: %lf cars\n", avr_queue_length);
     fprintf(fw, "Maximum length: %d cars\n", max_queue_length);
     fprintf(fw, "Average wait: %lf seconds\n", avr_waiting_time);
@@ -138,6 +149,7 @@ int main() {
 
     fprintf(fw, "Usvyatsov Mikhail\n");
 
+    // for each input test parse simulation parameters and run simulation
     for(i = 0; i < N; ++i) {
         // parsing simulation parameters
         if (fscanf(fr, " Arrival %lf", &arrival) != 1) {
@@ -164,6 +176,7 @@ int main() {
             error("cannot read green.\n");
         }
 
+        // output parameters of current simulation
         fprintf(fw, "Arrival rate: %lf cars per minute\n", arrival);
         fprintf(fw, "Departure: %lf seconds per car\n", departure);
         fprintf(fw, "Runtime: %lf minutes\n", runtime);
