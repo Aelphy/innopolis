@@ -16,9 +16,6 @@ class Node {
     // returns the node before the current node
     Node* get_previous_node();
 
-    // get value of node
-    char* get_value();
-
     // get arrival time of node
     double get_arrival_time();
 
@@ -27,9 +24,6 @@ class Node {
 
     // set the node before the current
     void set_previous_node(Node* p);
-
-    // set value of the node
-    void set_value(char* string);
 
     // set arrival time of the node
     void set_arrival_time(double time);
@@ -40,8 +34,6 @@ class Node {
     Node *next;
     // pointer to the previous node
     Node *previous;
-    // pointer to store value string
-    char *value;
     // arrival time
     double arrival_time;
 };

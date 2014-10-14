@@ -29,7 +29,7 @@ Node* Queue::dequeue() {
 }
 
 Node* Queue::get_first_node() {
-    storage->get_first_node();
+    return storage->get_first_node();
 }
 
 void Queue::enqueue(Node* node) {

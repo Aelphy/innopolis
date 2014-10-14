@@ -26,10 +26,6 @@ Node* Node::get_previous_node() {
     return previous;
 }
 
-char* Node::get_value() {
-    return value;
-}
-
 double Node::get_arrival_time() {
     return arrival_time;
 }
@@ -42,10 +38,7 @@ void Node::set_previous_node(Node* p) {
     previous = p;
 }
 
-void Node::set_value(char* string) {
-    value = new char[strlen(string)];
-    strcpy(value, string);
-}
+
 
 void Node::set_arrival_time(double time) {
     arrival_time = time;
@@ -197,7 +190,7 @@ void LinkedList::print() {
     printf("Contents of list: \n");
 
     while(current_node != NULL) {
-        printf("%s\n", current_node->get_value());
+        printf("%lf\n", current_node->get_arrival_time());
         current_node = current_node->get_next_node();
     }
 

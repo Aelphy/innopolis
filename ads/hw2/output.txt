@@ -1,11 +1,71 @@
 Usvyatsov Mikhail
+Arrival rate:      10 cars per minute
+Departure:         1 seconds per car
+Runtime:           10 minutes
+Time increment:    100 milliseconds
+Light squence:     Red 30 seconds, Green 30 seconds
+Average length:    2 cars
+Maximum length:    11 cars
+Average wait:      11 seconds
+Maximum wait:      31 seconds
 
-Arrival rate: 10 cars per minute
-Departure: 1 seconds per car
-Runtime: 10 minutes
-Time increment: 100 milliseconds
-Light squence: Red 30 seconds, Green 30 seconds
-Average length: 2 cars
-Maximum length: 8 cars
-Average wait: 10 seconds
-Maximum wait: 32 seconds
+Arrival rate:      10 cars per minute
+Departure:         2 seconds per car
+Runtime:           10 minutes
+Time increment:    100 milliseconds
+Light squence:     Red 30 seconds, Green 30 seconds
+Average length:    2 cars
+Maximum length:    9 cars
+Average wait:      13 seconds
+Maximum wait:      36 seconds
+
+Arrival rate:      10 cars per minute
+Departure:         3 seconds per car
+Runtime:           10 minutes
+Time increment:    100 milliseconds
+Light squence:     Red 30 seconds, Green 30 seconds
+Average length:    3 cars
+Maximum length:    10 cars
+Average wait:      23 seconds
+Maximum wait:      66 seconds
+
+Arrival rate:      10 cars per minute
+Departure:         4 seconds per car
+Runtime:           10 minutes
+Time increment:    100 milliseconds
+Light squence:     Red 30 seconds, Green 30 seconds
+Average length:    20 cars
+Maximum length:    43 cars
+Average wait:      109 seconds
+Maximum wait:      220 seconds
+
+Arrival rate:      10 cars per minute
+Departure:         1 seconds per car
+Runtime:           10 minutes
+Time increment:    100 milliseconds
+Light squence:     Red 30 seconds, Green 0 seconds
+Average length:    49 cars
+Maximum length:    94 cars
+Average wait:      311 seconds
+Maximum wait:      599 seconds
+
+Arrival rate:      10 cars per minute
+Departure:         1 seconds per car
+Runtime:           10 minutes
+Time increment:    100 milliseconds
+Light squence:     Red 0 seconds, Green 30 seconds
+Average length:    0 cars
+Maximum length:    2 cars
+Average wait:      0 seconds
+Maximum wait:      2 seconds
+
+Arrival rate:      10 cars per minute
+Departure:         600 seconds per car
+Runtime:           10 minutes
+Time increment:    100 milliseconds
+Light squence:     Red 30 seconds, Green 30 seconds
+Average length:    44 cars
+Maximum length:    100 cars
+Average wait:      265 seconds
+Maximum wait:      588 seconds
+
