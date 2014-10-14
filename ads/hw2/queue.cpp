@@ -28,6 +28,10 @@ Node* Queue::dequeue() {
     }
 }
 
+Node* Queue::get_first_node() {
+    storage->get_first_node();
+}
+
 void Queue::enqueue(Node* node) {
     // set current pointer to the last list node
     storage->get_last_node();

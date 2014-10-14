@@ -21,6 +21,7 @@ void simulate(double arrival, double departure, double runtime, double increment
     int total_cars_number = 0;
     int current_state = TRAFFIC_LIGHT_RED;
     Queue* q = new Queue;
+    Node* n;
 
     // all the runtime
     /* it is finished when number of tics multiplied by increment per tic in seconds
@@ -35,6 +36,7 @@ void simulate(double arrival, double departure, double runtime, double increment
             } else {
                 traffic_light_counter = 0;
                 current_state = TRAFFIC_LIGHT_RED;
+                printf("RED %d\n", tic_counter);
             }
         } else {
             if (traffic_light_counter * increment / 1000 < red) {
@@ -44,7 +46,7 @@ void simulate(double arrival, double departure, double runtime, double increment
                 // before red light changes to green first car is not ready to leave
                 departure_counter = 0;
                 current_state = TRAFFIC_LIGHT_GREEN;
-                //printf("GREEN\n");
+                printf("GREEN %d\n", tic_counter);
             }
         }
 
@@ -55,13 +57,14 @@ void simulate(double arrival, double departure, double runtime, double increment
 
         // all the cars incoming per tic
         for(i = 0; i < border; ++i) {
-            //printf("Car arrived: tic - %d.\n", tic_counter);
+            printf("Car arrived: tic - %d.\n", tic_counter);
             q->enqueue(new Node (current_time));
         }
 
         // cars outcoming per tic
         if (current_state == TRAFFIC_LIGHT_GREEN) {
-            if (departure_counter * increment / 1000 > departure) {
+            // if daprture time passed and queue is not empty
+            if (departure_counter * increment / 1000 > departure && q->length() > 0) {
                 departure_counter = 0;
 
                 // more than one car can leave the crossroad
@@ -71,7 +74,7 @@ void simulate(double arrival, double departure, double runtime, double increment
                         // variable to handle poped value
                         Node *car;
 
-                        //printf("Car destroyed: tic - %d.\n", tic_counter);
+                        printf("Car destroyed: tic - %d.\n", tic_counter);
                         car = q->dequeue();
 
                         // checking was waiting time reached maximum
@@ -103,15 +106,30 @@ void simulate(double arrival, double departure, double runtime, double increment
 
     avr_queue_length = avr_queue_length / tic_counter;
 
+    if (q->length() > 0) {
+        n = q->get_first_node();
+
+        while (n != NULL) {
+            avr_waiting_time += current_time - n->get_arrival_time();
+
+            // checking was waiting time reached maximum
+            if (max_waiting_time < current_time - n->get_arrival_time()) {
+                max_waiting_time = current_time - n->get_arrival_time();
+            }
+
+            n = n->get_next_node();
+        }
+    }
+
     avr_waiting_time = avr_waiting_time / total_cars_number;
 
-    //printf("%d - %d", q->length(), total_cars_number);
+    printf("%d - %d", q->length(), total_cars_number);
 
     // output the simulation results
-    fprintf(fw, "Average length: %lf cars\n", avr_queue_length);
+    fprintf(fw, "Average length: %.0lf cars\n", avr_queue_length);
     fprintf(fw, "Maximum length: %d cars\n", max_queue_length);
-    fprintf(fw, "Average wait: %lf seconds\n", avr_waiting_time);
-    fprintf(fw, "Maximum wait: %lf seconds\n", max_waiting_time);
+    fprintf(fw, "Average wait: %.0lf seconds\n", avr_waiting_time);
+    fprintf(fw, "Maximum wait: %.0lf seconds\n", max_waiting_time);
 
     q->empty();
 
@@ -147,7 +165,7 @@ int main() {
         exit(1);
     }
 
-    fprintf(fw, "Usvyatsov Mikhail\n");
+    fprintf(fw, "Usvyatsov Mikhail\n\n");
 
     // for each input test parse simulation parameters and run simulation
     for(i = 0; i < N; ++i) {
@@ -177,11 +195,11 @@ int main() {
         }
 
         // output parameters of current simulation
-        fprintf(fw, "Arrival rate: %lf cars per minute\n", arrival);
-        fprintf(fw, "Departure: %lf seconds per car\n", departure);
-        fprintf(fw, "Runtime: %lf minutes\n", runtime);
-        fprintf(fw, "Time increment: %lf milliseconds\n", increment);
-        fprintf(fw, "Light squence: Red %lf seconds, Green %lf seconds\n", red, green);
+        fprintf(fw, "Arrival rate: %.0lf cars per minute\n", arrival);
+        fprintf(fw, "Departure: %.0lf seconds per car\n", departure);
+        fprintf(fw, "Runtime: %.0lf minutes\n", runtime);
+        fprintf(fw, "Time increment: %.0lf milliseconds\n", increment);
+        fprintf(fw, "Light squence: Red %.0lf seconds, Green %.0lf seconds\n", red, green);
 
         // start simulation
         simulate(arrival, departure, runtime, increment, red, green, fw);

@@ -9,6 +9,9 @@ class Queue {
     // pop
     Node* dequeue();
 
+    // get first node
+    Node* get_first_node();
+
     // push
     void enqueue(Node* node);
 
