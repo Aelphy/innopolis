@@ -6,6 +6,6 @@ Runtime: 10 minutes
 Time increment: 100 milliseconds
 Light squence: Red 30 seconds, Green 30 seconds
 Average length: 2 cars
-Maximum length: 10 cars
-Average wait: 9 seconds
-Maximum wait: 31 seconds
+Maximum length: 8 cars
+Average wait: 10 seconds
+Maximum wait: 32 seconds

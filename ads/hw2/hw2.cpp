@@ -36,7 +36,7 @@ void simulate(double arrival, double departure, double runtime, double increment
             } else {
                 traffic_light_counter = 0;
                 current_state = TRAFFIC_LIGHT_RED;
-                printf("RED %d\n", tic_counter);
+                //printf("RED %d\n", tic_counter);
             }
         } else {
             if (traffic_light_counter * increment / 1000 < red) {
@@ -46,7 +46,7 @@ void simulate(double arrival, double departure, double runtime, double increment
                 // before red light changes to green first car is not ready to leave
                 departure_counter = 0;
                 current_state = TRAFFIC_LIGHT_GREEN;
-                printf("GREEN %d\n", tic_counter);
+                //printf("GREEN %d\n", tic_counter);
             }
         }
 
@@ -57,7 +57,7 @@ void simulate(double arrival, double departure, double runtime, double increment
 
         // all the cars incoming per tic
         for(i = 0; i < border; ++i) {
-            printf("Car arrived: tic - %d.\n", tic_counter);
+            //printf("Car arrived: tic - %d.\n", tic_counter);
             q->enqueue(new Node (current_time));
         }
 
@@ -74,7 +74,7 @@ void simulate(double arrival, double departure, double runtime, double increment
                         // variable to handle poped value
                         Node *car;
 
-                        printf("Car destroyed: tic - %d.\n", tic_counter);
+                        //printf("Car destroyed: tic - %d.\n", tic_counter);
                         car = q->dequeue();
 
                         // checking was waiting time reached maximum
@@ -123,7 +123,7 @@ void simulate(double arrival, double departure, double runtime, double increment
 
     avr_waiting_time = avr_waiting_time / total_cars_number;
 
-    printf("%d - %d", q->length(), total_cars_number);
+    //printf("%d - %d", q->length(), total_cars_number);
 
     // output the simulation results
     fprintf(fw, "Average length: %.0lf cars\n", avr_queue_length);
