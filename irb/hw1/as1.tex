@@ -1,0 +1,570 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\textwidth=431pt
+\textheight=600pt
+\hoffset=-30pt
+\voffset=-30pt
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\makeatletter
+\renewcommand{\@oddhead}{%
+\vbox{%
+\hbox to \textwidth{\strut \textit{Introduction to robotics, Assignment 1, Usvyatsov Mikhail} \hfill }
+%\hbox to\textwidth{Лист\hfill Страница~\arabic{page}~из 2}
+\hrule
+\vspace{12pt}
+}}
+\renewcommand{\@oddfoot}{}
+\makeatother
+
+
+\begin{document}
+
+%\tableofcontents
+
+%\newpage
+
+\begin{center}
+\textbf{Assignment 1;\\
+due Tuesday October 28}
+\end{center}
+
+\textbf{Part 1}	
+
+\bigskip
+	
+\textbf{Exercise 1}		
+		
+\textbf{Solution}
+
+\medskip
+
+\newcounter{bcounter}
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item 
+R cannot be a rotation matrix because det(R) $\neq$ 1  
+\item
+$det(R^{-1}) = \dfrac{1}{det(R)} = -1$
+So R cannot be the inverse of a rotation matrix
+\item
+$RR(RR)^T = RR R^T R^T = R I R^T = RR^T = I$
+
+$det(RR) = det(R) * det(R) = 1$
+
+So, RR can be a rotation matrix
+\item
+$2R  2R^T = 4 RR^T = 4I$
+
+So, 2R cannot be a rotation matrix
+\end{list}
+
+\textbf{Exercise 2}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item 
+R is yet undefined. General rotation matrix R is $R_Y(\alpha)R_Z(\beta)R_Y(\gamma)$ 
+\item
+$R1 = R_Y(\alpha)R_Z(\beta)R_Y(\gamma) =$
+
+$\left( \begin{array}{ccc}
+cos \alpha  & 0 & sin \alpha \\
+0 & 1  & 0 \\
+- sin \alpha & 0 & cos \alpha \end{array} \right)
+\left( \begin{array}{ccc}
+cos \beta  &  sin \alpha & 0 \\
+sin \beta  &  0 & 0\\
+0& cos \alpha & 1 \end{array} \right)
+\left( \begin{array}{ccc}
+cos \gamma  & 0 & sin \gamma \\
+0 & 1  & 0 \\
+- sin \gamma & 0 & cos \gamma\end{array} \right) = $
+
+$\left( \begin{array}{ccc}
+cos \alpha cos \beta cos \gamma - sin \alpha sin \gamma & - cos \alpha sin \beta & cos \gamma sin \alpha + sin \gamma cos \alpha cos \beta  \\
+cos \gamma sin \beta & cos \beta & sin \beta sin \gamma \\
+- cos \beta cos \gamma sin \alpha - cos \alpha sin \gamma & sin \alpha sin \beta & cos \alpha cos \gamma - cos \beta sin \alpha sin \gamma \end{array} \right)$
+
+$R2 = R_Y(\hat{\alpha})R_Z(\hat{\beta}) =$
+
+$\left( \begin{array}{ccc}
+cos \hat{\alpha}  & 0 & sin \hat{\alpha} \\
+0 & 1  & 0 \\
+- sin \hat{\alpha} & 0 & cos \hat{\alpha}\end{array} \right)
+\left( \begin{array}{ccc}
+cos \hat{\beta}  &  sin \hat{\alpha} & 0 \\
+sin \hat{\beta}  &  0 & 0\\
+0& cos \hat{\alpha} & 1 \end{array} \right) = \left( \begin{array}{ccc}
+cos \hat{\alpha} cos \hat{\beta} & - cos \hat{\alpha} sin \hat{\beta}  & sin \hat{\alpha} \\
+sin \hat{\beta} & cos \hat{\beta} & 0 \\
+- sin \hat{\alpha} cos \hat{\beta} & sin \hat{\alpha} sin \hat{\beta} & cos \hat{\alpha}\end{array} \right)$
+
+We can see that $R2_{23}$ is zero, but $R1_{23}$ depends on $\hat{\beta}$ and $\hat{\gamma}$. So we can choose $\gamma$ and $\beta$ such, that $R1_{23}$ wouldn't be zero. Thus we cannot represent any rotation matrix by only to rotations.
+\item
+We remember that $R = R_Y(\alpha)R_Z(\beta)R_Y(\gamma) =$
+
+$\left( \begin{array}{ccc}
+cos \alpha cos \beta cos \gamma - sin \alpha sin \gamma & - cos \alpha sin \beta & cos \gamma sin \alpha + sin \gamma cos \alpha cos \beta  \\
+cos \gamma sin \beta & cos \beta & sin \beta sin \gamma \\
+- cos \beta cos \gamma sin \alpha - cos \alpha sin \gamma & sin \alpha sin \beta & cos \alpha cos \gamma - cos \beta sin \alpha sin \gamma \end{array} \right)$
+
+And $R_Z(\hat{\beta})$ = $\left( \begin{array}{ccc}
+cos \hat{\beta} & - sin \hat{\beta} & 0 \\
+sin \hat{\beta} & cos \hat{\beta} & 0 \\
+0 & 0 & 1 \end{array} \right)$
+
+We can see that $R_{23} = sin \beta sin \gamma$ it is not equal to 1 always.
+So, if $\gamma = - \alpha$ it is still false that $R = R_Z(\hat{\beta})$
+\item
+$R_Y(\hat{\alpha})$ = $\left( \begin{array}{ccc}
+cos \hat{\alpha} & 0 & sin \hat{\alpha}\\
+0 & 1 & 0 \\
+- sin \hat{\alpha}& 0 & cos \hat{\alpha} \end{array} \right)$
+
+We can see that $R_{23}$ from the previous example is equal to $sin \beta sin \gamma$ that is not zero always. So it is the fact that when $\alpha = - \beta$ $R \neq R_Y(\hat{\alpha})$. So, the assumption is false.
+\end{list}
+
+\textbf{Exercise 3}		
+		
+\textbf{Solution}
+
+\medskip
+
+First of all lets try to find all the eigenvalues.
+
+We have to remember that $R = $
+
+$\left( \begin{array}{ccc}
+a_{11} & a_{12} & a_{13}  \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \end{array} \right)$
+
+On the other hand, each column of this matrix is a rotation vector around each of axes.
+
+Thus $X$ = $\left( \begin{array}{c}
+a_{11} \\
+a_{21} \\
+a_{31} \end{array} \right)
+Y = \left( \begin{array}{c}
+a_{12} \\
+a_{22} \\
+a_{32} \end{array} \right)
+Z = \left( \begin{array}{c}
+a_{13} \\
+a_{23} \\
+a_{33} \end{array} \right)$
+
+Moreover we know that:
+$X = Y * Z$ 
+$Y = Z * X$ 
+$Z = X * Y$
+
+So we can find that:
+
+$a_{11} = a_{22} a_{33} - a_{32}a_{23}$
+
+$a_{22} = a_{11} a_{33} - a_{13}a_{31}$ 
+
+$a_{33} = a_{11} a_{22} - a_{12}a_{21}$ 
+
+That are exactly some minors of matrix R. 
+
+\medskip
+
+We know that to find eigenvalues we have to solve the equation:
+
+$\vert R - \lambda E \vert = 0$
+
+So, $\vert R - \lambda E \vert = - (\lambda -1)[\lambda^2 - \lambda(a_{11} + a_{22} + a_{33} - 1) + 1] = 0$
+
+According to [1], we have to let $cos \phi = \dfrac{a_{11}+ a_{22} + a_{33} - 1}{2}$. That is the only thing that is not clear from [1]. I still cannot show why it is so. However when we let that we can easily show that $\lambda_1 = 1$, $\lambda_{2,3}= cos \phi \pm i sin \phi$
+
+Since we made previous conversions it is very easy to answer the questions.
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item 
+Wrong, because there are complex values in an answer
+\item
+True
+\item
+False because with some values of $\theta$ we can reach more 1.
+\item
+Due to the fact that we have complex values in an answer it is very easy to show that squared complex value is not always equals to 1.
+\end{list}
+
+\textbf{Exercise 4}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item 
+No. X could be a vector, laying on the plane of rotation. And the rotation is 360 degree by orthogonal to the plane. 
+\item
+No. It could be a rotation axis.
+\item
+No. As mentioned in [a], it could lay on the plane of rotation if rotation is by 360 degrees of the orthogonal to the plane.  
+\item
+$(Rx)^T=x^T$
+
+$x^T R^T = x^T$
+
+$x^T R^T R = x^T R$
+
+$x^T I = x^T R$
+
+$x^T = x^T R$ QED
+\end{list}
+
+\textbf{Part 2}	
+
+\bigskip
+
+\textbf{Exercise 1}		
+		
+\textbf{Solution}
+
+\medskip
+
+$\left(\begin{array}{c}
+^AP \\
+1\end{array}\right) =  \left(\begin{array}{cccc}
+\ & _{B}^AR & \ &^AP_{BORG} \\
+0 & 0 & 0 & 1  \end{array}\right)\left(\begin{array}{c}
+^BP \\
+1\end{array}\right)$
+
+$\left(\begin{array}{c}
+^AP \\
+1\end{array}\right) =  \left(\begin{array}{cccc}
+1 & 0 & 0 & 4 \\
+0 & 1 & 0 & -3 \\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1  \end{array}\right)\left(\begin{array}{c}
+2 \\
+6\\
+0\\
+1\end{array}\right)=\left(\begin{array}{c}
+6 \\
+3\\
+0\\
+1\end{array}\right)$
+
+$^AP=\left(\begin{array}{c}
+6 \\
+3\\
+0\end{array}\right)$
+
+\medskip
+
+\textbf{Exercise 2}		
+		
+\textbf{Solution}
+
+\medskip
+
+$\left(\begin{array}{c}
+^AP \\
+1\end{array}\right) =  \left(\begin{array}{cccc}
+\ & _{B}^AR & \ &^AP_{BORG} \\
+0 & 0 & 0 & 1  \end{array}\right)\left(\begin{array}{c}
+^BP \\
+1\end{array}\right)$
+
+$\left(\begin{array}{c}
+^AP \\
+1\end{array}\right) =  \left(\begin{array}{cccc}
+0 & -1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1  \end{array}\right)\left(\begin{array}{c}
+2 \\
+6\\
+0\\
+1\end{array}\right)=\left(\begin{array}{c}
+-6 \\
+2 \\
+0 \\
+1\end{array}\right)$	
+
+$^AP=\left(\begin{array}{c}
+-6 \\
+2\\
+0\end{array}\right)$
+
+\medskip
+
+\textbf{Exercise 3}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{\alph{bcounter})~}{\usecounter{bcounter}}
+\item
+$_{1}^{0}T$
+
+$^0 P_{BORG} = \left(4, 2, 0\right)$.
+
+Rotations:
+
+\newcounter{ccounter}
+\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
+\item Rotation around Y axis by $\Pi$ anti-clockwise.
+\item Rotation around Z axis by $\dfrac{\Pi}{2}$ anti-clockwise.
+\end{list}
+
+The rotation matrix is:
+$R=\left(\begin{array}{ccc}
+cos \Pi & 0 & sin \Pi \\
+0 & 1 & 0 \\
+-sin \Pi & 0 & cos \Pi \end{array}\right) \cdot 
+\left(\begin{array}{ccc}
+cos \dfrac{\Pi}{2} & -sin \dfrac{\Pi}{2} & 0 \\
+sin \dfrac{\Pi}{2} & cos \dfrac{\Pi}{2} & 0 \\
+0 & 0 & 1\end{array}\right) = 
+\left(\begin{array}{ccc}
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+0 & 0 & -1\end{array}\right)$
+
+Hence, transformation matrix is:
+$_{1}^{0}T = \left(\begin{array}{cccc}
+0 & 1 & 0 & 4 \\
+1 & 0 & 0 & 2\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & 1\end{array}\right)$
+
+\item
+$_{2}^1T$
+
+$^2 P_{BORG} = \left(-4, 4, 0\right)$
+
+Rotations:
+\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
+\item Rotation around X by $\dfrac{3\Pi}{4}$ clockwise.
+\item Rotation around Z by $\dfrac{\Pi}{2}$ clockwise.
+\end{list}
+
+The rotation matrix is:
+
+$R=\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & cos -\dfrac{3\Pi}{4} & -sin -\dfrac{3\Pi}{4} \\
+0 & sin -\dfrac{3\Pi}{4} & cos -\dfrac{3\Pi}{4} \end{array}\right)\cdot
+\left(\begin{array}{ccc}
+cos -\dfrac{\Pi}{2} & -sin-\dfrac{\Pi}{2} & 0 \\
+sin -\dfrac{\Pi}{2} & cos -\dfrac{\Pi}{2} & 0\\
+0 & 0 & 1\end{array}\right)=
+\left(\begin{array}{ccc}
+0 & 0 & -1 \\
+-\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 0 \\
+-\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 0\end{array}\right)$
+ 
+Hence, transformation matrix is:
+ 
+$_{2}^1T = \left(\begin{array}{cccc}
+0 & 0 & -1 & -4 \\
+-\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 0 & 4 \\
+-\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 0 & 0\\
+0 & 0 & 0 & 1\end{array}\right)$
+
+\item
+$_{3}^2T$
+
+$^2 P_{BORG} = \left(4, 5\sqrt{2}, \sqrt{2}\right)$
+
+Rotations:
+\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
+\item Rotation around Z by $\dfrac{\Pi}{2}$ clockwise.
+\item Rotation around X by $\dfrac{3 \Pi}{2}$ clockwise.
+\end{list}
+ 
+The rotation matrix is:
+
+$R=\left(\begin{array}{ccc}
+cos -\dfrac{\Pi}{2} & -sin -\dfrac{\Pi}{2} & 0 \\
+sin -\dfrac{\Pi}{2} & cos -\dfrac{\Pi}{2} & 0\\
+0 & 0 & 1\end{array}\right)\cdot 
+\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & cos -\dfrac{3 \Pi}{2} & -sin -\dfrac{3 \Pi}{2}  \\
+0 & sin -\dfrac{3 \Pi}{2} & cos -\dfrac{3 \Pi}{2} \end{array}\right)=
+\left(\begin{array}{ccc}
+0 & -\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} \\
+-1 & 0 & 0 \\
+0 & -\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2}\end{array}\right)$ 
+\end{list}
+
+Hence, transformation matrix is:
+
+$_{2}^{3}T = \left(\begin{array}{cccc}
+0 & -\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 4 \\
+-1 & 0 & 0 & 5\sqrt{2}\\
+0 & -\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & \sqrt{2}\\
+0 & 0 & 0 & 1\end{array}\right)$
+
+\newpage
+
+\textbf{Exercise 4}		
+		
+\textbf{Solution}
+
+\begin{list}{\alph{bcounter})~}{\usecounter{bcounter}}
+\item
+$_{1}^{0}T$
+
+$^0 P_{BORG} = \left(0, 0, -9\right)$.
+
+Rotations:
+
+\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
+\item
+Rotation around Z axis by $\alpha^\circ$ clockwise.
+\end{list}
+
+The rotation matrix is:
+$R=\left(\begin{array}{ccc}
+cos\left(-\alpha\right) & -sin\left(-\alpha\right) & 0 \\
+sin\left(-\alpha\right) & cos\left(-\alpha\right) & 0\\
+0 & 0 & 1\end{array}\right)$
+
+Hence, transformation matrix is:
+
+$_{1}^{0}T = \left(\begin{array}{cccc}
+cos\left(\alpha\right) & sin\left(\alpha\right) & 0 & 0 \\
+-sin\left(\alpha\right) & cos\left(\alpha\right) & 0 & 0\\
+0 & 0 & 1 & -9\\
+0 & 0 & 0 & 1\end{array}\right)$
+
+\item
+$_{2}^{1}T$
+
+$^1 P_{BORG} = \left(0, 0, -3\right)$.
+
+Rotations:
+
+\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
+\item Rotation around X axis by $\alpha^\circ$ clockwise.
+\item Rotation around Y axis by $\dfrac{\Pi}{2}$ clockwise.
+\end{list}
+
+The rotation matrix is:
+$R=\left(\begin{array}{ccc}
+cos\left(-\alpha\right) & -sin\left(-\alpha\right) & 0 \\
+sin\left(-\alpha\right) & cos\left(-\alpha\right) & 0\\
+0 & 0 & 1\end{array}\right)\cdot
+\left(\begin{array}{ccc}
+cos -\dfrac{\Pi}{2} & 0 & sin -\dfrac{\Pi}{2} \\
+0 & 1 & 0\\
+-sin -\dfrac{\Pi}{2} & 0 & cos -\dfrac{\Pi}{2} \end{array}\right) =\left(\begin{array}{ccc}
+0 & sin\left(\alpha\right) & -cos\left(\alpha\right) \\
+0 & cos\left(\alpha\right) & sin\left(\alpha\right)\\
+1 & 0 & 0\end{array}\right)$
+
+Hence, transformation matrix is:
+
+$_{1}^{2}T = \left(\begin{array}{cccc}
+0 & sin\left(\alpha\right)& -cos\left(\alpha\right) & 0\\
+0 & cos\left(\alpha\right) & sin\left(\alpha\right) & 0\\
+1 & 0 & 0 & -3 \\
+0 & 0 & 0 & 1\end{array}\right)$
+
+\end{list}
+
+\newpage
+\textbf{Exercise 5}		
+		
+\textbf{Solution}
+
+\begin{list}{\alph{bcounter})~}{\usecounter{bcounter}}
+\item
+$_{1}^{0}T$
+
+$^0 P_{BORG} = \left(3-3cos\left(\alpha\right), 2, -3sin\left(\alpha\right)\right)$.
+
+Rotations:
+
+\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
+\item Rotation around Z axis by $\alpha^\circ + \dfrac{\Pi}{2}$ clockwise.
+\item Rotation around X axis by $\dfrac{\Pi}{2}$ clockwise.
+\end{list}
+
+The rotation matrix is:
+
+$R=\left(\begin{array}{ccc}
+cos\left(-\left(\alpha+\dfrac{\Pi}{2}\right)\right) & -sin\left(-\left(\alpha+\dfrac{\Pi}{2}\right)\right) & 0 \\
+sin\left(-\left(\alpha+\dfrac{\Pi}{2}\right)\right) & cos\left(-\left(\alpha+\dfrac{\Pi}{2}\right)\right) & 0\\
+0 & 0 & 1\end{array}\right)\cdot 
+\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & cos -\dfrac{\Pi}{2} & -sin -\dfrac{\Pi}{2} \\
+0 & sin -\dfrac{\Pi}{2} & cos -\dfrac{\Pi}{2} \end{array}\right] = 
+\left(\begin{array}{ccc}
+-sin\left(\alpha\right) & 0 & cos\left(\alpha\right)\\
+cos\left(\alpha\right) & 0 & sin\left(\alpha\right)\\
+0 & -1 & 0\end{array}\right)$
+
+Hence, transformation matrix is:
+
+$_{1}^{0}T = \left(\begin{array}{cccc}
+-sin\left(\alpha\right) & 0 & cos\left(\alpha\right) & 3-3cos\left(\alpha\right)\\
+cos\left(\alpha\right) & 0 & sin\left(\alpha\right) & 2\\
+0 & -1 & 0 & -3sin\left(\alpha\right)\end{array}\right)$
+
+\newpage
+
+\item
+$_{2}^{1}T$
+
+$^1 P_{BORG} = \left(0.2, 0, 1\right)$.
+
+Rotations:
+
+\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
+\item Rotation around X axis by $\dfrac{\Pi}{2}$ anti-clockwise.
+
+\end{list}
+
+The rotation matrix is:
+
+$R=
+\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & cos \dfrac{\Pi}{2} & -sin \dfrac{\Pi}{2} \\
+0 & sin \dfrac{\Pi}{2} & cos \dfrac{\Pi}{2} \end{array}\right)
+=
+\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0\end{array}\right)$
+
+Hence, transformation matrix is:
+
+$_{1}^{2}T = \left(\begin{array}{cccc}
+1 & 0 & 0 & 0.2\\
+0 & 0 & -1 & 0\\
+0 & 1 & 0 & 1\\
+0 & 0 & 0 & 1\end{array}\right)$
+
+\end{list}
+
+\medskip
+
+\textbf{List of references}
+
+[1] http://robotics.caltech.edu/~jwb/courses/ME115/handouts/rotation.pdf
+
+\end{document}

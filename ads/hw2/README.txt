@@ -10,3 +10,4 @@ surprising that waiting time was not zero due to the fact of between two tiks
  more then one car can arrive and only one can leave.
   The situation with non-standard parameters order in the input to test parsing
 system
+  The situation when departure is zero.

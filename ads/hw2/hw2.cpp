@@ -66,24 +66,51 @@ void simulate(double arrival, double departure, double runtime, double increment
 
         // all the cars incoming per tic
         for(i = 0; i < border; ++i) {
-            //printf("Car arrived: tic - %lf.\n", current_time);
-            q->enqueue(new Node (current_time));
+            //printf("Car arrived: %lf.\n", current_time);
+
+            if (q->length() == 0 && current_state == TRAFFIC_LIGHT_GREEN) {
+                //printf("Car destroyed: %lf.\n", current_time);
+                departure_counter = 0;
+            } else {
+                q->enqueue(new Node(current_time));
+            }
         }
 
         // cars outcoming per tic
         if (current_state == TRAFFIC_LIGHT_GREEN) {
             // if daprture time passed and queue is not empty
             if (departure_counter * increment / 1000 > departure && q->length() > 0) {
-                // more than one car can leave the crossroad
-                for (j = 0; j < (increment / (departure * 1000)); ++j) {
-                    // if queue is not empty
-                    if (q->length() > 0) {
+                if (departure != 0) {
+                    // more than one car can leave the crossroad
+                    for (j = 0; j < (increment / (departure * 1000)); ++j) {
+                        // if queue is not empty
+                        if (q->length() > 0) {
+                            departure_counter = 0;
+
+                            // variable to handle poped value
+                            Node *car;
+
+                            //printf("Car destroyed: %lf.\n", current_time);
+                            car = q->dequeue();
+
+                            // checking was waiting time reached maximum
+                            if (max_waiting_time < current_time - car->get_arrival_time()) {
+                                max_waiting_time = current_time - car->get_arrival_time();
+                            }
+
+                            avr_waiting_time += current_time - car->get_arrival_time();
+
+                            delete car;
+                        }
+                    }
+                } else {
+                    while (q->length() > 0) {
                         departure_counter = 0;
 
                         // variable to handle poped value
                         Node *car;
 
-                        //printf("Car destroyed: tic - %lf.\n", current_time);
+                        //printf("Car destroyed: %lf.\n", current_time);
                         car = q->dequeue();
 
                         // checking was waiting time reached maximum
