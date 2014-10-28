@@ -17,7 +17,7 @@
 \makeatletter
 \renewcommand{\@oddhead}{%
 \vbox{%
-\hbox to \textwidth{\strut \textit{Introduction to robotics, Assignment 1, Usvyatsov Mikhail} \hfill }
+\hbox to \textwidth{\strut \textit{Introduction to robotics, Assignment 1, Usvyatsov Mikhail, Dmitri Kustersky} \hfill }
 %\hbox to\textwidth{Лист\hfill Страница~\arabic{page}~из 2}
 \hrule
 \vspace{12pt}
@@ -354,38 +354,35 @@ $^2 P_{BORG} = \left(-4, 4, 0\right)$
 
 Rotations:
 \begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
-\item Rotation around X by $\dfrac{\pi}{4}$ clockwise.
-\item Rotation around Z by $\pi$ anti-clockwise.
 \item Rotation around Y by $\dfrac{\pi}{2}$ clockwise.
+\item Rotation around X by $\dfrac{4 \pi}{3}$ anti-clockwise.
 \end{list}
 
 The rotation matrix is:
 
 $R=\left(\begin{array}{ccc}
-1 & 0 & 0 \\
-0 & cos -\dfrac{\pi}{4} & -sin -\dfrac{\pi}{4}  \\
-0 & sin -\dfrac{\pi}{4}  & cos -\dfrac{\pi}{4}\end{array}\right)\cdot
-\left(\begin{array}{ccc}
-cos \pi & -sin \pi & 0 \\
-sin \pi & cos \pi & 0\\
-0 & 0 & 1\end{array}\right)\cdot
-\left(\begin{array}{ccc}
 cos -\dfrac{\pi}{2} & 0 & sin -\dfrac{\pi}{2} \\
 0 & 1 & 0\\
 -sin -\dfrac{\pi}{2} & 0 & cos -\dfrac{\pi}{2} 
-\end{array}\right)=
+\end{array}\right)
+\cdot
 \left(\begin{array}{ccc}
-0 & 0 & 1 \\
-\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 0 \\
-\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 0\end{array}\right)$
- 
+1 & 0 & 0 \\
+0 & cos\left(225\right) & -sin\left(225\right)  \\
+0 & sin\left(225\right) & cos\left(225\right)\end{array}\right)=
+\left(\begin{array}{ccc}
+0 & \dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} \\
+0 & -\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} \\
+1 & 0 & 0\end{array}\right)$
+
 Hence, transformation matrix is:
  
 $_{2}^1T = \left(\begin{array}{cccc}
-0 & 0 & 1 & -4 \\
-\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 0 & 4 \\
-\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 0 & 0\\
-0 & 0 & 0 & 1\end{array}\right)$
+0 & \dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & -4 \\
+0 & -\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} &  4 \\
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1\\
+\end{array}\right)$
 
 \item
 $_{3}^2T$
@@ -409,17 +406,17 @@ sin -\dfrac{\Pi}{2} & cos -\dfrac{\Pi}{2} & 0\\
 0 & cos -\dfrac{3 \Pi}{2} & -sin -\dfrac{3 \Pi}{2}  \\
 0 & sin -\dfrac{3 \Pi}{2} & cos -\dfrac{3 \Pi}{2} \end{array}\right)=
 \left(\begin{array}{ccc}
-0 & - \dfrac{\sqrt{2}}{2} & - \dfrac{\sqrt{2}}{2} \\
+0 & - \dfrac{\sqrt{2}}{2} &  \dfrac{\sqrt{2}}{2} \\
 -1 & 0 & 0 \\
-0 & \dfrac{\sqrt{2}}{2} & - \dfrac{\sqrt{2}}{2}\end{array}\right)$ 
+0 & - \dfrac{\sqrt{2}}{2} & - \dfrac{\sqrt{2}}{2}\end{array}\right)$ 
 \end{list}
 
 Hence, transformation matrix is:
 
 $_{2}^{3}T = \left(\begin{array}{cccc}
-0 & - \dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 4 \\
+0 & - \dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 4 \\
 -1 & 0 & 0 & 5\sqrt{2}\\
-0 & \dfrac{\sqrt{2}}{2} & - \dfrac{\sqrt{2}}{2} & \sqrt{2}\\
+0 & - \dfrac{\sqrt{2}}{2} & - \dfrac{\sqrt{2}}{2} & \sqrt{2}\\
 0 & 0 & 0 & 1\end{array}\right)$
 
 \newpage
