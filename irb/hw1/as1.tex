@@ -323,7 +323,7 @@ Rotations:
 \newcounter{ccounter}
 \begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
 \item Rotation around Y axis by $\Pi$ anti-clockwise.
-\item Rotation around Z axis by $\dfrac{\Pi}{2}$ anti-clockwise.
+\item Rotation around Z axis by $\dfrac{\Pi}{2}$ clockwise.
 \end{list}
 
 The rotation matrix is:
@@ -332,18 +332,18 @@ cos \Pi & 0 & sin \Pi \\
 0 & 1 & 0 \\
 -sin \Pi & 0 & cos \Pi \end{array}\right) \cdot 
 \left(\begin{array}{ccc}
-cos \dfrac{\Pi}{2} & -sin \dfrac{\Pi}{2} & 0 \\
-sin \dfrac{\Pi}{2} & cos \dfrac{\Pi}{2} & 0 \\
+cos - \dfrac{\Pi}{2} & -sin - \dfrac{\Pi}{2} & 0 \\
+sin - \dfrac{\Pi}{2} & cos - \dfrac{\Pi}{2} & 0 \\
 0 & 0 & 1\end{array}\right) = 
 \left(\begin{array}{ccc}
-0 & 1 & 0 \\
-1 & 0 & 0 \\
+0 & -1 & 0 \\
+-1 & 0 & 0 \\
 0 & 0 & -1\end{array}\right)$
 
 Hence, transformation matrix is:
 $_{1}^{0}T = \left(\begin{array}{cccc}
-0 & 1 & 0 & 4 \\
-1 & 0 & 0 & 2\\
+0 & -1 & 0 & 4 \\
+-1 & 0 & 0 & 2\\
 0 & 0 & -1 & 0\\
 0 & 0 & 0 & 1\end{array}\right)$
 
@@ -354,31 +354,37 @@ $^2 P_{BORG} = \left(-4, 4, 0\right)$
 
 Rotations:
 \begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
-\item Rotation around X by $\dfrac{3\Pi}{4}$ clockwise.
-\item Rotation around Z by $\dfrac{\Pi}{2}$ clockwise.
+\item Rotation around X by $\dfrac{\pi}{4}$ clockwise.
+\item Rotation around Z by $\pi$ anti-clockwise.
+\item Rotation around Y by $\dfrac{\pi}{2}$ clockwise.
 \end{list}
 
 The rotation matrix is:
 
 $R=\left(\begin{array}{ccc}
 1 & 0 & 0 \\
-0 & cos -\dfrac{3\Pi}{4} & -sin -\dfrac{3\Pi}{4} \\
-0 & sin -\dfrac{3\Pi}{4} & cos -\dfrac{3\Pi}{4} \end{array}\right)\cdot
+0 & cos -\dfrac{\pi}{4} & -sin -\dfrac{\pi}{4}  \\
+0 & sin -\dfrac{\pi}{4}  & cos -\dfrac{\pi}{4}\end{array}\right)\cdot
 \left(\begin{array}{ccc}
-cos -\dfrac{\Pi}{2} & -sin-\dfrac{\Pi}{2} & 0 \\
-sin -\dfrac{\Pi}{2} & cos -\dfrac{\Pi}{2} & 0\\
-0 & 0 & 1\end{array}\right)=
+cos \pi & -sin \pi & 0 \\
+sin \pi & cos \pi & 0\\
+0 & 0 & 1\end{array}\right)\cdot
 \left(\begin{array}{ccc}
-0 & 0 & -1 \\
--\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 0 \\
--\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 0\end{array}\right)$
+cos -\dfrac{\pi}{2} & 0 & sin -\dfrac{\pi}{2} \\
+0 & 1 & 0\\
+-sin -\dfrac{\pi}{2} & 0 & cos -\dfrac{\pi}{2} 
+\end{array}\right)=
+\left(\begin{array}{ccc}
+0 & 0 & 1 \\
+\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 0 \\
+\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 0\end{array}\right)$
  
 Hence, transformation matrix is:
  
 $_{2}^1T = \left(\begin{array}{cccc}
-0 & 0 & -1 & -4 \\
--\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 0 & 4 \\
--\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 0 & 0\\
+0 & 0 & 1 & -4 \\
+\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 0 & 4 \\
+\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 0 & 0\\
 0 & 0 & 0 & 1\end{array}\right)$
 
 \item
@@ -403,17 +409,17 @@ sin -\dfrac{\Pi}{2} & cos -\dfrac{\Pi}{2} & 0\\
 0 & cos -\dfrac{3 \Pi}{2} & -sin -\dfrac{3 \Pi}{2}  \\
 0 & sin -\dfrac{3 \Pi}{2} & cos -\dfrac{3 \Pi}{2} \end{array}\right)=
 \left(\begin{array}{ccc}
-0 & -\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} \\
+0 & - \dfrac{\sqrt{2}}{2} & - \dfrac{\sqrt{2}}{2} \\
 -1 & 0 & 0 \\
-0 & -\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2}\end{array}\right)$ 
+0 & \dfrac{\sqrt{2}}{2} & - \dfrac{\sqrt{2}}{2}\end{array}\right)$ 
 \end{list}
 
 Hence, transformation matrix is:
 
 $_{2}^{3}T = \left(\begin{array}{cccc}
-0 & -\dfrac{\sqrt{2}}{2} & \dfrac{\sqrt{2}}{2} & 4 \\
+0 & - \dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & 4 \\
 -1 & 0 & 0 & 5\sqrt{2}\\
-0 & -\dfrac{\sqrt{2}}{2} & -\dfrac{\sqrt{2}}{2} & \sqrt{2}\\
+0 & \dfrac{\sqrt{2}}{2} & - \dfrac{\sqrt{2}}{2} & \sqrt{2}\\
 0 & 0 & 0 & 1\end{array}\right)$
 
 \newpage
@@ -514,15 +520,16 @@ sin\left(-\left(\alpha+\dfrac{\Pi}{2}\right)\right) & cos\left(-\left(\alpha+\df
 0 & sin -\dfrac{\Pi}{2} & cos -\dfrac{\Pi}{2} \end{array}\right] = 
 \left(\begin{array}{ccc}
 -sin\left(\alpha\right) & 0 & cos\left(\alpha\right)\\
-cos\left(\alpha\right) & 0 & sin\left(\alpha\right)\\
+- cos\left(\alpha\right) & 0 & -sin\left(\alpha\right)\\
 0 & -1 & 0\end{array}\right)$
 
 Hence, transformation matrix is:
 
 $_{1}^{0}T = \left(\begin{array}{cccc}
 -sin\left(\alpha\right) & 0 & cos\left(\alpha\right) & 3-3cos\left(\alpha\right)\\
-cos\left(\alpha\right) & 0 & sin\left(\alpha\right) & 2\\
-0 & -1 & 0 & -3sin\left(\alpha\right)\end{array}\right)$
+- cos\left(\alpha\right) & 0 & - sin\left(\alpha\right) & 2\\
+0 & -1 & 0 & -3sin\left(\alpha\right)\\
+0 & 0 & 0 & 1 \end{array}\right)$
 
 \newpage
 
@@ -553,7 +560,7 @@ $R=
 
 Hence, transformation matrix is:
 
-$_{1}^{2}T = \left(\begin{array}{cccc}
+$_{2}^{1}T = \left(\begin{array}{cccc}
 1 & 0 & 0 & 0.2\\
 0 & 0 & -1 & 0\\
 0 & 1 & 0 & 1\\
