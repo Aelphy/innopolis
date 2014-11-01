@@ -17,7 +17,7 @@
 \makeatletter
 \renewcommand{\@oddhead}{%
 \vbox{%
-\hbox to \textwidth{\strut \textit{Introduction to robotics, Assignment 1, Usvyatsov Mikhail, Dmitri Kustersky} \hfill }
+\hbox to \textwidth{\strut \textit{Introduction to robotics, Assignment 1, Markeeva Larisa, Usvyatsov Mikhail, Kustersky Dmitri} \hfill }
 %\hbox to\textwidth{Лист\hfill Страница~\arabic{page}~из 2}
 \hrule
 \vspace{12pt}
@@ -313,6 +313,8 @@ $^AP=\left(\begin{array}{c}
 
 \medskip
 
+\newpage
+
 \begin{list}{\alph{bcounter})~}{\usecounter{bcounter}}
 \item
 $_{1}^{0}T$
@@ -391,8 +393,7 @@ $_{3}^2T$
 $^2 P_{BORG} = \left(4, 5\sqrt{2}, \sqrt{2}\right)$
 
 Rotations:
-\newcounter{mcounter}
-\begin{list}{\arabic{mcounter})~}{\usecounter{mcounter}}
+\begin{list}{\arabic{ccounter})~}{\usecounter{ccounter}}
 \item Rotation around X by $\dfrac{3\pi}{4}$ anti-clockwise.
 \item Rotation around Z by $\dfrac{\pi}{2}$ anti-clockwise.
 \end{list}
@@ -423,11 +424,13 @@ $_{3}^{2}T = \left(\begin{array}{cccc}
 \dfrac{\sqrt{2}}{2} & 0 &  -\dfrac{\sqrt{2}}{2} & \sqrt{2}\\
 0 & 0 & 0 & 1\end{array}\right)$
 
-\newpage
+\medskip
 
 \textbf{Exercise 4}		
 		
 \textbf{Solution}
+
+\newpage
 
 \begin{list}{\alph{bcounter})~}{\usecounter{bcounter}}
 \item
@@ -459,7 +462,7 @@ sin\left(\alpha\right) & cos\left(\alpha\right) & 0 & 0\\
 \item
 $_{2}^{1}T$
 
-$^1 P_{BORG} = \left(3, \sqrt{18 cos(\alpha) - 18}, 0\right)$.
+$^1 P_{BORG} = \left(3, \sqrt{- 18 cos(\alpha) + 18}, 0\right)$.
 
 Rotations:
 
@@ -485,7 +488,7 @@ Hence, transformation matrix is:
 
 $_{2}^{1}T = \left(\begin{array}{cccc}
 0 & sin\left(\alpha\right)& cos\left(\alpha\right) & -6\\
-0 & cos\left(\alpha\right) & -sin\left(\alpha\right) & \sqrt{18 cos(\alpha) - 18} \\
+0 & cos\left(\alpha\right) & -sin\left(\alpha\right) & \sqrt{- 18 cos(\alpha) + 18} \\
 -1 & 0 & 0 & 0 \\
 0 & 0 & 0 & 1\end{array}\right)$
 
@@ -495,6 +498,8 @@ $_{2}^{1}T = \left(\begin{array}{cccc}
 \textbf{Exercise 5}		
 		
 \textbf{Solution}
+
+\newpage
 
 \begin{list}{\alph{bcounter})~}{\usecounter{bcounter}}
 \item
