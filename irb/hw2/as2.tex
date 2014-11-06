@@ -1,0 +1,317 @@
+\documentclass[8pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\textwidth=431pt
+\textheight=600pt
+\hoffset=-15pt
+\voffset=-15pt
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\makeatletter
+\renewcommand{\@oddhead}{%
+\vbox{%
+\hbox to \textwidth{\strut \textit{Introduction to robotics, Assignment 2, Markeeva Larisa, Usvyatsov Mikhail} \hfill }
+%\hbox to\textwidth{Лист\hfill Страница~\arabic{page}~из 2}
+\hrule
+\vspace{12pt}
+}}
+\renewcommand{\@oddfoot}{}
+\makeatother
+
+\begin{document}
+
+%\tableofcontents
+
+%\newpage
+
+\begin{center}
+\textbf{Assignment 1;\\
+due Friday November 7}
+\end{center}
+
+\textbf{Part 1}	
+
+\bigskip
+	
+\textbf{Exercise 1}		
+		
+\textbf{Solution}
+
+\medskip
+
+The system is the closed kinematic chain.
+
+\newcounter{bcounter}
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item False
+\item False
+\item False
+\item True.
+\end{list}
+
+\textbf{Exercise 2}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item FALSE. SCARA robots can consist only of 4 rotational axes
+\item TRUE. 3 rotational axes can give us 3 DoF. The forth one cannot add one more.
+\item FALSE. The Chebyshev linkage has 4 rotational joints and only one DoF. 
+\item FALSE. The explanation is like in previous example.
+\end{list}
+
+\textbf{Exercise 3}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item
+TRUE. By definition.
+\item
+FALSE. By definition.
+\item
+FALSE. Because of b)
+\item
+FALSE. Because of a)
+\end{list}
+
+\textbf{Exercise 4}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item
+FALSE. We can choose coordinates frames in the end effector.
+\item
+TRUE. We can choose coordinates frames in the end effector, so it could be many matrices. If there is only one base frame there is only one DH matrix.
+\item
+FALSE. Because we can change direction of X and Z axes. However, multiplication of all DH matrices will give us translation from base frame to the frame in the end effector and it will be unique.
+\item
+TRUE. The same explanation as in b)
+\end{list}
+
+\textbf{Part 2}	
+
+\bigskip
+
+\textbf{Exercise 1}		
+		
+\textbf{Solution}
+
+\medskip
+
+DH :
+$ \begin{array}{ccccc}
+& a_{i-1} & \alpha_{i-1} & d_i & \theta_i \\
+1 & 0 & 0 & 0 & \theta_1 \\
+2 & 0.3 & \dfrac{\pi}{2} & 0 & \theta_2 \\
+3 & 1 & 0 & 0 & \theta_3 \\
+4 & 0.2 & - \dfrac{\pi}{2} & 0 & \theta_4 \\
+5 & 1.5 & 0 & 0 & \theta_5 \\
+6 & 0 & \dfrac{\pi}{2} & 0 & \theta_6
+\end{array} $
+
+$^0_1T = \left( \begin{array}{cccc}
+cos(\theta_1) & -sin(\theta_1) & 0 & 0 \\
+sin(\theta_1) & cos(\theta_1) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^1_2T = \left( \begin{array}{cccc}
+cos(\theta_2) & -sin(\theta_2) & 0 & 15 \\
+0 & 0 & 1 & 0 \\
+-sin(\theta_2) & -cos(\theta_2) & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^2_3T = \left( \begin{array}{cccc}
+1 & 0 & 0 & 20 \\
+0 & 1 & 0 & 0 \\
+0& 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^0_3T = \ ^0_1T ^1_2T ^2_3T = \left( \begin{array}{cccc}
+cos(\theta_1) cos(\theta_2) & -cos(\theta_1) sin(\theta_2) & -sin(\theta_1) & 20cos(\theta_1) cos(\theta_2) + 15 sin(\theta_1) \\
+sin(\theta_1) cos(\theta_2) & - sin(\theta_1) sin(\theta_2) & cos(\theta_1) & 20 sin(\theta_1) cos(\theta_2) + 15 sin(\theta_1) \\
+-sin(\theta_2) & -cos(\theta_2) & 0 & -20 sin(\theta_2) \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+\textbf{Exercise 2}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item
+DH :
+$ \begin{array}{ccccc}
+& a_{i-1} & \alpha_{i-1} & d_i & \theta_i \\
+1& 0 & 0 & 0 & \theta_1 \\
+2& 0.3 & \dfrac{\pi}{2} & 0 & \theta_2 \\
+3& 1 & 0 & 0 & \theta_3 \\
+4& 0.2 & - \dfrac{\pi}{2} & 0 & \theta_4 \\
+5& 1.5 & 0 & 0 & \theta_5 \\
+6& 0 & \dfrac{\pi}{2} & 0 & \theta_6
+\end{array} $
+
+$^0_1T = \left( \begin{array}{cccc}
+cos(\theta_1) & -sin(\theta_1) & 0 & 0 \\
+sin(\theta_1) & cos(\theta_1) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^1_2T = \left( \begin{array}{cccc}
+cos(\theta_2) & -sin(\theta_2) & 0 & 0.3 \\
+0 & 0 & -1 & 0 \\
+sin(\theta_2) & cos(\theta_2) & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^2_3T = \left( \begin{array}{cccc}
+cos(\theta_3) & -sin(\theta_3) & 0 & 1 \\
+sin(\theta_3) & cos(\theta_3) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^3_4T = \left( \begin{array}{cccc}
+cos(\theta_4) & -sin(\theta_4) & 0 & 0.2 \\
+0 & 0 & 1 & 0 \\
+-sin(\theta_4) & -cos(\theta_4) & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^4_5T = \left( \begin{array}{cccc}
+cos(\theta_5) & -sin(\theta_5) & 0 & 1.5 \\
+sin(\theta_5) & cos(\theta_5) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^5_6T = \left( \begin{array}{cccc}
+cos(\theta_6) & -sin(\theta_6) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+sin(\theta_6) & cos(\theta_6) & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^0_6T = \ ^0_1T ^1_2T ^2_3T ^3_4T ^4_5T ^5_6T =$
+
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+$ \left( 
+\scalemath{0.38}{
+\begin{array}{cccc}
+- C_6 S_1 S_{4,5} + C_1 (C_{2,3} C_{4,5} C_6 - S_{2,3} S_6) & S_1 S_{4,5} S_6 - 
+ C_1 (C_6 S_{2,3} + C_{2,3} C_{4,5} S_6) & -C_4 (C_5 S_1 + C_1 C_{2,3} S_5) + 
+ S_4 (-C_1 C_{2,3} C_5 + S_1 S_5) & \dfrac{1}{10} (C_1 (3 + 2 C_{2,3} + 5 C_2 (2 + 3 C_3 C_4) - 
+      15 C_4 S_2 S_3) - 15 S_1 S_4) \\
+C_6 (C_5 (C_2 C_3 C_4 S_1 - 
+       C_4 S_1 S_2 S_3 + 
+       C_1 S_4) + (C_1 C_4 - 
+       C_{2,3} S_1 S_4) S_5) - 
+ S_1 S_{2,3} S_6 & -C_6 S_1 S_{2,3} - (C_5 (C_2 C_3 C_4 S_1 - 
+       C_4 S_1 S_2 S_3 + 
+       C_1 S_4) + (C_1 C_4 - 
+       C_{2,3} S_1 S_4) S_5) S_6 & C_1 C_{4,5} - C_{2,3} S_1 S_{4,5} & \dfrac{1}{10} (S_1 (3 + 2 C_{2,3} + 5 C_2 (2 + 3 C_3 C_4) - 
+      15 C_4 S_2 S_3) + 15 C_1 S_4) \\
+ C_{4,5} C_{6} S_{2,3} + C_{2,3} S_6 & C_{2,3} C_6 - C_{4,5} S_{2,3} S_6 & -S_{2,3} S_{4,5} & S_2 + \dfrac{1}{10} (2 + 15 C_4) S_{2,3} \\
+ 0 & 0 & 0 & 1
+\end{array}
+}
+ \right) $
+
+\item
+
+$^0_6T_1 = \left( \begin{array}{cccc}
+0.1908 & -0.0065 & 0.9816 & 1.586 \\
+-0.9816  & 0 & 0.1908 & -1.4724 \\
+0.0012  & 1 & 0.0064 & 0.6034 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^0_6T_2 = \left( \begin{array}{cccc}
+-0.0678 & 0.8783 &  -0.4733 & -0.2295 \\
+ 0.2145 & 0.4761 & 0.8528 & 0.7092 \\
+-0.9744  & 0.0437 & 0.2206 & -1.5369 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^0_6T_3 = \left( \begin{array}{cccc}
+-0.7272 & -0.1891 &  -0.6599 & -0.3338 \\
+-0.6850 & 0.1387 & 0.7152 & 0.8347 \\
+0.0437 & -0.9721 & 0.2304 & 0.4429 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+$^0_6T_4 = \left( \begin{array}{cccc}
+0.7857  & -0.2540  & -0.5641 &  -1.6624 \\
+0.6163  &  0.2430  &  0.7491 &  0.2349 \\
+0.0532  &  0.9362  &  -0.3475&  0.2124 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+    
+$^0_6T_5 = \left( \begin{array}{cccc}
+  0.4057  &  0.3911 &  -0.8261 &  -0.1587 \\
+ -0.5013  & -0.6606 &  -0.5589 &  1.8721 \\
+ 0.7643   & -0.6408 &  0.0719  & 0.9183 \\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
+\newpage
+
+\textbf{Exercise 3}		
+		
+\textbf{Solution}
+
+
+
+\newpage
+
+\textbf{Exercise 4}		
+		
+\textbf{Solution}
+
+DH :
+$ \begin{array}{ccccc}
+& a_{i-1} & \alpha_{i-1} & d_i & 0\\
+1 & 0 & 0 & d_1 & 0 \\
+2 & 0 & -\dfrac{\pi}{2} & d_2 & 0 \\
+3 & 0 & 0 & -d_2 & \theta_3
+\end{array} $
+
+\textbf{Exercise 5}		
+		
+\textbf{Solution}
+
+DH :
+$ \begin{array}{ccccc}
+& a_{i-1} & \alpha_{i-1} & d_i & 0\\
+1 & 0 & 0 & 0 & \theta_1 \\
+2 & 0 & -\dfrac{\pi}{2} & L_1 & \theta_2 \\
+3 & 0 & -\dfrac{\pi}{2} & d_1 & 0
+\end{array} $
+
+\medskip
+
+\end{list}
+
+\end{document}
