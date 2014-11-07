@@ -113,13 +113,19 @@ FALSE. The same explanation as in c)
 
 \medskip
 
-DH :
-$ \begin{array}{ccccc}
-&a_{i-1} & \alpha_{i-1} & d_i & \theta_i \\
+DH : 
+$ \begin{array}{|c|c|c|c|c|}
+\hline
+\ &a_{i-1} & \alpha_{i-1} & d_i & \theta_i \\
+\hline
 1&0 & 0 & 0 & \theta_1 \\
+\hline
 2&0 & - \dfrac{\pi}{2} & 0 & \theta_2 \\
-3&20 & 0 & 0 & 0
+\hline
+3&20 & 0 & 0 & 0\\
+\hline
 \end{array} $
+\\
 
 $^0_1T = \left( \begin{array}{cccc}
 cos(\theta_1) & -sin(\theta_1) & 0 & 0 \\
@@ -158,14 +164,22 @@ sin(\theta_1) cos(\theta_2) & - sin(\theta_1) sin(\theta_2) & cos(\theta_1) & 20
 \begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
 \item
 DH :
-$ \begin{array}{ccccc}
+$ \begin{array}{|c|c|c|c|c|}
+\hline
 & a_{i-1} & \alpha_{i-1} & d_i & \theta_i \\
+\hline
 1& 0 & 0 & 0 & \theta_1 \\
-2& 0.3 & \dfrac{\pi}{2} & 0 & \theta_2 \\
+\hline
+2& -0.3 & -\dfrac{\pi}{2} & 0 & \theta_2 \\
+\hline
 3& 1 & 0 & 0 & \theta_3 \\
-4& 0.2 & - \dfrac{\pi}{2} & 0 & \theta_4 \\
+\hline
+4& 0 & \dfrac{\pi}{2} & 0.2 & \theta_4 \\
+\hline
 5& 1.5 & 0 & 0 & \theta_5 \\
-6& 0 & \dfrac{\pi}{2} & 0 & \theta_6
+\hline
+6& 0 & -\dfrac{\pi}{2} & 0 & \theta_6\\
+\hline
 \end{array} $
 
 $^0_1T = \left( \begin{array}{cccc}
@@ -176,9 +190,9 @@ sin(\theta_1) & cos(\theta_1) & 0 & 0 \\
 \end{array} \right) $
 
 $^1_2T = \left( \begin{array}{cccc}
-cos(\theta_2) & -sin(\theta_2) & 0 & 0.3 \\
-0 & 0 & -1 & 0 \\
-sin(\theta_2) & cos(\theta_2) & 0 & 0 \\
+cos(\theta_2) & -sin(\theta_2) & 0 & -0.3 \\
+0 & 0 & 1 & 0 \\
+-sin(\theta_2) & -cos(\theta_2) & 0 & 0 \\
 0 & 0 & 0 & 1
 \end{array} \right) $
 
@@ -190,9 +204,9 @@ sin(\theta_3) & cos(\theta_3) & 0 & 0 \\
 \end{array} \right) $
 
 $^3_4T = \left( \begin{array}{cccc}
-cos(\theta_4) & -sin(\theta_4) & 0 & 0.2 \\
-0 & 0 & 1 & 0 \\
--sin(\theta_4) & -cos(\theta_4) & 0 & 0 \\
+cos(\theta_4) & -sin(\theta_4) & 0 & 0 \\
+0 & 0 & -1 & -0.2 \\
+sin(\theta_4) & cos(\theta_4) & 0 & 0 \\
 0 & 0 & 0 & 1
 \end{array} \right) $
 
@@ -205,8 +219,8 @@ sin(\theta_5) & cos(\theta_5) & 0 & 0 \\
 
 $^5_6T = \left( \begin{array}{cccc}
 cos(\theta_6) & -sin(\theta_6) & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-sin(\theta_6) & cos(\theta_6) & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+-sin(\theta_6) & -cos(\theta_6) & 0 & 0 \\
 0 & 0 & 0 & 1
 \end{array} \right) $
 
@@ -217,20 +231,19 @@ $^0_6T = \ ^0_1T ^1_2T ^2_3T ^3_4T ^4_5T ^5_6T =$
 $ \left( 
 \scalemath{0.38}{
 \begin{array}{cccc}
-- C_6 S_1 S_{4,5} + C_1 (C_{2,3} C_{4,5} C_6 - S_{2,3} S_6) & S_1 S_{4,5} S_6 - 
- C_1 (C_6 S_{2,3} + C_{2,3} C_{4,5} S_6) & -C_4 (C_5 S_1 + C_1 C_{2,3} S_5) + 
- S_4 (-C_1 C_{2,3} C_5 + S_1 S_5) & \dfrac{1}{10} (C_1 (3 + 2 C_{2,3} + 5 C_2 (2 + 3 C_3 C_4) - 
-      15 C_4 S_2 S_3) - 15 S_1 S_4) \\
-C_6 (C_5 (C_2 C_3 C_4 S_1 - 
-       C_4 S_1 S_2 S_3 + 
-       C_1 S_4) + (C_1 C_4 - 
-       C_{2,3} S_1 S_4) S_5) - 
- S_1 S_{2,3} S_6 & -C_6 S_1 S_{2,3} - (C_5 (C_2 C_3 C_4 S_1 - 
-       C_4 S_1 S_2 S_3 + 
-       C_1 S_4) + (C_1 C_4 - 
-       C_{2,3} S_1 S_4) S_5) S_6 & C_1 C_{4,5} - C_{2,3} S_1 S_{4,5} & \dfrac{1}{10} (S_1 (3 + 2 C_{2,3} + 5 C_2 (2 + 3 C_3 C_4) - 
-      15 C_4 S_2 S_3) + 15 C_1 S_4) \\
- C_{4,5} C_{6} S_{2,3} + C_{2,3} S_6 & C_{2,3} C_6 - C_{4,5} S_{2,3} S_6 & -S_{2,3} S_{4,5} & S_2 + \dfrac{1}{10} (2 + 15 C_4) S_{2,3} \\
+-C_6 S_1 S_{4, 5} + C_1 (C_{2, 3} C_{4, 5} C_6 - S_{2,3} S_6)
+&S_1 S_{4, 5} S_6 -  C_1 (C_6 S_{2,3} +  C_{2, 3} C_{4, 5} S_6)
+&C_4 (C_5 S_1 + C_1 C_{2, 3} S_5) +  S_4 (C_1 C_{2, 3} C_5 - S_1 S_5)
+&\dfrac{1}{20} (C_1 (-6 + 20 C_2 + 15 C_{\theta_2 + \theta_3 - \theta_4} +  15 C_{2, 3, 4} + 4 S_{2, 3}) - 30 S_1 S_4) \\
+C_6 (C_5 (C_2 C_3 C_4 S_1 - C_4 S_1 S_2 S_3 + C_1 S_4) + (C_1 C_4 - C_{2, 3} S_1 S_4) S_5) - S_1 S_{2,3} S_6 &
+-C_6 S_1 S_{2, 3} - (C_5 (C_2 C_3 C_4 S_1 - C_4 S_1 S_2 S_3 + C_1 S_4) + (C_1 C_4 - C_{2,3} S_1 S_4) S_5) S_6&
+-C_1 C_{4, 5} + C_{2, 3} S_1 S_{4, 5}&
+\dfrac{1}{20} (S_1 (-6 + 20 C_2 + 15 C_{\theta_2 + \theta_3 - \theta_4} + 15 C_{2, 3, 4} + 4 S_{2, 3}) +  30 C_1 S_4)\\
+C_{4, 5} C_6 S_{2, 3} -  C_{2, 3} S_6 & 
+-C_{2, 3} C_6 +  C_{4, 5} S_{2, 3} S_6 & 
+-S_{2, 3} S_{4, 5}&
+\dfrac{1}{5} C_{2, 3} + \dfrac{1}{2} (-(2 + 3 C_3 C_4) S_2 - 
+3 C_2 C_4 S_3) \\
  0 & 0 & 0 & 1
 \end{array}
 }
@@ -239,38 +252,38 @@ C_6 (C_5 (C_2 C_3 C_4 S_1 -
 \item
 
 $^0_6T_1 = \left( \begin{array}{cccc}
-0.1908 & -0.0065 & 0.9816 & 1.586 \\
--0.9816  & 0 & 0.1908 & -1.4724 \\
-0.0012  & 1 & 0.0064 & 0.6034 \\
+0.1908 & -0.0065 & -0.9816 & 0.7873\\
+-0.9816 & 0 & -0.1908 & -1.4724\\
+-0.0012 & -1.0000 & 0.0064 & -0.4021\\
 0 & 0 & 0 & 1
 \end{array} \right) $
 
 $^0_6T_2 = \left( \begin{array}{cccc}
--0.0678 & 0.8783 &  -0.4733 & -0.2295 \\
- 0.2145 & 0.4761 & 0.8528 & 0.7092 \\
--0.9744  & 0.0437 & 0.2206 & -1.5369 \\
+-0.0678 & 0.8783 &  0.4733 & -0.6718\\
+0.2145 & 0.4761 & -0.8528 & 0.3326\\
+0.9744 & -0.0437 & 0.2206 & 1.8191\\
 0 & 0 & 0 & 1
 \end{array} \right) $
 
 $^0_6T_3 = \left( \begin{array}{cccc}
--0.7272 & -0.1891 &  -0.6599 & -0.3338 \\
--0.6850 & 0.1387 & 0.7152 & 0.8347 \\
-0.0437 & -0.9721 & 0.2304 & 0.4429 \\
-0 & 0 & 0 & 1
+-0.7272&-0.1891&0.6599&-0.6273\\
+-0.6850&0.1387&-0.7152&0.5648\\
+-0.0437&0.9721&0.2304&-0.2442\\
+0&0&0&1
 \end{array} \right) $
 
 $^0_6T_4 = \left( \begin{array}{cccc}
-0.7857  & -0.2540  & -0.5641 &  -1.6624 \\
-0.6163  &  0.2430  &  0.7491 &  0.2349 \\
-0.0532  &  0.9362  &  -0.3475&  0.2124 \\
-0 & 0 & 0 & 1
+0.7857&-0.2540&0.5641&-1.2800\\
+0.6163&0.2430&-0.7491&0.7469\\
+-0.0532&-0.9362&-0.3475&-0.4925\\
+0&0&0&1
 \end{array} \right) $
     
 $^0_6T_5 = \left( \begin{array}{cccc}
-  0.4057  &  0.3911 &  -0.8261 &  -0.1587 \\
- -0.5013  & -0.6606 &  -0.5589 &  1.8721 \\
- 0.7643   & -0.6408 &  0.0719  & 0.9183 \\
-0 & 0 & 0 & 1
+0.4057&0.3911&0.8261&-0.7269\\
+-0.5013&-0.6606&0.5589&1.2890\\
+-0.7643&0.6408&0.0719&-0.7336\\
+0&0&0&1
 \end{array} \right) $
 
 \newpage
@@ -288,24 +301,102 @@ $^0_6T_5 = \left( \begin{array}{cccc}
 \textbf{Solution}
 
 DH :
-$ \begin{array}{ccccc}
-& a_{i-1} & \alpha_{i-1} & d_i & 0\\
+$ \begin{array}{|c|c|c|c|c|}
+\hline
+& a_{i-1} & \alpha_{i-1} & d_i & \theta_i\\
+\hline
 1 & 0 & 0 & d_1 & 0 \\
+\hline
 2 & 0 & -\dfrac{\pi}{2} & d_2 & 0 \\
-3 & 0 & 0 & -d_2 & \theta_3
+\hline
+3 & 0 & 0 & -d_2 & \theta_3\\
+\hline
 \end{array} $
+
+
+$^0_1T = \left( \begin{array}{cccc}
+1&0&0&0\\
+0&1&0&0\\
+0 & 0 & 1 & d_1\\
+0&0&0&1
+\end{array} \right) $
+
+$^1_2T = \left( \begin{array}{cccc}
+1&0&0&0\\
+0&0&1&d_2\\
+0& -1 & 0 & 0\\
+0&0&0&1
+\end{array} \right) $
+
+$^2_3T = \left( \begin{array}{cccc}
+cos\theta_3& -sin\theta_3 &0&0\\
+sin\theta_3&cos\theta_3&0&0\\
+0 & 0 & 1 & -d_2\\
+0&0&0&1
+\end{array} \right) $
+
+$^0_3T = \left( \begin{array}{cccc}
+cos\theta_3 & -sin\theta_3 &0&0\\
+0&0&1&0\\
+-sin\theta_3  & -cos\theta_3 & 0 & d_1\\
+0&0&0&1
+\end{array} \right) $
 
 \textbf{Exercise 5}		
 		
 \textbf{Solution}
 
 DH :
-$ \begin{array}{ccccc}
-& a_{i-1} & \alpha_{i-1} & d_i & 0\\
+$ \begin{array}{|c|c|c|c|c|}
+\hline
+& a_{i-1} & \alpha_{i-1} & d_i & \theta_i \\
+\hline
 1 & 0 & 0 & 0 & \theta_1 \\
-2 & 0 & -\dfrac{\pi}{2} & L_1 & \theta_2 \\
-3 & 0 & -\dfrac{\pi}{2} & d_1 & 0
+\hline
+2 & 0 & -\dfrac{\pi}{2} & -L_1 & \theta_2 \\
+\hline
+3 & 0 & 0 & 0 & 0\\
+\hline
+4 & 0 & 0 & d_2 & 0\\
+\hline
 \end{array} $
+
+
+$^0_1T = \left( \begin{array}{cccc}
+cos\theta_1&-sin\theta_1&0&0\\
+sin\theta_1&cos\theta_1&0&0\\
+0 & 0 & 1 & 0\\
+0&0&0&1
+\end{array} \right) $
+
+$^1_2T = \left( \begin{array}{cccc}
+cos\theta_2&-sin\theta_2&0&0\\
+0&0&1&-L_1\\
+sin\theta_2 & cos\theta_2 & 0 & 0\\
+0&0&0&1
+\end{array} \right) $
+
+$^2_3T = \left( \begin{array}{cccc}
+1 & 0 &0&0\\
+0&1&0&0\\
+0 & 0 & 1 & 0\\
+0&0&0&1
+\end{array} \right) $
+
+$^3_4T = \left( \begin{array}{cccc}
+1 & 0 &0&0\\
+0&1&0&0\\
+0 & 0 & 1 & d_2\\
+0&0&0&1
+\end{array} \right) $
+
+$^0_4T = \left( \begin{array}{cccc}
+cos(\theta_1)cos(\theta_2)& -cos(\theta_1)sin(\theta_2)& -sin(\theta_1)& -sin(\theta_1)(L_1 + d_2)\\
+ cos(\theta_2)sin(\theta_1)& -sin(\theta_1)sin(\theta_2)&  cos(\theta_1)&  cos(\theta_1)(L_1 + d_2)\\
+sin(\theta_2)& cos(\theta_2)& 0 & 0\\
+0 & 0 & 0 & 1
+\end{array} \right) $
+
 
 \medskip
 
