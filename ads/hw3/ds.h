@@ -113,16 +113,6 @@ class Heap {
             }
         }
 
-        void print() {
-            int i = 0;
-
-            for(i = 0; i < storage.size(); ++i) {
-                printf("%i ", storage[i]);
-            }
-
-            printf("\n");
-        }
-
         void swap(int i, int j) {
             T temp = storage[i];
 
@@ -132,6 +122,10 @@ class Heap {
 
         T get_max() {
             T result = storage[0];
+
+            if (storage.size() == 0) {
+                throw Error("cannot not find max in an empty heap");
+            }
 
             storage[0] = storage[storage.size() - 1];
             storage.pop_back();
