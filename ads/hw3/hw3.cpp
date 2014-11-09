@@ -66,8 +66,6 @@ int main() {
                 graph->insert(C1, C2, P);
             }
 
-            //graph->print();
-
             // assign start, destination and amount of people
             if (fscanf(fr, "%d %d %d", &C1, &C2, &P) != 3) {
                 throw Error("cannot read destination line.\n");
@@ -76,7 +74,7 @@ int main() {
             printf("Scenario #%i\n", simulation_count + 1);
 
             // find path and cost
-            graph->output_path_and_cost(C1, C2, P);
+            graph->output_path_and_cost(C1, C2, P, N);
 
             printf("\n");
 
