@@ -27,15 +27,15 @@ typedef struct Node {
 } node;
 
 class Error : public exception {
-public:
-    string message;
+    public:
+        string message;
 
-    Error() {};
-    Error(string information);
+        Error() {};
+        Error(string information);
 
-    virtual const char * what () const throw () {
-        return message.c_str();
-    }
+        virtual const char * what () const throw () {
+            return message.c_str();
+        }
 };
 
 class Graph {
@@ -71,8 +71,7 @@ class Heap {
             return result;
         }
 
-        private:
-
+    private:
         vector <T> storage;
 
         void sift_up(int i) {
