@@ -64,6 +64,7 @@ int main() {
 
                 // add data to graph
                 graph->insert(C1, C2, P);
+                graph->insert(C2, C1, P);
             }
 
             // assign start, destination and amount of people

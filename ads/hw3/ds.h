@@ -61,13 +61,27 @@ class Heap {
             sift_up(storage.size() - 1);
         }
 
+        T get_max() {
+            T result = storage[0];
+
+            storage[0] = storage[storage.size() - 1];
+            storage.pop_back();
+            sift_down(0);
+
+            return result;
+        }
+
+        private:
+
+        vector <T> storage;
+
         void sift_up(int i) {
-            int parent = (i - 1) / 2;
+            int parent = i / 2;
 
             while(parent >= 0 && storage[parent] < storage[i]) {
                 swap(parent, i);
                 i = parent;
-                parent = (i - 2) / 2;
+                parent = i / 2;
             }
         }
 
@@ -119,21 +133,4 @@ class Heap {
             storage[i] = storage[j];
             storage[j] = temp;
         }
-
-        T get_max() {
-            T result = storage[0];
-
-            if (storage.size() == 0) {
-                throw Error("cannot not find max in an empty heap");
-            }
-
-            storage[0] = storage[storage.size() - 1];
-            storage.pop_back();
-            sift_down(0);
-
-            return result;
-        }
-
-    private:
-        vector <T> storage;
 };

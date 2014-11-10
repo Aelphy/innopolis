@@ -97,13 +97,6 @@ void Graph::output_path_and_cost(int C1, int C2, int P, int N) {
 
                                 break;
                             }
-
-                            if (e.distanation == C2) {
-                                current_city = e.distanation;
-                                explored_edges.push_back(e);
-
-                                break;
-                            }
                         }
                     }
 
