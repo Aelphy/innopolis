@@ -37,21 +37,6 @@ void Graph::insert(int C1, int C2, int P) {
     }
 }
 
-void Graph::print() {
-    int i = 0;
-    int j = 0;
-
-    for(i = 0; i < nodes.size(); ++i) {
-        printf("%i -> [\n", nodes[i].city);
-
-        for(j = 0; j < nodes[i].edges.size(); ++j) {
-            printf("city: %i - capacity: %i\n", nodes[i].edges[j].start, nodes[i].edges[j].capacity);
-        }
-
-        printf("]\n");
-    }
-}
-
 void Graph::empty() {
     nodes.clear();
 }
@@ -122,7 +107,7 @@ void Graph::output_path_and_cost(int C1, int C2, int P, int N) {
             }
         }
 
-        number_of_trips = round((((P / min_capacity) + P) / min_capacity) + 0.5);
+        number_of_trips = round(P / (min_capacity - 1) + 0.5);
 
         printf("Minimum Number of Trips = %i\n", number_of_trips);
         printf("Route = %i", path[path.size() - 1].start);

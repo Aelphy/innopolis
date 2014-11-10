@@ -45,7 +45,6 @@ class Graph {
         Graph() {}
 
         void insert(int C1, int C2, int P);
-        void print();
         void empty();
         void output_path_and_cost(int C1, int C2, int P, int N);
 };
@@ -55,12 +54,14 @@ class Heap {
     public:
         Heap() {  }
 
+        // insert element to the heap
         void insert(T e) {
             storage.push_back(e);
 
             sift_up(storage.size() - 1);
         }
 
+        // get maximum element
         T get_max() {
             T result = storage[0];
 
@@ -74,6 +75,7 @@ class Heap {
     private:
         vector <T> storage;
 
+        // process heap with one error from bottom to the up
         void sift_up(int i) {
             int parent = i / 2;
 
@@ -84,6 +86,7 @@ class Heap {
             }
         }
 
+        // process heap with one error from up to the bottom
         void sift_down(int i) {
             int lft = 2 * i + 1;
             int rgt = lft + 1;
@@ -126,6 +129,7 @@ class Heap {
             }
         }
 
+        // swap i and j elements in a storage
         void swap(int i, int j) {
             T temp = storage[i];
 
