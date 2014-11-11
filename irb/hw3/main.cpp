@@ -10,8 +10,6 @@ vector < vector <double> > find_transform_matrix(double in1, double in2, double 
 
     double theta[6] = {in1 * M_PI / 180, in2 * M_PI / 180, in3 * M_PI / 180, in4 * M_PI / 180, in5 * M_PI / 180, in6 * M_PI / 180};
 
-
-
     matrix[0].push_back(-cos(theta[5]) * sin(theta[0]) * sin(theta[3] + theta[4]) + cos(theta[0]) * (cos(theta[1] + theta[2]) * cos(theta[3] + theta[4]) * cos(theta[5]) - sin(theta[1] + theta[2]) * sin(theta[5])));
     matrix[0].push_back(sin(theta[0]) * sin(theta[3] + theta[4]) * sin(theta[5]) - cos(theta[0]) * (cos(theta[5]) * sin(theta[1] + theta[2]) + cos(theta[1] + theta[2]) * cos(theta[3] + theta[4]) * sin(theta[5])));
     matrix[0].push_back(cos(theta[3]) * (cos(theta[4]) * sin(theta[0]) + cos(theta[0]) * cos(theta[1] + theta[2]) * sin(theta[4])) + sin(theta[3]) * (cos(theta[0]) * cos(theta[1] + theta[2]) * cos(theta[4]) - sin(theta[0]) * sin(theta[4])));
