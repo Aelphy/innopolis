@@ -21,8 +21,6 @@ int main() {
     Graph *graph = new Graph;
 
     try {
-        printf("Usvyatsov Mikhail\n");
-
         // check input file
         if ((fr = fopen("input.txt", "r")) == NULL) {
             throw Error("cannot open the input file.\n");
@@ -33,6 +31,7 @@ int main() {
             throw Error("cannot open the output file.\n");
         }
 
+        fprintf(fw, "Usvyatsov Mikhail\n");
 
         // process input case by case
         while (true) {
@@ -72,12 +71,12 @@ int main() {
                 throw Error("cannot read destination line.\n");
             }
 
-            printf("Scenario #%i\n", simulation_count + 1);
+            fprintf(fw, "Scenario #%i\n", simulation_count + 1);
 
             // find path and cost
-            graph->output_path_and_cost(C1, C2, P, N);
+            graph->output_path_and_cost(C1, C2, P, N, fw);
 
-            printf("\n");
+            fprintf(fw, "\n");
 
             // empty the graph
             graph->empty();

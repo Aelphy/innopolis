@@ -46,7 +46,7 @@ class Graph {
 
         void insert(int C1, int C2, int P);
         void empty();
-        void output_path_and_cost(int C1, int C2, int P, int N);
+        void output_path_and_cost(int C1, int C2, int P, int N, FILE *fw);
 };
 
 template <class T>
@@ -79,6 +79,7 @@ class Heap {
         void sift_up(int i) {
             int parent = i / 2;
 
+            // unless there is an error in the heap
             while(parent >= 0 && storage[parent] < storage[i]) {
                 swap(parent, i);
                 i = parent;

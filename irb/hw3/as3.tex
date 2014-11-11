@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\textwidth=431pt
+\textheight=600pt
+\hoffset=-15pt
+\voffset=-15pt
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\makeatletter
+\renewcommand{\@oddhead}{%
+\vbox{%
+\hbox to \textwidth{\strut \textit{Introduction to robotics, Assignment 3, Markeeva Larisa, Usvyatsov Mikhail} \hfill }
+%\hbox to\textwidth{Лист\hfill Страница~\arabic{page}~из 2}
+\hrule
+\vspace{12pt}
+}}
+\renewcommand{\@oddfoot}{}
+\makeatother
+
+\begin{document}
+
+%\tableofcontents
+
+%\newpage
+
+\begin{center}
+\textbf{Assignment 3;\\
+due Wednesday November 11}
+\end{center}
+
+\textbf{Part 1}	
+
+\bigskip
+	
+\textbf{Exercise 1}		
+		
+\textbf{Solution}
+
+\medskip
+
+\newcounter{bcounter}
+
+According to [1], Manocha and Zhu (1994) proposed a generalized closed form solution which can be derived for 6 DOF (or less) kinematic chain.
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item False. It is possible that the target for EE is unreachable.
+\item False. It is possible that the target for EE is unreachable.
+\item False. It is possible that the target for EE is unreachable.
+\item True.
+\end{list}
+
+\textbf{Exercise 2}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item False. 3 DoF manipulator with rotation joints can have only 2 dimension work-space
+\item False. Dextrous can be empty.
+\item True. E.g. 1 DoF manipulator with 2 dimension work-space and rotation joint with different length of links.
+\item False.
+\end{list}
+
+\textbf{Exercise 3}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item True.
+\item False. Usually we go from trigonometric to transcendental equations.
+\item True. We user FK during solving IK.
+\item True. IK problem needs a very fast computational engine in order to make solution in real-time.
+\end{list}
+
+\textbf{Exercise 4}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item False. We have considered the case of revolute joints.
+\item False. Links are not important in IK it can only affect the work-space.
+\item False. It is solution for manipulators with 6DOF’s when three consecutive axis intersect.
+\item False.
+\end{list}
+
+\textbf{Part 1}	
+
+\bigskip
+	
+\textbf{Exercise 1}		
+		
+\textbf{Solution}
+
+\medskip
+
+\textbf{List of references}
+
+[1] CLOSED FORM AND GENERALIZED INVERSE KINEMATIC SOLUTIONS FOR ANIMATING THE HUMAN ARTICULATED STRUCTURE. Kwan W. CHIN
+
+\end{document}

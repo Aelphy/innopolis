@@ -15,6 +15,7 @@ void Graph::insert(int C1, int C2, int P) {
     e.distanation = C2;
     e.capacity = P;
 
+    // look for the existent node with city C1
     for(i = 0; i < nodes.size(); ++i) {
         if (nodes[i].city == C1) {
             nodes[i].edges.push_back(e);
@@ -41,14 +42,14 @@ void Graph::empty() {
     nodes.clear();
 }
 
-void Graph::output_path_and_cost(int C1, int C2, int P, int N) {
+void Graph::output_path_and_cost(int C1, int C2, int P, int N, FILE *fw) {
     if (N == 1) {
-        printf("Minimum Number of Trips = 0\n");
-        printf("Route = -\n");
+        fprintf(fw, "Minimum Number of Trips = 0\n");
+        fprintf(fw, "Route = -\n");
     } else {
         int i = 0;
         int j = 0;
-        float min_capacity = P + 1;
+        int min_capacity = P + 1;
         int number_of_trips = 0;
         int current_city = C1;
         Heap <edge> *heap = new Heap <edge>;
@@ -70,7 +71,9 @@ void Graph::output_path_and_cost(int C1, int C2, int P, int N) {
                     // process the heap
                     e = heap->get_max();
 
+                    // checks if we already have expanded the node in destination of e
                     while(current_city != e.distanation) {
+                        // look for the node with the same city as in distanation of e
                         for(i = 0; i < nodes.size(); ++i) {
                             if (nodes[i].city == e.distanation) {
                                 if(nodes[i].is_visited) {
@@ -94,6 +97,7 @@ void Graph::output_path_and_cost(int C1, int C2, int P, int N) {
 
         current_city = C2;
 
+        // build the path
         for(i = explored_edges.size() - 1; i >= 0; --i) {
             if(explored_edges[i].distanation == current_city) {
                 path.push_back(explored_edges[i]);
@@ -101,21 +105,23 @@ void Graph::output_path_and_cost(int C1, int C2, int P, int N) {
             }
         }
 
+        // detect the least width of the edges in the path
         for(i = 0; i < path.size(); ++i) {
             if (path[i].capacity < min_capacity) {
                 min_capacity = path[i].capacity;
             }
         }
 
-        number_of_trips = round(P / (min_capacity - 1) + 0.5);
+        // it was specially tested via changing edge weight and P
+        number_of_trips = (P + min_capacity - 2) / (min_capacity - 1);
 
-        printf("Minimum Number of Trips = %i\n", number_of_trips);
-        printf("Route = %i", path[path.size() - 1].start);
+        fprintf(fw, "Minimum Number of Trips = %i\n", number_of_trips);
+        fprintf(fw, "Route = %i", path[path.size() - 1].start);
 
         for(i = path.size() - 2; i >= 0; --i) {
-            printf(" - %i", path[i].start);
+            fprintf(fw, " - %i", path[i].start);
         }
 
-        printf(" - %i\n", path[0].distanation);
+        fprintf(fw, " - %i\n", path[0].distanation);
     }
 }
