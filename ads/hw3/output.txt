@@ -8,22 +8,18 @@ Minimum Number of Trips = 0
 Route = -
 
 Scenario #3
-Minimum Number of Trips = Infinity
-Route = 1 - 2
-
-Scenario #4
 Minimum Number of Trips = 2
 Route = 1 - 2
 
-Scenario #5
+Scenario #4
 Minimum Number of Trips = 1
 Route = 1 - 2
 
-Scenario #6
+Scenario #5
 Minimum Number of Trips = 4
 Route = 1 - 2 - 3
 
-Scenario #7
+Scenario #6
 Minimum Number of Trips = 2
 Route = 1 - 3
 

@@ -57,7 +57,6 @@ void Graph::output_path_and_cost(int C1, int C2, int P, int N, FILE *fw) {
         vector <edge> explored_edges;
         vector <edge> path;
 
-        // look for the path in the graph
         while(current_city != C2) {
             for(i = 0; i < nodes.size(); ++i) {
                 // start search for the path
@@ -74,7 +73,7 @@ void Graph::output_path_and_cost(int C1, int C2, int P, int N, FILE *fw) {
 
                     // checks if we already have expanded the node in destination of e
                     while(current_city != e.distanation) {
-                        // look for the node with the same city as in destination of e
+                        // look for the node with the same city as in distanation of e
                         for(i = 0; i < nodes.size(); ++i) {
                             if (nodes[i].city == e.distanation) {
                                 if(nodes[i].is_visited) {
@@ -113,18 +112,10 @@ void Graph::output_path_and_cost(int C1, int C2, int P, int N, FILE *fw) {
             }
         }
 
-        // checks if the path contain edge with width 1, it was tested with special test case
-        fprintf(fw, "Minimum Number of Trips = ");
+        // it was specially tested via changing edge weight and P
+        number_of_trips = (P + min_capacity - 2) / (min_capacity - 1);
 
-        if (min_capacity == 1) {
-            fprintf(fw, "Infinity\n");
-        } else {
-            // it was specially tested via changing edge weight and P
-            number_of_trips = (P + min_capacity - 2) / (min_capacity - 1);
-
-            fprintf(fw, "%i\n", number_of_trips);
-        }
-
+        fprintf(fw, "Minimum Number of Trips = %i\n", number_of_trips);
         fprintf(fw, "Route = %i", path[path.size() - 1].start);
 
         for(i = path.size() - 2; i >= 0; --i) {
