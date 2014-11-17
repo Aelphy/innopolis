@@ -96,15 +96,386 @@ According to [1], Manocha and Zhu (1994) proposed a generalized closed form solu
 \item False.
 \end{list}
 
-\textbf{Part 1}	
+\textbf{Part 2}	
 
 \bigskip
 	
 \textbf{Exercise 1}		
+\newpage
 		
 \textbf{Solution}
 
+DH:
+\\
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & $a_{i-1}$ & $\alpha_{i-1}$ & $d_i$ & $\theta_i$ \\
+ \hline
+ 1 & 0 & 0 & 0 & $\phi$\\
+ \hline
+ 2 & 0 & $-\dfrac{\pi}{2}$ & 0 & $\theta$\\
+ \hline
+ 3 & 0 & $\dfrac{\pi}{2}$ & -$\left(L+d+R_2\right)$ & 0\\
+ \hline
+\end{tabular}
+
+
+Transformation matrices
+
+\[^0_{1}T=\left[
+\begin{array}{cccc}
+cos\phi & -sin\phi & 0 & 0 \\
+sin\phi & cos\phi & 0 & 0 \\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\ 
+\[^1_{2}T=\left[
+\begin{array}{cccc}
+cos\theta & -sin\theta & 0 & 0 \\
+0 & 0 & 1 & 0\\
+-sin\phi & -cos\phi & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\ 
+\[^2_{3}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 0 & -1 & L+d+R_2\\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\ 
+\[^0_{3}T=\left[
+\begin{array}{cccc}
+cos\phi\cdot sin\theta & -sin\phi & cos\phi\cdot sin\theta & -\left(d+l+R_2\right)cos\phi\cdot sin\theta \\
+sin\phi\cdot cos\theta & cos\phi & sin\phi\cdot sin\theta & -\left(d+l+R_2\right)sin\phi\cdot sin\theta\\
+-sin\theta & 0 & cos\theta & -\left(d+l+R_2\right)cos\theta \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+
+\[\left\{
+\begin{array}{l}
+  x = -\left(d+l+R_2\right)cos\phi\cdot sin\theta\\
+  y = -\left(d+l+R_2\right)sin\phi\cdot sin\theta\\
+  z =-\left(d+l+R_2\right)cos\theta
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+  y^2=-\left(d+l+R_2\right)^2 sin^2 \phi\cdot sin^2 \theta\\
+  x^2+y^2 =  \left(d+l+R_2\right)^2 cos^2 \phi sin^2\theta + \left(d+l+R_2\right)^2sin^2 \phi sin^2 \theta = \left(d+l+R_2\right)^2 sin^2 \theta \\
+  z^2=\left(d+l+R_2\right)^2 cos^2\theta
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+  y^2=-\left(d+l+R_2\right)^2 sin^2 \phi\cdot sin^2 \theta\\
+  \dfrac{z^2}{\left(d+l+R_2\right)^2} = cos^2\theta\\
+  x^2+y^2 =  \left(d+l+R_2\right)^2 \left(1-\dfrac{z^2}{\left(d+l+R_2\right)^2} \right) 
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+ d_1 = \sqrt{x^2+y^2+z^2}-l-R_2\\
+ d_2 = -\sqrt{x^2+y^2+z^2}-l-R_2\\
+  \dfrac{z^2}{\left(d+l+R_2\right)^2} = cos^2\theta\\
+    y^2=-\left(d+l+R_2\right)^2 sin^2 \phi\cdot sin^2 \theta
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+ d_1 = \sqrt{x^2+y^2+z^2}-l-R_2\\
+ d_2 = -\sqrt{x^2+y^2+z^2}-l-R_2\\
+  \theta = arccos\left(\pm\sqrt{\dfrac{z}{\left(d+l+R_2\right)}}\right)\\
+   y^2=-\left(d+l+R_2\right)^2 sin^2 \phi\cdot sin^2 \theta\\
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+ d_1 = \sqrt{x^2+y^2+z^2}-\left(l+R_2\right)\\
+ d_2 = -\sqrt{x^2+y^2+z^2}-\left(l+R_2\right)\\
+  \theta = arccos\left(\pm\dfrac{z}{d+l+R_2}\right)\\
+   \phi = arcsin\left(\pm \dfrac{y\cdot sin\theta}{d+l+R_2}\right)\\
+\end{array} \right.\]
+
+\newpage
+
+\textbf{Exercise 2}	
+\newpage	
+		
+\textbf{Solution}
+
+DH:
+\\
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & $a_{i-1}$ & $\alpha_{i-1}$ & $d_i$ & $\theta_i$ \\
+ \hline
+ 1 & 0 & 0 & $-L_1$ & 0\\
+ \hline
+ 2 & 0 & $-\dfrac{\pi}{2}$ & 0 & $\theta$\\
+ \hline
+ 3 & $-L2$ & $\dfrac{\pi}{2}$ & $p$ & $\phi$\\
+ \hline
+ 4 & $n$ & 0 & 0 & 0\\
+ \hline
+\end{tabular}
+
+
+Transformation matrices
+
+\[^0_{1}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & -L_1\\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\ 
+\[^1_{2}T=\left[
+\begin{array}{cccc}
+cos\theta & -sin\theta & 0 & 0 \\
+0 & 0 & 1 & 0\\
+-sin\theta & -cos\theta & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\ 
+\[^2_{3}T=\left[
+\begin{array}{cccc}
+cos\phi & -sin\phi & 0 & -L_2 \\
+0 & 0 & -1 & p\\
+-sin\phi & -cos\phi & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\ 
+\[^3_{4}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & n \\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\
+
+\[^0_{4}T=\left[
+\begin{array}{cccc}
+WE & WE& WE & ncos\theta\cdot cos\phi-L_2 cos\theta-psin\theta \\
+WE & WE & WE & nsin\phi\\
+WE & WE& WE & -nsin\theta\cdot cos\phi+L_2 sin\theta -pcos\theta -L_1 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\ 
+\[\left\{
+\begin{array}{l}
+\phi=arcsin\dfrac{y}{n}\\
+ x = nsin\theta \cdot cos\phi - L_2 cos\theta -p\cdot sin\theta\\
+ z=-nsin\theta\cdot cos\phi - L_2sit\theta -p\cdot cos\theta - L_1
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+\phi=arcsin\dfrac{y}{n}\\
+ x = nsin\theta \cdot cos\phi - L_2 cos\theta -p\cdot sin\theta\\
+ z=-nsin\theta\cdot cos\phi - L_2sit\theta -p\cdot  cos\theta - L_1\\
+ u=tg\dfrac{\theta}{2}
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+\phi=arcsin\dfrac{y}{n}\\
+ x = \dfrac{(1-u^2)(n\cdot cos\phi-L_2)-p\cdot 2u}{1+u^2}\\
+ z=-nsin\theta\cdot cos\phi - L_2sit\theta -p\cdot  cos\theta - L_1\\
+ u=tg\dfrac{\theta}{2}
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+\phi=arcsin\dfrac{y}{n}\\
+ u_{1,2}=p\pm \sqrt{p^2-x^2+(ncos\phi-L_2)^2}\\
+ \theta=2arcth(p\pm \sqrt{p^2-x^2+(ncos\phi-L_2)^2})\\
+ L_1=L_2\cdot sin\theta -pcos\theta +nsin\theta cos\phi -z
+\end{array} \right.\]
+
+\textbf{Exercise 3}	
+\newpage	
+		
+\textbf{Solution}
+
+DH:
+\\
+\begin{tabular}{| c|c|c|c|c|}
+\hline
+ & $a_{i-1}$ & $\alpha_{i-1}$ & $d_i$ & $\theta_i$ \\
+ \hline
+ 1 & 0 & 0 & $-p$ & 0\\
+ \hline
+ 2 & 0 & $-\dfrac{\pi}{2}$ & $-\omega$ & 0\\
+ \hline
+ 3 & 0 & 0 & 0 & $\theta$\\
+ \hline
+ 4 & $r$ & 0 & 0 & 0\\
+ \hline
+\end{tabular}
+
+
+Transformation matrices
+
+\[^0_{1}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & -p\\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\
+\[^1_{2}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & -\omega \\
+0 & -1 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\
+\[^2_{3}T=\left[
+\begin{array}{cccc}
+cos\theta & -sin\theta & 0 & 0 \\
+sin\theta & cos\theta & 0 & 0 \\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array} \right]\] 
+\
+\[^3_{4}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & r \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array} \right]\] 
+\
+\[^0_{4}T=\left[
+\begin{array}{cccc}
+cos\theta & -sin\theta & 0 & r \left(cos\theta+1\right) \\
+0 & 0 & 1 & -w \\
+-sin\theta & -cos\theta & 0 & -p-r\cdot sin\theta\\
+0 & 0 & 0 & 1
+\end{array} \right]\] 
+\ 
+\[\left\{
+\begin{array}{l}
+x=r\left(cos\theta+1\right)\\
+y=-\omega\\
+z=-r\cdot sin\theta-p
+\end{array} \right.\]
+\ 
+\[\left\{
+\begin{array}{l}
+\omega=-y\\
+\theta=arccos\left(\dfrac{x}{r}-1\right)\\
+p=-\left(z+r\sqrt{1-\left(\dfrac{x}{r}-1\right)^2}\right)
+\end{array} \right.\]
+\newpage
+
+\textbf{Exercise 4}	
+\newpage	
+		
+\textbf{Solution}
+
+DH:
+\\
+\begin{tabular}{| c|c|c|c|c|}
+\hline
+ & $a_{i-1}$ & $\alpha_{i-1}$ & $d_i$ & $\theta_i$ \\
+ \hline
+ 1 & 0 & 0 & 0 & $\alpha$ \\
+ \hline
+ 2 & 0 & $\dfrac{\pi}{2}$ & a & $\dfrac{\pi}{2}$\\
+ \hline
+ 3 & 0 & 0 & -b & $\beta$\\
+ \hline
+ 4 & 0 & $-\dfrac{\pi}{2}$ & 0 & $\gamma$ \\
+ \hline
+ 5 & 0 & 0 & -c & 0
+\end{tabular}
+
 \medskip
+
+Transformation matrices
+
+\[^0_{1}T=\left[
+\begin{array}{cccc}
+cos\alpha & -sin \alpha & 0 & 0 \\
+sin \alpha & cos \alpha & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\
+\[^1_{2}T=\left[
+\begin{array}{cccc}
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & -a \\
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+\
+\[^2_{3}T=\left[
+\begin{array}{cccc}
+cos\beta & -sin\beta & 0 & 0 \\
+sin\beta & cos\beta & 0 & 0 \\
+0 & 0 & 1 & -b\\
+0 & 0 & 0 & 1
+\end{array} \right]\] 
+\
+\[^3_{4}T=\left[
+\begin{array}{cccc}
+cos \gamma & -sin \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+- sin \gamma & - cos \gamma & 0 & 0\\
+0 & 0 & 0 & 1
+\end{array} \right]\] 
+\
+\[^4_{5}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & -c\\
+0 & 0 & 0 & 1
+\end{array} \right]\] 
+\
+\[^0_{5}T=\left[
+\begin{array}{cccc}
+-c_{\alpha}s_{\beta}c_{\gamma} - s_{\alpha}s_{\gamma} & -c_{\alpha}s_{\beta}c_{\gamma} - s_{\alpha}c_{\gamma} & -c_{\alpha}c_{\beta} & -c_{\alpha}s_{\beta}c_{\gamma} - s_{\alpha}s_{\gamma} + c \cdot c_{\alpha}c_{\beta} +(a - b) \cdot s_{\alpha} \\
+-s_{\alpha}s_{\beta}c_{\gamma} - c_{\alpha}s_{\gamma} & s_{\alpha}s_{\beta}s_{\gamma} + c_{\alpha}c_{\gamma} & -s_{\alpha}c_{\beta} & -s_{\alpha}s_{\beta}s_{\gamma} - c_{\alpha}s_{gamma} - c \cdot s_{\alpha}c_{\beta} + (b - a) \cdot c_{\alpha} \\
+c_{\beta}c_{\gamma} & -c_{\beta}s_{\gamma} & -s_{\beta} & c_{\beta}c_{\gamma} + c \cdot s_{\beta} \\
+0 & 0 & 0 & 1
+\end{array} \right]\] 
+
+\newpage
+
+\textbf{Exercise 5}	
+\newpage	
+		
+\textbf{Solution}
+
+Here we will try geometric solution instead of algebraic.
+
+$x_1 = x_0 - L_3 sin \phi$
+
+$y_1 = y_0 - L_3 cos \phi$
+
+$x_1^2 + y_1^2 = L_1^2 + L_2^2 - 2 L_1 L_2 cos \theta_2$
+
+$\theta_2 = arccos \left( \dfrac{x_1^2 + y_1^2 - L_1^2 - L_2^2}{2 L_1 L_2} \right)$
+
+$\gamma = \dfrac{\pi}{2} - \theta_1 - arctg(\dfrac{y_1}{x_1})$
+
+$L_2^2 = L_1^2 + x_1^2 + y_1^2 - 2L_1 \sqrt{x_1^2 + y_1^2} cos \gamma$
+
+$\theta_1 = arcsin \left( \dfrac{L_1^2 - L_2^2 + x_1^2 + y_1^2}{2L_1 \sqrt{x_1^2 + y_1^2}} \right) - arctg \left( \dfrac{y_1}{x_1} \right)$
+
+$\theta_3 = \phi - \theta_1 - \theta_2$
+
+\bigskip
 
 \textbf{List of references}
 
