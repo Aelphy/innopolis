@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\textwidth=431pt
+\textheight=600pt
+\hoffset=-15pt
+\voffset=-15pt
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\makeatletter
+\renewcommand{\@oddhead}{%
+\vbox{%
+\hbox to \textwidth{\strut \textit{Introduction to robotics, Assignment 4, Markeeva Larisa, Usvyatsov Mikhail} \hfill }
+%\hbox to\textwidth{Лист\hfill Страница~\arabic{page}~из 2}
+\hrule
+\vspace{12pt}
+}}
+\renewcommand{\@oddfoot}{}
+\makeatother
+
+\begin{document}
+
+%\tableofcontents
+
+%\newpage
+
+\begin{center}
+\textbf{Assignment 4;\\
+due Tuesday December 2}
+\end{center}
+
+\textbf{Part 1}	
+
+\bigskip
+	
+\textbf{Exercise 1}		
+		
+\textbf{Solution}
+
+\medskip
+
+\newcounter{bcounter}
+
+It is obvious that $|^A\Omega_{A, B}| = |^B\Omega_{B, A}| $.
+Due to the fact that when we talk about angular velocity we are not interested in translation of Frame B wrt Frame A, we can say that the differences between $^A\Omega_{A, B}$ and $^B\Omega_{B, A}$ is only in direction. They are opposite.
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item False.
+\item False. 
+\item True.
+\item False.
+\end{list}
+
+\textbf{Exercise 2}		
+		
+\textbf{Solution}
+
+\medskip
+
+Angular velocity is a vector that represents the axes of frame rotation. The length of this vector is the measure of speed of this rotation. The measure unit of rotation speed is $\dfrac{Radian}{sec}$
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item False.
+\item False. 
+\item False.
+\item True.
+\end{list}
+
+\textbf{Exercise 3}		
+		
+\textbf{Solution}
+
+\medskip
+
+According to the Wikipedia, Via Point is a point through which the robot's tool should pass without stopping; via points are programmed in order to move beyond obstacles or to bring the arm into a lower inertia posture for part of the motion. 
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item True. We can define via point in order to improve path. 
+\item True. According to [2] via points can be used in trajectory generation.
+\item True. According to [1] via points are very useful to fit constraints of environment.
+\item False. Via points cannot protect from target missing due to errors because visiting this points could be done with errors.
+\end{list}
+
+\textbf{Exercise 4}		
+		
+\textbf{Solution}
+
+\medskip
+
+\begin{list}{(\alph{bcounter})~}{\usecounter{bcounter}}
+\item True. According to [3] in joint space we can represent schemes in low level polynomials, but in Cartesian space the formulas are mush more difficult and includes trigonometric.
+\item True. According to [3] it works for situations without obstacles.
+\item False. The support of via points is very difficult to calculate in Joint space according to [3].
+\item False. It doesn't matter in what space to calculate the motion - the result will be the same. However, according to [3] joint space scheme is less accurate in Cartesian space.
+\end{list}
+
+\textbf{Part 2}	
+
+\bigskip
+	
+\textbf{Exercise 1}		
+		
+\textbf{Solution}
+
+\medskip
+
+\textbf{Exercise 2}		
+		
+\textbf{Solution}
+
+\medskip
+
+\textbf{List of references}
+
+[1] Introduction to Robotics: Module Trajectory generation and robot programming FH Darmstadt
+
+[2] Task Space velocity Blending for RealTime Trajectory Generation
+
+[3] A Texbook of Industrial Robotics, p. 169
+
+\end{document}
