@@ -9,7 +9,7 @@
 #include "ds.h"
 
 #define DEBUG 1
-#define MAX_STOPS_COUNT 11
+#define MAX_STOPS_COUNT 10
 #define MAX_STRING_LENGTH 250
 
 using namespace std;

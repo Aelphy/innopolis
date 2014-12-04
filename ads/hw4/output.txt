@@ -36,3 +36,26 @@ Shop #1
 Shop #5 
 Shop #0 
 Car
+5 
+1017 
+Car 
+Shop #1 
+Shop #4 
+Shop #0 
+Shop #2 
+Shop #7 
+Shop #6 
+Shop #3 
+Shop #5 
+Car
+6 
+813 
+Car 
+Shop #2 
+Shop #5 
+Shop #4 
+Shop #0 
+Shop #6 
+Shop #3 
+Shop #1 
+Car
