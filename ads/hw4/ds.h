@@ -3,6 +3,9 @@
 
 using namespace std;
 
+/*
+    Errors handling class
+*/
 class Error : public exception {
     public:
         string message;
@@ -15,6 +18,9 @@ class Error : public exception {
         }
 };
 
+/*
+    Struct for shops handling
+*/
 typedef struct Shop {
     char name[250];
 } shop;
