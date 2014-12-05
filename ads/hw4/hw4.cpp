@@ -54,7 +54,9 @@ int main() {
         fprintf(fw, "Usvyatsov Mikhail\n");
 
         /* read the number of test cases */
-        fscanf(fr, "%i", &k);
+        if (fscanf(fr, "%i", &k) != 1) {
+            throw Error("cannot read k.\n");
+        }
 
 #ifdef DEBUG
         printf("%d\n", k);
@@ -66,7 +68,9 @@ int main() {
             /* --------------------------------  */
 
             /* number of shops */
-            fscanf(fr, "%i", &n);
+            if (fscanf(fr, "%i", &n) != 1) {
+                throw Error("cannot read n.\n");
+            }
 
 #ifdef DEBUG
             printf("%i\n", n);
@@ -84,7 +88,9 @@ int main() {
 
                 // get the shop and car names
                 for (j = 0; j < n + 1; ++j) {
-                    fscanf(fr, " %250[^\n]", buffer);
+                    if (fscanf(fr, " %250[^\n]", buffer) < 1) {
+                        throw Error("cannot read name.\n");
+                    }
 
                     strcpy(shops[j].name, buffer);
 
@@ -168,8 +174,11 @@ int main() {
                 fprintf(fw, "\n");
             }
         }
+
         fclose(fr);
         fclose(fw);
+
+        return 0;
     }   catch (exception const &ex) {
         cerr << "Exception: " << ex.what() << endl;
 
