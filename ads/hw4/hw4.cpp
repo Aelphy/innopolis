@@ -7,7 +7,8 @@
 
 #include <iostream>
 #include "implementation.h"
-
+#include <stdio.h>
+#include <string.h>
 //#define DEBUG
 #define MAX_STOPS_COUNT 10
 #define MAX_STRING_LENGTH 250
@@ -80,7 +81,7 @@ int main() {
             if (n >= MAX_STOPS_COUNT) {
                 throw Error("too big amount of shops.\n");
             } else {
-                Shop *shops = new Shop[n]; // array of shops
+                Shop *shops = new Shop[n + 1]; // array of shops
 
                 // costs initialization
                 total = 0;
@@ -172,6 +173,7 @@ int main() {
                 fprintf(fw, "%s", shops[n].name);
 
                 fprintf(fw, "\n");
+		delete [] shops;
             }
         }
 
