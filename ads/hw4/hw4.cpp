@@ -6,9 +6,9 @@
 */
 
 #include <iostream>
-#include "ds.h"
+#include "implementation.h"
 
-#define DEBUG 1
+//#define DEBUG
 #define MAX_STOPS_COUNT 10
 #define MAX_STRING_LENGTH 250
 
@@ -29,73 +29,14 @@ using namespace std;
   3 December 2014
 */
 
-// swap elements of array
-void swap(int *a, int i, int j) {
-    int buffer = a[i];
-
-    a[i] = a[j];
-    a[j] = buffer;
-}
-
-// reverse array a from i upto j elements
-void reverse(int *a, int i, int j) {
-    int q;
-
-    // if left less than right
-    if (i < j) {
-        // swap every item from the left with the pare from the right
-        for (q = 0; q <= (j - i) / 2; ++q) {
-            swap(a, i + q, j - q);
-        }
-    }
-}
-
-// generate next permutation
-void permutate(int *a, int n) {
-    int i, k, l;
-    bool finished = true;
-
-    for(i = n - 2; i >= 0; --i) {
-        if (a[i] < a[i + 1]) {
-            k = i;
-            finished = false;
-            break;
-        }
-    }
-
-    if (finished) {
-        return;
-    }   else {
-        for(i = n - 1; i > 0; --i) {
-            if (a[k] < a[i]) {
-                l = i;
-                break;
-            }
-        }
-
-        swap(a, k, l);
-        reverse(a, k + 1, n - 1);
-    }
-}
-
-// compute factorial
-int factorial(int i) {
-    if (i <= 1) {
-        return 1;
-    } else {
-        return i * factorial(i - 1);
-    }
-}
-
 int main() {
     int n;                                           // number of shops
     int k;                                           // number of test cases
-    long long int i, j, q;                           // counters
+    int i, j, q;                                     // counters
     int path[MAX_STOPS_COUNT];                       // best path
     int current_path[MAX_STOPS_COUNT];               // current path
     int total;                                       // best path cost
     int current_total;                               // current cost
-    long long int permutations_count;                // amount of permutations
     char buffer[MAX_STRING_LENGTH];                  // string buffer
     int distances[MAX_STOPS_COUNT][MAX_STOPS_COUNT]; // adjacency matrix
     FILE *fr, *fw;                                   // input and output file pointers
@@ -115,9 +56,9 @@ int main() {
         /* read the number of test cases */
         fscanf(fr, "%i", &k);
 
-        if (DEBUG == 1) {
-            printf("%d\n", k);
-        }
+#ifdef DEBUG
+        printf("%d\n", k);
+#endif
 
         /* main processing loop, one iteration for each test case */
         for (i = 0; i < k; ++i) {
@@ -127,28 +68,29 @@ int main() {
             /* number of shops */
             fscanf(fr, "%i", &n);
 
-            if (DEBUG == 1) {
-                printf("%i\n", n);
-            }
+#ifdef DEBUG
+            printf("%i\n", n);
+#endif
 
-            if (n >= 10) {
+            // check size of the problem
+            if (n >= MAX_STOPS_COUNT) {
                 throw Error("too big amount of shops.\n");
             } else {
-                Shop *shops = new Shop[n];
+                Shop *shops = new Shop[n]; // array of shops
 
+                // costs initialization
                 total = 0;
                 current_total = 0;
-                permutations_count = factorial(n);
 
-                // get the shop names
+                // get the shop and car names
                 for (j = 0; j < n + 1; ++j) {
                     fscanf(fr, " %250[^\n]", buffer);
 
                     strcpy(shops[j].name, buffer);
 
-                    if (DEBUG == 1) {
-                        printf("%s\n", shops[j].name);
-                    }
+#ifdef DEBUG
+                    printf("%s\n", shops[j].name);
+#endif
                 }
 
                 // get the matrix of distances
@@ -158,15 +100,15 @@ int main() {
                     }
                 }
 
-                if (DEBUG == 1) {
-                    for (q = 0; q < n + 1; ++q) {
-                        for (j = 0; j < n + 1; ++j) {
-                            printf("%3d ", distances[q][j]);
-                        }
-
-                        printf("\n");
+#ifdef DEBUG
+                for (q = 0; q < n + 1; ++q) {
+                    for (j = 0; j < n + 1; ++j) {
+                        printf("%3d ", distances[q][j]);
                     }
+
+                    printf("\n");
                 }
+#endif
 
                 // initialize paths
                 for (j = 0; j < n + 1; ++j) {
@@ -177,16 +119,16 @@ int main() {
                 // initialize cost
                 total = distances[path[n]][path[0]];
 
+                // add cost of initial permutation
                 for (q = 0; q < n; ++q) {
                     total += distances[path[q]][path[q + 1]];
                 }
 
+                // add way to the car
                 total += distances[path[n]][n];
 
                 // process each permutation
-                for (j = 1; j < permutations_count; ++j) {
-                    permutate(current_path, n);
-
+                while(permutate(current_path, n)) {
                     // compute current_cost
                     current_total = distances[current_path[n]][current_path[0]];
 
@@ -199,6 +141,7 @@ int main() {
                         }
                     }
 
+                    // add way to the car
                     current_total += distances[current_path[n]][n];
 
                     // if current_path is better - swap
