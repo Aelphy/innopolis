@@ -6,9 +6,10 @@
 */
 
 #include <iostream>
-#include "implementation.h"
 #include <stdio.h>
 #include <string.h>
+#include "implementation.h"
+
 //#define DEBUG
 #define MAX_STOPS_COUNT 10
 #define MAX_STRING_LENGTH 250
@@ -173,7 +174,8 @@ int main() {
                 fprintf(fw, "%s", shops[n].name);
 
                 fprintf(fw, "\n");
-		delete [] shops;
+
+                delete [] shops;
             }
         }
 
