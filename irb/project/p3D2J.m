@@ -18,6 +18,8 @@ function out = p3D2J(v_velocities, w_velocities)
     jac = robot.jacob0(zeros(1,7))
     pseudo_inverse_j = pinv(jac)
     
+    % finding pseudoinverse jacobian allows us to compute inverse velocity
+    % problem, the arbitrary vector was taken as zero.
     out = transpose(pseudo_inverse_j * transpose([v_velocities, w_velocities]))
     
     for i = 0:1:100 
