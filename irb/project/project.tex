@@ -41,6 +41,10 @@ It was decided to build simplified model of human leg. The problem was that non 
 \bigskip
 \bigskip 
 
+\begin{center}
+  \includegraphics[width=15cm]{main}
+\end{center}
+
 DH:
 \\
 \begin{tabular}{|c|c|c|c|c|}
@@ -224,6 +228,18 @@ HOWTO\_P - as input 4*4 matrix of position and orientation is needed. Solves the
   \includegraphics[width=15cm]{ht}
 \end{center}
 
+J23D - as input joint velocities vector 1*6. 
+
+\begin{center}
+  \includegraphics[width=15cm]{j23d}
+\end{center}
+
+3D2J - as input two vectors 3*3 - cartesian velocities.
+
+\begin{center}
+  \includegraphics[width=15cm]{p3d2j}
+\end{center}
+
 \newpage
 
 \begin{center}
@@ -271,6 +287,20 @@ input:
 0.6224  & 0 & 0.7827 & 1.6007 \\
 0 & -1 & 0 & 0\\
 0 & 0 & 0 & 1
-\end{array} \right]\]    
+\end{array} \right]\]
+
+J23D(velocities)
+
+input: [0         0   -1.5708         0         0         0]
+
+output: [0         0   -3.9270         0    1.5708         0]
+
+\medskip
+
+p3D2J(v\_velocities, w\_velocities)
+
+input: [1,1,1], [1,1,1]
+
+output: [0.0312    0.0312    0.7500    0.0312    0.3125    0.5938    1.7500]
 
 \end{document}
