@@ -109,12 +109,374 @@ According to the Wikipedia, Via Point is a point through which the robot's tool 
 		
 \textbf{Solution}
 
+DH:
+
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+a_{i-1} & \alpha_{i-1} & d_i & \theta_i\\
+\hline
+0 & 0 & -15 & \theta_1 \\
+\hline
+0 & -\dfrac{\pi}{2} & 0 & \theta_2\\
+\hline
+20 & 0 & 0 & 0\\
+\hline
+\end{array}
+\]
+
+\[^0_{1}T=\left[
+\begin{array}{cccc}
+cos\theta_1 & -sin\theta_1 & 0 & 0 \\
+sin\theta_1 & cos\theta_1 & 0 & 0 \\
+0 & 0 & -1 & 15\\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+
+
+\[^1_{2}T=\left[
+\begin{array}{cccc}
+cos\theta_2 & sin\theta_2 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+-sin\theta_2 & -cos\theta_2 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+
+\[^2_{3}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 20 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+
+\[^1\omega_1=^1_0 R ^0\omega_0 + \theta_1 z_1\left[
+\begin{array}{c}
+0 \\
+0 \\
+0 \\
+\theta_1
+\end{array} \right]\]
+
+
+\[^2\omega_2=^2_1 R ^1\omega_1 + \theta_2 z_2=\left[
+\begin{array}{ccc}
+cos\theta_2 & 0 & -sin\theta_2\\
+sin\theta_2 & 0 & -cos\theta_2 \\
+0 & 1 & 0
+\end{array} \right]\left[
+\begin{array}{c}
+0\\
+0\\
+\theta_1
+\end{array} \right] + 
+\left[
+\begin{array}{c}
+0\\
+0\\
+\theta_2
+\end{array} \right] = 
+\left[
+\begin{array}{c}
+-\theta_1 sin\theta_2\\
+-\theta_1 cos\theta_2\\
+\theta_2
+\end{array} \right]  \]
+
+\[^3\omega_3=^3_2R ^2\omega_2 +\left[
+\begin{array}{c}
+0\\
+0\\
+0
+\end{array} \right] = 
+\left[
+\begin{array}{c}
+-\theta_1 sin\theta_2\\
+-\theta_1 cos\theta_2\\
+\theta_2
+\end{array} \right]  \]
+
+\[
+^1 V_1=^1_0 R\left(^0 V_0 + ^0 \omega_0 \times ^p_1\right) =  
+\left[
+\begin{array}{c}
+0\\
+0\\
+0
+\end{array} \right] 
+\]
+
+\[
+^2 V_2 = \left[
+\begin{array}{ccc}
+cos\theta_2 & 0 & -sin\theta_2 \\
+sin\theta_2 & 0 & cos\theta_2\\
+0 & 1 & 0 
+\end{array} \right]
+\left(
+\left[
+\begin{array}{c}
+0\\
+0\\
+0
+\end{array} \right] +
+\left[
+\begin{array}{c}
+0\\
+0\\
+0
+\end{array} \right] \times
+\left[
+\begin{array}{c}
+0\\
+0\\
+0
+\end{array} \right] \right)
+\]
+
+\[
+^3 V_3 = \left[
+\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0\\
+0 & 0 & 1 
+\end{array} \right]
+\left(
+\left[
+\begin{array}{c}
+0\\
+0\\
+0
+\end{array} \right] +
+\left[
+\begin{array}{c}
+-\theta_1 sin\theta_2\\
+-\theta_1 cos\theta_2\\
+\theta_2
+\end{array} \right]  \times
+\left[
+\begin{array}{c}
+20\\
+0\\
+0
+\end{array} \right] \right) = 
+\left[
+\begin{array}{c}
+0\\
+20\theta_2\\
+20\theta_1 cos\theta_2
+\end{array} \right] 
+\]
+
+\[
+^{EE}J=
+\left[
+\begin{array}{cc}
+0 & 0 \\
+0 & 20\\
+20cos\theta_2 & 0\\
+-sin\theta_2 & 0\\
+-cos\theta_2 & 0\\
+0 & 1
+\end{array} \right] 
+\]
+
+\[
+^{0}J=
+\left[
+\begin{array}{cc}
+0^0_{EE}R & 0 \\
+0 & 0^0_{EE}R\\
+\end{array} \right] ^{EE}J
+\]
+
 \medskip
 
 \textbf{Exercise 2}		
 		
 \textbf{Solution}
 
+DF:
+
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+a_{i-1} & \alpha_{i-1} & d_i & \theta_i\\
+\hline
+0 & 0 & d_1 & 0 \\
+\hline
+0 & \dfrac{\pi}{2} & d_2 & 0\\
+\hline
+0 & 0 & 0 & \theta_3\\
+\hline
+L_4 & 0 & 0 & 0\\
+\hline
+
+\end{array} \]
+
+\[^0_{1}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & d_1\\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+
+
+\[^1_{2}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 0 & -1 & -d_2 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+
+\[^2_{3}T=\left[
+\begin{array}{cccc}
+cos\theta_3 & -sin\theta_3 & 0 & 0 \\
+sin\theta_3 & cos\theta_3 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+
+\[^3_{4}T=\left[
+\begin{array}{cccc}
+1 & 0 & 0 & L_4 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]\]
+
+\[^1\omega_1=^1_0 R ^0\omega_0\left[
+\begin{array}{c}
+0 \\
+0 \\
+0 \\
+\theta_1
+\end{array} \right]\]
+
+
+\[^2\omega_2=^2_1 R ^1\omega_1\left[
+\begin{array}{c}
+0 \\
+0 \\
+0 \\
+\theta_1
+\end{array} \right]\]
+
+
+\[^3\omega_3=\theta_3 z_3\left[
+\begin{array}{c}
+0 \\
+0 \\
+\theta_3 \\
+\end{array} \right]\]
+
+\[^4\omega_4=^4_3 R ^3\omega_3 = ^3\omega_3=[
+\left[
+\begin{array}{c}
+0 \\
+0 \\
+\theta_3 \\
+\end{array} \right]\]
+
+\[
+^1 V_1=^1_0 R\left(^0 V_0 + ^0 \omega_0 \times ^p_1\right)+d_1 ^{1}z_1 =  
+\left[
+\begin{array}{c}
+0\\
+0\\
+d_1
+\end{array} \right] 
+\]
+
+\[
+^2 V_2 = ^2_1R\left(^1V_1+^1\omega_1\times ^1 p_2\right)+d_2 ^2 z_2=\left[
+\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 0 & 1\\
+0 & -1 & 0 
+\end{array} \right]
+\left(
+\left[
+\begin{array}{c}
+0\\
+0\\
+d_1
+\end{array} \right] +
+\left[
+\begin{array}{c}
+0\\
+0\\
+0
+\end{array} \right] \right) + 
+\left[
+\begin{array}{c}
+0\\
+0\\
+d_2
+\end{array} \right] 
+\]
+
+\[
+^3 V_3 = ^3_3 R\left(^2V_2+^2\omega_2\times ^2p_3\right)\left[
+\begin{array}{ccc}
+cos\theta_3 & sin\theta_3 & 0 \\
+-sin\theta_3 & cos\theta_3 & 0\\
+0 & 0 & 1 
+\end{array} \right]
+\left[
+\begin{array}{c}
+0\\
+0\\
+d_2
+\end{array} \right] = 
+\left[
+\begin{array}{c}
+d_1 sin\theta_3\\
+d_1 cos\theta_3\\
+-d_2
+\end{array} \right] \]
+
+\[
+^4 V_4 = ^3V_3 + ^3\omega_3\times ^3 p_4=
+\left[
+\begin{array}{c}
+0\\
+d_1 \\
+-d_2
+\end{array} \right]+
+\left[
+\begin{array}{c}
+0\\
+0 \\
+\theta_1
+\end{array} \right]\times
+\left[
+\begin{array}{c}
+L_4\\
+0\\
+0
+\end{array} \right] = 
+\left[
+\begin{array}{c}
+0\\
+d_1 +L_1\theta_3\\
+-d_2
+\end{array} \right]
+\]
+\[
+^{EE}J=
+\left[
+\begin{array}{ccc}
+0 & 0 & 0\\
+1 & 0 & L_4\\
+0 & -1 & 0\\
+0 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & 1
+\end{array} \right] 
+\]
 \medskip
 
 \textbf{List of references}
