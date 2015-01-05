@@ -130,29 +130,142 @@ $129 \pm 1.96 \cdot 6.3 = [116.652, 141.348] $
 
 \textbf{Exercise 4}
 
-\begin{list}{(\alph{ccounter})~}{\usecounter{ccounter}}
-\item
-\item
-\item
-\end{list}
+$F(x) = 1 - \dfrac{Q}{x}$, x $\geq Q$\\
+$f(x \vert Q) = \dfrac{d F(x)}{dx} = \dfrac{Q}{x^2}$ ,  x $\geq Q$\\
+Let us define $X_{(1)} = min_{1 \leq i \leq n}X_i$\\
+Joint pmf of $X_1..X_n$ is :\\
+$f(x \vert Q) = \prod^n_{i = 1} \dfrac{Q}{X^2_i} I_{(Q, \infty)})(X_i) = I_{(Q, \infty)})(X_{(1)}) \prod^n_{i = 1} \dfrac{Q}{X^2_i} = I_{(Q, \infty)})(X_{(1)}) \dfrac{Q^n}{X^2_1 \cdot X^2_2 \cdot ... \cdot X^2_n }$\\
+
+By the Factorization Theorem we can show defining:\\
+$h(x) = \dfrac{1}{X^2_1 \cdot X^2_2 \cdot ... \cdot X^2_n }$\\
+$g(t | Q) = Q^n  I_{(Q, \infty)})(t)$\\
+that  $f(x \vert Q) = h(x) \cdot g(T(x) | Q)$.\\
+And so, T(x) is sufficient, QED
 \medskip
 
 \textbf{Exercise 5}
 
 \begin{list}{(\alph{ccounter})~}{\usecounter{ccounter}}
+\item Let $T = X_1 + X_2 + \cdots + X_n$ and let $f_t\left(x_1, x_2, \cdots, x_n | \theta\right)$ be the joint density of $X_1, X_2, \cdots, X_n$.
+
+
+\[f_t\left(x_1, x_2, \cdots, x_n | \theta\right) =\left\{
+\begin{array}{l}
+{\displaystyle \prod_{i=1}^{n}} \theta e^{-\theta x}, if\ x > 0,\\
+0, otherwise
+\end{array} \right. = \left\{
+\begin{array}{l}
+\theta^n e^{-\theta \sum_{i=1}^n x_i}, if\ x > 0,\\
+0, otherwise
+\end{array} \right. = \] 
+
+\[= \theta^n e^{-\theta t}\cdot h\left(x_1, x_2, \cdots, x_n\right)=g\left(t, \theta\right)h\left(x_1, x_2, \cdots, x_n\right) = \theta^n e^{-\theta t}\]
+
+Where 
+
+\[g\left(t, \theta\right) = \theta^{n}e^{-\theta t}\]
+
+\[h\left(x_1, \cdots, x_n\right) = \left\{
+\begin{array}{l}
+1, if\ x > 0,\\
+0, otherwise
+\end{array} \right.\]
+
+Hence, $T$ is a sufficient statistic for $\theta$.
 \item
+\[f\left(x; \theta\right)=\theta e^{-\theta x}\]
+
+\[l\left(x; \theta\right)=log\left(\theta e^{-\theta x}\right)\]
+
+Fisher information is:
+
+\[I\left(\theta\right)=-E\left(\dfrac{\eth^2 l\left(x; \theta\right)}{\eth \theta^2}\right) = -E\left(\-\dfrac{1}{\theta^2}\right)=\dfrac{1}{\theta^2}\]
+
+Hence, Cramer-Rao lower bound:
+
+\[Var\left(\hat{\theta}\right)=\theta^2\]
+\item The likelihood function for $\theta$, given an iid sample $X=\left(x_1, x_2, \cdots, x_n\right)$:
+
+\[L\left(\theta\right) = {\displaystyle \prod_{i=1}^{n}} \theta e^{-\theta x} = \theta^n e^{-\theta n \overline{x}}, where\ \overline{x} = \dfrac{1}{n}\sum_{i=1}^n x_i\]
+
+The derivative if the likelihood function's logarithm is
+
+\[\dfrac{\eth}{\eth \theta}ln\left(L\left(\theta\right)\right)=\dfrac{\eth}{\eth \theta}\left(n ln\theta-\theta n \overline{x}\right)=\left\{
+\begin{array}{l}
+>0, 0 < \theta < \dfrac{1}{\overline{x}},\\
+=0, \theta=\dfrac{1}{\overline{x}},\\
+<0, \theta > \dfrac{1}{\overline{x}}
+\end{array} \right. \]
+
+Consequently the MLE
+
+\[\hat{\theta}=\dfrac{1}{\overline{x}}\]
+
+The asymptotic distribution of the estimator is $N\left(\theta, \theta^2\right)$.
+
 \item
+\[L\left(\theta\right)=\theta^n e^{-\theta n \overline{x}}\]
+\[H_0: \theta = 1\]
+\[H_1: \theta>1, \theta = \theta_a\]
+
+Ratio of the likelihood functions is:
+
+\[\dfrac{L\left(1\right)}{L\left(\theta_a\right)}=\dfrac{e^{-n\overline{x}}}{\theta_a^n e^{-\theta_a n \overline{x}}}\leq k\]
+
+\[e^{n\overline{x}\left(\theta_a-1\right)}\theta_a^{-n}\leq k\]
+
+\[\left(\theta_a-1\right)n\overline{x}-n ln\left(\theta_a\right)\leq ln(k)\]
+\[\left(\theta_a-1\right)\sum x_i \leq ln\left(k\right)+nln\left(\theta_a\right)\]
+
+\[\sum x_i \leq \dfrac{ln\left(k\right)+nln\left(\theta_a\right)}{\left(\theta_a-1\right)}=k^*\]
+
+Therefore,  the best critical region of size $\alpha$ for test $H_0: \theta=1$ against each simple alternative $H_1: \theta=\theta_a$, where $\theta_a>1$ if given by:
+
+\[ C =\left\{\left(x_1, \cdots, x_n\right), \sum_{i=1}^n x_i\leq k^*\right\}\]
+
+Where $k^*$ is selected 
+
+\[\alpha = P\left(\sum_{i=1}^n x_i \leq k^*, when\  \theta=1\right)\]
+
+\[0.05 = P\left(\sum_{i=1}^n x_i \leq k^*, when\  \theta=1\right)\]
+
+\[\sum_{i=1}^n x_i = \eta \thicksim \Gamma\left(100, 1\right)\]
+
+\[F_\eta\left(k^*\right)=P\left(\eta\leq k^*\right)=0.05\]
+
+\[\int_0^{k^*}f_\eta\left( x\right)dx=\int_0^{k^*}x^0 \dfrac{e^{-\dfrac{x}{100}}}{100\Gamma\left(1\right)}dx=0.05\]
+
+\[\int_0^{k^*}e^{-\dfrac{x}{100}}dx=5,\ t=-\dfrac{x}{100},\ dt=-\dfrac{dx}{100},\ dx=-100dt, x=k^* \rightarrow t=-\dfrac{k^*}{100} \]
+
+\[\int _0^{-\dfrac{k^*}{100}}e^t dt=5\]
+
+\[\int _0^{-\dfrac{k^*}{100}}e^t dt =-0.05\]
+
+\[e^{-\dfrac{k^*}{100}}-1=-0.05\]
+
+\[k^*=-100ln\left(0.95\right)\]
+
+Hence, our test is
+
+\[\sum_{i=1}^n x_i \leq -100ln\left(0.95\right)\]
+
 \item
+The Wald Statistic is:
+
+\[Z_w=\dfrac{\left(\dfrac{1}{\overline{x}}-1\right)^2}{\theta} = \left({\overline{x}}-1\right)^2\]
+
+In our task 
+
+\[Z_w\leq \chi^2\left(99\right)=81.4\]
+
+Hence
+
+\[\left({\overline{x}}-1\right)^2\leq 81.4\ if\ H_0, H_1\ otherwise\]
+
 \end{list}
 
 \medskip
 
 \textbf{Exercise 6}
-
-\begin{list}{(\alph{ccounter})~}{\usecounter{ccounter}}
-\item
-\item
-\item
-\end{list}
 
 \end{document}
