@@ -268,4 +268,17 @@ Hence
 
 \textbf{Exercise 6}
 
+Note that:\\
+
+$L(\theta) \propto \theta^{\sum^n_{i = 1} x_i} \cdot \left( 1 - \theta \right)^{1 - \sum^n_{i = 1} x_i}$, so we can find:\\
+$\dfrac{L(\theta_0)}{L(\theta_1)} = \left( \dfrac{\theta_0}{\theta_1} \right)^{\sum^n_{i = 1} x_i} \cdot \left( \dfrac{1- \theta_0}{ 1 - \theta_1} \right)^{1 - \sum^n_{i = 1} x_i}$ \\
+Since this is decreasing function of $\sum^n_{i = 1} x_i$, we accept $H_1$ if $\sum^n_{i = 1} x_i > c$\\
+We have that $\sum^n_{i = 1} x_i \sim \mathrm{Bin}(n, \theta)$ and from CLT $\mathrm{Bin}(n,\theta) \approx N( n\theta, n\theta (1 - \theta) )$, and hence  $\dfrac{\sum^n_{i = 1} x_i - n\theta}{\sqrt{n \theta (1 - \theta)}} \sim N(0,1)$\\
+We now wish to find n so that:\\
+$P_{\theta = 0.5} \left( \sum^n_{i = 1} x_i < c \right) = 0.9$\\
+$P_{\theta = 0.6} \left( \sum^n_{i = 1} x_i < c \right) = 0.1$
+
+This amounts to solving the equations\\
+$1.28 = \dfrac{c - 0.5n}{\sqrt{0.25n}}$\\
+$-1.28 = \dfrac{c - 0.6n}{\sqrt{0.24n}}$ and so we got, that n > 160.54, it means, that n = 161
 \end{document}
