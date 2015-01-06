@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\textwidth=431pt
+\textheight=600pt
+\hoffset=-30pt
+\voffset=-30pt
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\makeatletter
+\renewcommand{\@oddhead}{%
+\vbox{
+\hbox to \textwidth{\strut \textit{SABD, Research Paper, Usvyatsov Mikhail} \hfill }
+\hrule
+\vspace{12pt}
+}}
+\renewcommand{\@oddfoot}{}
+\makeatother
+
+\begin{document}
+
+\begin{center}
+\textbf{Structure changes in economics of Russia}
+\end{center}
+
+\bigskip
+	There were observed data sets of currency rates between RUB and USD in the period of World Finance Crisis and the current crisis in Russia.
+	To determine the fact of presence of structure changes in economics we will build the models of the processes presented by time series of exchange rate volatility.\\
+	According to the Bank of Russia - the rate changes daily.
+	
+	In the period of WFC model parameters are:\\
+	$\alpha = 0.1282676 \pm 1.96 \cdot 0.0201896$ \\
+	$\beta = 0.8650602 \pm 1.96 \cdot 0.0180100$
+	
+	In the period of current crisis model parameters are:\\
+	$\alpha = 0.293523 \pm 1.96 \cdot 0.086310$ \\
+	$\beta =  0.625477 \pm 1.96 \cdot  0.102631$
+\end{document}

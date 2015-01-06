@@ -103,7 +103,11 @@ Thus, $\dfrac{9 \cdot n}{2}\left(\overline{X} - \dfrac{4}{3}\right)^2 \sim \chi_
 $n \cdot \left(\overline{X} - \dfrac{4}{3}\right)^2 \sim \dfrac{2}{9} \cdot \chi_1^2$\\
 $n \cdot \left(\overline{X} - \dfrac{4}{3}\right)^2 = n \cdot \left(\overline{X} - 0.8 + 0.8 - \dfrac{4}{3}\right)^2 = n \cdot \left(\overline{X} - 0.8\right)^2 - 2 \cdot \dfrac{8 \cdot n}{15} \cdot \left(\overline{X} - 0.8\right) + \dfrac{64}{15^2}$\\
 $2 \cdot \dfrac{8 \cdot n}{15} \cdot \left(\overline{X} - 0.8\right) \sim N\left(\dfrac{32}{15}, \dfrac{15^2}{16^2 \cdot n^2}\right)$\\
-So, $n \cdot \left(\overline{X} - 0.8\right)^2 \sim \dfrac{2}{9} \cdot \chi_1^2 + N\left(\dfrac{416}{225}, \dfrac{15^2}{16^2 \cdot n^2}\right)$
+Let us define $Z = n \cdot \left(\overline{X} - \dfrac{4}{3}\right)^2 + \dfrac{16 \cdot n}{15} \cdot \left(\overline{X} - 0.8\right) - \dfrac{64}{15^2}$\\
+As far as Z consists of two random variables, the pdf of Z is difficult to find.\\
+We can just write that g(z), where g(z) is the PDF of Z is equal to\\ g(z) = $\int^\infty_{-\infty} f_1(x) \cdot f_2(z - x) dx$, where $f_1(x)$ is the PDF of $n \cdot \left(\overline{X} - \dfrac{4}{3}\right)^2$ and $f_2(x)$ is the PDF of $\dfrac{16 \cdot n}{15} \cdot \left(\overline{X} - 0.8\right)$\\
+However we can see, that $\sigma^2$ of $\dfrac{16 \cdot n}{15} \cdot \left(\overline{X} - 0.8\right)$ asymptotically goes to zero, and so, we can think that it is the constant.\\
+So, we can think, that asymptotically $n \cdot \left(\overline{X} - 0.8\right)^2 \sim \dfrac{2}{9} \cdot \chi_1^2 + 1.848$
 \end{list}
 
 \textbf{Exercise 3}
