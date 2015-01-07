@@ -186,7 +186,7 @@ Fisher information is:
 
 Hence, Cramer-Rao lower bound:
 
-\[Var\left(\hat{\theta}\right)=\theta^2\]
+\[Var\left(\hat{\theta}\right)= \dfrac{\theta^2}{n}\]
 \item The likelihood function for $\theta$, given an iid sample $X=\left(x_1, x_2, \cdots, x_n\right)$:
 
 \[L\left(\theta\right) = {\displaystyle \prod_{i=1}^{n}} \theta e^{-\theta x} = \theta^n e^{-\theta n \overline{x}}, where\ \overline{x} = \dfrac{1}{n}\sum_{i=1}^n x_i\]
@@ -204,7 +204,15 @@ Consequently the MLE
 
 \[\hat{\theta}=\dfrac{1}{\overline{x}}\]
 
-The asymptotic distribution of the estimator is $N\left(\theta, \theta^2\right)$.
+We know, that $ \overline{x} \sim N\left(\theta, \dfrac{\theta^2}{n}\right)$.
+
+The question is how to find the distribution of $\dfrac{1}{\overline{x}}$\\
+We know that: \\
+$\sqrt{n} \cdot \left(\overline{x} - \theta\right) \sim N(0, \theta^2)$\\
+We know from delta method, that:\\
+$\sqrt{n} \cdot \left( g(\overline{x}) - g(\theta) \right) \sim N(0, \sigma^2 \cdot \left[ g^{'}(\theta) \right]^2)$\\
+And so, the asymptotic distribution of the estimator is:\\
+$N( \dfrac{1}{\theta}, \dfrac{1}{\theta^2 \cdot n})$
 
 \item
 \[L\left(\theta\right)=\theta^n e^{-\theta n \overline{x}}\]
