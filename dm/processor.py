@@ -6,8 +6,6 @@ import copy
 
 
 def generate_new_itemsets(itemsets):
-    global candidates_number
-
     if len(itemsets) == 0:
         return []
 
@@ -131,8 +129,7 @@ def initialize(frequent_itemsets, min_sup, file_name):
         candidates_number = candidates_number + 1
 
         if len(i_transactions) >= min_sup * transaction_number:
-            if {item} not in frequent_itemsets[1]:
-                frequent_itemsets[1].append({item})
+            frequent_itemsets[1].append({item})
 
     frequent_candidates_number = frequent_candidates_number + len(frequent_itemsets[1])
 
