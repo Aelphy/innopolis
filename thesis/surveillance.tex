@@ -1,0 +1,67 @@
+ 
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[hidelinks,colorlinks=false]{hyperref}
+\usepackage[titletoc,title]{appendix}
+\usepackage[nottoc]{tocbibind}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{setspace}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{authblk}
+\usepackage{rotating}
+ 
+\begin{document}
+ 
+\title{Final Year Thesis Topic:\\Development and implementation dynamic balance algorithms for bipedal robot locomotion.}
+\author{Prof. Eugeni Magid\\\vspace{-4mm}Innopolis University\\e.magid@innopolis.ru}
+\date{}
+
+\maketitle
+
+\section{Context and Background}
+
+Human anatomy allows people to work in different workspaces. With the help of two legs human can swim, walk, and even climb the mountains. Such abilities are the reason of the progress in science and technology. However, there is huge amount of  applications where the human have to sacrifice his life and limb. Such works as nuclear objects control, car tests, submarine services, car driving, e.t.c. can be done only with double legged robots. Robots now are very restricted. For each particular problem we have a particular robot. Vacuum-cleaner robot cannot delete dust from the cupboard. But double legged mechanisms will be able to work with devices designed for people with precision of robot. 
+
+\section{Problem Statement}
+
+This project is concerned with analyzing the structure of bipedal robot, computer model design, developing the dynamic balance algorithm based on ZMP approach or any other for this robot and implementing it on the real mechanism.  
+
+\section{Objectives and Possible Approaches}
+
+The goal of this exercise is to develop a software system that can output commands for robot's motors and it should make the robot to reach the target position in minimal time. Commands define the angles for motors that affect the robot. To compute these angles the surveillance application needs to be able to do the following.
+\begin{enumerate}
+\item Measure ZMP point with help of pressure sensors.
+\item Solve inverse kinematics problem.
+\item Solve the system of differential equations representing dynamics.
+\end{enumerate}
+Computer model can be done in Simulink environment. It will allow to test the algorithm and improve it iteratively. Then it is necessary to check the model on the real robot and again iteratively improve the model. Finally, robot should be able to follow the strait line on the floor. 
+
+\section{Tools and Resources}
+
+This project with use the matlab, simulink environment, YARP. The final thesis will be written using \LaTeX \cite{Lamport86}.
+ 
+\section{Plan}
+\begin{enumerate}
+	\item
+		Compare different approaches to bipedal locomotion.
+	\item
+		Choose the most appropriate approach.
+	\item
+		Make the computer model of the robot.
+	\item
+		Implement algorithm on this model.
+	\item
+		Iteratively improve the model.
+	\item
+		Implement the algorithm on practice.
+	\item
+		Adapt the model.
+\end{enumerate}
+
+\bibliographystyle{unsrt}
+ 
+%\bibliography{robotics}
+  
+\end{document}
+

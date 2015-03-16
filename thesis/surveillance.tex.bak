@@ -1,0 +1,70 @@
+ 
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[hidelinks,colorlinks=false]{hyperref}
+\usepackage[titletoc,title]{appendix}
+\usepackage[nottoc]{tocbibind}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{setspace}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{authblk}
+\usepackage{rotating}
+ 
+\begin{document}
+ 
+\title{Final Year Thesis Topic:\\Development and implementation dynamic balance algorithms for bipedal robot locomotion.}
+\author{Prof. Eugeni Magid\\\vspace{-4mm}Innopolis University\\e.magid@innopolis.ru}
+\date{}
+
+\maketitle
+
+\section{Context and Background}
+
+Road traffic is  obliged  by law to stop and give way to pedestrians who are using zebra crossings.  To do so safely requires at least three conditions to be satisified.  First, the traffic to be travelling within the speed limit. Second, the driver has to notice that a pedestrian is on or about to step onto the crossing.  Third, the car has to be further away than the safe braking distance from the crossing.  This requires the driver to estimate four values: the speed of the vehicle, the distance of the vehicle from the crossing, and the distance of the pedestrian from the crossing (if not already on it), and the direction the pedestrian is walking.   The first two values are needed to allow the driver to judge whether he or she can safely stop in time.  The second two values are needed to allow the driver to decide whether or not a pedestrian intends to cross the road. The driver does not need to stop if a pedestrian is close to the crossing but is walking past it or away from it; he or she only needs to stop if the pedestrian is either standing at the crossing and facing towards it or is walking towards the crossing and is sufficiently close to it.
+
+\section{Problem Statement}
+
+This project is concerned with analysing the behaviour vehicles as they approach a pedestrian crossing. Since we are not addressing pedestrians crossing at traffic lights, there is no explicit indicator that the car has to stop; the indicator is implicit and is dependent on the proximity of the pedestrian to the crossing and his or her apparent intention to cross.  This makes the problem more difficult because the driver has to infer the pedestrian's intention.   
+
+
+\section{Objectives and Possible Approaches}
+
+The goal of this exercise is to develop a software system that can monitor a pedestrial crossing with a video camera, detect motorized vehicles as the approach the crossing and compute several measures of the vehicle's behaviour \cite{Condeetal,FascioliFedrigaGhidoni07}. These include its instantaneous speed and distance from the crossing when a pedestrian is (a) within a pre-defined distance from the crossing and (b) walking towards or facing the crossing, whether it was safe for the car to stop, and whether the car did actually stop. To compute these statistics the surveillance application needs to be able to do the following.
+\begin{enumerate}
+\item Detect a zebra crossing and estimate its spatial extent in the plane defined by the roadway.
+\item Detect a vehicle approaching the crossing, estimate its location, distance from the crossing, and speed.
+\item Detect a pedestrian close to the crossing, and estimate his or her location and heading or orientation. 
+\end{enumerate}
+Various computer vision techniques will need to be deployed in order to compute accomplish these functions \cite{Dawson-Howe14,SonkaHlavacBoyle14,ShapiroStockman01,Vernon01,TruccoVerri98,Vernon91}.  These include, for example, the following.
+\begin{enumerate}
+\item Image segmentation, such as binary thresholding or edge detection,  to isolate of the zebra crossing markings.
+\item Line fitting using, e.g. the Hough transform, to identify the  boundaries of the zebra crossing: road-side faces and pavement faces.
+\item Computation of the affine transformation required to map the oblique view of the crossing onto a rectangular plane representing the road surface.
+\item Detection of vehicles and pedestrians using background subtraction (the background  represents all the stationary road furniture and road markings, and may have to be normalized to allow for changes in lighting conditions).
+\item Vehicle and pedestrian labelling using, e.g. connectivity / blob analysis.
+\item Vehicle and pedestrian localization by mapping to the rectangular road plane.
+\item Vehicle tracking, e.g. by blob tracking and/or Kalman filtering, to determine whether or not it stopped at the zebra crossing.
+\item Computation of the instantaneous velocity of the vehicle either from tracking data or from optical flow.
+\item Computation of the heading or orientation of the pedestrian either from local features or from tracking data.
+\item Detection (or classification) of pedestrians that are intending to cross the road based on their proximity to the crossing and their orientation / heading.
+\end{enumerate}
+
+\section{Tools and Resources}
+
+This project with use the matlab, simulink environment. The final thesis will be written using \LaTeX \cite{Lamport86}.
+  
+\bibliographystyle{unsrt}
+ 
+\bibliography{robotics}
+
+@book{ lamport86 ,
+     author =    "Leslie Lamport" ,
+     title =     "\LaTeX: A Document Preparation System" ,
+     publisher = "Addison--Wesley Pub.\ Co." ,
+     year =      "1986" ,
+     address =   "Reading, MA" 
+
+  
+\end{document}
+
