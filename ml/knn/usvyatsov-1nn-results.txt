@@ -1,0 +1,42 @@
+ haberman - accuracy 55%
+ iris - accuracy 96%
+
+python knn.py -r haberman-train  -e haberman-test
+
+Wrong test [34.0, 66.0, 9.0]
+    class name: Died
+    recognized class: Survived
+Wrong test [34.0, 58.0, 30.0]
+    class name: Survived
+    recognized class: Died
+Wrong test [42.0, 59.0, 0.0]
+    class name: Died
+    recognized class: Survived
+Wrong test [47.0, 68.0, 4.0]
+    class name: Survived
+    recognized class: Died
+Wrong test [47.0, 66.0, 12.0]
+    class name: Survived
+    recognized class: Died
+Wrong test [50.0, 59.0, 2.0]
+    class name: Survived
+    recognized class: Died
+Wrong test [53.0, 65.0, 1.0]
+    class name: Died
+    recognized class: Survived
+Wrong test [61.0, 68.0, 1.0]
+    class name: Died
+    recognized class: Survived
+Wrong test [69.0, 60.0, 0.0]
+    class name: Survived
+    recognized class: Died
+
+accuracy: 0.55
+
+python knn.py -r iris_train -e iris_test
+
+Wrong test [4.9, 2.5, 4.5, 1.7]
+    class name: Iris-virginica
+    recognized class: Iris-versicolor
+
+accuracy: 0.966666666667
