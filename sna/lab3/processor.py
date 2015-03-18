@@ -1,4 +1,5 @@
 from datetime import datetime as dt
+import itertools
 
 data_file = open('data.txt', 'rb')
 
@@ -38,7 +39,7 @@ def initialize():
         u_list = process_next_line()
         u = int(u_list[1])
 
-        if u_list[2].strip() not in people.values():
+        if u_list[2].strip() and u > 0 not in people.values():
             people[u] = u_list[2].strip()
 
         n_list = process_next_line()
@@ -46,7 +47,10 @@ def initialize():
 
         people[n] = n_list[2].strip()
 
-        network_list[u] = {n : 1}
+        if n > 0:
+            network_list[u] = {n : 1}
+        else:
+            network_list[u] = {}
 
         is_votings_finished = False
         is_v = False
@@ -103,6 +107,49 @@ def dfs(graph, start, visited):
             stack.extend(candidates - visited)
 
     return current
+
+
+def is_balanced(supernode):
+    for c1 in itertools.combinations(supernode, 3):
+        total = 0
+        next_c1 = False
+
+        for c2 in itertools.combinations(c1, 2):
+            if c2[0] in network and c2[1] in network[c2[0]]:
+                total = total + network[c2[0]][c2[1]]
+            else:
+                next_c1 = True
+                break
+
+        if not next_c1:
+            if total not in [3, -1]:
+                return False
+
+    return True
+
+
+def delete_negative(supernode):
+    for c1 in itertools.combinations(supernode, 3):
+        total = 0
+        next_c1 = False
+
+        for c2 in itertools.combinations(c1, 2):
+            if c2[0] in network and c2[1] in network[c2[0]]:
+                total = total + network[c2[0]][c2[1]]
+            else:
+                next_c1 = True
+                break
+
+        if not next_c1:
+            if total not in [3, -1]:
+                for c2 in itertools.combinations(c1, 2):
+                    if c2[0] in network and c2[1] in network[c2[0]] and network[c2[0]][c2[1]] == -1:
+                        supernode.remove(c2[0])
+                        break
+
+                break
+
+    return supernode
 
 
 def process():
