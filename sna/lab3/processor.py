@@ -44,8 +44,7 @@ def initialize():
         n_list = process_next_line()
         n = int(n_list[1])
 
-        if n_list[2].strip() not in people.values():
-            people[n] = n_list[2].strip()
+        people[n] = n_list[2].strip()
 
         network_list[u] = {n : 1}
 
@@ -63,6 +62,7 @@ def initialize():
 
                 if user not in network_list[u]:
                     network_list[u][user] = vote
+                    people[user] = v_list[4].strip()
             elif is_v:
                 is_votings_finished = True
 
@@ -84,9 +84,6 @@ def initialize():
 
 
 def dfs(graph, start, visited):
-    if start in visited:
-        return []
-
     stack = [start]
     current = set()
 
@@ -103,7 +100,7 @@ def dfs(graph, start, visited):
                 for u_id, vote in graph[vertex].items():
                     if vote == 1:
                         candidates.add(u_id)
-                stack.extend(candidates - visited)
+            stack.extend(candidates - visited)
 
     return current
 
@@ -116,10 +113,13 @@ def process():
     global people
 
     for u_id, name in people.items():
+        if u_id in visited:
+            continue
+
         candidate = dfs(network, u_id, visited)
 
         if candidate:
-            supernodes.append(dfs(network, u_id, visited))
+            supernodes.append(candidate)
 
     supernodes = [x for x in supernodes if x]
 
