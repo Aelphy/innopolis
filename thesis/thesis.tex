@@ -39,24 +39,40 @@ Computer model can be done in Simulink environment. It will allow to test the al
 
 \section{Tools and Resources}
 
-This project with use the matlab, simulink environment, YARP. The final thesis will be written using \LaTeX \cite{Lamport86}.
+This project with use the matlab, simulink environment, YARP/ROS. The final thesis will be written using \LaTeX \cite{Lamport86}.
  
 \section{Plan}
 \begin{enumerate}
 	\item
 		Compare different approaches to bipedal locomotion.
+		
+		Bipedal locomotion consists of several phases. There are walking and staying parts. Each of this part requires different type of stability. If robot is statically stable, then it wouldn't require any energy while it stays. On the other hand, during walking bipedal robot should be stable, but previous characteristic doesn't provide this property. So we came up with the idea of dynamical stability, that will allow the robot to move. 
+		There are several ways to achieve it. E.g. neural networks, ZMP, passive walking, capture point, to name a only few.
 	\item
 		Choose the most appropriate approach.
+		
+		The process of bipedal walking consists of continuous falling of the robot but it have to prevent it on time and change the phase. From this point of view it doesn't seems that neural networks are the good idea because we can describe the model precisely. More over bipedal robot is interesting because of its anthropomorphism because of it robot can be placed in the same environment as a human. This requirements make us think about the approach that is energy and computationally efficient and also provide a good precision of walking in several degrees of uncertainty.  
 	\item
 		Make the computer model of the robot.
+		
+		During the development we should compare several models ща the control, also mistakes are inevitable. Thus virtual simulation environment is necessary to prevent robot failure and reduce the time of problems identifying.
 	\item
 		Implement algorithm on this model.
+		
+		Algorithm should be implemented in simulator to prove that it allows control the entire model.  
 	\item
-		Iteratively improve the model.
+		Iteratively improve the model and algorithm.
+		
+		It is inevitable that some approaches would be better than others, therefore  	
+		it is very important to improve the model iteratively, and so to achieve better solution of the problem. 
 	\item
 		Implement the algorithm on practice.
+		
+		Theoretical solving of problem cannot guarantee that it really works. So real world test would be the best prove, the the work is done correctly.
 	\item
 		Adapt the model.
+		
+		After constructing the simple model, we want to make it more complicated to be able to work in different conditions and environments and solve real world problems. 
 \end{enumerate}
 
 \bibliographystyle{unsrt}
