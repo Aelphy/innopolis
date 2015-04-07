@@ -4,6 +4,8 @@
 #include <iostream>
 #include <dirent.h>
 
+#define bottles_per_image 5
+
 using namespace cv;
 using namespace std;
 
@@ -46,7 +48,42 @@ void compute_statistics(string *answers, string *labels, string *classes) {
 
 // extract botles from images and callify it one by one
 void process_botles(Mat drawing) {
-    
+//    int
+    bool is_delimiter = true;
+    bool is_prev_delimiter = true;
+    int begin_col = 0;
+    int end_col = 0;
+    int bottles_number = 0;
+
+    while (bottles_number < bottles_per_image) {
+        int i = 0;
+        int j = 0;
+
+            for (i = end_col + 1; i < drawing.cols; i++) {
+                for (j = 0; j < drawing.rows; j++) {
+                    Scalar intensity = drawing.at<uchar>(j, i);
+
+                    if (intensity.val[0] > 0) {
+                        is_delimiter = false;
+                    }
+                }
+
+                if (is_prev_delimiter && !is_delimiter) {
+                    begin_col = i;
+                }
+
+                if (!is_prev_delimiter && is_delimiter) {
+                    end_col = i - 1;
+                    bottles_number++;
+                    line(drawing, Point(begin_col, 50), Point(end_col, 50), Scalar(255,255,255));
+                    imshow("bottles", drawing);
+                    process_bottle();
+                }
+
+                is_prev_delimiter = is_delimiter;
+                is_delimiter = true;
+            }
+    }
 }
 
 int main() {
@@ -99,6 +136,7 @@ int main() {
         }
     }
 
+    cvtColor(drawing, drawing, CV_RGB2GRAY);
     imshow("Contours", drawing);
 
     process_botles(drawing);
