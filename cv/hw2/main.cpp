@@ -44,6 +44,11 @@ void compute_statistics(string *answers, string *labels, string *classes) {
     cout << '\n';
 }
 
+// extract botles from images and callify it one by one
+void process_botles(Mat drawing) {
+    
+}
+
 int main() {
     DIR *dir;
     string images_dir = "/Users/aelphy/Documents/innopolis/cv/hw2/Glue/";
@@ -53,6 +58,7 @@ int main() {
 
     vector <Mat> sample_images;
 
+    // read the sample data
     if (dir != NULL) {
         while ((ent = readdir(dir)) != NULL) {
             image_name = ent->d_name;
@@ -66,62 +72,38 @@ int main() {
         cout << "not present" << endl;
     }
 
-    Mat src = sample_images[0];
+    Mat src = sample_images[2];
     Mat src_gray, edges;
     imshow("orig", src);
 
-    GaussianBlur(src, src, Size(3,3), 0, 0, BORDER_DEFAULT);
+    // convert image to gray scale
+    GaussianBlur(src, src, Size(5,5), 0, 0, BORDER_DEFAULT);
     cvtColor(src, src_gray, CV_RGB2GRAY);
 
+    // extract edges
     Canny(src, edges, 50, 200);
     imshow("edges", edges);
 
-    vector<vector<Point> > contours;
-    vector<Vec4i> hierarchy;
+    // find contours
+    vector< vector< Point > > contours;
+    vector< Vec4i > hierarchy;
 
     findContours(edges, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_NONE);
 
-    
-//    imshow("orig1", contours[1]);
+    // filter small contours
+    Mat drawing = Mat::zeros(edges.size(), CV_8UC3);
+
+    for( int i = 0; i< contours.size(); i++ ) {
+        if (contours[i].size() > 200) {
+            drawContours(drawing, contours, i, Scalar(255, 255, 255), 1, 1, hierarchy, 0, Point());
+        }
+    }
+
+    imshow("Contours", drawing);
+
+    process_botles(drawing);
 
     cvWaitKey(0);
-
-//    for (int i = 0; i < 3; i++) {
-//        sample_images[i] = imread(sample_files[i], CV_LOAD_IMAGE_COLOR); // Read the file
-//
-//        if(!sample_images[i].data) {                                     // Check for invalid input
-//            cout <<  "Could not open or find the image" << std::endl ;
-//            return -1;
-//        }
-//    }
-//
-//    Mat test_images[18];
-//
-//    for (int i = 0; i < 18; i++) {
-//        test_images[i] = imread(test_files[i], CV_LOAD_IMAGE_COLOR);   // Read the file
-//
-//        if(!test_images[i].data) {                                     // Check for invalid input
-//            cout <<  "Could not open or find the image" << std::endl ;
-//            return -1;
-//        }
-//    }
-//
-//    vector <Mat> rgb;
-//
-//    split(sample_images[2], rgb);
-//    imwrite("red2.jpg", rgb[2]);
-//
-//    for(int i = 0; i < 18; i++) {
-//        split(test_images[i], rgb);
-//
-//        if (cv::mean(2 * rgb[2] - rgb[0] - rgb[1])[0] < max_empty_treshold) {
-//            answers[i] = "empty";
-//        } else if (cv::mean(2 * rgb[2] - rgb[0] - rgb[1])[0] < max_one_treshold) {
-//            answers[i] = "one spoon";
-//        } else {
-//            answers[i] = "two spoons";
-//        }
-//    }
 
     return 0;
 }
