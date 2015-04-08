@@ -5,6 +5,7 @@
 #include <dirent.h>
 
 #define bottles_per_image 5
+#define neck_threshold 10
 
 using namespace cv;
 using namespace std;
@@ -44,6 +45,91 @@ void compute_statistics(string *answers, string *labels, string *classes) {
     cout << "recall is " << recall << '\n';
     cout << "accuracy is " << accuracy << '\n';
     cout << '\n';
+}
+
+void process_bottle(Mat bottle) {
+    int i,j;
+    int neck_index = 0;
+    vector <int> left_index;
+    vector <int> right_index;
+    vector <int> left_clearance;
+    vector <int> right_clearance;
+
+    // find indexes of exteranl edges and clearance
+    for(i = bottle.rows - 1; i >= 0; i--) {
+        bool skip = false;
+
+        for(j = bottle.cols; j >= 0; j--) {
+            Scalar intensity = bottle.at<uchar>(i, j);
+
+            if (j == 0) {
+                skip = true;
+
+                if (intensity.val[0] > 0) {
+                    right_index.push_back(j);
+                    left_index.push_back(j);
+                }
+            } else if (intensity.val[0] > 0) {
+                right_index.push_back(j);
+
+                for (int k = j - 1; k >= 0; k++) {
+                    Scalar next_intensity = bottle.at<uchar>(i, k);
+
+                    if (next_intensity.val[0] > 0) {
+                        right_clearance.push_back(right_index[right_index.size() - 1] - k);
+                        break;
+                    }
+                }
+
+                break;
+            }
+        }
+
+        if (!skip) {
+            for (j = 0; j < bottle.cols; j++) {
+                Scalar intensity = bottle.at<uchar>(i, j);
+
+                if (intensity.val[0] > 0) {
+                    left_index.push_back(j);
+
+                    for (int k = j + 1; k < bottle.cols; k++) {
+                        Scalar next_intensity = bottle.at<uchar>(i, k);
+
+                        if (next_intensity.val[0] > 0) {
+                            left_clearance.push_back(k - left_index[left_index.size() - 1]);
+                            break;
+                        }
+                    }
+
+                    break;
+                }
+            }
+        }
+    }
+
+    // find neck
+    for (i = 0; i < left_index.size() - 1; i++) {
+        int width = right_index[i] - left_index[i];
+        int next_width = right_index[i + 1] - left_index[i + 1];
+
+        if (width - next_width > neck_threshold) {
+            neck_index = i;
+            break;
+        }
+    }
+
+    // extract box
+    Rect box_rect(0, bottle.rows - neck_index, bottle.cols, neck_index);
+    Mat box = bottle(box_rect);
+
+    imshow("box", box);
+
+    // analyze clearance
+    if (left_clearance.size() == right_clearance.size()) {
+        for (i = 0; i < left_clearance.size(); i++) {
+            cout << left_clearance[i] - right_clearance[i] << endl;
+        }
+    }
 }
 
 // extract botles from images and callify it one by one
@@ -92,7 +178,9 @@ void process_botles(Mat drawing) {
         }
     }
 
-    imshow("bottle", bottles[1]);
+    for (int i = 0; i < bottles.size(); i++) {
+        process_bottle(bottles[i]);
+    }
 }
 
 int main() {
@@ -118,7 +206,7 @@ int main() {
         cout << "not present" << endl;
     }
 
-    Mat src = sample_images[2];
+    Mat src = sample_images[1];
     Mat src_gray, edges;
     imshow("orig", src);
 
