@@ -3,14 +3,60 @@
 #include "opencv2/imgproc/imgproc.hpp"
 #include <iostream>
 #include <dirent.h>
+#include <unordered_map>
 
 #define bottles_per_image 5
 #define neck_threshold 10
+#define empty_threshold 10
+#define straight_threshold 5
+#define centered_threshold 18
+#define classes_number 5
 
 using namespace cv;
 using namespace std;
 
-void compute_statistics(string *answers, string *labels, string *classes) {
+vector <string> answers;
+string labels[] = {
+    "not centered/straight",
+    "not centered/straight",
+    "centered/straight",
+    "centered/straight",
+    "no label",
+    "not_centered/not straight",
+    "no label",
+    "not_centered/not straight",
+    "centered/straight",
+    "not_centered/not straight",
+    "centered/not straight",
+    "not_centered/not straight",
+    "not_centered/not straight",
+    "no label",
+    "centered/straight",
+    "centered/straight",
+    "no label",
+    "no label",
+    "not_centered/not straight",
+    "centered/straight",
+    "no label",
+    "centered/straight",
+    "centered/straight",
+    "no label",
+    "centered/not straight",
+    "not centered/not straight",
+    "not centered/not straight",
+    "not centered/not straight",
+    "not centered/not straight",
+    "no label"
+};
+string classes[] = {
+    "no label",
+    "centered/straight",
+    "centered/not straight",
+    "not_centered/straight",
+    "not_centered/not straight"
+};
+
+void compute_statistics(vector <string> answers, string labels[], string classes[]) {
     int class_elements_number = 0;
     int not_class_elements_number = 0;
     int false_positives = 0;
@@ -18,8 +64,8 @@ void compute_statistics(string *answers, string *labels, string *classes) {
     int true_positives = 0;
     int true_negatives = 0;
 
-    for(int i = 0; i < 3; i++) {
-        for (int j = 0; j < 18; j++) {
+    for(int i = 0; i < classes_number; i++) {
+        for (int j = 0; j < answers.size(); j++) {
             if (answers[j] == classes[i]) {
                 class_elements_number++;
 
@@ -50,56 +96,42 @@ void compute_statistics(string *answers, string *labels, string *classes) {
 void process_bottle(Mat bottle) {
     int i,j;
     int neck_index = 0;
-    vector <int> left_index;
-    vector <int> right_index;
-    vector <int> left_clearance;
-    vector <int> right_clearance;
+    unordered_map <int, int> left_index;
+    unordered_map <int, int> right_index;
+    unordered_map <int, int> box_left_index;
+    unordered_map <int, int> box_right_index;
+    unordered_map <int, int> left_clearance;
+    unordered_map <int, int> right_clearance;
 
-    // find indexes of exteranl edges and clearance
+    // find indexes of exteranl edges
     for(i = bottle.rows - 1; i >= 0; i--) {
         bool skip = false;
 
-        for(j = bottle.cols; j >= 0; j--) {
-            Scalar intensity = bottle.at<uchar>(i, j);
+        // go from the right side
+        for(j = bottle.cols - 1; j >= 0; j--) {
+            uchar intensity = bottle.at<uchar>(i, j);
 
             if (j == 0) {
                 skip = true;
 
-                if (intensity.val[0] > 0) {
-                    right_index.push_back(j);
-                    left_index.push_back(j);
+                if (intensity > 0) {
+                    right_index[i] = j;
+                    left_index[i] = j;
                 }
-            } else if (intensity.val[0] > 0) {
-                right_index.push_back(j);
-
-                for (int k = j - 1; k >= 0; k++) {
-                    Scalar next_intensity = bottle.at<uchar>(i, k);
-
-                    if (next_intensity.val[0] > 0) {
-                        right_clearance.push_back(right_index[right_index.size() - 1] - k);
-                        break;
-                    }
-                }
+            } else if (intensity == 255) {
+                right_index[i] = j;
 
                 break;
             }
         }
 
+        // go from the left side if there is
         if (!skip) {
             for (j = 0; j < bottle.cols; j++) {
-                Scalar intensity = bottle.at<uchar>(i, j);
+                uchar intensity = bottle.at<uchar>(i, j);
 
-                if (intensity.val[0] > 0) {
-                    left_index.push_back(j);
-
-                    for (int k = j + 1; k < bottle.cols; k++) {
-                        Scalar next_intensity = bottle.at<uchar>(i, k);
-
-                        if (next_intensity.val[0] > 0) {
-                            left_clearance.push_back(k - left_index[left_index.size() - 1]);
-                            break;
-                        }
-                    }
+                if (intensity  == 255) {
+                    left_index[i] = j;
 
                     break;
                 }
@@ -108,26 +140,103 @@ void process_bottle(Mat bottle) {
     }
 
     // find neck
-    for (i = 0; i < left_index.size() - 1; i++) {
-        int width = right_index[i] - left_index[i];
-        int next_width = right_index[i + 1] - left_index[i + 1];
+    int total = 0;
 
-        if (width - next_width > neck_threshold) {
+    for (i = bottle.rows - 1; i >= 1; i--) {
+        int width = right_index[i] - left_index[i];
+        int next_width = right_index[i - 1] - left_index[i - 1];
+
+        if (width - next_width > 0) {
+            total++;
+        }
+
+        if (total >= neck_threshold) {
             neck_index = i;
             break;
         }
     }
 
     // extract box
-    Rect box_rect(0, bottle.rows - neck_index, bottle.cols, neck_index);
+    Rect box_rect(0, neck_index, bottle.cols, bottle.rows - neck_index);
     Mat box = bottle(box_rect);
 
     imshow("box", box);
 
-    // analyze clearance
-    if (left_clearance.size() == right_clearance.size()) {
-        for (i = 0; i < left_clearance.size(); i++) {
-            cout << left_clearance[i] - right_clearance[i] << endl;
+    // find indexes of external edges and clearance for the box
+    for(i = 0; i < box.rows; i++) {
+        // go from the right side
+        for(j = box.cols - 1; j >= 0; j--) {
+            uchar intensity = box.at<uchar>(i, j);
+
+            if (intensity == 255) {
+                box_right_index[i] = j;
+
+                for (int k = j - 2; k >= 0; k--) {
+                    uchar next_intensity = box.at<uchar>(i, k);
+
+                    if (next_intensity == 255) {
+                        right_clearance[i] = j - k;
+                        break;
+                    }
+                }
+
+                break;
+            }
+        }
+
+        // go from the left side if there is
+        for (j = 0; j < bottle.cols; j++) {
+            uchar intensity = box.at<uchar>(i, j);
+
+            if (intensity  == 255) {
+                box_left_index[i] = j;
+
+                for (int k = j + 2; k < box.cols; k++) {
+                    uchar next_intensity = box.at<uchar>(i, k);
+
+                    if (next_intensity == 255) {
+                        left_clearance[i] = k - j;
+                        break;
+                    }
+                }
+
+                break;
+            }
+        }
+    }
+
+    if (mean(box)[0] < empty_threshold) {
+      answers.push_back("no label");
+    } else {
+        // analyze clearance - rewrite
+        int left_diff = 0;
+        int right_diff = 0;
+        int center_diff = 0;
+
+        int left1 = left_clearance[box.rows / 8];
+        int left2 = left_clearance[box.rows / 5 * 2];
+        int left3 = left_clearance[box.rows / 3 * 2];
+
+        left_diff += abs(left1 - left2) + abs(left2 - left3);
+
+        int right1 = right_clearance[box.rows / 8];
+        int right2 = right_clearance[box.rows / 3];
+        int right3 = right_clearance[box.rows / 3 * 2];
+
+        right_diff += abs(right1 - right2) + abs(right2 - right3);
+
+        center_diff += abs(left1 - right1) + abs(left2 - right2) + abs(left3 - right3);
+
+        if (center_diff < centered_threshold) {
+            answers.push_back("centered/");
+        } else {
+            answers.push_back("not centered/");
+        }
+
+        if (left_diff <= straight_threshold && right_diff <= straight_threshold && left_diff + right_diff < straight_threshold) {
+            answers[answers.size() - 1] += "straight";
+        } else {
+            answers[answers.size() - 1] += "not straight";
         }
     }
 }
@@ -150,9 +259,9 @@ void process_botles(Mat drawing) {
         // find the borders of the next bottle
         for (i = end_col + 1; i < drawing.cols; i++) {
             for (j = 0; j < drawing.rows; j++) {
-                Scalar intensity = drawing.at<uchar>(j, i);
+                uchar intensity = drawing.at<uchar>(j, i);
 
-                if (intensity.val[0] > 0) {
+                if (intensity > 0) {
                     is_delimiter = false;
                 }
             }
@@ -164,7 +273,7 @@ void process_botles(Mat drawing) {
 
             // check for the end of the bottle
             if (!is_prev_delimiter && is_delimiter) {
-                end_col = i - 1;
+                end_col = i + 1;
                 bottles_number++;
 
                 Rect bottle_rect(begin_col, 0, end_col - begin_col, drawing.rows);
@@ -196,7 +305,6 @@ int main() {
     if (dir != NULL) {
         while ((ent = readdir(dir)) != NULL) {
             image_name = ent->d_name;
-            cout << image_name << endl;
             if (image_name[0] != '.') {
                 sample_images.push_back(imread("/Users/aelphy/Documents/innopolis/cv/hw2/Glue/" + image_name));
             }
@@ -206,39 +314,37 @@ int main() {
         cout << "not present" << endl;
     }
 
-    Mat src = sample_images[1];
-    Mat src_gray, edges;
-    imshow("orig", src);
+    for (int i = 0; i < sample_images.size(); i++) {
+        Mat src = sample_images[i];
+        Mat src_gray, edges;
 
-    // convert image to gray scale
-    GaussianBlur(src, src, Size(5,5), 0, 0, BORDER_DEFAULT);
-    cvtColor(src, src_gray, CV_RGB2GRAY);
+        // convert image to gray scale
+        GaussianBlur(src, src, Size(5, 5), 0, 0, BORDER_DEFAULT);
+        cvtColor(src, src_gray, CV_RGB2GRAY);
 
-    // extract edges
-    Canny(src, edges, 50, 200);
-    imshow("edges", edges);
+        // extract edges
+        Canny(src, edges, 50, 200);
 
-    // find contours
-    vector< vector< Point > > contours;
-    vector< Vec4i > hierarchy;
+        // find contours
+        vector<vector<Point> > contours;
+        vector<Vec4i> hierarchy;
 
-    findContours(edges, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_NONE);
+        findContours(edges, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_NONE);
 
-    // filter small contours
-    Mat drawing = Mat::zeros(edges.size(), CV_8UC3);
+        // filter small contours
+        Mat drawing = Mat::zeros(edges.size(), CV_8U);
 
-    for( int i = 0; i< contours.size(); i++ ) {
-        if (contours[i].size() > 200) {
-            drawContours(drawing, contours, i, Scalar(255, 255, 255), 1, 1, hierarchy, 0, Point());
+        for (int i = 0; i < contours.size(); i++) {
+            if (contours[i].size() > 200) {
+                drawContours(drawing, contours, i, Scalar(255, 255, 255), 1, 1, hierarchy, 0, Point());
+            }
         }
+
+        process_botles(drawing);
+//        cvWaitKey(0);
     }
 
-    cvtColor(drawing, drawing, CV_RGB2GRAY);
-    imshow("Contours", drawing);
-
-    process_botles(drawing);
-
-    cvWaitKey(0);
+    compute_statistics(answers, labels, classes);
 
     return 0;
 }
