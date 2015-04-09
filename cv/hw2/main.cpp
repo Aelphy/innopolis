@@ -10,13 +10,12 @@
 #define empty_threshold 10
 #define straight_threshold 5
 #define centered_threshold 18
-#define classes_number 5
 
 using namespace cv;
 using namespace std;
 
 vector <string> answers;
-string labels[] = {
+const string labels_a[] = {
     "not centered/straight",
     "not centered/straight",
     "centered/straight",
@@ -48,7 +47,8 @@ string labels[] = {
     "not centered/not straight",
     "no label"
 };
-string classes[] = {
+
+const string classes_a[] = {
     "no label",
     "centered/straight",
     "centered/not straight",
@@ -56,7 +56,10 @@ string classes[] = {
     "not_centered/not straight"
 };
 
-void compute_statistics(vector <string> answers, string labels[], string classes[]) {
+vector <string> labels (labels_a, labels_a + sizeof(labels_a) / sizeof(labels_a[0]));
+vector <string> classes (classes_a, classes_a + sizeof(classes_a) / sizeof(classes_a[0]));
+
+void compute_statistics(vector <string> &answers, vector <string> &labels, vector <string> &classes) {
     int class_elements_number = 0;
     int not_class_elements_number = 0;
     int false_positives = 0;
@@ -64,7 +67,7 @@ void compute_statistics(vector <string> answers, string labels[], string classes
     int true_positives = 0;
     int true_negatives = 0;
 
-    for(int i = 0; i < classes_number; i++) {
+    for(int i = 0; i < classes.size(); i++) {
         for (int j = 0; j < answers.size(); j++) {
             if (answers[j] == classes[i]) {
                 class_elements_number++;
@@ -289,6 +292,7 @@ void process_botles(Mat drawing) {
 
     for (int i = 0; i < bottles.size(); i++) {
         process_bottle(bottles[i]);
+//        imshow("bottle", bottles[i]);
     }
 }
 
@@ -327,13 +331,13 @@ int main() {
         // extract edges
         Canny(src, edges, 50, 200);
 
+//        imshow("edges", edges);
+
         // find contours
         vector<vector<Point> > contours;
         vector<Vec4i> hierarchy;
 
         findContours(edges, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_NONE);
-
-//        imshow("edges", edges);
 
         // filter small contours
         Mat drawing = Mat::zeros(edges.size(), CV_8U);
