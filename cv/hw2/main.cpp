@@ -87,10 +87,10 @@ void compute_statistics(vector <string> answers, string labels[], string classes
     double recall = ((double) true_positives) / ((double) (true_positives + false_negatives));
     double accuracy = ((double) (true_positives + true_negatives)) / ((double) (true_positives + false_positives + true_negatives + false_negatives));
 
-    cout << "precision is " << precision << '\n';
-    cout << "recall is " << recall << '\n';
-    cout << "accuracy is " << accuracy << '\n';
-    cout << '\n';
+    cout << "precision is " << precision << endl;
+    cout << "recall is " << recall << endl;
+    cout << "accuracy is " << accuracy << endl;
+    cout << endl;
 }
 
 void process_bottle(Mat bottle) {
@@ -160,7 +160,7 @@ void process_bottle(Mat bottle) {
     Rect box_rect(0, neck_index, bottle.cols, bottle.rows - neck_index);
     Mat box = bottle(box_rect);
 
-    imshow("box", box);
+//    imshow("box", box);
 
     // find indexes of external edges and clearance for the box
     for(i = 0; i < box.rows; i++) {
@@ -208,7 +208,7 @@ void process_bottle(Mat bottle) {
     if (mean(box)[0] < empty_threshold) {
       answers.push_back("no label");
     } else {
-        // analyze clearance - rewrite
+        // analyze clearance
         int left_diff = 0;
         int right_diff = 0;
         int center_diff = 0;
@@ -322,6 +322,8 @@ int main() {
         GaussianBlur(src, src, Size(5, 5), 0, 0, BORDER_DEFAULT);
         cvtColor(src, src_gray, CV_RGB2GRAY);
 
+//        imshow("src gray", src_gray);
+
         // extract edges
         Canny(src, edges, 50, 200);
 
@@ -331,6 +333,8 @@ int main() {
 
         findContours(edges, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_NONE);
 
+//        imshow("edges", edges);
+
         // filter small contours
         Mat drawing = Mat::zeros(edges.size(), CV_8U);
 
@@ -339,6 +343,8 @@ int main() {
                 drawContours(drawing, contours, i, Scalar(255, 255, 255), 1, 1, hierarchy, 0, Point());
             }
         }
+
+//        imshow("drawing", drawing);
 
         process_botles(drawing);
 //        cvWaitKey(0);
