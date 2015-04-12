@@ -75,9 +75,49 @@ This project with use the matlab, simulink environment, YARP/ROS. The final thes
 		After constructing the simple model, we want to make it more complicated to be able to work in different conditions and environments and solve real world problems. 
 \end{enumerate}
 
-\bibliographystyle{unsrt}
- 
-%\bibliography{robotics}
+\newpage
+
+\section{Literature review}
+
+Bipedal locomotion is a very complex task. It still doesn't have complete general solution however the research of this are has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
+According to \cite{zmp_dynamic_walking} we can divide all the humanoid robots into two big groups: ZMP-controlled ones and passive - dynamic walkers.\\
+Miomir Vukobratovic in \cite{zmp_vuko} defines ZMP as a point in which we can reduce all the forces with one single force. This ZMP point should be on the foot. The problem is that we cannot manipulate the foot directly. According to \cite{zmp_vuko} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction than foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, than robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed simultaneously and the problem of control is to keep ZMP and contact point to be coincided.\\
+In \cite{zmp_dynamic_walking} it was mentioned that ZMP approach give us the solution that is based on the principle of dynamical stability, however it is not energy efficient. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{passive_walker} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
+It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, elsewhere the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{zmp_vuko} ZMP method is the most well known and so it is necessary to start with it. Than iteratively increasing the complexity of the problem and applying new technics and constraints we will reach the optimal solution.\\
+According to \cite{zmp_vuko} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only in the edge or in the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are border situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{zmp_vuko} suggests the way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite obvious. Compute wanted ZMP coordinates, measure the error and apply correcting signal. Very important notion is about Center of Pressure (CoP). According to \cite{zmp_vuko} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident.
+
+\newpage
+
+\begin{thebibliography}{2}
+	\bibitem{Lamport86}{
+		Lesley Lamport. LATEX: A Document Preparation System.
+		\emph{Addison-Wesley, Reading, Massachusetts, 1986} 
+	}
+	\bibitem{zmp_eind}{
+		Dekker M.H.P. Zero-moment point method for stable biped walking. 
+		\emph{Eindhoven University of Technology, 2009}
+	}
+	\bibitem{zmp_hanyang}{
+		Jong H. Park., Yong K. Rhee. ZMP Trajectory Generation for Reduced Trunk Motions of Biped Robots. 
+		\emph{Intelligent Robots and Systems, 1998}
+	}
+	\bibitem{zmp_dynamic_walking}{
+		Manchester I. R. et al. Stable dynamic walking over uneven terrain. 
+		\emph{The International Journal of Robotics Research, 2011}
+	}
+	\bibitem{zmp_vuko}{
+		Vukobratović M., Borovac B. Zero-moment point-thirty five years of its life.
+		\emph{International Journal of Humanoid Robotics, 2004}
+	}
+	\bibitem{zmp_eind2}{
+		van Zutven P. W. M. Modeling, identification and stability of humanoid robots.
+		\emph{Eindhoven University of Technology, 2009}
+	}
+	\bibitem{passive_walker}{
+		Collins S. H., Wisse M., Ruina A. A three-dimensional passive-dynamic walking robot with two legs and knees.
+		\emph{The International Journal of Robotics Research, 2001}
+	}
+\end{thebibliography}
   
 \end{document}
 
