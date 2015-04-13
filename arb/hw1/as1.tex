@@ -313,7 +313,21 @@
 			\end{enumerate}
 
 		\subsection{Problem 3}
-		
+			Time domain transfer function:
+			\begin{equation*}
+				u(t) = K_p e(t) + K_i \int_{0}^{t} e(t) dt + K_d \frac{d e(t)}{dt}
+			\end{equation*}
+			
+			S-domain transfer function:
+			\begin{equation*}
+				\frac{U(s)}{E(s)} = K_p + \frac{K_i}{s} + K_d s
+			\end{equation*}
+			
+			PI controllers eliminate steady-state error (oscillations around
+			the set point), but increases overshooting.
+			PD controllers are almost never used; they reduce overshoot and settling time.
+			PID controllers dynamics are similar to PI controllers, but, due to
+			the derivative term, overshooting and settling time decrease, and one can increase $K_i$.
 		\subsection{Problem 4}
 		    Differentiator approximation:
 		    \begin{equation*}
@@ -338,4 +352,33 @@
 		        \frac{T_d s}{1 + \gamma T_d s}
 		    \end{equation*}
 		\subsection{Problem 5}
+			\begin{figure}[h!]
+				\center{\includegraphics[width=0.8\textwidth]{3}}
+				\caption{Inverted pendulum on a cart}
+				\label{fig:modules}
+			\end{figure}
+			
+			Inverted pendulum on a cart problem can be described by the following set of equations:\\
+
+			$\begin{cases}
+				(M+m) \ddot{x} - ml \ddot{Q} \cdot cos(\theta) + ml \dot{Q}^2 \cdot sin(\theta) = F\\
+				l \ddot{Q} - g \cdot sin(\theta) = \ddot{x} \cdot cos(\theta)
+			\end{cases}$
+			
+			When we are near the equilibrium point we can assume, that $sin(\theta) = \theta$, $cos(\theta) = 1$, $\dot{Q}^2 = 0$.
+			Thus, linearized model is :
+			
+			$\begin{cases}
+				(M+m) \ddot{x} - ml \ddot{Q} + ml Q \dot{Q}^2 = F\\
+				l \ddot{Q} - gQ = \ddot{x}
+			\end{cases}$
+			
+			Laplace transform will give:
+			
+			$\begin{cases}
+				(M+m) X(S) S^2 - ml Q(S) S^2 = F(S)\\
+				l Q(S) - gQ(S) = X(S) S^2
+			\end{cases}$
+			
+			So, $\dfrac{Q(S)}{F(S)} = \dfrac{1}{MLS^2 - (M+m)g}$ and $\dfrac{X(S)}{F(S)} = \dfrac{lS^2 - g}{MLS^4 - (M+m)gS^2}$
 \end{document}
