@@ -5,7 +5,7 @@
 /*/Debug/*
 /*/.cproject
 /*/.project
-/*/*.out
+/**/*.out
 /**/*.gz
 /**/.idea/*
 /**/*.pyc
