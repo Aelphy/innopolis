@@ -311,4 +311,31 @@
 						\end{tabular}
 					\right)$
 			\end{enumerate}
+		
+		\subsection{Problem 3}
+		
+		    Differentiator approximation:
+		    \begin{equation*}
+		        T_d s \sim \frac{T_d s}{1 + \gamma T_d s}    
+		    \end{equation*}
+		    
+		    Closed-loop transfer function:
+		    \begin{equation*}
+		        \frac{C(s)}{R(s)} = \frac{G(s)}{1 + G(s) H(s)}
+		    \end{equation*}
+		
+		    \begin{equation*}
+		        G(s) = \frac{1}{\gamma} \qquad H(s) = \frac{1}{T_d s}
+		    \end{equation*}
+		
+		    
+		    \begin{equation*}
+		        \frac{C(s)}{R(s)} =
+		        \frac{G(s)}{1 + G(s) \, H(s)} =
+		        \frac{\gamma^{-1}}{1 + \frac{1}{\gamma T_d s}} =
+		        \frac{\gamma^{-1}}{\frac{\gamma T_d s + 1}{\gamma T_d s}} =
+		        \frac{\gamma^{-1} \cdot \gamma T_d s}{\gamma T_d s + 1} =
+		        \frac{T_d s}{1 + \gamma T_d s}
+		    \end{equation*}
+		
 \end{document}
