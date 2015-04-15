@@ -1,46 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2014)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
-I found no \bibstyle command---while reading file thesis.aux
+The style file: unsrt.bst
+Database file #1: robotics.bib
 You've used 4 entries,
-            0 wiz_defined-function locations,
-            89 strings with 553 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            1791 wiz_defined-function locations,
+            473 strings with 4179 characters,
+and the built_in function-call counts, 895 in all, are:
+= -- 77
+> -- 41
+< -- 1
++ -- 15
+- -- 11
+* -- 61
+:= -- 149
+add.period$ -- 12
+call.type$ -- 4
+change.case$ -- 3
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 4
+duplicate$ -- 40
+empty$ -- 86
+format.name$ -- 11
+if$ -- 196
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
+int.to.str$ -- 4
+missing$ -- 5
+newline$ -- 23
+num.names$ -- 4
+pop$ -- 13
+preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 0
+skip$ -- 15
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 52
+swap$ -- 7
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There was 1 error message)
+while$ -- 9
+width$ -- 5
+write$ -- 45

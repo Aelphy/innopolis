@@ -1,0 +1,26 @@
+\begin{thebibliography}{1}
+
+\bibitem{Lamport86}
+Leslie Lamport and A~LaTEX.
+\newblock {\em Document Preparation System}.
+\newblock Addison-Wesley Reading, MA, 1986.
+
+\bibitem{manchester2011stable}
+Ian~R Manchester, Uwe Mettin, Fumiya Iida, and Russ Tedrake.
+\newblock Stable dynamic walking over uneven terrain.
+\newblock {\em The International Journal of Robotics Research}, page~3, 2011.
+
+\bibitem{vukobratovic2004zero}
+Miomir Vukobratovi{\'c} and Branislav Borovac.
+\newblock Zero-moment point—thirty five years of its life.
+\newblock {\em International Journal of Humanoid Robotics}, 1(01):157--173,
+  2004.
+
+\bibitem{collins2001three}
+Steven~H Collins, Martijn Wisse, and Andy Ruina.
+\newblock A three-dimensional passive-dynamic walking robot with two legs and
+  knees.
+\newblock {\em The International Journal of Robotics Research}, 20(7):607--615,
+  2001.
+
+\end{thebibliography}
