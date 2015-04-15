@@ -23,4 +23,9 @@ Steven~H Collins, Martijn Wisse, and Andy Ruina.
 \newblock {\em The International Journal of Robotics Research}, 20(7):607--615,
   2001.
 
+\bibitem{kim2012zmp}
+Dong~W Kim, Nak-Hyun Kim, and Gwi-Tae Park.
+\newblock Zmp based neural network inspired humanoid robot control.
+\newblock {\em Nonlinear Dynamics}, 67(1):793--806, 2012.
+
 \end{thebibliography}
