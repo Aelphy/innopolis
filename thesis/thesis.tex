@@ -141,6 +141,62 @@ Now let us place the origin frame into the point P and make a projection on the 
 
 According to \cite{vukobratovic2004zero} equation (4) represents the foot equilibrium. However ot doesn't solve the problem, that it is still unknown whether for the given motion of mechanism it is in the equilibrium. It is only of ZMP lies inside the support polygon.
 
+In \cite{dekker2009zero} it was stated, that we have to make the following assumptions in order to compute the position of ZMP:
+
+	\begin{enumerate}
+		\item
+			The bipedal robot consists of n rigid links.
+		\item
+			All kinematic information, such as position of CoM, link orientation, velocities, etc. are known and calculated by forward kinematics.
+		\item
+			The floor is rigid and motionless.
+		\item
+			The feet cannot slide over the floor surface.
+		\item
+			All joints are actively actuated.
+	\end{enumerate}
+	
+With this constraints we can define the mass of the robot as:
+	
+	\begin{equation}
+		m_robot = \sum^n_{i=1}{m_i}
+	\end{equation}
+
+In \cite{dekker2009zero} it was considered schematic bipedal robot to derive the coordinates of ZMP [Fig. 3]
+
+	\begin{figure}[h!]
+		\vspace{-0.2cm}
+		\centering
+		{\includegraphics[width=0.8\textwidth]{3}}
+		\caption{Rotational moment in the sole}
+		\label{fig:example2}
+		\vspace{-0.1cm}
+	\end{figure}
+
+Here $p_i$ are the distances between base frame and equivalent center of mass of i-link. From this total linear momentum P is:
+	
+	\begin{equation}
+		P = \sum^n_{i=1}{m_i \dot{p_i}}
+	\end{equation}
+And total angular momentum H is:
+	\begin{equation}
+		H = \sum^n_{i=1}{\dot{p_i} \times m_i \dot{p_i} + I_i \omega_i}
+	\end{equation}
+
+Where $\omega_i$ is a angular velocity and $I_i$ is inertia tensor that is computed as:
+	\begin{equation}
+		I_i = R_i I_i R_i^T
+	\end{equation}
+Here $R_i$ is a rotation matrix from i-link w.r.t. the origin base frame and $I_i$ is a inertia matrix of i-link w.r.t. the link frame origin attached to their links.
+
+Taking the derivative from 6 and 7 we have got:
+	\begin{equation}
+		\dot{P} = \sum^n_{i=1}{m_i \ddot{p_i}}
+	\end{equation}
+	\begin{equation}
+		\dot{H} = \sum^n_{i=1}{\ddot{p_i} \times m_i \dot{p_i} + \dot{p_i} \times m_i \ddot{p_i} + I_i \dot{\omega_i}} + \omega_i \times I_i \omega_i
+	\end{equation}
+
 In \cite{manchester2011stable} it was mentioned that ZMP approach give us the solution that is based on the principle of dynamical stability, however it is not energy efficient. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{collins2001three} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
 It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, elsewhere the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{vukobratovic2004zero} ZMP method is the most well known and so it is necessary to start with it. Than iteratively increasing the complexity of the problem and applying new technics and constraints we will reach the optimal solution.\\
 According to \cite{vukobratovic2004zero} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only in the edge or in the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are border situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{vukobratovic2004zero} suggests the way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite obvious. Compute wanted ZMP coordinates, measure the error and apply correcting signal. Very important notion is about Center of Pressure (CoP). According to \cite{vukobratovic2004zero} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident.\\
