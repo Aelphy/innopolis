@@ -10,6 +10,7 @@
 \usepackage[margin=1.0in]{geometry}
 \usepackage{authblk}
 \usepackage{rotating}
+\graphicspath{{images/}}
  
 \begin{document}
  
@@ -78,7 +79,7 @@ This project with use the matlab, simulink environment, YARP/ROS. The final thes
 \newpage
 
 \section{Literature review}
-Nowadays, mankind has invented almost all the devices that are needed for the modern human and society in general. The science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example, the machine has 4 whee,l bike - two, and wheels are round, at room there are four walls, etc. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
+Nowadays, humanity has invented almost all the devices that are needed for the modern human and society in general. The science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example, the car has 4 wheels while bike - two, and wheels are round, at room there are four walls, etc. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
 
 It was common to think before the advent of industrial robots that robots should look like humans. The first use of the word "robot" referred to the humanoid machines that were supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots has begun after the Second World War, which was associated with the emergence of the nuclear industry.
 
@@ -90,14 +91,63 @@ Bipedal locomotion is a very complex task. It still doesn't have complete genera
 In 1970 Miomir Vukobratović has proposed Zero Moment Point, a theoretical model to explain biped locomotion.
 According to \cite{manchester2011stable} we can divide all the existing humanoid bipedal walking robots into two big groups: ZMP-controlled ones and passive - dynamic walkers.\\
 Zero moment point is a concept related with dynamics and control of legged locomotion for humanoid robots. It specifies the point with respect to which dynamic reaction force at the contact of the foot with the ground does not produce any moment in the horizontal direction, i.e. the point where the total of horizontal inertia and gravity forces equals to zero.
-Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can reduce all the forces with one single force. This ZMP should be on the foot. The problem is that we cannot manipulate the foot directly. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction than foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, than robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed simultaneously and the problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.\\
+Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can reduce all the forces and moments with one single force $F_a$ and moment $M_a$ respectively  [Fig. 1].
+	
+	\begin{figure}[h!]
+		\vspace{-0.2cm}
+		\centering
+		{\includegraphics[width=0.8\textwidth]{1}}
+		\caption{The sole with acting forces on it}
+		\label{fig:example2}
+		\vspace{-0.1cm}
+	\end{figure}
+
+On the figure above we consider the sole without anything upper it. It has its own center of gravity G. At point P there is resulting ground reaction that maintains the construction in the equilibrium. The force of ground reaction R and moment M consists of its three components ($R_x$, $R_y$, $R_z$) and ($M_x$, $M_y$, $M_z$). Horizontal components of R should compensate friction force in the point of contact. Thus, the horizontal reaction of force (($R_x$, $R_y$) represents 
+friction force that compensate horizontal component of $F_a$. In the same time the moment $M_z$ represents friction reaction forces [Fig. 2] that compensates vertical component of $M_a$ and the moment induced by $F_a$. \cite{vukobratovic2004zero}
+
+	\begin{figure}[h!]
+		\vspace{-0.2cm}
+		\centering
+		{\includegraphics[width=0.8\textwidth]{2}}
+		\caption{Rotational moment in the sole}
+		\label{fig:example2}
+		\vspace{-0.1cm}
+	\end{figure}
+
+This ZMP should be on the foot. The problem is that we cannot manipulate the foot directly. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction (conditions from the paragraph above doesn't hold and R and $M_z$ doesn't compensate correspondent components of $F_a$ and $M_a$) than foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, than robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed simultaneously and the problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.
+The name zero moment point relates to the fact, that dynamical stability is maintained if horizontal components $M_x$ and $M_y$ are both equal to zero.
+	
+	\begin{equation}
+		M_x = M_y = 0
+	\end{equation}
+
+Another words, in the point P there exists such equivalent force R and vertical moment $M_z$ that compensate the ground of force reaction and maintains the stability of the construction. If we want to achieve the dynamical stability, that the following equations holds:
+
+	\begin{equation}
+		R + F_a + m_sg = 0
+	\end{equation}
+
+Where $m_s$ is a foot mass. In \cite{vukobratovic2004zero} there is defined  point O - the origin coordinates frame from which we can define radius vectors $\vec{OP}$, $\vec{OG}$ and $\vec{OA}$ where A is a point of ankle joint.
+
+	\begin{equation}
+		\vec{OP} \times \vec{R} + \vec{OG} \times m_sg + M_A + M_z + \vec{OA} \times F_a = 0
+	\end{equation}
+
+Now let us place the origin frame into the point P and make a projection on the horizontal plane. 
+
+	\begin{equation}
+		(\vec{OP} \times \vec{R})^H + \vec{OG} \times m_sg + M_A^H + (\vec{OA} \times F_a)^H = 0
+	\end{equation}
+
+According to \cite{vukobratovic2004zero} equation (4) represents the foot equilibrium. However ot doesn't solve the problem, that it is still unknown whether for the given motion of mechanism it is in the equilibrium. It is only of ZMP lies inside the support polygon.
+
 In \cite{manchester2011stable} it was mentioned that ZMP approach give us the solution that is based on the principle of dynamical stability, however it is not energy efficient. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{collins2001three} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
 It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, elsewhere the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{vukobratovic2004zero} ZMP method is the most well known and so it is necessary to start with it. Than iteratively increasing the complexity of the problem and applying new technics and constraints we will reach the optimal solution.\\
 According to \cite{vukobratovic2004zero} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only in the edge or in the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are border situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{vukobratovic2004zero} suggests the way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite obvious. Compute wanted ZMP coordinates, measure the error and apply correcting signal. Very important notion is about Center of Pressure (CoP). According to \cite{vukobratovic2004zero} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident.\\
 In \cite{kim2012zmp} it was mentioned the new approach to solve ZMP control problem. Using neural network trained with back propagation method was used to control the position of the robot given the errors between ZMP position and CoP.
 \newpage
 
-\bibliographystyle{unsrt}
+\bibliographystyle{apalike}
 \bibliography{robotics}
   
 \end{document}
