@@ -1,46 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2014)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
-The style file: apalike.bst
+The style file: unsrt.bst
 Database file #1: robotics.bib
 You've used 6 entries,
-            1935 wiz_defined-function locations,
-            512 strings with 4598 characters,
-and the built_in function-call counts, 2281 in all, are:
-= -- 220
-> -- 92
-< -- 4
-+ -- 32
-- -- 30
-* -- 193
-:= -- 406
+            1791 wiz_defined-function locations,
+            486 strings with 4444 characters,
+and the built_in function-call counts, 1277 in all, are:
+= -- 112
+> -- 56
+< -- 1
++ -- 21
+- -- 15
+* -- 86
+:= -- 213
 add.period$ -- 18
 call.type$ -- 6
-change.case$ -- 44
-chr.to.int$ -- 6
+change.case$ -- 5
+chr.to.int$ -- 0
 cite$ -- 6
-duplicate$ -- 86
-empty$ -- 158
-format.name$ -- 40
-if$ -- 438
-int.to.chr$ -- 1
-int.to.str$ -- 0
+duplicate$ -- 57
+empty$ -- 124
+format.name$ -- 15
+if$ -- 278
+int.to.chr$ -- 0
+int.to.str$ -- 6
 missing$ -- 7
 newline$ -- 33
-num.names$ -- 18
-pop$ -- 40
+num.names$ -- 6
+pop$ -- 17
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 0
 quote$ -- 0
-skip$ -- 65
+skip$ -- 21
 stack$ -- 0
-substring$ -- 151
+substring$ -- 77
 swap$ -- 9
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 34
+type$ -- 0
 warning$ -- 0
-while$ -- 19
-width$ -- 0
-write$ -- 78
+while$ -- 13
+width$ -- 7
+write$ -- 66

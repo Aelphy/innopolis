@@ -10,6 +10,7 @@
 \usepackage[margin=1.0in]{geometry}
 \usepackage{authblk}
 \usepackage{rotating}
+\usepackage{cleveref}
 \graphicspath{{images/}}
  
 \begin{document}
@@ -78,7 +79,7 @@ This project with use the matlab, simulink environment, YARP/ROS. The final thes
 
 \newpage
 
-\section{Literature review}
+\section{Introduction}
 Nowadays, humanity has invented almost all the devices that are needed for the modern human and society in general. The science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example, the car has 4 wheels while bike - two, and wheels are round, at room there are four walls, etc. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
 
 It was common to think before the advent of industrial robots that robots should look like humans. The first use of the word "robot" referred to the humanoid machines that were supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots has begun after the Second World War, which was associated with the emergence of the nuclear industry.
@@ -87,30 +88,31 @@ Robots in today's presentation (autonomous device that performs some work in aut
 
 The trend towards automation is a core part of progress. Automation reduces the cost of technical processes and the risk to humans. Therefore, the research and implementation of patterns in this task are on the cutting edge of science and technology and require special attention and investment in its development. Every year in the world there are more and more situations requiring people perform a wide variety of work in heavy, dangerous, and sometimes incompatible with the life conditions. In response, there are new tools of extreme robotics. However, for the most part they are very similar to each other. Usually, to perform the task on the ground is a autonomous wheeled or tracked vehicle with installed manipulator. Control is carried out remotely by radio or cable. These robots are produced for more than a dozen years. Engineers during that time has accumulated a lot of experience in their development and applications, in some cases, very effective. However, it is undeniable that this technique has (like any other) limited scope of application. And as before, the people at the risk of life and limb, work in the rubbles, on fire, in terms of chemical, biological and radioactive contamination, are fighting against criminals and terrorists. Moreover, most of all this actions are situated not in the area of open field but in the buildings and various facilities, cabins and rooms of various equipment,  generally in conditions originally created for humans, given its two arms and two legs, the typical size, weight, and, if I may say so, the kinematics of the body. For this reason other areas of extreme robotics are developing now. One of this is a robotic system including a anthropomorphic bipedal walking robot. Kinematics, size and weight  similar to human characteristics, is equipped with an energy source, communication channel with the control station, and powerful autonomous control system, allowing to perform some action in the supervisory or automatic mode (independent transportation from the place of work in the absence of communication). Such a robot can have significant advantages in a workspace adapted for humans.
 
+\section{Literature review}
 Bipedal locomotion is a very complex task. It still doesn't have complete general solution however the research of this has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
-In 1970 Miomir Vukobratović has proposed Zero Moment Point, a theoretical model to explain biped locomotion.
+In 1970 Miomir Vukobratovic has proposed Zero Moment Point, a theoretical model to explain biped locomotion.
 According to \cite{manchester2011stable} we can divide all the existing humanoid bipedal walking robots into two big groups: ZMP-controlled ones and passive - dynamic walkers.\\
 Zero moment point is a concept related with dynamics and control of legged locomotion for humanoid robots. It specifies the point with respect to which dynamic reaction force at the contact of the foot with the ground does not produce any moment in the horizontal direction, i.e. the point where the total of horizontal inertia and gravity forces equals to zero.
-Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can reduce all the forces and moments with one single force $F_a$ and moment $M_a$ respectively  [Fig. 1].
+Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can reduce all the forces and moments with one single force $F_a$ and moment $M_a$ respectively  \cref{fig:1}.
 	
 	\begin{figure}[h!]
 		\vspace{-0.2cm}
 		\centering
 		{\includegraphics[width=0.8\textwidth]{1}}
 		\caption{The sole with acting forces on it}
-		\label{fig:example2}
+		\label{fig:1}
 		\vspace{-0.1cm}
 	\end{figure}
 
-On the figure above we consider the sole without anything upper it. It has its own center of gravity G. At point P there is resulting ground reaction that maintains the construction in the equilibrium. The force of ground reaction R and moment M consists of its three components ($R_x$, $R_y$, $R_z$) and ($M_x$, $M_y$, $M_z$). Horizontal components of R should compensate friction force in the point of contact. Thus, the horizontal reaction of force (($R_x$, $R_y$) represents 
-friction force that compensate horizontal component of $F_a$. In the same time the moment $M_z$ represents friction reaction forces [Fig. 2] that compensates vertical component of $M_a$ and the moment induced by $F_a$. \cite{vukobratovic2004zero}
+On the figure above we consider the sole without anything upper it. It has its own center of gravity G. At point P there is resulting ground reaction that maintains the construction in the equilibrium. The force of ground reaction R and moment M consists of its three components ($R_x$, $R_y$, $R_z$) and ($M_x$, $M_y$, $M_z$) respectively. Horizontal components of R should compensate friction force in the point of contact. Thus, the horizontal reaction of force ($R_x$, $R_y$) represents 
+friction force that compensate horizontal component of $F_a$. In the same time the moment $M_z$ represents friction reaction forces \cref{fig:2} that compensates vertical component of $M_a$ and the moment induced by $F_a$. \cite{vukobratovic2004zero}
 
 	\begin{figure}[h!]
 		\vspace{-0.2cm}
 		\centering
 		{\includegraphics[width=0.8\textwidth]{2}}
 		\caption{Rotational moment in the sole}
-		\label{fig:example2}
+		\label{fig:2}
 		\vspace{-0.1cm}
 	\end{figure}
 
@@ -169,7 +171,7 @@ In \cite{dekker2009zero} it was considered schematic bipedal robot to derive the
 		\centering
 		{\includegraphics[width=0.8\textwidth]{3}}
 		\caption{Rotational moment in the sole}
-		\label{fig:example2}
+		\label{fig:3}
 		\vspace{-0.1cm}
 	\end{figure}
 
@@ -203,7 +205,7 @@ According to \cite{vukobratovic2004zero} the most important task in the bipedal 
 In \cite{kim2012zmp} it was mentioned the new approach to solve ZMP control problem. Using neural network trained with back propagation method was used to control the position of the robot given the errors between ZMP position and CoP.
 \newpage
 
-\bibliographystyle{apalike}
+\bibliographystyle{unsrt}
 \bibliography{robotics}
   
 \end{document}

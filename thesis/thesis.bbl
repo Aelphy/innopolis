@@ -1,34 +1,36 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 
-\bibitem[Collins et~al., 2001]{collins2001three}
-Collins, S.~H., Wisse, M., and Ruina, A. (2001).
+\bibitem{Lamport86}
+Leslie Lamport and A~LaTEX.
+\newblock {\em Document Preparation System}.
+\newblock Addison-Wesley Reading, MA, 1986.
+
+\bibitem{manchester2011stable}
+Ian~R Manchester, Uwe Mettin, Fumiya Iida, and Russ Tedrake.
+\newblock Stable dynamic walking over uneven terrain.
+\newblock {\em The International Journal of Robotics Research}, page~3, 2011.
+
+\bibitem{vukobratovic2004zero}
+Miomir Vukobratovi{\'c} and Branislav Borovac.
+\newblock Zero-moment point—thirty five years of its life.
+\newblock {\em International Journal of Humanoid Robotics}, 1(01):157--173,
+  2004.
+
+\bibitem{dekker2009zero}
+MHP Dekker.
+\newblock Zero-moment point method for stable biped walking.
+\newblock {\em Eindhoven University of Technology}, 2009.
+
+\bibitem{collins2001three}
+Steven~H Collins, Martijn Wisse, and Andy Ruina.
 \newblock A three-dimensional passive-dynamic walking robot with two legs and
   knees.
-\newblock {\em The International Journal of Robotics Research}, 20(7):607--615.
+\newblock {\em The International Journal of Robotics Research}, 20(7):607--615,
+  2001.
 
-\bibitem[Dekker, 2009]{dekker2009zero}
-Dekker, M. (2009).
-\newblock Zero-moment point method for stable biped walking.
-\newblock {\em Eindhoven University of Technology}.
-
-\bibitem[Kim et~al., 2012]{kim2012zmp}
-Kim, D.~W., Kim, N.-H., and Park, G.-T. (2012).
+\bibitem{kim2012zmp}
+Dong~W Kim, Nak-Hyun Kim, and Gwi-Tae Park.
 \newblock Zmp based neural network inspired humanoid robot control.
-\newblock {\em Nonlinear Dynamics}, 67(1):793--806.
-
-\bibitem[Lamport and LaTEX, 1986]{Lamport86}
-Lamport, L. and LaTEX, A. (1986).
-\newblock {\em Document Preparation System}.
-\newblock Addison-Wesley Reading, MA.
-
-\bibitem[Manchester et~al., 2011]{manchester2011stable}
-Manchester, I.~R., Mettin, U., Iida, F., and Tedrake, R. (2011).
-\newblock Stable dynamic walking over uneven terrain.
-\newblock {\em The International Journal of Robotics Research}, page~3.
-
-\bibitem[Vukobratovi{\'c} and Borovac, 2004]{vukobratovic2004zero}
-Vukobratovi{\'c}, M. and Borovac, B. (2004).
-\newblock Zero-moment point—thirty five years of its life.
-\newblock {\em International Journal of Humanoid Robotics}, 1(01):157--173.
+\newblock {\em Nonlinear Dynamics}, 67(1):793--806, 2012.
 
 \end{thebibliography}
