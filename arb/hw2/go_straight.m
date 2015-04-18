@@ -1,25 +1,28 @@
-function go_straight(leftMotor, rightMotor, distance, speed, step, touch)
-
-    P = 0.01;
-
+function go_straight(robot, left_motor, right_motor, distance, power, step, touch)
     WHEEL_RADIUS = 28;
+    Kp=1;
+    Ki=1;
+    Kd=1;
+    Tf=0.5;
+    
+    controller = pid(Kp, Ki, Kd, Tf);
 
-    resetRotation(leftMotor);
-    resetRotation(rightMotor);
+    robot.outputClrCount(0, left_motor);
+    robot.outputClrCount(0, right_motor);
+    
+    robot.outputPower(0, left_motor, power);
+    robot.outputPower(0, right_motor, power);
 
-    leftMotor.Speed = speed;
-    rightMotor.Speed = speed;
+    traveled_distance = 0;
+    last_left_rotation = 0;
+    last_right_rotation = 0;
 
-    traveledDistance = 0;
-    lastLeftRotation = 0;
-    lastRightRotation = 0;
+    while (traveled_distance <= distance) && robot.inputReadSI(0, touch, Device.Pushed) ~= 1)
+        left_rotation = robot.outputGetCount(0, left_motor);
+        right_rotation = robot.outputGetCount(0, right_motor);
 
-    while (traveledDistance <= distance) && (readTouch(touch) ~= 1)
-        leftRotation = readRotation(leftMotor);
-        rightRotation = readRotation(rightMotor);
-
-        leftSpeed = (leftRotation - lastLeftRotation) / step;
-        rightSpeed = (rightRotation - lastRightRotation) / step;
+        left_speed = (left_rotation - last_left_rotation) / step;
+        right_speed = (right_rotation - last_right_rotation) / step;
 
 %         leftMotor.Speed = speed - int8(P * (leftSpeed - rightSpeed));
 %         rightMotor.Speed = speed - int8(P * (rightSpeed - leftSpeed));
@@ -29,14 +32,17 @@ function go_straight(leftMotor, rightMotor, distance, speed, step, touch)
 %         x = speed + int8(P * (speed - leftSpeed - (leftSpeed - rightSpeed)))
 %         y = speed + int8(P * (speed - rightSpeed - (rightSpeed - leftSpeed)))
 
-        leftMotor.Speed = x;
-        rightMotor.Speed = y;
+        left_speed_w_correction =;
+        right_speed_w_correction =;
+        
+        robot.outputPower(0, left_motor, left_speed_w_correction);
+        robot.outputPower(0, right_motor, right_speed_w_correction);
 
-        lastLeftRotation = leftRotation;
-        lastRightRotation = rightRotation;
+        last_left_rotation = leftotation;
+        last_right_rotation = right_rotation;
 
-        averageRotation = (leftRotation + rightRotation) / 2;
-        traveledDistance = (averageRotation/360) * (2*WHEEL_RADIUS);
+        average_rotation = (left_rotation + right_rotation) / 2;
+        traveled_distance = (average_rotation / 360) * (2 * WHEEL_RADIUS);
 
         pause(step);
     end

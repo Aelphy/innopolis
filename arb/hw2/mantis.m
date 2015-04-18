@@ -1,21 +1,16 @@
-% bot = legoev3('usb');
-% leftMotor = motor(bot, 'A');
-% rightMotor = motor(bot, 'D');
-% sonicMotor = motor(bot, 'B');
-% sonic = sonicSensor(bot, 1);
-% gyro = gyroSensor(bot, 4);
-% touch = touchSensor(bot, 3);
+mantis = Brick('ioType','instrbt','btDevice','EV3','btChannel',1);
+left_motor = Device.MotorA;
+right_motor = Device.MotorD;
+sonic_motor = Device.MotorB;
+sonic = Device.Port3;
+gyro = Device.Port1;
+touch = Device.Port4;
 
-PAUSE_DURATION = 0.050;
+PAUSE_DURATION = 0.05;
 
-leftMotor.Speed = -30;
-rightMotor.Speed = -30;
-start(leftMotor);
-start(rightMotor);
-
-while (readTouch(touch) ~= 1)
-    go_straight(leftMotor, rightMotor, 300, -30, PAUSE_DURATION, touch);
+while (mantis.inputReadSI(0, touch, Device.Pushed) ~= 1)
+    go_straight(mantis, left_motor, right_motor, 300, -30, PAUSE_DURATION, touch);
 end
 
-stop(leftMotor);
-stop(rightMotor);
+mantis.outputStop(0, left_motor, Device.Brake);
+mantis.outputStop(0, right_motor, Device.Brake);
