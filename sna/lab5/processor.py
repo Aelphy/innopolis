@@ -1,6 +1,7 @@
 import networkx as nx
 import numpy as np
 from networkx.algorithms import isomorphism
+import time
 
 f = open('data.txt', 'rb')
 
@@ -11,6 +12,7 @@ pares = []
 i = 0
 
 while i < len(lines):
+    start_time = time.time()
     n = int(lines[i].strip())
     matrix = []
     matrix2 = []
@@ -38,4 +40,6 @@ while i < len(lines):
 
     GM = isomorphism.GraphMatcher(g1,g2)
 
+    print(n)
+    print(time.time() - start_time)
     print (GM.is_isomorphic())
