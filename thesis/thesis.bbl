@@ -1,20 +1,55 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Lamport86}
 Leslie Lamport and A~LaTEX.
 \newblock {\em Document Preparation System}.
 \newblock Addison-Wesley Reading, MA, 1986.
 
+\bibitem{erbatur2002study}
+Kemalettin Erbatur, Akihiro Okazaki, Keisuke Obiya, Taro Takahashi, and Atsuo
+  Kawamura.
+\newblock A study on the zero moment point measurement for biped walking
+  robots.
+\newblock In {\em Advanced Motion Control, 2002. 7th International Workshop
+  on}, pages 431--436. IEEE, 2002.
+
 \bibitem{manchester2011stable}
 Ian~R Manchester, Uwe Mettin, Fumiya Iida, and Russ Tedrake.
 \newblock Stable dynamic walking over uneven terrain.
 \newblock {\em The International Journal of Robotics Research}, page~3, 2011.
+
+\bibitem{tang2008analysis}
+Zhe Tang, Meng~Joo Er, and C-J Chien.
+\newblock Analysis of human gait using an inverted pendulum model.
+\newblock In {\em Fuzzy Systems, 2008. FUZZ-IEEE 2008.(IEEE World Congress on
+  Computational Intelligence). IEEE International Conference on}, pages
+  1174--1178. IEEE, 2008.
 
 \bibitem{vukobratovic2004zero}
 Miomir Vukobratovi{\'c} and Branislav Borovac.
 \newblock Zero-moment point—thirty five years of its life.
 \newblock {\em International Journal of Humanoid Robotics}, 1(01):157--173,
   2004.
+
+\bibitem{kajita2003biped}
+Shuuji Kajita, Fumio Kanehiro, Kenji Kaneko, Kiyoshi Fujiwara, Kensuke Harada,
+  Kazuhito Yokoi, and Hirohisa Hirukawa.
+\newblock Biped walking pattern generation by using preview control of
+  zero-moment point.
+\newblock In {\em Robotics and Automation, 2003. Proceedings. ICRA'03. IEEE
+  International Conference on}, volume~2, pages 1620--1626. IEEE, 2003.
+
+\bibitem{mitobe2000control}
+Kazuhisa Mitobe, Genci Capi, and Yasuo Nasu.
+\newblock Control of walking robots based on manipulation of the zero moment
+  point.
+\newblock {\em Robotica}, 18(06):651--657, 2000.
+
+\bibitem{sardain2004forces}
+Philippe Sardain and Guy Bessonnet.
+\newblock Forces acting on a biped robot. center of pressure-zero moment point.
+\newblock {\em Systems, Man and Cybernetics, Part A: Systems and Humans, IEEE
+  Transactions on}, 34(5):630--637, 2004.
 
 \bibitem{dekker2009zero}
 MHP Dekker.
