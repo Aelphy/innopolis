@@ -10,14 +10,6 @@ measures = []
 stats = []
 index = 0
 
-def euclidian_distance(v1, v2):
-    total = 0
-
-    for i in range(len(v1)):
-        total += (v1[i] - v2[i]) ** 2
-
-    return total
-
 with open('data.csv') as f:
     for line in f:
         if index == 0:

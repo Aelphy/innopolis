@@ -41,5 +41,6 @@ while i < len(lines):
     GM = isomorphism.GraphMatcher(g1,g2)
 
     print(n)
-    print(time.time() - start_time)
     print (GM.is_isomorphic())
+    print(time.time() - start_time)
+
