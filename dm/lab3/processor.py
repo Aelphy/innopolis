@@ -50,8 +50,8 @@ for wine in wines:
 
     measures.append(total)
 
-# plt.hist(measures, bins=50)
-# plt.show()
+plt.hist(measures, bins=50)
+plt.show()
 
 tree = cKDTree(wines)
 r = 80
@@ -61,5 +61,5 @@ neighbors = []
 for i in range(len(wines)):
     neighbors.append(len([w for w in nn[0][i] if w < float('Inf')]))
 
-plt.hist(neighbors, bins = 50)
-plt.show()
+# plt.hist(neighbors, bins = 50)
+# plt.show()
