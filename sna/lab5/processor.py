@@ -38,9 +38,15 @@ while i < len(lines):
     g1 = nx.DiGraph(np.array(matrix))
     g2 = nx.DiGraph(np.array(matrix2))
 
-    GM = isomorphism.GraphMatcher(g1,g2)
+    u1 = g1.to_undirected()
+    u2 = g2.to_undirected()
 
     print(n)
-    print (GM.is_isomorphic())
-    print(time.time() - start_time)
 
+    if not isomorphism.faster_could_be_isomorphic(u1, u2):
+        print (False)
+    else:
+        GM = isomorphism.GraphMatcher(g1, g2)
+        print (GM.is_isomorphic())
+
+    print(time.time() - start_time)
