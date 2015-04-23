@@ -43,7 +43,7 @@ while i < len(lines):
 
     print(n)
 
-    if not isomorphism.faster_could_be_isomorphic(u1, u2):
+    if not isomorphism.fast_could_be_isomorphic(u1, u2) or not isomorphism.faster_could_be_isomorphic(u1, u2):
         print (False)
     else:
         GM = isomorphism.GraphMatcher(g1, g2)
