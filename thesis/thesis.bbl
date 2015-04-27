@@ -5,6 +5,11 @@ Leslie Lamport and A~LaTEX.
 \newblock {\em Document Preparation System}.
 \newblock Addison-Wesley Reading, MA, 1986.
 
+\bibitem{pfeifer2007self}
+Rolf Pfeifer, Max Lungarella, and Fumiya Iida.
+\newblock Self-organization, embodiment, and biologically inspired robotics.
+\newblock {\em science}, 318(5853):1088--1093, 2007.
+
 \bibitem{erbatur2002study}
 Kemalettin Erbatur, Akihiro Okazaki, Keisuke Obiya, Taro Takahashi, and Atsuo
   Kawamura.
@@ -12,6 +17,41 @@ Kemalettin Erbatur, Akihiro Okazaki, Keisuke Obiya, Taro Takahashi, and Atsuo
   robots.
 \newblock In {\em Advanced Motion Control, 2002. 7th International Workshop
   on}, pages 431--436. IEEE, 2002.
+
+\bibitem{winter1995human}
+David~A Winter.
+\newblock Human balance and posture control during standing and walking.
+\newblock {\em Gait \& posture}, 3(4):193--214, 1995.
+
+\bibitem{kuo2007six}
+Arthur~D Kuo.
+\newblock The six determinants of gait and the inverted pendulum analogy: A
+  dynamic walking perspective.
+\newblock {\em Human movement science}, 26(4):617--656, 2007.
+
+\bibitem{inman1953major}
+Verne~T Inman, Howard~D Eberhart, et~al.
+\newblock The major determinants in normal and pathological gait.
+\newblock {\em The journal of bone \& joint surgery}, 35(3):543--558, 1953.
+
+\bibitem{collins2005bipedal}
+Steven~Hartley Collins and Andy Ruina.
+\newblock A bipedal walking robot with efficient and human-like gait.
+\newblock In {\em Robotics and Automation, 2005. ICRA 2005. Proceedings of the
+  2005 IEEE International Conference on}, pages 1983--1988. Ieee, 2005.
+
+\bibitem{golliday1977approach}
+C~Golliday~Jr and Hooshang Hemami.
+\newblock An approach to analyzing biped locomotion dynamics and designing
+  robot locomotion controls.
+\newblock {\em Automatic Control, IEEE Transactions on}, 22(6):963--972, 1977.
+
+\bibitem{anderson2005powered}
+Stuart~O Anderson, Martijn Wisse, Christopher~G Atkeson, Jessica~K Hodgins,
+  GJ~Zeglin, and Brian Moyer.
+\newblock Powered bipeds based on passive dynamic principles.
+\newblock In {\em Humanoid Robots, 2005 5th IEEE-RAS International Conference
+  on}, pages 110--116. IEEE, 2005.
 
 \bibitem{manchester2011stable}
 Ian~R Manchester, Uwe Mettin, Fumiya Iida, and Russ Tedrake.
@@ -63,9 +103,29 @@ Steven~H Collins, Martijn Wisse, and Andy Ruina.
 \newblock {\em The International Journal of Robotics Research}, 20(7):607--615,
   2001.
 
+\bibitem{hirai1998development}
+Kazuo Hirai, Masato Hirose, Yuji Haikawa, and Toru Takenaka.
+\newblock The development of honda humanoid robot.
+\newblock In {\em Robotics and Automation, 1998. Proceedings. 1998 IEEE
+  International Conference on}, volume~2, pages 1321--1326. IEEE, 1998.
+
 \bibitem{kim2012zmp}
 Dong~W Kim, Nak-Hyun Kim, and Gwi-Tae Park.
 \newblock Zmp based neural network inspired humanoid robot control.
 \newblock {\em Nonlinear Dynamics}, 67(1):793--806, 2012.
+
+\bibitem{goswami1999postural}
+Ambarish Goswami.
+\newblock Postural stability of biped robots and the foot-rotation indicator
+  (fri) point.
+\newblock {\em The International Journal of Robotics Research}, 18(6):523--533,
+  1999.
+
+\bibitem{miyakoshi1998three}
+Seiichi Miyakoshi, Gentaro Taga, Yasuo Kuniyoshi, and Akihiko Nagakubo.
+\newblock Three dimensional bipedal stepping motion using neural
+  oscillators-towards humanoid motion in the real world.
+\newblock In {\em Intelligent Robots and Systems, 1998. Proceedings., 1998
+  IEEE/RSJ International Conference on}, volume~1, pages 84--89. IEEE, 1998.
 
 \end{thebibliography}

@@ -82,7 +82,7 @@ This project with use the matlab, simulink environment, YARP/ROS. The final thes
 \section{Introduction}
 Nowadays, humanity invented almost all the devices that are needed for the modern human and society in general. The science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example, the car has 4 wheels while bike - two, and wheels are round, at room there are four walls, etc. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
 
-It was common to think before the advent of industrial robots that robots should look like humans. The first use of the word "robot" referred to the humanoid machines that were supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots begun after the Second World War, which was associated with the emergence of the nuclear industry.
+According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of environment where robot works, because its body will interact with this environment. It was common to think before the advent of industrial robots that robots should look like humans. The first use of the word "robot" referred to the humanoid machines that were supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots begun after the Second World War, which was associated with the emergence of the nuclear industry.
 
 Robots in today's presentation (autonomous device that performs some work in automatic mode) can be attributed with machine "Lunokhod-1", created in 1966. This is the first in the history machine that worked on the surface of Moon (1970). Recent tendency in robotics is replacing people not only in manufacturing but also in the military sphere. Constantly emerging information about the achievements of the leading countries in the development of military land, underwater robots and unmanned aerial vehicles is evidenced for this thesis. The era of development of  bipedal humanoid walking robots develops nowadays.
 
@@ -90,6 +90,9 @@ The trend towards automation is a core part of progress. Automation reduces the 
 
 \section{Literature review}
 Bipedal locomotion is a very complex task and according to \cite{erbatur2002study} it is described by nontrivial dynamics. It still doesn't have complete general solution however the research of this has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
+In \cite{winter1995human} inverted pendulum model of human balance problem was considered. It stated that control of the balance can be achieved with two components: ankle mechanism (invertors/evertors) and hip load/unloading mechanism. In different positions each of the mechanism plays different role, e.g. in tandem or intermediate position balance is achieved by invertors/evertors mechanism while direction is controlled by hip load/unloading mechanism.\\
+It was considered in \cite{kuo2007six} that six determinants theory\cite{inman1953major} well described by inverted pendulum model  needs more energy to control the mechanism but this problem can be solved by passive dynamic walking machines, that need external energy only for transition from one pendular stance leg to the next. In \cite{collins2005bipedal} such architecture was considered. There robot was able to move forward at constant not very high speed and author mentioned that the gait of the robot was human like. Human gait is desirable because of its energy effectiveness and \cite{golliday1977approach} described the characteristics of such gait.\\
+Moreover, \cite{anderson2005powered} summaries principles that allows to combine passive dynamic control with powered bipeds. The results show that the gait become energy efficient however it implies futher work on robustness and flexibility of walking\\ 
 In 1970 Miomir Vukobratovic proposed Zero Moment Point, a theoretical model to explain biped locomotion.
 According to \cite{manchester2011stable} we can divide all the existing humanoid bipedal walking robots into two big groups: ZMP-controlled ones and passive - dynamic walkers.\\
 Zero moment point is a concept related with dynamics and control of legged locomotion for humanoid robots. It specifies the point with respect to which dynamic reaction force at the contact of the foot with the ground does not produce any moment in the horizontal direction, i.e. the point where the total of horizontal inertia and gravity forces equals to zero.
@@ -99,7 +102,7 @@ Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Poin
 	\begin{figure}[h!]
 		\vspace{-0.2cm}
 		\centering
-		{\includegraphics[width=0.5\textwidth]{1}}
+		{\includegraphics[width=0.7\textwidth]{1}}
 		\caption{The sole with acting forces on it}
 		\label{fig:1}
 		\vspace{-0.1cm}
@@ -111,7 +114,7 @@ friction force that compensate horizontal component of $F_a$. In the same time t
 	\begin{figure}[h!]
 		\vspace{-0.2cm}
 		\centering
-		{\includegraphics[width=0.5\textwidth]{2}}
+		{\includegraphics[width=0.7\textwidth]{2}}
 		\caption{Rotational moment in the sole}
 		\label{fig:2}
 		\vspace{-0.1cm}
@@ -170,7 +173,7 @@ In \cite{dekker2009zero} it was considered schematic bipedal robot to derive the
 	\begin{figure}[h!]
 		\vspace{-0.2cm}
 		\centering
-		{\includegraphics[width=0.5\textwidth]{3}}
+		{\includegraphics[width=0.7\textwidth]{3}}
 		\caption{Rotational moment in the sole \cite{dekker2009zero}}
 		\label{fig:3}
 		\vspace{-0.1cm}
@@ -203,7 +206,11 @@ Taking the derivative from 6 and 7 we have got:
 In \cite{manchester2011stable} it was mentioned that ZMP approach give us the solution that is based on the principle of dynamical stability, however it is not energy efficient. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{collins2001three} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
 It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, elsewhere the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{vukobratovic2004zero} ZMP method is the most well known and so it is necessary to start with it. Than iteratively increasing the complexity of the problem and applying new technics and constraints we will reach the optimal solution.\\
 According to \cite{vukobratovic2004zero} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only in the edge or in the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are border situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{vukobratovic2004zero} suggests the way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite obvious. Compute wanted ZMP coordinates, measure the error and apply correcting signal. Very important notion is about Center of Pressure (CoP). According to \cite{vukobratovic2004zero} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident.\\
+ASIMO - bipedal robot of Honda company was build on top of this theory and the history of its evolution is described in \cite{hirai1998development}. Nowadays ASIMO is one of the most developed robot, it can interact with human and perform different task starting with playing footboll and finishing stair climbing.\\ 
 In \cite{kim2012zmp} it was mentioned the new approach to solve ZMP control problem. Using neural network trained with back propagation method was used to control the position of the robot given the errors between ZMP position and CoP.
+In \cite{goswami1999postural} the problem of foot rotation was formulated. The author introduced the Foot-Rotation Indicator (FRI) the point, that can leave the support polygon and describe the impeding rotation. When FRI lies outside the support polygon it means that there is rotational moment and acting on the foot that helps control instability of the gait.
+
+Another approach for gait generation was considered in \cite{miyakoshi1998three}. There neural oscillator was used for generation biped motions. Human like gait was achieved by robot with small Degree of Freedom (DoF). The idea of this oscillator was to build robust system that perform simple control with minimum structure of neural architecture that can be interesting for high DoF robot.
 \newpage
 
 \bibliographystyle{unsrt}
