@@ -9,17 +9,48 @@
 
 #define SIGNS_NUMBER 9
 #define BOUND_SIZE 800
-#define SCORE_THRESHOLD 0.7
 
 using namespace cv;
 using namespace std;
 
 vector <string> answers;
 const string labels_a[] = {
+    "parking",
+    "no_straight",
+    "no_right_turn",
+    "unknown",
+    "no_left_turn",
+    "go_straight",
+    "go_right",
+    "go_straight",
+    "yield",
+    "go_left",
+    "unknown",
+    "yield",
+    "parking",
+    "no_straight",
+    "no_right_turn",
+    "unknown",
+    "no_left_turn",
+    "go_straight",
+    "go_right",
+    "unknown"
 };
 
 const string classes_a[] = {
+    "go_left",
+    "go_right",
+    "go_straight",
+    "no_left_turn",
+    "no_parking",
+    "no_right_turn",
+    "no_straight",
+    "parking",
+    "yield"
 };
+
+// mapping between signs and their names
+unordered_map<int, std::string> sign_names(SIGNS_NUMBER);
 
 vector <string> labels (labels_a, labels_a + sizeof(labels_a) / sizeof(labels_a[0]));
 vector <string> classes (classes_a, classes_a + sizeof(classes_a) / sizeof(classes_a[0]));
@@ -69,19 +100,21 @@ void process_sign_candidate(Mat &sign_candidate, vector <Mat> &signs) {
     vector <double> scores;
     vector<vector<Point> > points;
 
+    // extract edges from sign candidate
     cvtColor(sign_candidate, sign_candidate_gray, CV_BGR2GRAY);
-
     equalizeHist(sign_candidate_gray, sign_candidate_gray);
     erode(sign_candidate_gray, sign_candidate_gray, Mat(), Point(-1, -1));
     GaussianBlur(sign_candidate_gray, sign_candidate_gray, Size(5, 5), 0);
     Canny(sign_candidate_gray, sign_candidate_edges, 120, 180);
 
+    // check the best match for every known sign
     for (int i = 0; i < signs.size(); i++) {
         Mat scaled_candidate;
         Mat scaled_candidate_edges;
         vector<vector<Point> > results;
         vector<float> costs;
 
+        // recise sign to the size of candidate and extract edges
         resize(signs[i], scaled_candidate, sign_candidate.size());
         GaussianBlur(scaled_candidate_edges, scaled_candidate_edges, Size(7, 7), 2);
         Canny(scaled_candidate, scaled_candidate_edges, 120, 180);
@@ -89,13 +122,14 @@ void process_sign_candidate(Mat &sign_candidate, vector <Mat> &signs) {
         int best = chamerMatching(sign_candidate_edges, scaled_candidate_edges, results, costs, 1, 40, 0.1, 1, 1, 30, 0.8, 1.6, 0.8, 20);
 
         if( best < 0 ) {
-            scores.push_back(-1);
+            scores.push_back(-1); // no match
         }
 
         scores.push_back(costs[best]);
         points.push_back(results[best]);
     }
 
+    // find the best match of all signs
     double best_score = 1;
     int best_index = 0;
 
@@ -106,6 +140,10 @@ void process_sign_candidate(Mat &sign_candidate, vector <Mat> &signs) {
         }
     }
 
+    // write answer
+    answers.push_back(sign_names[best_index]);
+
+    // draw answer
     size_t i, n = points[best_index].size();
 
     for(i = 0; i < n; i++) {
@@ -114,7 +152,7 @@ void process_sign_candidate(Mat &sign_candidate, vector <Mat> &signs) {
             sign_candidate.at<Vec3b>(pt) = Vec3b(0, 255, 0);
     }
 
-    cout << best_score << endl;
+    cout << best_score << " " << sign_names[best_index] << endl;
 }
 
 // process one problem
@@ -123,27 +161,30 @@ void process_problem(Mat &problem, vector <Mat> &signs) {
     vector < vector <Point> > contours;
     vector < Vec4i > hierarchy;
 
+    // extract regions with sign cadidates
     cvtColor(problem, bin_problem, CV_BGR2GRAY);
     dilate(bin_problem, bin_problem, Mat(), Point(-1, -1), 2);
     threshold(bin_problem, bin_problem, 250, 255, CV_THRESH_BINARY_INV);
-
     findContours(bin_problem, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE, Point(0, 0));
 
     vector < vector <Point> > contours_poly(contours.size());
     vector < Rect > bound_rectangles(contours.size());
     vector < Rect > sign_candidates;
 
+    // find border rectangles
     for (int i = 0; i < contours.size(); i++) {
         approxPolyDP(Mat(contours[i]), contours_poly[i], 3, true);
         bound_rectangles[i] = boundingRect(Mat(contours_poly[i]));
     }
 
+    // filter small counturs
     for (int i = 0; i < contours.size(); i++) {
         if (bound_rectangles[i].area() > BOUND_SIZE) {
             sign_candidates.push_back(bound_rectangles[i]);
         }
     }
 
+    // process every sign
     for (int i = 0; i < sign_candidates.size(); i++) {
         Mat sign = problem(sign_candidates[i]);
 
@@ -154,12 +195,14 @@ void process_problem(Mat &problem, vector <Mat> &signs) {
     waitKey();
 }
 
+// extract signs from samples
 void process_signs(vector <Mat> &signs, vector <Mat> &processed_signs) {
     for (int i = 0; i < signs.size(); i++) {
         Mat bin_problem;
         vector < vector <Point> > contours;
         vector < Vec4i > hierarchy;
 
+        // extract edges
         cvtColor(signs[i], bin_problem, CV_BGR2GRAY);
         erode(bin_problem, bin_problem, Mat(), Point(0, 0), 4);
         threshold(bin_problem, bin_problem, 127, 255, CV_THRESH_BINARY_INV);
@@ -211,25 +254,19 @@ int main() {
 
     signs.push_back(images[18]);
 
-    unordered_map<int, std::string> sign_names;
-    string names[] = {"go_left",
-                      "go_right",
-                      "go_straight",
-                      "no_left_turn",
-                      "no_parking",
-                      "no_right_turn",
-                      "no_straight",
-                      "parking",
-                      "yield"};
-
     for (int i = 0; i < signs.size(); i++) {
-        sign_names[i] = names[i];
+        sign_names[i] = classes_a[i];
     }
+
+    // extract signs patterns from samples
     process_signs(signs, processed_signs);
 
+    // process each problem composite
     for (int i = 0; i < problems.size(); i++) {
         process_problem(problems[i], processed_signs);
     }
+
+    compute_statistics(answers, labels, classes);
 
     return 0;
 }
