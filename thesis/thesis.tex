@@ -1,5 +1,5 @@
  
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper]{report}
 
 \usepackage[hidelinks,colorlinks=false]{hyperref}
 \usepackage[titletoc,title]{appendix}
@@ -11,75 +11,25 @@
 \usepackage{authblk}
 \usepackage{rotating}
 \usepackage{cleveref}
+\usepackage{float}
 \graphicspath{{images/}}
+
+\floatstyle{ruled}
+\newfloat{program}{thp}{lop}
+\floatname{program}{Program}
  
 \begin{document}
- 
-\title{Final Year Thesis Topic:\\Development and implementation dynamic balance algorithms for bipedal robot locomotion.}
-\author{Prof. Eugeni Magid\\\vspace{-4mm}Innopolis University\\e.magid@innopolis.ru}
-\date{}
-
+	
+\title{Final Thesis\\ Development and implementation dynamic balance algorithms for bipedal robot locomotion.}
+\author{Usvyatsov Mikhail\\Innopolis University\\Kazan\\  ~\\ \normalsize Supervisor: Prof. Eugeni Magid}
+\date{\normalsize \today}
 \maketitle
 
-\section{Context and Background}
-
-Human anatomy allows people to work in different workspaces. With the help of two legs human can swim, walk, and even climb the mountains. Such abilities are the reason of the progress in science and technology. However, there is huge amount of  applications where the human have to sacrifice his life and limb. Such works as nuclear objects control, car tests, submarine services, car driving, e.t.c. can be done only with double legged robots. Robots now are very restricted. For each particular problem we have a particular robot. Vacuum-cleaner robot cannot delete dust from the cupboard. But double legged mechanisms will be able to work with devices designed for people with precision of robot. 
-
-\section{Problem Statement}
-
-This project is concerned with analyzing the structure of bipedal robot, computer model design, developing the dynamic balance algorithm based on ZMP approach or any other for this robot and implementing it on the real mechanism.  
-
-\section{Objectives and Possible Approaches}
-
-The goal of this exercise is to develop a software system that can output commands for robot's motors and it should make the robot to reach the target position in minimal time. Commands define the angles for motors that affect the robot. To compute these angles the surveillance application needs to be able to do the following.
-\begin{enumerate}
-\item Measure ZMP point with help of pressure sensors.
-\item Solve inverse kinematics problem.
-\item Solve the system of differential equations representing dynamics.
-\end{enumerate}
-Computer model can be done in Simulink environment. It will allow to test the algorithm and improve it iteratively. Then it is necessary to check the model on the real robot and again iteratively improve the model. Finally, robot should be able to follow the strait line on the floor. 
-
-\section{Tools and Resources}
-
-This project with use the matlab, simulink environment, YARP/ROS. The final thesis will be written using \LaTeX \cite{Lamport86}.
- 
-\section{Plan}
-\begin{enumerate}
-	\item
-		Compare different approaches to bipedal locomotion.
-		
-		Bipedal locomotion consists of several phases. There are walking and staying parts. Each of this part requires different type of stability. If robot is statically stable, then it wouldn't require any energy while it stays. On the other hand, during walking bipedal robot should be stable, but previous characteristic doesn't provide this property. So we came up with the idea of dynamical stability, that will allow the robot to move. 
-		There are several ways to achieve it. E.g. neural networks, ZMP, passive walking, capture point, to name a only few.
-	\item
-		Choose the most appropriate approach.
-		
-		The process of bipedal walking consists of continuous falling of the robot but it have to prevent it on time and change the phase. From this point of view it doesn't seems that neural networks are the good idea because we can describe the model precisely. More over bipedal robot is interesting because of its anthropomorphism because of it robot can be placed in the same environment as a human. This requirements make us think about the approach that is energy and computationally efficient and also provide a good precision of walking in several degrees of uncertainty.  
-	\item
-		Make the computer model of the robot.
-		
-		During the development we should compare several models ща the control, also mistakes are inevitable. Thus virtual simulation environment is necessary to prevent robot failure and reduce the time of problems identifying.
-	\item
-		Implement algorithm on this model.
-		
-		Algorithm should be implemented in simulator to prove that it allows control the entire model.  
-	\item
-		Iteratively improve the model and algorithm.
-		
-		It is inevitable that some approaches would be better than others, therefore  	
-		it is very important to improve the model iteratively, and so to achieve better solution of the problem. 
-	\item
-		Implement the algorithm on practice.
-		
-		Theoretical solving of problem cannot guarantee that it really works. So real world test would be the best prove, the the work is done correctly.
-	\item
-		Adapt the model.
-		
-		After constructing the simple model, we want to make it more complicated to be able to work in different conditions and environments and solve real world problems. 
-\end{enumerate}
+\tableofcontents
 
 \newpage
 
-\section{Introduction}
+\chapter{Introduction}
 Nowadays, humanity invented almost all the devices that are needed for the modern human and society in general. The science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example, the car has 4 wheels while bike - two, and wheels are round, at room there are four walls, etc. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
 
 According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of environment where robot works, because its body will interact with this environment. It was common to think before the advent of industrial robots that robots should look like humans. The first use of the word "robot" referred to the humanoid machines that were supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots begun after the Second World War, which was associated with the emergence of the nuclear industry.
@@ -88,15 +38,36 @@ Robots in today's presentation (autonomous device that performs some work in aut
 
 The trend towards automation is a core part of progress. Automation reduces the cost of technical processes and the risk to humans. Therefore, the research and implementation of patterns in this task are on the cutting edge of science and technology and require special attention and investment in its development. Every year in the world there are more and more situations requiring people perform a wide variety of work in heavy, dangerous, and sometimes incompatible with the life conditions. In response, there are new tools of extreme robotics. However, for the most part they are very similar to each other. Usually, to perform the task on the ground is a autonomous wheeled or tracked vehicle with installed manipulator. Control is carried out remotely by radio or cable. These robots are produced for more than a dozen years. Engineers during that time accumulated a lot of experience in their development and applications, in some cases, very effective. However, it is undeniable that this technique has (like any other) limited scope of application. And as before, the people at the risk of life and limb, work in the rubbles, on fire, in terms of chemical, biological and radioactive contamination, are fighting against criminals and terrorists. Moreover, most of all this actions are situated not in the area of open field but in the buildings and various facilities, cabins and rooms of various equipment,  generally in conditions originally created for humans, given its two arms and two legs, the typical size, weight, and, if I may say so, the kinematics of the body. For this reason other areas of extreme robotics are developing now. One of this is a robotic system including a anthropomorphic bipedal walking robot. Kinematics, size and weight  similar to human characteristics, is equipped with an energy source, communication channel with the control station, and powerful autonomous control system, allowing to perform some action in the supervisory or automatic mode (independent transportation from the place of work in the absence of communication). Such a robot can have significant advantages in a workspace adapted for humans.
 
-\section{Literature review}
+\chapter{Literature review}
 Bipedal locomotion is a very complex task and according to \cite{erbatur2002study} it is described by nontrivial dynamics. It still doesn't have complete general solution however the research of this has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
-In \cite{winter1995human} inverted pendulum model of human balance problem was considered. It stated that control of the balance can be achieved with two components: ankle mechanism (invertors/evertors) and hip load/unloading mechanism. In different positions each of the mechanism plays different role, e.g. in tandem or intermediate position balance is achieved by invertors/evertors mechanism while direction is controlled by hip load/unloading mechanism.\\
-It was considered in \cite{kuo2007six} that six determinants theory\cite{inman1953major} well described by inverted pendulum model  needs more energy to control the mechanism but this problem can be solved by passive dynamic walking machines, that need external energy only for transition from one pendular stance leg to the next. In \cite{collins2005bipedal} such architecture was considered. There robot was able to move forward at constant not very high speed and author mentioned that the gait of the robot was human like. Human gait is desirable because of its energy effectiveness and \cite{golliday1977approach} described the characteristics of such gait.\\
-Moreover, \cite{anderson2005powered} summaries principles that allows to combine passive dynamic control with powered bipeds. The results show that the gait become energy efficient however it implies futher work on robustness and flexibility of walking\\ 
-In 1970 Miomir Vukobratovic proposed Zero Moment Point, a theoretical model to explain biped locomotion.
+According to \cite{wright2014intelligent}, there are 5 groups of approaches to the problem of locomotion control. There are:
+\begin{enumerate}
+	\item Analytical
+	\item Central Pattern Generator (CPG)
+	\item Neural Networks
+	\item Hidden Markov Model (HMM)
+	\item Rule based
+\end{enumerate}
+
+\section{Analytical approach}
+The oldest one and also the most studied group is analytical one. It requires the knowledge of general form that locomotion should take.
+
+For bipedal locomotion it requires the following steps:
+\begin{enumerate}
+	\item Apply stability constraints
+	\item Design gait algorithm (including double support, single support and no-support phases \cite{wright2014intelligent}).
+	\item Solve remaining degrees of freedom (DoF) with Inverse Kinematics (IK).
+\end{enumerate}
+
+According to \cite{tang2008analysis}, the most natural method that represents the human body is inverted pendulum.
+Inverted pendulum model of human balance problem is one of the most primitive and old example of analytical approach \cite{winter1995human}. It stated that control of the balance can be achieved with two components: ankle mechanism (invertors/evertors) and hip load/unloading mechanism. In different positions each of the mechanism plays a different role. Thus in tandem or intermediate position balance is achieved by invertors/evertors mechanism while direction is controlled by hip load/unloading mechanism. It doubts on commonly used condition: reaction force of the floor has to go thought center of gravity of the robot. It was stated, that modern bio-mechanical studies show that there are angular moments around center of gravity. 
+Thus this approach is too approximate and it is not very accurate.
+Moreover, according to \cite{kuo2007six} six determinants theory\cite{inman1953major} well described by inverted pendulum model needs more energy to control the mechanism and this problem can be solved by passive dynamic walking machines, that need external energy only for transition from one pendular stance leg to another. In \cite{collins2005bipedal} such architecture was considered. There robot was able to move forward at constant not very high speed and author mentioned that the gait of the robot was human like. Human gait is desirable because of its energy effectiveness \cite{golliday1977approach}.\\
+Furthermore, \cite{anderson2005powered} summaries principles that allows to combine passive dynamic control with powered bipeds. The results show that the gait become energy efficient however it implies further work on robustness and flexibility of walking\\
+
+In 1970 Miomir Vukobratovic proposed Zero Moment Point (ZMP), a theoretical model to explain biped locomotion. Also ZMP is a basic dynamical stability constraint.
 According to \cite{manchester2011stable} we can divide all the existing humanoid bipedal walking robots into two big groups: ZMP-controlled ones and passive - dynamic walkers.\\
 Zero moment point is a concept related with dynamics and control of legged locomotion for humanoid robots. It specifies the point with respect to which dynamic reaction force at the contact of the foot with the ground does not produce any moment in the horizontal direction, i.e. the point where the total of horizontal inertia and gravity forces equals to zero.
-According to \cite{tang2008analysis}, the one of the most natural method that represents the human body as a inverted pendulum. It doubts on commonly used condition: reaction force of the floor has to go thought center of gravity of the robot. It was stated, that modern bio-mechanical studies show that there are angular moments around center of gravity. However this approach is too approximate and it is not very accurate. 
 Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can reduce all the forces and moments with one single force $F_a$ and moment $M_a$ respectively  \cref{fig:1}.
 	
 	\begin{figure}[h!]
@@ -204,14 +175,49 @@ Taking the derivative from 6 and 7 we have got:
 	\end{equation}
 
 In \cite{manchester2011stable} it was mentioned that ZMP approach give us the solution that is based on the principle of dynamical stability, however it is not energy efficient. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{collins2001three} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
-It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, elsewhere the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{vukobratovic2004zero} ZMP method is the most well known and so it is necessary to start with it. Than iteratively increasing the complexity of the problem and applying new technics and constraints we will reach the optimal solution.\\
-According to \cite{vukobratovic2004zero} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only in the edge or in the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are border situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{vukobratovic2004zero} suggests the way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite obvious. Compute wanted ZMP coordinates, measure the error and apply correcting signal. Very important notion is about Center of Pressure (CoP). According to \cite{vukobratovic2004zero} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident.\\
+It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, elsewhere the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{vukobratovic2004zero} ZMP method is the most well known and so it is necessary to start with it. \\
+According to \cite{vukobratovic2004zero} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only in the edge or in the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{vukobratovic2004zero} suggests the way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite obvious. Compute wanted ZMP coordinates, measure the error and apply correcting signal. Very important notion is about Center of Pressure (CoP). According to \cite{vukobratovic2004zero} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident. Usually ZMP is required to be under the center of the foot during the single support phase, transitioning to the other foot in the double support phase.\\
 ASIMO - bipedal robot of Honda company was build on top of this theory and the history of its evolution is described in \cite{hirai1998development}. Nowadays ASIMO is one of the most developed robot, it can interact with human and perform different task starting with playing footboll and finishing stair climbing.\\ 
 In \cite{kim2012zmp} it was mentioned the new approach to solve ZMP control problem. Using neural network trained with back propagation method was used to control the position of the robot given the errors between ZMP position and CoP.
 In \cite{goswami1999postural} the problem of foot rotation was formulated. The author introduced the Foot-Rotation Indicator (FRI) the point, that can leave the support polygon and describe the impeding rotation. When FRI lies outside the support polygon it means that there is rotational moment and acting on the foot that helps control instability of the gait.
 
-Another approach for gait generation was considered in \cite{miyakoshi1998three}. There neural oscillator was used for generation biped motions. Human like gait was achieved by robot with small Degree of Freedom (DoF). The idea of this oscillator was to build robust system that perform simple control with minimum structure of neural architecture that can be interesting for high DoF robot.
+\section{Central Pattern Generator}
+
+Experiment in \cite{grillner1975locomotion} shown that reflexes are significant for locomotion. During reverse engineering it was found neural network that controls locomotion. It was found in spinal regions and it was the reason to name this approach as Central Pattern Generator.\\
+This approach for gait generation was considered in \cite{miyakoshi1998three}. There neural oscillator was used for generation biped motions. Human like gait was achieved by robot with small Degree of Freedom (DoF). The idea of this oscillator was to build robust system that perform simple control with minimum structure of neural architecture that can be interesting for high DoF robot.\\
+A detailed examination of a biological CPG from an engineering perspective was conducted in \cite{zhu2006central} but, for most applications, the neuron pair is approximated with a pair of differential equations \cite{wright2014intelligent}.
+
+\subsection{Simple Sinusoidal Oscillator}
+
+
+
+\section{Neural Networks}
+\section{Hidden Markov Model}
+\section{Rule based approach}
 \newpage
+
+\chapter{Description of the Project Workplan}
+\begin{enumerate}
+	\item
+	Literature review.
+	\item
+	Compare different approaches to bipedal locomotion.
+	
+	Bipedal locomotion consists of several phases. There are walking and staying parts. Each of this part requires different type of stability. If robot is statically stable, then it wouldn't require any energy while it stays. On the other hand, during walking bipedal robot should be stable, but previous characteristic doesn't provide this property. So we came up with the idea of dynamical stability, that will allow the robot to move. 
+	There are several ways to achieve it. E.g. neural networks, ZMP, passive walking, capture point, to name a only few.
+	\item
+	Choose the most appropriate approach.
+	
+	The process of bipedal walking consists of continuous falling of the robot but it have to prevent it on time and change the phase. From this point of view it doesn't seems that neural networks are the good idea because we can describe the model precisely. More over bipedal robot is interesting because of its anthropomorphism because of it robot can be placed in the same environment as a human. This requirements make us think about the approach that is energy and computationally efficient and also provide a good precision of walking in several degrees of uncertainty.  
+	\item
+	Make the computer model of the robot.
+	
+	During the development we should compare several models ща the control, also mistakes are inevitable. Thus virtual simulation environment is necessary to prevent robot failure and reduce the time of problems identifying.
+	\item
+	Implement algorithm on this model.
+	
+	Algorithm should be implemented in simulator to prove that it allows control the entire model.  
+\end{enumerate}
 
 \bibliographystyle{unsrt}
 \bibliography{robotics}

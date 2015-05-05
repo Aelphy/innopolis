@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Lamport86}
-Leslie Lamport and A~LaTEX.
-\newblock {\em Document Preparation System}.
-\newblock Addison-Wesley Reading, MA, 1986.
-
 \bibitem{pfeifer2007self}
 Rolf Pfeifer, Max Lungarella, and Fumiya Iida.
 \newblock Self-organization, embodiment, and biologically inspired robotics.
@@ -17,6 +12,18 @@ Kemalettin Erbatur, Akihiro Okazaki, Keisuke Obiya, Taro Takahashi, and Atsuo
   robots.
 \newblock In {\em Advanced Motion Control, 2002. 7th International Workshop
   on}, pages 431--436. IEEE, 2002.
+
+\bibitem{wright2014intelligent}
+Joe Wright and Ivan Jordanov.
+\newblock Intelligent approaches in locomotion-a review.
+\newblock {\em Journal of Intelligent \& Robotic Systems}, pages 1--23, 2014.
+
+\bibitem{tang2008analysis}
+Zhe Tang, Meng~Joo Er, and C-J Chien.
+\newblock Analysis of human gait using an inverted pendulum model.
+\newblock In {\em Fuzzy Systems, 2008. FUZZ-IEEE 2008.(IEEE World Congress on
+  Computational Intelligence). IEEE International Conference on}, pages
+  1174--1178. IEEE, 2008.
 
 \bibitem{winter1995human}
 David~A Winter.
@@ -57,13 +64,6 @@ Stuart~O Anderson, Martijn Wisse, Christopher~G Atkeson, Jessica~K Hodgins,
 Ian~R Manchester, Uwe Mettin, Fumiya Iida, and Russ Tedrake.
 \newblock Stable dynamic walking over uneven terrain.
 \newblock {\em The International Journal of Robotics Research}, page~3, 2011.
-
-\bibitem{tang2008analysis}
-Zhe Tang, Meng~Joo Er, and C-J Chien.
-\newblock Analysis of human gait using an inverted pendulum model.
-\newblock In {\em Fuzzy Systems, 2008. FUZZ-IEEE 2008.(IEEE World Congress on
-  Computational Intelligence). IEEE International Conference on}, pages
-  1174--1178. IEEE, 2008.
 
 \bibitem{vukobratovic2004zero}
 Miomir Vukobratovi{\'c} and Branislav Borovac.
@@ -121,11 +121,22 @@ Ambarish Goswami.
 \newblock {\em The International Journal of Robotics Research}, 18(6):523--533,
   1999.
 
+\bibitem{grillner1975locomotion}
+S\_ Grillner.
+\newblock Locomotion in vertebrates: central mechanisms and reflex interaction.
+\newblock {\em Physiological reviews}, 55(2):247--304, 1975.
+
 \bibitem{miyakoshi1998three}
 Seiichi Miyakoshi, Gentaro Taga, Yasuo Kuniyoshi, and Akihiko Nagakubo.
 \newblock Three dimensional bipedal stepping motion using neural
   oscillators-towards humanoid motion in the real world.
 \newblock In {\em Intelligent Robots and Systems, 1998. Proceedings., 1998
   IEEE/RSJ International Conference on}, volume~1, pages 84--89. IEEE, 1998.
+
+\bibitem{zhu2006central}
+Kuanyi Zhu, Dingguo Zhang, and Li~Lan.
+\newblock On central pattern generator of biological motor system.
+\newblock In {\em Control, Automation, Robotics and Vision, 2006. ICARCV'06.
+  9th International Conference on}, pages 1--5. IEEE, 2006.
 
 \end{thebibliography}
