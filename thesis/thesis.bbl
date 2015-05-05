@@ -139,4 +139,42 @@ Kuanyi Zhu, Dingguo Zhang, and Li~Lan.
 \newblock In {\em Control, Automation, Robotics and Vision, 2006. ICARCV'06.
   9th International Conference on}, pages 1--5. IEEE, 2006.
 
+\bibitem{grillner1995neural}
+Sten Grillner, Tanja Deliagina, A~El~Manira, RH~Hill, GN~Orlovsky,
+  P~Wall{\'e}n, {\"O}~Ekeberg, and A~Lansner.
+\newblock Neural networks that co-ordinate locomotion and body orientation in
+  lamprey.
+\newblock {\em Trends in neurosciences}, 18(6):270--279, 1995.
+
+\bibitem{lee2007construction}
+Wai~Man Lee and Yeung Yam.
+\newblock Construction of central pattern generator using piecewise affine
+  systems.
+\newblock In {\em Control and Automation, 2007. ICCA 2007. IEEE International
+  Conference on}, pages 1729--1734. IEEE, 2007.
+
+\bibitem{vundavilli2010dynamically}
+Pandu~Ranga Vundavilli and Dilip~Kumar Pratihar.
+\newblock Dynamically balanced optimal gaits of a ditch-crossing biped robot.
+\newblock {\em Robotics and Autonomous Systems}, 58(4):349--361, 2010.
+
+\bibitem{ilg1995learning}
+Winfried Ilg and Karsten Berns.
+\newblock A learning architecture based on reinforcement learning for adaptive
+  control of the walking machine lauron.
+\newblock {\em Robotics and Autonomous Systems}, 15(4):321--334, 1995.
+
+\bibitem{albus1975new}
+JS~Albus.
+\newblock A new approach to manipulator control: The cerebellar model
+  articulation controller.
+\newblock {\em Transaction of the ASME Journal of Dynamic Systems},
+  97(3):270--277, 1975.
+
+\bibitem{sabourin2005robustness}
+Christophe Sabourin and Olivier Bruneau.
+\newblock Robustness of the dynamic walk of a biped robot subjected to
+  disturbing external forces by using cmac neural networks.
+\newblock {\em Robotics and Autonomous Systems}, 51(2):81--99, 2005.
+
 \end{thebibliography}

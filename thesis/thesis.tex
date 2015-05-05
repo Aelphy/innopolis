@@ -20,7 +20,7 @@
  
 \begin{document}
 	
-\title{Final Thesis\\ Development and implementation dynamic balance algorithms for bipedal robot locomotion.}
+\title{Final Year Project Report\\ Development and implementation dynamic balance algorithms for bipedal robot locomotion.}
 \author{Usvyatsov Mikhail\\Innopolis University\\Kazan\\  ~\\ \normalsize Supervisor: Prof. Eugeni Magid}
 \date{\normalsize \today}
 \maketitle
@@ -187,15 +187,40 @@ Experiment in \cite{grillner1975locomotion} shown that reflexes are significant 
 This approach for gait generation was considered in \cite{miyakoshi1998three}. There neural oscillator was used for generation biped motions. Human like gait was achieved by robot with small Degree of Freedom (DoF). The idea of this oscillator was to build robust system that perform simple control with minimum structure of neural architecture that can be interesting for high DoF robot.\\
 A detailed examination of a biological CPG from an engineering perspective was conducted in \cite{zhu2006central} but, for most applications, the neuron pair is approximated with a pair of differential equations \cite{wright2014intelligent}.
 
-\subsection{Simple Sinusoidal Oscillator}
+Also \cite{wright2014intelligent} considers two types of oscillators:
 
-
+\begin{enumerate}
+	\item Simple Sinusoidal Oscillator\\
+	That is too simple for bipedal locomotion because it is impossible to maintain dynamical stability criteria with this type of oscillations.
+	\item Systems of Differential Equations\\
+	Analysis of biological CPGs has identified oscillators made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are able to generate different gaits and produces various solutions from sinusoidal to more complex forms. It can control biped even on the rough ground. Matsuoka, Van der Pol, Amari-Hopfield, Hopf, Ellias shunting oscillators were used in numerous works and in \cite{lee2007construction} Generalized CPGs was introduced. 
+\end{enumerate} 
 
 \section{Neural Networks}
+Despite of the fact that oscillators can be described as a neural network they do not require any input for their work. Canonical Neural Networks (NN) have input data and output. There are several groups of NN.
+
+\subsection{Feed-Forward Networks}
+In this networks each neuron has its own connection and transfer function. They a ready for state motion generation.  Input data is current kinematics and sensory data. They can generate not state based trajectories only with time input. Multi-layer perceptron (MLP) is one of such models. They have from three (input, output, hidden) layers and can have more hidden ones. According to \cite{vundavilli2010dynamically}, two MLPs were used to specify parameters of a bipedal ditch crossing gait trained with Genetic Algorithm (GA) produced the best solution in terms of stability. It was more stable and efficient than one from a fully analytical approach, and slightly better than the result obtained with a fuzzy logic based method. Activation function is sigmoid.\\
+Radial Basis Function Network is another example of Feed-Forward Networks (FFN). Activation function is usually Gaussian or Euclidean. Neurons in hidden layers connected only with small part of input neurons. For this reason two types of vectors are necessary: wights vector and centre vector which is the same dimension as input. Each vector responds if it is close to its weight vector. Output neurones are the functions of linear combinations of outputs of network and their wighted connections.
+It was used for hexapod locomotion \cite{ilg1995learning}.\\
+A Cerebellar Model Articulation Controller (CMAC) is a type of associative memory network based on cerebellum \cite{albus1975new}. Input space is continuous and divided into hyper-rectangles. So input should be located at one rectangle in the moment. Numerous hidden layers are slightly moved rectangles. Hence rectangles will overlap on different layers. The output for each layer is wighted sum of activated rectangles. The CMACs successfully learned the movement patterns and showed resilience to perturbation (including on uneven or slippery floors), thereby translating a rigid analytical solution into an adaptable one \cite{sabourin2005robustness}.
+\subsection{Recurrent Networks}
+The structure of such networks is more complicated that FFN. Thus we can produce more complex patterns and handle different type input. 
 \section{Hidden Markov Model}
 \section{Rule based approach}
 \newpage
-
+\chapter{Theoretical Foundations: Background Material}
+\newpage
+\chapter{Formal Model: Theoretical Development}
+\newpage
+\chapter{Algorithmic Considerations}
+\newpage
+\chapter{Implementation Issues}
+\newpage
+\chapter{Evaluation}
+\newpage
+\chapter{Future Work}
+\newpage
 \chapter{Description of the Project Workplan}
 \begin{enumerate}
 	\item
