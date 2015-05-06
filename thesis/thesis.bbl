@@ -158,6 +158,19 @@ Kiyotoshi Matsuoka.
   adaptation.
 \newblock {\em Biological cybernetics}, 52(6):367--376, 1985.
 
+\bibitem{russell2007configuring}
+Alexander Russell, Garrick Orchard, and Ralph Etienne-Cummings.
+\newblock Configuring of spiking central pattern generator networks for bipedal
+  walking using genetic algorthms.
+\newblock In {\em Circuits and Systems, 2007. ISCAS 2007. IEEE International
+  Symposium on}, pages 1525--1528. IEEE, 2007.
+
+\bibitem{micci1994central}
+Daniele Micci-Barreca and Haluk Ogmen.
+\newblock A central pattern generator for insect gait production.
+\newblock In {\em From Perception to Action Conference, 1994., Proceedings},
+  pages 348--351. IEEE, 1994.
+
 \bibitem{lee2007construction}
 Wai~Man Lee and Yeung Yam.
 \newblock Construction of central pattern generator using piecewise affine
