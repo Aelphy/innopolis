@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: unsrt.bst
 Database file #1: robotics.bib
-You've used 29 entries,
+You've used 31 entries,
             1791 wiz_defined-function locations,
-            635 strings with 9273 characters,
-and the built_in function-call counts, 8456 in all, are:
-= -- 839
-> -- 301
+            648 strings with 9690 characters,
+and the built_in function-call counts, 8944 in all, are:
+= -- 886
+> -- 319
 < -- 14
-+ -- 112
-- -- 83
-* -- 589
-:= -- 1234
-add.period$ -- 96
-call.type$ -- 29
-change.case$ -- 29
++ -- 119
+- -- 88
+* -- 630
+:= -- 1311
+add.period$ -- 102
+call.type$ -- 31
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 380
-empty$ -- 813
-format.name$ -- 83
-if$ -- 1945
+cite$ -- 31
+duplicate$ -- 398
+empty$ -- 861
+format.name$ -- 88
+if$ -- 2049
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 29
-newline$ -- 148
-num.names$ -- 29
-pop$ -- 78
+int.to.str$ -- 31
+missing$ -- 31
+newline$ -- 158
+num.names$ -- 31
+pop$ -- 80
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 211
+skip$ -- 217
 stack$ -- 0
-substring$ -- 750
-swap$ -- 134
+substring$ -- 800
+swap$ -- 136
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 94
-width$ -- 31
-write$ -- 332
+while$ -- 100
+width$ -- 33
+write$ -- 354

@@ -30,13 +30,15 @@
 \newpage
 
 \chapter{Introduction}
-Nowadays, humanity invented almost all the devices that are needed for the modern human and society in general. The science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example, the car has 4 wheels while bike - two, and wheels are round, at room there are four walls, etc. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
+Nowadays humanity has invented almost all devices that are needed for modern humans and society in general. Science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example, the car has 4 wheels while bike - two, and wheels are round, at room there are four walls, etc. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
 
-According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of environment where robot works, because its body will interact with this environment. It was common to think before the advent of industrial robots that robots should look like humans. The first use of the word "robot" referred to the humanoid machines that were supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots begun after the Second World War, which was associated with the emergence of the nuclear industry.
+According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of the environment where a robot works, because its body will interact with this environment. It was a common belief before the advent of industrial robots that robots should look like humans. The first use of the word "robot" refers to a humanoid machine that was supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots started after the Second World War, which was associated with the emergence of the nuclear industry.
 
-Robots in today's presentation (autonomous device that performs some work in automatic mode) can be attributed with machine "Lunokhod-1", created in 1966. This is the first in the history machine that worked on the surface of Moon (1970). Recent tendency in robotics is replacing people not only in manufacturing but also in the military sphere. Constantly emerging information about the achievements of the leading countries in the development of military land, underwater robots and unmanned aerial vehicles is evidenced for this thesis. The era of development of  bipedal humanoid walking robots develops nowadays.
+Robots in today's definition (autonomous devices that work in automatic mode) can be attributed to the machine "Lunokhod-1", created in 1966. It was the first machine in the history that worked on the surface of the Moon (1970). Lately robots began to replace humans not only in manufacturing but also in the military sphere. Constantly emerging information about the achievements of the leading countries in the development of military land, underwater robots and unmanned aerial vehicles is evidenced for this thesis. Bipedal humanoid walking robots comprise the area of robotics that is developing most rapidly nowadays.
 
-The trend towards automation is a core part of progress. Automation reduces the cost of technical processes and the risk to humans. Therefore, the research and implementation of patterns in this task are on the cutting edge of science and technology and require special attention and investment in its development. Every year in the world there are more and more situations requiring people perform a wide variety of work in heavy, dangerous, and sometimes incompatible with the life conditions. In response, there are new tools of extreme robotics. However, for the most part they are very similar to each other. Usually, to perform the task on the ground is a autonomous wheeled or tracked vehicle with installed manipulator. Control is carried out remotely by radio or cable. These robots are produced for more than a dozen years. Engineers during that time accumulated a lot of experience in their development and applications, in some cases, very effective. However, it is undeniable that this technique has (like any other) limited scope of application. And as before, the people at the risk of life and limb, work in the rubbles, on fire, in terms of chemical, biological and radioactive contamination, are fighting against criminals and terrorists. Moreover, most of all this actions are situated not in the area of open field but in the buildings and various facilities, cabins and rooms of various equipment,  generally in conditions originally created for humans, given its two arms and two legs, the typical size, weight, and, if I may say so, the kinematics of the body. For this reason other areas of extreme robotics are developing now. One of this is a robotic system including a anthropomorphic bipedal walking robot. Kinematics, size and weight  similar to human characteristics, is equipped with an energy source, communication channel with the control station, and powerful autonomous control system, allowing to perform some action in the supervisory or automatic mode (independent transportation from the place of work in the absence of communication). Such a robot can have significant advantages in a workspace adapted for humans.
+The trend towards automation is a core part of progress. Automation reduces the cost of technical processes and the risk to humans. Therefore, the research and development for this task are on the cutting edge of science and technology and require special attention and investment into its development. There are more and more situations requiring people to perform a wide variety of work in heavy, dangerous, and sometimes incompatible with the life conditions. In response, there are new tools of extreme robotics. However, for the most part they are very similar to each other. Usually, autonomous wheeled or tracked vehicles with manipulators are used to perform tasks on the ground. Mostly these robots are teleoperated. These robots are being produced for more than a dozen years. Engineers have so far accumulated a lot of experience in their development and applications, which are in some cases very efficient. However, it is obvious that this technique has (like any other) a limited scope of application. People still have to work in dangerous conditions such as in chemical, biological, or radioactive hazards, work in extremely hot or cold conditions, fight against criminals and terrorist.
+Human workspace is very specific due to people's two arms and two legs. Universal robot should operate in the same environment and workspace. For this reason other areas of extreme robotics are developing now.
+ One of these is a robotic system including an anthropomorphic bipedal walking robot. Such robot's kinematics, size and weight are similar to human's, it is equipped with an energy source, communication channel with the control station, and a powerful autonomous control system, allowing it to perform actions in supervisory or automatic mode. For instance, autonomous actions include independent movement from place to place in absence of communication). Such robots have significant advantages in workspaces initially adapted for humans.
 
 \chapter{Literature review}
 Bipedal locomotion is a very complex task and according to \cite{erbatur2002study} it is described by nontrivial dynamics. It still doesn't have complete general solution however the research of this has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
@@ -94,29 +96,29 @@ friction force that compensate horizontal component of $F_a$. In the same time t
 According to \cite{kajita2003biped}, this ZMP should be on the foot. The problem is that we cannot manipulate the foot directly \cite{mitobe2000control}. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction (conditions from the paragraph above doesn't hold and R and $M_z$ doesn't compensate correspondent components of $F_a$ and $M_a$) than foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, in \cite{sardain2004forces} it was proven: if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, than robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed simultaneously and the main problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.
 The name zero moment point relates to the fact, that dynamical stability is maintained if horizontal components $M_x$ and $M_y$ are both equal to zero.
 	
-	\begin{equation}
+	\begin{equation}\label{eq:ZMP1}
 		M_x = M_y = 0
 	\end{equation}
 
 In the point P there should exist such equivalent force R and vertical moment $M_z$ that compensate the force reaction of the ground and maintains the stability of the construction. If we want to achieve the dynamical stability, that the following equations holds:
 
-	\begin{equation}
+	\begin{equation}\label{eq:ZMP2}
 		R + F_a + mg = 0
 	\end{equation}
 
 Where $m$ is a foot mass. In \cite{vukobratovic2004zero} there is defined  point O - the origin coordinates frame from which we can define radius vectors $\vec{OP}$, $\vec{OG}$ and $\vec{OA}$ where A is a point of ankle joint.
 
-	\begin{equation}
+	\begin{equation}\label{eq:ZMP3}
 		\vec{OP} \times \vec{R} + \vec{OG} \times mg + M_A + M_z + \vec{OA} \times F_a = 0
 	\end{equation}
 
 Placing the origin frame into the point P and making a projection on the horizontal plane gives us the following equations: 
 
-	\begin{equation}
+	\begin{equation}\label{eq:ZMP4}
 		(\vec{OP} \times \vec{R})^H + \vec{OG} \times mg + M_A^H + (\vec{OA} \times F_a)^H = 0
 	\end{equation}
 
-According to \cite{vukobratovic2004zero} equation (4) represents the foot equilibrium. However ot doesn't solve the problem, that it is still unknown whether for the given motion of mechanism it is in the equilibrium. It is only of ZMP lies inside the support polygon.
+According to \cite{vukobratovic2004zero} equation \ref{eq:ZMP4} represents the foot equilibrium. However ot doesn't solve the problem, that it is still unknown whether for the given motion of mechanism it is in the equilibrium. It is only of ZMP lies inside the support polygon.
 
 In \cite{dekker2009zero} it was stated, that we have to make the following assumptions in order to compute the position of ZMP:
 
@@ -135,7 +137,7 @@ In \cite{dekker2009zero} it was stated, that we have to make the following assum
 	
 With this constraints we can define the mass of the robot as:
 	
-	\begin{equation}
+	\begin{equation}\label{eq:ZMP5}
 		m_{robot} = \sum^n_{i=1}{m_i}
 	\end{equation}
 
@@ -152,25 +154,25 @@ In \cite{dekker2009zero} it was considered schematic bipedal robot to derive the
 
 Here $p_i$ are the distances between base frame and equivalent center of mass of i-link. From this total linear momentum P is:
 	
-	\begin{equation}
+	\begin{equation} \label{eq:ZMP6}
 		P = \sum^n_{i=1}{m_i \dot{p_i}}
 	\end{equation}
 And total angular momentum H is:
-	\begin{equation}
+	\begin{equation} \label{eq:ZMP7}
 		H = \sum^n_{i=1}{\dot{p_i} \times m_i \dot{p_i} + I_i \omega_i}
 	\end{equation}
 
 Where $\omega_i$ is a angular velocity and $I_i$ is inertia tensor that is computed as:
-	\begin{equation}
+	\begin{equation} \label{eq:ZMP8}
 		I_i = R_i I_i R_i^T
 	\end{equation}
 Here $R_i$ is a rotation matrix from i-link w.r.t. the origin base frame and $I_i$ is a inertia matrix of i-link w.r.t. the link frame origin attached to their links.
 
-Taking the derivative from 6 and 7 we have got:
-	\begin{equation}
+Taking the derivative from \ref{eq:ZMP6} and \ref{eq:ZMP7} we have got:
+	\begin{equation} \label{eq:ZMP9}
 		\dot{P} = \sum^n_{i=1}{m_i \ddot{p_i}}
 	\end{equation}
-	\begin{equation}
+	\begin{equation} \label{eq:ZMP10}
 		\dot{H} = \sum^n_{i=1}{\ddot{p_i} \times m_i \dot{p_i} + \dot{p_i} \times m_i \ddot{p_i} + I_i \dot{\omega_i}} + \omega_i \times I_i \omega_i
 	\end{equation}
 
@@ -183,17 +185,38 @@ In \cite{goswami1999postural} the problem of foot rotation was formulated. The a
 
 \section{Central Pattern Generator}
 
-Experiment in \cite{grillner1975locomotion} shown that reflexes are significant for locomotion. During reverse engineering it was found neural network that controls locomotion. It was found in spinal regions and it was the reason to name this approach as Central Pattern Generator.\\
-This approach for gait generation was considered in \cite{miyakoshi1998three}. There neural oscillator was used for generation biped motions. Human like gait was achieved by robot with small Degree of Freedom (DoF). The idea of this oscillator was to build robust system that perform simple control with minimum structure of neural architecture that can be interesting for high DoF robot.\\
+Experiment in \cite{grillner1975locomotion} shown that reflexes are significant for locomotion. During reverse engineering neural network that controls locomotion was found. It was situated in spinal regions that was the reason to name this network Central Pattern Generator (CPG).\\
+This approach for gait generation was considered in \cite{miyakoshi1998three}. Neural oscillator was used for generation biped motions. And it can be described as neural network, produces rhythmic pattern outputs without the need for patterned input \cite{wright2014intelligent}. CPG is a group of oscillating neurons with some phase between them which results rhythmic body motion. The pattern is generated not only by internal neural system but also by external sensor information \cite{miyakoshi1998three}. The key element in CPG is adaptive neural element, that can be described by pair of first order differential equations. Each pair of the following equations from adaptive neuron.
+
+\begin{equation}\label{eq:CPG1}
+	\tau_1 \dot{x}_1 = -x_1 - \beta f(\nu_1) -  \gamma f(x_2) + u_0 + u_{f_1}
+\end{equation}
+\begin{equation}\label{eq:CPG2}
+\tau_2 \dot{\nu}_1 = -\nu_1  + f(x_1)
+\end{equation}
+\begin{equation}\label{eq:CPG3}
+\tau_1 \dot{x}_2 = -x_2 - \beta f(\nu_2) -  \gamma f(x_1) + u_0 + u_{f_2}
+\end{equation}
+\begin{equation}\label{eq:CPG4}
+\tau_2 \dot{\nu}_2 = -\nu_2  + f(x_2)
+\end{equation}
+
+Here $x_1$  is initial state of neuron, excited by the constant input $u_0$. When excitation reaches some threshold neuron goes to state $\nu_1$ through equation \ref{eq:CPG2}. When it exceeds some threshold it starts to suppress to the state $x_1$ through the \ref{eq:CPG1} equation by the factor $\beta$. Thus $x_1$, $x_2$, $\nu_1$ and $\nu_2$ are state variables. $\beta$ represents the rate of adaptations, $u_{f_1}$ and $u_{f_2}$ are the feedback inputs mainly from sensors, $\gamma$ is the coefficient between state variables and f(x) is a threshold function. Such element works the following way: when it takes constant input it reacts, then adapts and stop reacting, generating oscillations. \\ Human like gait was achieved by robot with small Degree of Freedom (DoF) in \cite{miyakoshi1998three}. The idea of this oscillator was to build robust system that perform simple control with minimum structure of neural architecture that can be interesting for high DoF robot.\\
 A detailed examination of a biological CPG from an engineering perspective was conducted in \cite{zhu2006central} but, for most applications, the neuron pair is approximated with a pair of differential equations \cite{wright2014intelligent}.
 
-Also \cite{wright2014intelligent} considers two types of oscillators:
+Oscillators can be divided into two types \cite{wright2014intelligent}:
 
 \begin{enumerate}
 	\item Simple Sinusoidal Oscillator\\
-	That is too simple for bipedal locomotion because it is impossible to maintain dynamical stability criteria with this type of oscillations.
+	For sinusoidal signal it is very easy to maintain phase relationships. Human sized biped was considered in \cite{morimoto2008biologically}. However it is to simple model and according to \cite{wright2014intelligent}, is not very appropriate for bipeds, while it is good for systems that are statically stable. 
 	\item Systems of Differential Equations\\
-	Analysis of biological CPGs has identified oscillators made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are able to generate different gaits and produces various solutions from sinusoidal to more complex forms. It can control biped even on the rough ground. Matsuoka, Van der Pol, Amari-Hopfield, Hopf, Ellias shunting oscillators were used in numerous works and in \cite{lee2007construction} Generalized CPGs was introduced. 
+	Analysis of biological CPGs has identified oscillators made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are able to generate different gaits and produces various solutions from sinusoidal to more complex forms. It can control biped even on the rough ground.
+	Matsuoka oscillator is capable for different gait and is widely used \cite{wright2014intelligent}. They are popular because of their dynamics and in particular limit cycle behavior \cite{matsuoka1985sustained}. 
+	Van der Pol, 
+	Amari-Hopfield, 
+	Hopf, 
+	Ellias shunting oscillators were used in numerous works.
+	In \cite{lee2007construction} Generalized CPGs was introduced. 
 \end{enumerate} 
 
 \section{Neural Networks}

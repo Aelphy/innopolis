@@ -4,14 +4,14 @@
 \contentsline {section}{\numberline {2.2}Central Pattern Generator}{8}{section.2.2}
 \contentsline {section}{\numberline {2.3}Neural Networks}{9}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Feed-Forward Networks}{9}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Recurrent Networks}{9}{subsection.2.3.2}
-\contentsline {section}{\numberline {2.4}Hidden Markov Model}{9}{section.2.4}
-\contentsline {section}{\numberline {2.5}Rule based approach}{9}{section.2.5}
-\contentsline {chapter}{\numberline {3}Theoretical Foundations: Background Material}{10}{chapter.3}
-\contentsline {chapter}{\numberline {4}Formal Model: Theoretical Development}{11}{chapter.4}
-\contentsline {chapter}{\numberline {5}Algorithmic Considerations}{12}{chapter.5}
-\contentsline {chapter}{\numberline {6}Implementation Issues}{13}{chapter.6}
-\contentsline {chapter}{\numberline {7}Evaluation}{14}{chapter.7}
-\contentsline {chapter}{\numberline {8}Future Work}{15}{chapter.8}
-\contentsline {chapter}{\numberline {9}Description of the Project Workplan}{16}{chapter.9}
-\contentsline {chapter}{Bibliography}{17}{chapter*.2}
+\contentsline {subsection}{\numberline {2.3.2}Recurrent Networks}{10}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Hidden Markov Model}{10}{section.2.4}
+\contentsline {section}{\numberline {2.5}Rule based approach}{10}{section.2.5}
+\contentsline {chapter}{\numberline {3}Theoretical Foundations: Background Material}{11}{chapter.3}
+\contentsline {chapter}{\numberline {4}Formal Model: Theoretical Development}{12}{chapter.4}
+\contentsline {chapter}{\numberline {5}Algorithmic Considerations}{13}{chapter.5}
+\contentsline {chapter}{\numberline {6}Implementation Issues}{14}{chapter.6}
+\contentsline {chapter}{\numberline {7}Evaluation}{15}{chapter.7}
+\contentsline {chapter}{\numberline {8}Future Work}{16}{chapter.8}
+\contentsline {chapter}{\numberline {9}Description of the Project Workplan}{17}{chapter.9}
+\contentsline {chapter}{Bibliography}{18}{chapter*.2}
