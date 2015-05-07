@@ -126,6 +126,13 @@ S\_ Grillner.
 \newblock Locomotion in vertebrates: central mechanisms and reflex interaction.
 \newblock {\em Physiological reviews}, 55(2):247--304, 1975.
 
+\bibitem{lee2007construction}
+Wai~Man Lee and Yeung Yam.
+\newblock Construction of central pattern generator using piecewise affine
+  systems.
+\newblock In {\em Control and Automation, 2007. ICCA 2007. IEEE International
+  Conference on}, pages 1729--1734. IEEE, 2007.
+
 \bibitem{miyakoshi1998three}
 Seiichi Miyakoshi, Gentaro Taga, Yasuo Kuniyoshi, and Akihiko Nagakubo.
 \newblock Three dimensional bipedal stepping motion using neural
@@ -158,25 +165,17 @@ Kiyotoshi Matsuoka.
   adaptation.
 \newblock {\em Biological cybernetics}, 52(6):367--376, 1985.
 
+\bibitem{kanamaru2007van}
+Takashi Kanamaru.
+\newblock Van der pol oscillator.
+\newblock {\em Scholarpedia}, 2(1):2202, 2007.
+
 \bibitem{russell2007configuring}
 Alexander Russell, Garrick Orchard, and Ralph Etienne-Cummings.
 \newblock Configuring of spiking central pattern generator networks for bipedal
   walking using genetic algorthms.
 \newblock In {\em Circuits and Systems, 2007. ISCAS 2007. IEEE International
   Symposium on}, pages 1525--1528. IEEE, 2007.
-
-\bibitem{micci1994central}
-Daniele Micci-Barreca and Haluk Ogmen.
-\newblock A central pattern generator for insect gait production.
-\newblock In {\em From Perception to Action Conference, 1994., Proceedings},
-  pages 348--351. IEEE, 1994.
-
-\bibitem{lee2007construction}
-Wai~Man Lee and Yeung Yam.
-\newblock Construction of central pattern generator using piecewise affine
-  systems.
-\newblock In {\em Control and Automation, 2007. ICCA 2007. IEEE International
-  Conference on}, pages 1729--1734. IEEE, 2007.
 
 \bibitem{vundavilli2010dynamically}
 Pandu~Ranga Vundavilli and Dilip~Kumar Pratihar.
@@ -201,5 +200,42 @@ Christophe Sabourin and Olivier Bruneau.
 \newblock Robustness of the dynamic walk of a biped robot subjected to
   disturbing external forces by using cmac neural networks.
 \newblock {\em Robotics and Autonomous Systems}, 51(2):81--99, 2005.
+
+\bibitem{berns1995neural}
+Karsten Berns, R{\"u}diger Dillmann, and Stefan Piekenbrock.
+\newblock Neural networks for the control of a six-legged walking machine.
+\newblock {\em Robotics and autonomous systems}, 14(2):233--244, 1995.
+
+\bibitem{reil2002evolution}
+Torsten Reil and Phil Husbands.
+\newblock Evolution of central pattern generators for bipedal walking in a
+  real-time physics environment.
+\newblock {\em Evolutionary Computation, IEEE Transactions on}, 6(2):159--168,
+  2002.
+
+\bibitem{petridis1994recurrent}
+V~Petridis and A~Papaikonomou.
+\newblock Recurrent neural networks as pattern generators.
+\newblock In {\em Proc IEEE International Conference on Neural Networks}, pages
+  872--875. Citeseer, 1994.
+
+\bibitem{wyffels2009design}
+Francis Wyffels and Benjamin Schrauwen.
+\newblock Design of a central pattern generator using reservoir computing for
+  learning human motion.
+\newblock In {\em Advanced Technologies for Enhanced Quality of Life, 2009.
+  AT-EQUAL'09.}, pages 118--122. IEEE, 2009.
+
+\bibitem{inamura2004embodied}
+Tetsunari Inamura, Iwaki Toshima, Hiroaki Tanie, and Yoshihiko Nakamura.
+\newblock Embodied symbol emergence based on mimesis theory.
+\newblock {\em The International Journal of Robotics Research},
+  23(4-5):363--377, 2004.
+
+\bibitem{park2003fuzzy}
+Jong~Hyeon Park.
+\newblock Fuzzy-logic zero-moment-point trajectory generation for reduced trunk
+  motions of biped robots.
+\newblock {\em Fuzzy sets and systems}, 134(1):189--203, 2003.
 
 \end{thebibliography}

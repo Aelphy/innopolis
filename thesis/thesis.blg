@@ -3,44 +3,49 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: unsrt.bst
 Database file #1: robotics.bib
-You've used 33 entries,
+Repeated entry---line 467 of file robotics.bib
+ : @article{vundavilli2010dynamically
+ :                                   ,
+I'm skipping whatever remains of this entry
+You've used 39 entries,
             1791 wiz_defined-function locations,
-            659 strings with 10138 characters,
-and the built_in function-call counts, 9739 in all, are:
-= -- 973
-> -- 338
-< -- 16
-+ -- 126
-- -- 93
-* -- 671
-:= -- 1409
-add.period$ -- 110
-call.type$ -- 33
-change.case$ -- 33
+            693 strings with 11123 characters,
+and the built_in function-call counts, 11274 in all, are:
+= -- 1125
+> -- 387
+< -- 17
++ -- 145
+- -- 106
+* -- 784
+:= -- 1639
+add.period$ -- 129
+call.type$ -- 39
+change.case$ -- 39
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 442
-empty$ -- 940
-format.name$ -- 93
-if$ -- 2251
+cite$ -- 39
+duplicate$ -- 508
+empty$ -- 1095
+format.name$ -- 106
+if$ -- 2596
 int.to.chr$ -- 0
-int.to.str$ -- 33
-missing$ -- 33
-newline$ -- 168
-num.names$ -- 33
-pop$ -- 92
+int.to.str$ -- 39
+missing$ -- 39
+newline$ -- 198
+num.names$ -- 39
+pop$ -- 103
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 249
+skip$ -- 280
 stack$ -- 0
-substring$ -- 872
-swap$ -- 160
-text.length$ -- 16
+substring$ -- 1016
+swap$ -- 176
+text.length$ -- 17
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 108
-width$ -- 35
-write$ -- 378
+while$ -- 126
+width$ -- 41
+write$ -- 445
+(There was 1 error message)
