@@ -45,6 +45,8 @@ def matrix(verticies, G):
 
 def main():
     G = nx.Graph()
+    N = len(G.nodes())
+    E = len(G.edges())
 
     with open('data.txt') as f:
         for line in f:
@@ -54,9 +56,15 @@ def main():
 
     G1 = G.copy()
 
-    hubs, spokes = slash_burn(G1, int(0.05 * len(G.nodes())))
+    p = E / float(n*(n-1))
+    random_G = nx.fast_gnp_random_graph(N, p, seed=None, directed=False)
 
-    print 'total hubs number = {0}'.format(len(hubs))
+    G2 = random_G.copy()
+
+    hubs, spokes = slash_burn(G1, int(0.05 * N))
+    random_hubs, random_spokes = slash_burn(G2, int(0.05 * N))
+
+    print 'hubs number = {0}, N = {1}, random hubs number = {2}'.format(len(hubs), N, len(random_hubs))
 
     verticies = G.nodes()
     slash_burn_verticies = hubs + spokes
