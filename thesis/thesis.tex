@@ -22,7 +22,7 @@
 \begin{document}
 	
 	\title{Final Year Project Report\\ Development and implementation dynamic balance algorithms for bipedal robot locomotion.}
-	\author{Usvyatsov Mikhail\\Innopolis University\\Kazan\\  ~\\ \normalsize Supervisor: Prof. Eugeni Magid}
+	\author{Usvyatsov Mikhail\\Innopolis University\\Kazan\\  ~\\ \normalsize Supervisor: Prof. Evgeni Magid}
 	\date{\normalsize \today}
 	\maketitle
 	
@@ -31,7 +31,7 @@
 	\newpage
 
 	\chapter{Introduction}
-		Nowadays humanity has invented almost all devices that are needed for modern humans and society in general. Science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example, the car has 4 wheels while bike - two, and wheels are round, at room there are four walls, etc. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
+		Nowadays humanity has invented almost all devices that are needed for modern humans and society in general. Science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example if you imagine the car it will have 4 wheels. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
 		
 		According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of the environment where a robot works, because its body will interact with this environment. It was a common belief before the advent of industrial robots that robots should look like humans. The first use of the word "robot" refers to a humanoid machine that was supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots started after the Second World War, which was associated with the emergence of the nuclear industry.
 		
@@ -39,7 +39,7 @@
 		
 		The trend towards automation is a core part of progress. Automation reduces the cost of technical processes and the risk to humans. Therefore, the research and development for this task are on the cutting edge of science and technology and require special attention and investment into its development. There are more and more situations requiring people to perform a wide variety of work in heavy, dangerous, and sometimes incompatible with the life conditions. In response, there are new tools of extreme robotics. However, for the most part they are very similar to each other. Usually, autonomous wheeled or tracked vehicles with manipulators are used to perform tasks on the ground. Mostly these robots are teleoperated. These robots are being produced for more than a dozen years. Engineers have so far accumulated a lot of experience in their development and applications, which are in some cases very efficient. However, it is obvious that this technique has (like any other) a limited scope of application. People still have to work in dangerous conditions such as in chemical, biological, or radioactive hazards, work in extremely hot or cold conditions, fight against criminals and terrorist.
 		Human workspace is very specific due to people's two arms and two legs. Universal robot should operate in the same environment and workspace. For this reason other areas of extreme robotics are developing now.
-		One of these is a robotic system including an anthropomorphic bipedal walking robot. Such robot's kinematics, size and weight are similar to human's, it is equipped with an energy source, communication channel with the control station, and a powerful autonomous control system, allowing it to perform actions in supervisory or automatic mode. For instance, autonomous actions include independent movement from place to place in absence of communication). Such robots have significant advantages in workspaces initially adapted for humans.
+		One of these is a robotic system including an anthropomorphic bipedal walking robot. Such robot's kinematics, size and weight are similar to human's, it is equipped with an energy source, communication channel with the control station, and a powerful autonomous control system, allowing it to perform actions in supervisory or automatic mode. For instance, autonomous actions include independent movement from place to place in absence of communication. Such robots have significant advantages in workspaces initially adapted for humans.
 
 	\chapter{Literature review}
 		Bipedal locomotion is a very complex task and according to \cite{erbatur2002study} it is described by nontrivial dynamics. It still doesn't have complete general solution however the research of this has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
@@ -56,7 +56,7 @@
 		\section{Analytical approach}
 		The oldest one and also the most studied group is analytical one. It requires the knowledge of general form that locomotion should take.
 
-		For bipedal locomotion it requires the following steps:
+		For bipedal locomotion it s required to accomplish the following steps:
 		\begin{enumerate}
 			\item Apply stability constraints
 			\item Design gait algorithm (including double support, single support and no-support phases \cite{wright2014intelligent}).
@@ -66,7 +66,7 @@
 		According to \cite{tang2008analysis}, the most natural method that represents the human body is inverted pendulum.
 		Inverted pendulum model of human balance problem is one of the most primitive and old example of analytical approach \cite{winter1995human}. It stated that control of the balance can be achieved with two components: ankle mechanism (invertors/evertors) and hip load/unloading mechanism. In different positions each of the mechanism plays a different role. Thus in tandem or intermediate position balance is achieved by invertors/evertors mechanism while direction is controlled by hip load/unloading mechanism. It doubts on commonly used condition: reaction force of the floor has to go thought center of gravity of the robot. It was stated, that modern bio-mechanical studies show that there are angular moments around center of gravity. 
 		Thus this approach is too approximate and it is not very accurate.
-		Moreover, according to \cite{kuo2007six} six determinants theory\cite{inman1953major} well described by inverted pendulum model needs more energy to control the mechanism and this problem can be solved by passive dynamic walking machines, that need external energy only for transition from one pendular stance leg to another. In \cite{collins2005bipedal} such architecture was considered. There robot was able to move forward at constant not very high speed and author mentioned that the gait of the robot was human like. Human gait is desirable because of its energy effectiveness \cite{golliday1977approach}.\\
+		Moreover, according to \cite{kuo2007six} six determinants theory\cite{inman1953major} well described by inverted pendulum model needs more energy to control the mechanism and this problem can be solved by passive dynamic walking machines, that need external energy only for transition from one pendular stance leg to another. In \cite{collins2005bipedal} such architecture was considered. There robot was able to move forward at constant not very high speed and author mentioned that the gait of the robot was human like. Human-like gait is desirable because of its energy effectiveness \cite{golliday1977approach}.\\
 		Furthermore, \cite{anderson2005powered} summaries principles that allows to combine passive dynamic control with powered bipeds. The results show that the gait become energy efficient however it implies further work on robustness and flexibility of walking\\
 
 		In 1970 Miomir Vukobratovic proposed Zero Moment Point (ZMP), a theoretical model to explain biped locomotion. Also ZMP is a basic dynamical stability constraint.
@@ -206,7 +206,7 @@
 		Here $x_1$  is initial state of neuron, excited by the constant input $u_0$. When excitation reaches some threshold neuron goes to state $\nu_1$ through equation \ref{eq:CPG2}. When it exceeds some threshold it starts to suppress to the state $x_1$ through the \ref{eq:CPG1} equation by the factor $\beta$. Thus $x_1$, $x_2$, $\nu_1$ and $\nu_2$ are state variables. $\beta$ represents the rate of adaptations, $u_{f_1}$ and $u_{f_2}$ are the feedback inputs mainly from sensors, $\gamma$ is the coefficient between state variables and f(x) is a threshold function. Such element works the following way: when it takes constant input it reacts, then adapts and stop reacting, generating oscillations. \\ Human like gait was achieved by robot with small Degree of Freedom (DoF) in \cite{miyakoshi1998three}. The idea of this oscillator was to build robust system that perform simple control with minimum structure of neural architecture that can be interesting for high DoF robot.\\
 		A detailed examination of a biological CPG from an engineering perspective was conducted in \cite{zhu2006central} but, for most applications, the neuron pair is approximated with a pair of differential equations \cite{wright2014intelligent}.
 
-		Oscillators can be divided into two types \cite{wright2014intelligent}
+		Oscillators can be divided into two types : Simple Sinusoidal Oscillator and Systems of Differential Equations \cite{wright2014intelligent}. Each of them is described bellow.
 
 		\subsection{Simple Sinusoidal Oscillator}
 			For sinusoidal signal it is very easy to maintain phase relationships. Human sized biped was considered in \cite{morimoto2008biologically}. However it is to simple model and according to \cite{wright2014intelligent}, is not very appropriate for bipeds, while it is good for systems that are statically stable. 
@@ -224,7 +224,7 @@
 					\end{split}
 				\end{equation}
 				
-				Here $\tau$ is a time constant, x is membrane potential of the neuron, $s_j$ is impulse rate of input stimuli, $\theta$ is threshold value below which neuron doesn't fire, $c_j$ weights of synaptic conjunctions (> 0 for excitatory synapses and < 0 for inhibitory synapses), y is firing rate of the neuron, $x \prime$ is the variable that represents the degree of the adaptation, T (>0) and b($\geq 0$) are parameters that specify the time course of the adaptation \cite{matsuoka1985sustained}.
+				Here $\tau$ is a time constant, x is membrane potential of the neuron, $s_j$ is impulse rate of input stimuli, $\theta$ is threshold value below which neuron doesn't fire, $c_j$ weights of synaptic conjunctions ($>$ 0 for excitatory synapses and $<$ 0 for inhibitory synapses), y is firing rate of the neuron, $x \prime$ is the variable that represents the degree of the adaptation, T ($>$0) and b($\geq 0$) are parameters that specify the time course of the adaptation \cite{matsuoka1985sustained}.
 				
 				Matsuoka in \cite{matsuoka1985sustained} discuss oscillations generated by mutual inhibition between n neurons with adaptation:
 				\begin{equation}\label{eq:Mats2}
@@ -277,7 +277,7 @@
 			\subsection{Feed-Forward Networks}
 				In this networks each neuron has its own connection and transfer function. They a ready for state motion generation.  Input data is current kinematics and sensory data. They can generate not state based trajectories only with time input. 
 				\subsubsection{Multi-layer perceptron}
-					Multi-layer perceptron (MLP) is one of such models. They have from three (input, output, hidden) layers and can have more hidden ones. According to \cite{vundavilli2010dynamically}, two MLPs were used to specify parameters of a bipedal ditch crossing gait trained with Genetic Algorithm (GA) produced the best solution in terms of stability. It was more stable and efficient than one from a fully analytical approach, and slightly better than the result obtained with a fuzzy logic based method. Activation function of perceptron is sigmoid function.
+					Multi-layer perceptron (MLP) is one of such models. They have from three (input, output, hidden) layers and can have more hidden ones. According to \cite{vundavilli2010dynamically}, two MLPs were used to specify parameters of a bipedal ditch crossing gait trained with Genetic Algorithm (GA). It produced the best solution in terms of stability. It was more stable and efficient than one from a fully analytical approach, and slightly better than the result obtained with a fuzzy logic based method. Activation function of perceptron is sigmoid function.
 				\subsubsection{Radial Basis Function Network}
 					Radial Basis Function Network is another example of Feed-Forward Networks (FFN). Activation function is usually Gaussian or Euclidean. Neurons in hidden layers connected only with small part of input neurons. For this reason two types of vectors are necessary: wights vector and centre vector which is the same dimension as input. Each vector responds if it is close to its weight vector. Output neurones are the functions of linear combinations of outputs of network and their wighted connections.
 					It was used for hexapod locomotion \cite{ilg1995learning}.
@@ -312,15 +312,32 @@
 					
 					There is practice \cite{wyffels2009design} of generating trajectories with reservoir taken the human capture data.
 		\section{Hidden Markov Model}
-			Learning by imitation is one of commonly used approach for bipedal locomotion researches. Obviously, direct copying of movements ща operator is impossible due to different kinematic and dynamic characteristics. So, from the operator we can take only the pattern and than imitate it on the robot. Here observing is estimating the underlying state variables of the source system where only output data is available. For this task Hidden Markov Models can be used \cite{inamura2004embodied}. 
+			Learning by imitation is one of commonly used approach for bipedal locomotion researches. Obviously, direct copying of movements of operator is impossible due to different kinematic and dynamic characteristics. So, from the operator we can take only the pattern and than imitate it on the robot. Observing is estimating the underlying state variables based on the source system through output data. For this task Hidden Markov Models (HMM) can be used \cite{inamura2004embodied}. 
 			
 			Recognition algorithm is used for identification of movement. If movement was not identified it is added to database as new. Hidden Markov model provides abstraction of the pattern which is used for motion synthesis.
 			
 			Although typically used for imitation tasks, HMM have also been employed to detect problematic states.
 			
-			The problem of Hidden Markov Model is that it doesn't provide emergent behavior.
+			HMM itself is finite state automaton. It is defined by set of states with initial and final states, transition probability matrix where element $a_ij$ is probability of transition from state i to state j.
+			
+			In feedback system that defines controller error signal is the input. Controller based on its input generates output signal that is called control signal. In order to obtain finite set of decision patterns, it is necessary to divide control space into finite number of subspaces. According to  \cite{yang1994hidden}, the following steps are necessary to define HMM-based controller:
+			
+			\begin{enumerate}
+				\item
+					Correspondence  between control signal and controller input (error signal) can be established because according to definition of HMM control signal depends only on finite number of previous input signals.
+				\item 
+					Define set of patterns. At each time control signal belongs to one of patterns. Also control signal in each moment of time corresponds to one of the set of k previous input signals.
+				\item
+					It is necessary to label the data. It means that set of input signals is mapped to the set of possible control signals.
+				\item
+					Train the model by describing control signals by the data.
+				\item
+					Collect a set of trained models.
+			\end{enumerate} 
+			
 		\section{Rule based approach}
 			After the identification of the current state we can find the next one using rule-based method. For bipeds fuzzy-logic systems were used in some researches \cite{park2003fuzzy}.  Fuzzy logic controller helps to deal with a bit of uncertainty in the environment. And it can be used to vary ZMP position in the support polygon \cite{park2003fuzzy}. For proper work it requires optimization of rules, that was basically chosen \cite{vundavilli2010dynamically}.
+			The main idea is to divide the set of all possible combinations of system parameters into the area and for each region of this area define the control function that can be used when system is identified to be in the correspondent state.
 	
 	\bibliographystyle{unsrt}
 	\bibliography{robotics}

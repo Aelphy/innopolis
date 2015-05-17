@@ -31,5 +31,5 @@ for node in G.nodes():
         similarietes.append(similarity)
         status_differences.append(difference)
 
-plt.plot(status_differences, similarietes)
+plt.plot(status_differences, similarietes, 'r-o')
 plt.show()

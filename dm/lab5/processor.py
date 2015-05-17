@@ -1,6 +1,7 @@
 import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 import operator
 
 def add(where, graphs, G):
@@ -29,6 +30,11 @@ def slash_burn(G, k):
                 G.remove_node(node)
             else:
                 break
+
+    if len(G.nodes()) > 0:
+        for node, degree in sorted(G.degree().items(), key=operator.itemgetter(1)):
+            spokes.insert(0, node)
+            G.remove_node(node)
 
     return [hubs, spokes]
 
@@ -70,6 +76,15 @@ def main():
     slash_burn_verticies = hubs + spokes
     degree_sorted_verticies = [node[0] for node in sorted(G.degree().items(), key=operator.itemgetter(1))]
 
+    fig = plt.figure()
+    sub = fig.add_subplot(231)
+    sub.set_title('verticies')
+    plt.imshow(matrix(verticies, G), interpolation='nearest')
+    sub = fig.add_subplot(232)
+    sub.set_title('verticies sorted')
+    plt.imshow(matrix(degree_sorted_verticies, G), interpolation='nearest')
+    sub = fig.add_subplot(233)
+    sub.set_title('verticies slash burned')
     plt.imshow(matrix(slash_burn_verticies, G), interpolation='nearest')
     plt.show()
 

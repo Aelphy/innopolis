@@ -232,6 +232,11 @@ Tetsunari Inamura, Iwaki Toshima, Hiroaki Tanie, and Yoshihiko Nakamura.
 \newblock {\em The International Journal of Robotics Research},
   23(4-5):363--377, 2004.
 
+\bibitem{yang1994hidden}
+Jie Yang and Yangsheng Xu.
+\newblock Hidden markov model for control strategy learning.
+\newblock Technical report, DTIC Document, 1994.
+
 \bibitem{park2003fuzzy}
 Jong~Hyeon Park.
 \newblock Fuzzy-logic zero-moment-point trajectory generation for reduced trunk

@@ -7,36 +7,36 @@ Repeated entry---line 467 of file robotics.bib
  : @article{vundavilli2010dynamically
  :                                   ,
 I'm skipping whatever remains of this entry
-You've used 39 entries,
+You've used 40 entries,
             1791 wiz_defined-function locations,
-            693 strings with 11123 characters,
-and the built_in function-call counts, 11274 in all, are:
-= -- 1125
-> -- 387
+            697 strings with 11226 characters,
+and the built_in function-call counts, 11413 in all, are:
+= -- 1138
+> -- 395
 < -- 17
-+ -- 145
-- -- 106
-* -- 784
-:= -- 1639
-add.period$ -- 129
-call.type$ -- 39
-change.case$ -- 39
++ -- 148
+- -- 108
+* -- 788
+:= -- 1667
+add.period$ -- 132
+call.type$ -- 40
+change.case$ -- 41
 chr.to.int$ -- 0
-cite$ -- 39
-duplicate$ -- 508
-empty$ -- 1095
-format.name$ -- 106
-if$ -- 2596
+cite$ -- 40
+duplicate$ -- 514
+empty$ -- 1107
+format.name$ -- 108
+if$ -- 2626
 int.to.chr$ -- 0
-int.to.str$ -- 39
+int.to.str$ -- 40
 missing$ -- 39
-newline$ -- 198
-num.names$ -- 39
-pop$ -- 103
+newline$ -- 203
+num.names$ -- 40
+pop$ -- 105
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 280
+skip$ -- 282
 stack$ -- 0
 substring$ -- 1016
 swap$ -- 176
@@ -45,7 +45,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 126
-width$ -- 41
-write$ -- 445
+while$ -- 127
+width$ -- 42
+write$ -- 456
 (There was 1 error message)
