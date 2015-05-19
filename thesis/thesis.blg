@@ -7,6 +7,10 @@ Repeated entry---line 467 of file robotics.bib
  : @article{vundavilli2010dynamically
  :                                   ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 485 of file robotics.bib
+ : @inproceedings{kajita2003biped
+ :                               ,
+I'm skipping whatever remains of this entry
 You've used 40 entries,
             1791 wiz_defined-function locations,
             697 strings with 11226 characters,
@@ -48,4 +52,4 @@ warning$ -- 0
 while$ -- 127
 width$ -- 42
 write$ -- 456
-(There was 1 error message)
+(There were 2 error messages)

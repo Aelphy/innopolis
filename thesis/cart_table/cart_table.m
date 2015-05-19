@@ -1,7 +1,7 @@
 g = 9.8;
 Zc = 1;
 T = 1e-4;
-N = 5050;
+N = 16000;
 sim_time = 10;
 
 [Ke, Kx, G] = preview_control_params(T, Zc, N);
