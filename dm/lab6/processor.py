@@ -1,5 +1,6 @@
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import AdaBoostClassifier
+
 import numpy as np
 
 labels_test = []
@@ -118,6 +119,11 @@ def extract_data(file_name, labels, features, motion_distribution_features, fram
             text_area_distribution_features.append(text_area_distributions)
             bag_of_audio_words_features.append(bag_of_audio_words)
 
+            features[-1] += motion_distributions
+            features[-1] += fram_diff_distributions
+            features[-1] += text_area_distributions
+            features[-1] += bag_of_audio_words
+
             total += 1
             print(total)
 
@@ -125,37 +131,6 @@ def extract_data(file_name, labels, features, motion_distribution_features, fram
 extract_data('train.txt', labels_train, features_train, motion_distribution_features_train, fram_diff_distribution_features_train, text_area_distribution_features_train, bag_of_audio_words_features_train)
 extract_data('test.txt', labels_test, features_test, motion_distribution_features_test, fram_diff_distribution_features_test, text_area_distribution_features_test, bag_of_audio_words_features_test)
 
-
-neigh1 = KNeighborsClassifier(n_neighbors=100)
-neigh1.fit(features_train, labels_train)
-
-neigh2 = KNeighborsClassifier(n_neighbors=100)
-neigh2.fit(motion_distribution_features_train, labels_train)
-
-neigh3 = KNeighborsClassifier(n_neighbors=100)
-neigh3.fit(fram_diff_distribution_features_train, labels_train)
-
-neigh4 = KNeighborsClassifier(n_neighbors=100)
-neigh4.fit(text_area_distribution_features_train, labels_train)
-
-neigh5 = KNeighborsClassifier(n_neighbors=100)
-neigh5.fit(bag_of_audio_words_features_train, labels_train)
-
-answers = []
-for i in range(len(labels_test)):
-    answers.append([neigh1.predict(features_test[i])[0],
-                    neigh2.predict(motion_distribution_features_test[i])[0],
-                    neigh3.predict(fram_diff_distribution_features_test[i])[0],
-                    neigh4.predict(text_area_distribution_features_test[i])[0],
-                    neigh5.predict(bag_of_audio_words_features_test[i])[0]])
-
-total_answers = []
-for i in range(len(answers)):
-    total_answers.append(np.sign(sum(answers[i])))
-
-correct = 0
-for i in range(len(labels_test)):
-    if labels_test[i] == total_answers[i]:
-        correct += 1
-
-print('accuracy is {0}%'.format(100 * correct / float(len(labels_test))))
+clf = AdaBoostClassifier(n_estimators=250)
+clf.fit(features_train, labels_train)
+print(clf.score(features_test, labels_test))
