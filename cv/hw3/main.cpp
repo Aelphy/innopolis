@@ -46,7 +46,8 @@ const string classes_a[] = {
     "no_right_turn",
     "no_straight",
     "parking",
-    "yield"
+    "yield",
+    "unknown"
 };
 
 // mapping between signs and their names
@@ -92,6 +93,10 @@ void compute_statistics(vector <string> &answers, vector <string> &labels, vecto
     cout << "recall is " << recall << endl;
     cout << "accuracy is " << accuracy << endl;
     cout << endl;
+
+    for (int i = 0; i < answers.size(); i++) {
+        cout << answers[i] << endl;
+    }
 }
 
 void process_sign_candidate(Mat &sign_candidate, vector <Mat> &signs) {
