@@ -403,6 +403,7 @@
 		According to literature review there are a lot different approaches for bipedal robot locomotion. In this work several of them would be combined.
 		We can define two support phases of walking: single support phase (during this phase only one foot is on the ground) and single support phase (two feet are on the ground simultaneously).
 		We can break bipedal locomotion in following phases:
+		
 		\begin{enumerate}
 			\item Initial contact
 			\item Loading Response
@@ -413,7 +414,37 @@
 			\item Mid swing
 			\item Late swing			
 		\end{enumerate}
+		
 		One of the most simple models of human during single support phase is cart-table model. That is represented on 
+		
+		% figure of cart taиду should be here
+		
+		When cart is far away from Center of Mass (CoM) that is denoted as X, ZMP point that is denoted as P goes out of support area. When it is happen the system becomes unstable.
+		The equation that describes this process is bellow:
+		
+		\begin{equation}
+			P = X -\dfrac{H_z}{g} \ddot{X}
+		\end{equation}
+		
+		$H_z$ here is the height of CoM of the cart.
+		
+		In order to prevent system failing we want ot control cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in literature survey when ZMP lies in support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that system will fall. So we can try to define the desired ZMP trajectory of the system. For the beginning we will consider movement only in frontal plane. Desired trajectory for our system in frontal plane is provided below.
+		
+		% figure of desired zmp trajectory
+		
+		It represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the end of the step. Thus we can build simple system represented on :
+		% system with pid
+		Where PID (proportional integral derivative) regulator maintains ZMP trajectory to be closed to desired one. We can see that our real ZMP trajectory is late and so CoM trajectory is late too.
+		% link to preview control
+		They introduced simple idea. To look forward to desired ZMP. And try to predict what will happen before it happens. Hence the theory of optimal control matters and it will be described bellow how to make predictive control system for such unstable object as table of the cart model for example. Further in Chapter 4 such controller would be applied to the model of robot and in Chapter 5 the results will be evaluated.
+		
+		\section{Optimal control}
+		\subsection{Preview control} 
+		
+	\chapter{Implementation}
+	\chapter{Evaluation}
+	\chapter{Future work}
+	\chapter{Summary}
 	
 	\bibliographystyle{unsrt}
 	\bibliography{robotics}
