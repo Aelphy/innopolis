@@ -1,4 +1,3 @@
- 
 \documentclass[12pt,a4paper]{report}
 \linespread{1.5}
 \usepackage[hidelinks,colorlinks=false]{hyperref}
@@ -13,6 +12,7 @@
 \usepackage{cleveref}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{listings}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \graphicspath{{images/}}
@@ -244,7 +244,7 @@
 					\vspace{-0.2cm}
 					\centering
 					{\includegraphics[width=0.7\textwidth]{4}}
-					\caption{Matsuoka oscillator}
+					\caption{Matsuoka oscillator \cite{liu2008central}}
 					\label{fig:4}
 					\vspace{-0.1cm}
 				\end{figure}
@@ -415,38 +415,300 @@
 			\item Late swing			
 		\end{enumerate}
 		
-		One of the most simple models of human during single support phase is cart-table model. That is represented on 
+		One of the most simple models of human during single support phase is cart-table model. That is represented on \cref{fig:6}
 		
-		% figure of cart taиду should be here
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{6}}
+			\caption{Cart-table model \cite{kajita2003biped}}
+			\label{fig:6}
+			\vspace{-0.1cm}
+		\end{figure}
 		
 		When cart is far away from Center of Mass (CoM) that is denoted as X, ZMP point that is denoted as P goes out of support area. When it is happen the system becomes unstable.
-		The equation that describes this process is bellow:
+		The equation that describes this process was derived in \cite{kajita2003biped} and is represented bellow:
 		
 		\begin{equation}
-			P = X -\dfrac{H_z}{g} \ddot{X}
+			P = X -\dfrac{Z_h}{g} \ddot{X}
 		\end{equation}
 		
-		$H_z$ here is the height of CoM of the cart.
+		$Z_h$ here is the height of CoM of the cart.\\
+		In order to prevent system failing we want ot control cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in literature survey when ZMP lies in support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that system will fall. So we can try to define the desired ZMP trajectory of the system. For the beginning we will consider movement only in frontal plane. Frontal plane is represented on \cref{fig:7}. Desired trajectory for our system in frontal plane is provided on \ref{fig:8}.
 		
-		In order to prevent system failing we want ot control cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in literature survey when ZMP lies in support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that system will fall. So we can try to define the desired ZMP trajectory of the system. For the beginning we will consider movement only in frontal plane. Desired trajectory for our system in frontal plane is provided below.
-		
-		% figure of desired zmp trajectory
-		
-		It represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the end of the step. Thus we can build simple system represented on :
-		% system with pid
-		Where PID (proportional integral derivative) regulator maintains ZMP trajectory to be closed to desired one. We can see that our real ZMP trajectory is late and so CoM trajectory is late too.
-		% link to preview control
-		They introduced simple idea. To look forward to desired ZMP. And try to predict what will happen before it happens. Hence the theory of optimal control matters and it will be described bellow how to make predictive control system for such unstable object as table of the cart model for example. Further in Chapter 4 such controller would be applied to the model of robot and in Chapter 5 the results will be evaluated.
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{7}}
+			\caption{Human planes [The American Heritage® Medical Dictionary]}
+			\label{fig:7}
+			\vspace{-0.1cm}
+		\end{figure}
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.8\textwidth]{8}}
+			\caption{Desired ZMP trajectory шт frontal plane \cite{kajita2003biped}}
+			\label{fig:8}
+			\vspace{-0.1cm}
+		\end{figure}
+		It represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the end of the step. Here the amplitude if frictions is defined by parameters of robot (step width in frontal plane). Thus we can build simple system represented on \cref{fig:9}.
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{9}}
+			\caption{PID regulated ZMP control \cite{kajita2003biped}}
+			\label{fig:9}
+			\vspace{-0.1cm}
+		\end{figure}
+		Where controller is PID (proportional integral derivative) regulator maintains ZMP trajectory to be closed to desired one. We can see that our real ZMP trajectory is late and so CoM trajectory is late too. The result of such control is represented on \cref{fig:10}.
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=1\textwidth]{10}}
+			\caption{PID regulated ZMP trajectories}
+			\label{fig:10}
+			\vspace{-0.1cm}
+		\end{figure}
+		Kajita et all in \cite{kajita2003biped} introduced simple idea. To look forward to desired ZMP. And try to predict what will happen before it happens. Hence the theory of optimal control matters and it will be described bellow how to make predictive control system for such unstable object as cart of the table model for example. Further in Chapter 4 such controller would be applied to the model of robot and in Chapter 5 the results will be evaluated.
 		
 		\section{Optimal control}
-		\subsection{Preview control} 
+			According to \cite{hazell2008discrete} it is necessary to introduce discrete-time state-space model if form \ref{eq:oc1}.
+			
+			\begin{equation}\label{eq:oc1}
+				\begin{split}
+					x(k+1) = Ax(k) + Bu(k)\\
+					y(k) = Cx(k) + Du(k)
+				\end{split}
+			\end{equation}
+			
+			Where k is time index, x(k) is a vector of state values, u(k) is a vector of input values, y(k) is a vector of output values. A,B,C,D are  appropriately dimensioned real matrices \cite{hazell2008discrete}.
+			
+			We define G - transfer function associated with model \ref{eq:oc1}. G is defined as \ref{eq:oc2}
+			
+			\begin{equation}\label{eq:oc2}
+				G(Z) = C(ZI - A)^{-1}B+D
+			\end{equation}
+			
+			Where Z is Z-transform variable.
+			
+			We can estimate the size of transfer function by measures that a known as $H_2$ and $H_\infty$. $H_2$ norm will be denoted as $||G(Z)||_2$ and is defined as \ref{eq:oc3}.
+			
+			\begin{equation}\label{eq:oc3}
+				||G(Z)||_2 = Tr\{ B^{'} XB + D^{'} D \}
+			\end{equation}
+			
+			Where X is defined by \ref{eq:oc4}.
+			
+			\begin{equation}\label{eq:oc4}
+				X = A^{'} XA + C^{'} C
+			\end{equation}
+			
+			According to \cite{hazell2008discrete} 	$H_2$ norm of transfer function is a gain in power from input to output, assuming that the input signal is white and Gaussian.  
+			
+			$H_\infty$ is denoted as $||G(Z)||_\infty$ and is defined by \ref{eq:oc5}.		
+			
+			\begin{equation}\label{eq:oc5}
+				||G(Z)||_\infty = \sup_{\omega} \dfrac{||z||_2}{||\omega||_2}
+			\end{equation}
+			
+			Here $z = G\omega$, $\omega$ is assumed to be a realization of unit power, Gaussian, white-noise process and z is real values vector of input. Hence $H_\infty$ defines maximum possible gain in power from input ot output.
+			
+			\begin{figure}[h!]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.7\textwidth]{11}}
+				\caption{Generalized regulator \cite{hazell2008discrete}}
+				\label{fig:11}
+				\vspace{-0.1cm}
+			\end{figure}
+			
+			On \cref{fig:11} there is a generalized regulator. The input for the system is $\omega$. The system is controlled by input signal u and returns output signal z, while y is measurements output.
+			
+			The matrix equation \ref{eq:oc6}
+			
+			\begin{equation}\label{eq:oc6}
+				X = A^{'}XA + Q - \bar{L}^{'} \bar{R}^{-1} \bar{L}
+			\end{equation}
+			
+			is known as Discrete Algebraic Riccati Equation (DARE). Where $\bar{R} = R + B^{'}XB$. With $\bar{R} = R + B^{'}XB$ and $\bar{L} = L + B^{'}XA$. The solution of this equation are considered and derived in \cite{hazell2008discrete}. Also we can write DARE in a short form: $X = D(A,B,Q,R,L;X)$ and $D(A,B,Q,R,L;X) = A^{'} XA + Q -  \bar{L}^{'} \bar{R}^{-1} \bar{L}$.
 		
+		\subsection{Preview control} 
+			Katayama et al. in \cite{katayama1985design} introduced new method of control general regulators with preview control. The key idea was to look forward for N discrete steps and predict desirable value of controlled signal. The form of control signal was derived by \cite{katayama1985design} and it is given in \ref{eq:pc1}
+			
+			\begin{equation}\label{eq:pc1}
+				u(k) = -G_I \sum^{k}_{i=0} e(i) - G_xx(k) - \sum^{N_l}_{l=1}G_d(l)y_d(k+l)
+			\end{equation}
+		
+			Here $G_I = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{I}$, \\$G_x = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{F}$,\\
+			$G_d(1) = -G_I$ and $G_d(l) = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{X}(l-1)$.\\
+			Moreover $\tilde{K}$ here is a solution of DARE in the form of \ref{eq:pc2}
+			\begin{equation}\label{eq:pc2}
+				\tilde{K} = \tilde{A}^T\tilde{K}\tilde{A} - \tilde{A}^T \tilde{K} \tilde{B} [R + \tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T\tilde{K}\tilde{A} + \tilde{Q}
+			\end{equation}
+			\begin{equation}\label{eq:pc3}
+				\begin{split}
+					\tilde{B} = \begin{bmatrix} C B \\ B \end{bmatrix}\\
+					\tilde{I} = \begin{bmatrix} I_p \\ 0 \end{bmatrix}\\
+					\tilde{F} = \begin{bmatrix} CA \\ A \end{bmatrix}\\
+					\tilde{Q} = \begin{bmatrix} Q_e & 0 \\ 0 & Q_x \end{bmatrix}\\
+					\tilde{A} = \begin{bmatrix} \tilde{I} & \tilde{F} \end{bmatrix}
+				\end{split}
+			\end{equation}
+			
+			And finally $I_p$ is $p * p$ identity matrix.
+			
+			This theorem was proven in \cite{katayama1985design}. And Kajita et al. in \cite{kajita2003biped} proved, that the necessary prediction for the system is 1.6 seconds due to the character за dependency on this parameter that is shown on \cref{fig:12} 
+			
+			\begin{figure}[h!]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.7\textwidth]{12}}
+				\caption{Importance of N preview \cite{kajita2003biped}}
+				\label{fig:12}
+				\vspace{-0.1cm}
+			\end{figure}
 	\chapter{Implementation}
-	\chapter{Evaluation}
+		Initially the model of cat-table was developed. The design is represented on \cref{fig:13}
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{13}}
+			\caption{Cart-table model}
+			\label{fig:13}
+			\vspace{-0.1cm}
+		\end{figure}
+		
+		Further it will be represented as block on \cref{fig:14}.
+		
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.3\textwidth]{14}}
+			\caption{Cart-table model block}
+			\label{fig:14}
+			\vspace{-0.1cm}
+		\end{figure}
+		
+		To have the initial control model Propotional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is on \cref{fig:15}.
+		
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{15}}
+			\caption{PID regulated cart-table}
+			\label{fig:15}
+			\vspace{-0.1cm}
+		\end{figure}
+		
+		And the regulator itself looks as on \cref{fig:16}.
+		
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{16}}
+			\caption{PID regulator of cart-table}
+			\label{fig:16}
+			\vspace{-0.1cm}
+		\end{figure}
+		
+		The results of such control are represented on \cref{fig:17}
+		
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.8\textwidth]{17}}
+			\caption{PID regulator control results}
+			\label{fig:17}
+			\vspace{-0.1cm}
+		\end{figure}
+		
+		We can see that actual ZMP trajectory lates and due to this fact the CoM trajectory reaches the bound of support polygon and thus it makes the system unstable.
+		
+		After that preview control with 1.6s prediction was applied. The difference between PID controlled model is only in the controller, that is represented on \cref{fig:18}.
+		
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{18}}
+			\caption{Preview controller design}
+			\label{fig:18}
+			\vspace{-0.1cm}
+		\end{figure}
+		
+		The results of this controller are represented on \cref{fig:19} are much better and we can see only no late response and no overshooting in ZMP trajectory. Thus the system become much more stable than in PID case. 
+		
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{19}}
+			\caption{Preview controller results}
+			\label{fig:19}
+			\vspace{-0.1cm}
+		\end{figure}
 	\chapter{Future work}
 	\chapter{Summary}
 	
 	\bibliographystyle{unsrt}
 	\bibliography{robotics}
+	
+	\begin{appendices}
+		\chapter{Preview control parameters estimation algorithm}
+			\begin{lstlisting}
+function [Ke, Kx, G] = preview_control_params(T, Zh, N)
+	R = 1e-6;
+	Qe = 1;
+	Qdpos = 0;
+	Qdvel = 0;
+	Qdaccel = 0;
+	g = 9.8;
+	
+	A = [1 T T^2/2;0 1  T;0 0 1];
+	B = [T^3/6;T^2/2;T];
+	C = [1 0 -Zh/g];
+	
+	AA = vertcat(horzcat([1], C*A),horzcat(zeros(3,1), A));
+	BB = vertcat([C*B], [B]);
+	RR = R;
+	QQ = diag([Qe, Qdpos, Qdvel, Qdaccel]);
+	
+	PP = dare(AA,BB,QQ,RR);
+	SS = 1.0/(RR + BB'*PP*BB);
+	KK = SS*BB'*PP*AA;
+	
+	Ke = KK(1,1);
+	Kx = KK(1,2:4);
+	
+	Ac = AA - BB*KK;
+	XX = -Ac' * PP * [1,0,0,0]';
+	
+	G = [-Ke];
+	
+	for i=2:1:N
+		G = [G SS * BB' * XX];
+		XX = Ac' * XX;
+	end
+end
+			\end{lstlisting}
+		\chapter{Robot constants and desired ZMP generation algorithm}
+			\begin{lstlisting}
+g = 9.8;
+Zc = 1;
+T = 1e-4;
+N = 16000;
+sim_time = 10;
+
+[Ke, Kx, G] = preview_control_params(T, Zc, N);
+
+D_o = [1 3 5]';                % delays
+D_e = [2 4 6]';                % delays
+t = 0 : T : sim_time + N * T;  % signal evaluation time
+width = 1;                     % width of each pulse
+
+desired_zmp = 0.1 * pulstran(t, D_o, 'rectpuls', width)\
+- 0.1 * pulstran(t, D_e, 'rectpuls', width);
+desired_zmp = [t' desired_zmp'];
+			\end{lstlisting}
+	\end{appendices}
   
 \end{document}

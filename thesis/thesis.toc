@@ -20,10 +20,11 @@
 \contentsline {section}{\numberline {2.4}Hidden Markov Model}{17}{section.2.4}
 \contentsline {section}{\numberline {2.5}Rule based approach}{18}{section.2.5}
 \contentsline {chapter}{\numberline {3}Theory}{20}{chapter.3}
-\contentsline {section}{\numberline {3.1}Optimal control}{21}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Preview control}{21}{subsection.3.1.1}
-\contentsline {chapter}{\numberline {4}Implementation}{22}{chapter.4}
-\contentsline {chapter}{\numberline {5}Evaluation}{23}{chapter.5}
-\contentsline {chapter}{\numberline {6}Future work}{24}{chapter.6}
-\contentsline {chapter}{\numberline {7}Summary}{25}{chapter.7}
-\contentsline {chapter}{Bibliography}{26}{chapter*.12}
+\contentsline {section}{\numberline {3.1}Optimal control}{23}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Preview control}{25}{subsection.3.1.1}
+\contentsline {chapter}{\numberline {4}Implementation}{27}{chapter.4}
+\contentsline {chapter}{\numberline {5}Future work}{30}{chapter.5}
+\contentsline {chapter}{\numberline {6}Summary}{31}{chapter.6}
+\contentsline {chapter}{Bibliography}{32}{chapter*.12}
+\contentsline {chapter}{Appendix \numberline {A}Preview control parameters estimation algorithm}{37}{Appendix.1.A}
+\contentsline {chapter}{Appendix \numberline {B}Robot constants and desired ZMP generation algorithm}{39}{Appendix.1.B}

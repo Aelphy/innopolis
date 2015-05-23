@@ -11,45 +11,50 @@ Repeated entry---line 485 of file robotics.bib
  : @inproceedings{kajita2003biped
  :                               ,
 I'm skipping whatever remains of this entry
-You've used 40 entries,
+Repeated entry---line 513 of file robotics.bib
+ : @inproceedings{miyakoshi1998three
+ :                                  ,
+I'm skipping whatever remains of this entry
+Warning--empty journal in hazell2008discrete
+You've used 43 entries,
             1791 wiz_defined-function locations,
-            697 strings with 11226 characters,
-and the built_in function-call counts, 11413 in all, are:
-= -- 1138
-> -- 395
+            715 strings with 11765 characters,
+and the built_in function-call counts, 12073 in all, are:
+= -- 1196
+> -- 427
 < -- 17
-+ -- 148
-- -- 108
-* -- 788
-:= -- 1667
-add.period$ -- 132
-call.type$ -- 40
-change.case$ -- 41
++ -- 160
+- -- 117
+* -- 839
+:= -- 1776
+add.period$ -- 141
+call.type$ -- 43
+change.case$ -- 44
 chr.to.int$ -- 0
-cite$ -- 40
-duplicate$ -- 514
-empty$ -- 1107
-format.name$ -- 108
-if$ -- 2626
+cite$ -- 44
+duplicate$ -- 540
+empty$ -- 1169
+format.name$ -- 117
+if$ -- 2765
 int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 39
-newline$ -- 203
-num.names$ -- 40
-pop$ -- 105
+int.to.str$ -- 43
+missing$ -- 42
+newline$ -- 218
+num.names$ -- 43
+pop$ -- 112
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 282
+skip$ -- 291
 stack$ -- 0
-substring$ -- 1016
-swap$ -- 176
+substring$ -- 1066
+swap$ -- 178
 text.length$ -- 17
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 127
-width$ -- 42
-write$ -- 456
-(There were 2 error messages)
+warning$ -- 1
+while$ -- 134
+width$ -- 45
+write$ -- 487
+(There were 3 error messages)

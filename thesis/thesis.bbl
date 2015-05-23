@@ -165,6 +165,12 @@ Kiyotoshi Matsuoka.
   adaptation.
 \newblock {\em Biological cybernetics}, 52(6):367--376, 1985.
 
+\bibitem{liu2008central}
+Guang~Lei Liu, Maki~K Habib, Keigo Watanabe, and Kiyotaka Izumi.
+\newblock Central pattern generators based on matsuoka oscillators for the
+  locomotion of biped robots.
+\newblock {\em Artificial Life and Robotics}, 12(1-2):264--269, 2008.
+
 \bibitem{kanamaru2007van}
 Takashi Kanamaru.
 \newblock Van der pol oscillator.
@@ -242,5 +248,16 @@ Jong~Hyeon Park.
 \newblock Fuzzy-logic zero-moment-point trajectory generation for reduced trunk
   motions of biped robots.
 \newblock {\em Fuzzy sets and systems}, 134(1):189--203, 2003.
+
+\bibitem{hazell2008discrete}
+Andrew Hazell.
+\newblock Discrete-time optimal preview control.
+\newblock 2008.
+
+\bibitem{katayama1985design}
+Tohru Katayama, Takahira Ohki, Toshio Inoue, and Tomoyuki Kato.
+\newblock Design of an optimal controller for a discrete-time system subject to
+  previewable demand.
+\newblock {\em International Journal of Control}, 41(3):677--699, 1985.
 
 \end{thebibliography}
