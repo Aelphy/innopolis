@@ -249,6 +249,13 @@ Jong~Hyeon Park.
   motions of biped robots.
 \newblock {\em Fuzzy sets and systems}, 134(1):189--203, 2003.
 
+\bibitem{rostami1998impactless}
+Mostafa Rostami and Guy Bessonnet.
+\newblock Impactless sagittal gait of a biped robot during the single support
+  phase.
+\newblock In {\em Robotics and Automation, 1998. Proceedings. 1998 IEEE
+  International Conference on}, volume~2, pages 1385--1391. IEEE, 1998.
+
 \bibitem{hazell2008discrete}
 Andrew Hazell.
 \newblock Discrete-time optimal preview control.
