@@ -579,7 +579,7 @@
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
-			{\includegraphics[width=0.7\textwidth]{13}}
+			{\includegraphics[width=1\textwidth]{13}}
 			\caption{Cart-table model}
 			\label{fig:13}
 			\vspace{-0.1cm}
@@ -590,13 +590,13 @@
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
-			{\includegraphics[width=0.3\textwidth]{14}}
+			{\includegraphics[width=0.2\textwidth]{14}}
 			\caption{Cart-table model block}
 			\label{fig:14}
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		To have the initial control model Propotional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is on \cref{fig:15}.
+		This system is controlled by second time derivative, that represents speed. To have the initial control model Propotional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is on \cref{fig:15}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -623,7 +623,7 @@
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
-			{\includegraphics[width=0.8\textwidth]{17}}
+			{\includegraphics[width=1\textwidth]{17}}
 			\caption{PID regulator control results}
 			\label{fig:17}
 			\vspace{-0.1cm}
@@ -631,7 +631,7 @@
 		
 		We can see that actual ZMP trajectory lates and due to this fact the CoM trajectory reaches the bound of support polygon and thus it makes the system unstable.
 		
-		After that preview control with 1.6s prediction was applied. The difference between PID controlled model is only in the controller, that is represented on \cref{fig:18}.
+		After that preview control with 1.6 second prediction was applied. The difference between PID controlled model controller model and control signal. The model of preview controller  is represented on \cref{fig:18}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -641,6 +641,8 @@
 			\label{fig:18}
 			\vspace{-0.1cm}
 		\end{figure}
+		
+		Control signal for preview controller is the third time derivative of trajectory and due to this fact between controller and cart-table model transition block should be provided. This block is a integrator because integration of control signal gives us exactly the second time derivative (velocity).
 		
 		The results of this controller are represented on \cref{fig:19} are much better and we can see only no late response and no overshooting in ZMP trajectory. Thus the system become much more stable than in PID case. 
 		

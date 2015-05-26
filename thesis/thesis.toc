@@ -23,9 +23,9 @@
 \contentsline {section}{\numberline {3.1}Optimal control}{24}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Preview control}{26}{subsection.3.1.1}
 \contentsline {chapter}{\numberline {4}Implementation}{28}{chapter.4}
-\contentsline {chapter}{\numberline {5}Evaluation}{31}{chapter.5}
-\contentsline {chapter}{\numberline {6}Future work}{32}{chapter.6}
-\contentsline {chapter}{\numberline {7}Summary}{33}{chapter.7}
-\contentsline {chapter}{Bibliography}{34}{chapter*.12}
-\contentsline {chapter}{Appendix \numberline {A}Preview control parameters estimation algorithm}{39}{Appendix.1.A}
-\contentsline {chapter}{Appendix \numberline {B}Robot constants and desired ZMP generation algorithm}{41}{Appendix.1.B}
+\contentsline {chapter}{\numberline {5}Evaluation}{32}{chapter.5}
+\contentsline {chapter}{\numberline {6}Future work}{33}{chapter.6}
+\contentsline {chapter}{\numberline {7}Summary}{34}{chapter.7}
+\contentsline {chapter}{Bibliography}{35}{chapter*.12}
+\contentsline {chapter}{Appendix \numberline {A}Preview control parameters estimation algorithm}{40}{Appendix.1.A}
+\contentsline {chapter}{Appendix \numberline {B}Robot constants and desired ZMP generation algorithm}{42}{Appendix.1.B}
