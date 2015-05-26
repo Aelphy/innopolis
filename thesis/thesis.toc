@@ -19,7 +19,7 @@
 \contentsline {subsubsection}{Reservoir}{19}{section*.11}
 \contentsline {section}{\numberline {2.4}Hidden Markov Model}{19}{section.2.4}
 \contentsline {section}{\numberline {2.5}Rule based approach}{20}{section.2.5}
-\contentsline {chapter}{\numberline {3}Bipedal locomotion model}{21}{chapter.3}
+\contentsline {chapter}{\numberline {3}Bipedal locomotion control}{21}{chapter.3}
 \contentsline {section}{\numberline {3.1}Optimal control}{24}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Preview control}{26}{subsection.3.1.1}
 \contentsline {chapter}{\numberline {4}Implementation}{28}{chapter.4}
