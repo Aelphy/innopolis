@@ -30,9 +30,9 @@ classdef Bot
             obj.period = 0.100;
             obj.wheelRadius = 28;
             obj.sonicPosition = readRotation(obj.sonicMotor);
-            obj.width = 1;
-            obj.length = 1;
-            obj.sonicCenterFromFront = 0.5;
+            obj.width = 0.18;
+            obj.length = 0.3;
+            obj.sonicCenterFromFront = 0;
         end
 
         function stopMotors(obj)
@@ -224,7 +224,7 @@ classdef Bot
         function setHeadPosition(obj, angle)
             obj.sonicMotor.Speed = 0;
  
-            speed = 15;
+            speed = 25;
             currentAngle = readRotation(obj.sonicMotor) - obj.sonicPosition;
  
             start(obj.sonicMotor);
@@ -242,7 +242,7 @@ classdef Bot
         end
         
         function [minAngle, minDistance] = findClosestWall(obj)
-            speed = 15;
+            speed = 25;
             r = 0;
  
             obj.sonicMotor.Speed = -speed;
@@ -275,7 +275,7 @@ classdef Bot
         end
         
         function goToWall(obj, minDistance, maxDistance)
-            speed = 100;
+            speed = 200;
 
             for i=1:3
                 [minAngle, distance] = findClosestWall(obj);
@@ -296,24 +296,37 @@ classdef Bot
             end
             
             obj.rotate(90);
-            obj.set_head_position(-90);
+            obj.setHeadPosition(-90);
         end
         
-        %TODO test this function
-        function [traveledDistance] = followWall(obj)
+        function color = readColor(obj)
+            color = readColor(obj.color)
+        end
+        
+        function d = getWallDistance(obj)
+            d = readDistance(obj.sonic) - obj.width / 2;
+            while (d > 2.5 - obj.sonicCenterFromFront)
+                d = readDistance(obj.sonic) - obj.width / 2;
+            end
+        end
+        
+        function [traveledDistance] = followWall(obj, desiredDistance)
             Kp = 0.1;
             Ki = 0.01;
             Kd = 0.01;
-            Ca = 2;
-
+            Ca = 10;
+            
+            hack = 0;
+ 
             obj.leftMotor.Speed = 0;
             obj.rightMotor.Speed = 0;
-
+ 
             obj.resetRotations();
             obj.startMotors();
-
+ 
+            resetRotationAngle(obj.gyro);
             initialAngle = readRotationAngle(obj.gyro);
-
+            speed = 200;
             traveledDistance = 0;
             lastLeftRotation = 0;
             lastRightRotation = 0;
@@ -322,72 +335,109 @@ classdef Bot
             lastLeftSpeedError = 0;
             lastRightSpeedError = 0;
             lastTravelDistance = 0;
-            previousDistance = readDistance(obj.sonic) - obj.sonicCenterFromFront;
-
-            while ~strcmp(readColor(obj.color), 'black') && (readTouch(obj.touch) ~= 1
+            
+            look_distance = 0;
+ 
+            while ~strcmp(obj.readColor(), 'black') && (readTouch(obj.touch) ~= 1)
                 leftRotation = double(readRotation(obj.leftMotor));
                 rightRotation = double(readRotation(obj.rightMotor));
-
+ 
                 % Linear velocity, in mm/sec.
                 leftSpeed = deg2rad(leftRotation - lastLeftRotation) * ...
                     obj.wheelRadius / obj.period;
                 rightSpeed = deg2rad(rightRotation - lastRightRotation) * ...
                     obj.wheelRadius / obj.period;
-
-                currentAngle = readRotationAngle(obj.gyro);
                                
                 % compute correction
-                currentDistance = readDistance(obj.sonic);
-                correction = toDegrees('radians', asin((previousDistance - currentDistance) / lastTravelDistance));
-                previousDistance = currentDistance;
+                currentDistance = getWallDistance(obj)
+                if (lastTravelDistance ~= 0)
+                    sinval = (desiredDistance - currentDistance) / lastTravelDistance;
+                    if (sinval > 1)
+                        sinval = 1;
+                    end
+                    if (sinval < -1)
+                        sinval = -1;
+                    end
+ 
+                    correction = double(toDegrees('radians', asin(sinval)));
+                else
+                    correction = 0;
+                end
                 %TODO: check if anomaly exists
-                
+               
                 % correct initial angle
                 initialAngle = initialAngle + correction;
-
+                
+                currentAngle = readRotationAngle(obj.gyro);
+ 
                 angleError = initialAngle - currentAngle;
-
+ 
                 leftSpeedError = (speed - leftSpeed) + Ca * angleError;
                 rightSpeedError = (speed - rightSpeed) - Ca * angleError;
-
+ 
                 leftIntegral = leftIntegral + leftSpeedError;
                 rightIntegral = rightIntegral + rightSpeedError;
-
+ 
                 leftDerivative = leftSpeedError - lastLeftSpeedError;
                 rightDerivative = rightSpeedError - lastRightSpeedError;
-
+ 
                 leftCorrection = int8(Kp * leftSpeedError + ...
                     Ki * leftIntegral + ...
                     Kd * leftDerivative);
                 rightCorrection = int8(Kp * rightSpeedError + ...
                     Ki * rightIntegral + ...
                     Kd * rightDerivative);
-
+ 
                 newLeftSpeed = obj.leftMotor.Speed + leftCorrection;
                 newRightSpeed = obj.rightMotor.Speed + rightCorrection;
-
+ 
                 obj.leftMotor.Speed = newLeftSpeed;
                 obj.rightMotor.Speed = newRightSpeed;
-
+ 
                 lastLeftRotation = leftRotation;
                 lastRightRotation = rightRotation;
-
+ 
                 lastLeftSpeedError = leftSpeedError;
                 lastRightSpeedError = rightSpeedError;
-
+ 
                 averageSpeed = (leftSpeed + rightSpeed) / 2;
-
-                traveledDistance = traveledDistance + abs(averageSpeed) * obj.period;
                 
-                lastTravelDistance = traveledDistance - lastTravelDistance;
-
+                lastTravelDistance = abs(averageSpeed) * obj.period;
+ 
+                traveledDistance = traveledDistance + lastTravelDistance;
+                
+                look_distance = look_distance + lastTravelDistance
+                
                 obj.wait();
+                
+                if look_distance > 1000 && hack == 0
+                    look_distance = 0
+                    
+                    obj.stopMotors();
+                    obj.setHeadPosition(0);
+                    d = readDistance(obj.sonic)
+                    
+                    if d < 1
+                        hack = 1;
+                        obj.goStraight((d - desiredDistance) * 100, 300)
+                        
+                        obj.rotate(90);
+                        obj.setHeadPosition(-90);
+                        obj.goStraight(300, 300);
+                        obj.rotate(-90);
+                        obj.goStraight(610, 300);
+                        obj.rotate(-90);
+                        obj.goStraight(250, 300);
+                        obj.rotate(90);
+                    end
+                    
+                    obj.setHeadPosition(-90);
+                    obj.followWall(desiredDistance);
+                    break;
+                end
             end
-
-            obj.clearSpeed();
-            obj.stopMotors();
+            
+            obj.stopMotors()
         end
-        
-        function 
     end
 end

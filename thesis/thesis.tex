@@ -33,11 +33,13 @@
 	\newpage
 
 	\chapter{Introduction and Overview}
-		Nowadays humanity has invented almost all devices that are needed for modern humans and society in general. Science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. For example if you imagine the car it will have 4 wheels. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
+		Nowadays humanity has invented almost all devices that are needed for modern humans and society in general. Science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments.
 		
 		According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of the environment where a robot works, because its body will interact with this environment. It was a common belief before the advent of industrial robots that robots should look like humans. The first use of the word "robot" refers to a humanoid machine that was supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots started after the Second World War, which was associated with the emergence of the nuclear industry.
 		
-		Robots in today's definition (autonomous devices that work in automatic mode) can be attributed to the machine "Lunokhod-1", created in 1966. It was the first machine in the history that worked on the surface of the Moon (1970). Lately robots began to replace humans not only in manufacturing but also in the military sphere. Constantly emerging information about the achievements of the leading countries in the development of military land, underwater robots and unmanned aerial vehicles is evidenced for this thesis. Bipedal humanoid walking robots comprise the area of robotics that is developing most rapidly nowadays.
+		The word robot was initially attributed in 1921 to fictional humanoid by Karel Capaek. Nowadays almost every professor teaching robotics can give their own definition of robots and all of them will not be similar. One of robot today's definition is autonomous device that work in automatic mode. It can be attributed to the machine "Lunokhod-1", created in 1966. It was the first machine in the history that worked on the surface of the Moon (1970). Another modern definition is a mechanical or virtual artificial agent, usually an electro-mechanical machine that is guided by a computer program or electronic circuitry.
+		
+		Lately robots began to replace humans not only in manufacturing but also in the military sphere. Constantly emerging information about the achievements of the leading countries in the development of military land, underwater robots and unmanned aerial vehicles is evidenced for this thesis. Bipedal humanoid walking robots comprise the area of robotics that is developing most rapidly nowadays.
 		
 		The trend towards automation is a core part of progress. Automation reduces the cost of technical processes and the risk to humans. Therefore, the research and development for this task are on the cutting edge of science and technology and require special attention and investment into its development. There are more and more situations requiring people to perform a wide variety of work in heavy, dangerous, and sometimes incompatible with the life conditions. In response, there are new tools of extreme robotics. However, for the most part they are very similar to each other. Usually, autonomous wheeled or tracked vehicles with manipulators are used to perform tasks on the ground. Mostly these robots are teleoperated. These robots are being produced for more than a dozen years. Engineers have so far accumulated a lot of experience in their development and applications, which are in some cases very efficient. However, it is obvious that this technique has (like any other) a limited scope of application. People still have to work in dangerous conditions such as in chemical, biological, or radioactive hazards, work in extremely hot or cold conditions, fight against criminals and terrorist.
 		Human workspace is very specific due to people's two arms and two legs. Universal robot should operate in the same environment and workspace. For this reason other areas of extreme robotics are developing now.
@@ -48,20 +50,20 @@
 		According to \cite{wright2014intelligent}, there are 5 groups of approaches to the problem of locomotion control. There are:
 		
 		\begin{enumerate}
-			\item Analytical
-			\item Central Pattern Generator (CPG)
-			\item Neural Networks
-			\item Hidden Markov Model (HMM)
-			\item Rule based
+			\item Analytical.\\ It uses equations of physical values to generate walking trajectories.
+			\item Central Pattern Generator (CPG).\\ When biologically inspired creature walks it has two different mechanisms of motion control. CPG is analog of generator that produces the pattern that doesn't require to be adopted. And also control mechanism applied to generated by CPG pattern with external data from sensors as input make the movement to be adopted to very big variety of disturbances.
+			\item Neural Networks.\\ This approach is a try of simulating the control process of biologically inspired creatures.
+			\item Hidden Markov Model (HMM).\\ HMM are good for pattern recognition, thus we can use it to recognize patterns in gaits.
+			\item Rule based.\\ The main idea behind this approach is to build the rules for all possible variations of configuration.
 		\end{enumerate}
 
 		\section{Analytical approach}
 		The oldest one and also the most studied group is analytical one. It requires the knowledge of general form that locomotion should take.
 
-		For bipedal locomotion it s required to accomplish the following steps:
+		For bipedal locomotion it s required to accomplish the following steps \cite{wright2014intelligent}:
 		\begin{enumerate}
 			\item Apply stability constraints
-			\item Design gait algorithm (including double support, single support and no-support phases \cite{wright2014intelligent}).
+			\item Design gait algorithm (including double support, single support and no-support phases).
 			\item Solve remaining degrees of freedom (DoF) with Inverse Kinematics (IK).
 		\end{enumerate}
 
@@ -211,7 +213,11 @@
 		Oscillators can be divided into two types : Simple Sinusoidal Oscillator and Systems of Differential Equations \cite{wright2014intelligent}. Each of them is described bellow.
 
 		\subsection{Simple Sinusoidal Oscillator}
-			For sinusoidal signal it is very easy to maintain phase relationships. Human sized biped was considered in \cite{morimoto2008biologically}. However it is to simple model and according to \cite{wright2014intelligent}, is not very appropriate for bipeds, while it is good for systems that are statically stable. 
+			For sinusoidal signal it is very easy to maintain phase relationships. Human sized biped was considered in \cite{morimoto2008biologically}. The sinusoidal pattern is used for control of parameters, like phase or joint angle. The equation \ref{eq:Sin1} shows the example of hip angle control by phase $\phi$ and hip amplitude $A_{hip}$.
+			\begin{equation}\label{eq:Sin1}
+				\theta_{hip} (\phi) = A_{hip} sin(\phi) 
+			\end{equation}
+ 			However it is to simple model and according to \cite{wright2014intelligent}, is not very appropriate for bipeds, while it is good for systems that are statically stable. 
 		\subsection{Systems of Differential Equations}
 			Analysis of biological CPGs has identified oscillators made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are able to generate different gaits and produces various solutions from sinusoidal to more complex forms. It can control biped even on the rough ground.
 			\subsubsection{Matsuoka oscillator}
@@ -595,7 +601,7 @@
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
-			{\includegraphics[width=0.7\textwidth]{15}}
+			{\includegraphics[width=1\textwidth]{15}}
 			\caption{PID regulated cart-table}
 			\label{fig:15}
 			\vspace{-0.1cm}
@@ -612,7 +618,7 @@
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		The results of such control are represented on \cref{fig:17}
+		The results of such control are represented on \cref{fig:17}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -630,7 +636,7 @@
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
-			{\includegraphics[width=0.7\textwidth]{18}}
+			{\includegraphics[width=1\textwidth]{18}}
 			\caption{Preview controller design}
 			\label{fig:18}
 			\vspace{-0.1cm}
@@ -646,6 +652,7 @@
 			\label{fig:19}
 			\vspace{-0.1cm}
 		\end{figure}
+	\chapter{Evaluation}
 	\chapter{Future work}
 	\chapter{Summary}
 	
