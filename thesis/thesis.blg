@@ -16,45 +16,45 @@ Repeated entry---line 513 of file robotics.bib
  :                                  ,
 I'm skipping whatever remains of this entry
 Warning--empty journal in hazell2008discrete
-You've used 44 entries,
+You've used 45 entries,
             1791 wiz_defined-function locations,
-            719 strings with 11904 characters,
-and the built_in function-call counts, 12494 in all, are:
-= -- 1243
-> -- 435
-< -- 19
-+ -- 163
-- -- 119
-* -- 862
-:= -- 1826
-add.period$ -- 145
-call.type$ -- 44
-change.case$ -- 45
+            724 strings with 12212 characters,
+and the built_in function-call counts, 12956 in all, are:
+= -- 1289
+> -- 455
+< -- 20
++ -- 170
+- -- 125
+* -- 891
+:= -- 1887
+add.period$ -- 149
+call.type$ -- 45
+change.case$ -- 46
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 563
-empty$ -- 1210
-format.name$ -- 119
-if$ -- 2872
+cite$ -- 46
+duplicate$ -- 586
+empty$ -- 1251
+format.name$ -- 125
+if$ -- 2985
 int.to.chr$ -- 0
-int.to.str$ -- 44
-missing$ -- 43
-newline$ -- 223
-num.names$ -- 44
-pop$ -- 117
+int.to.str$ -- 45
+missing$ -- 44
+newline$ -- 228
+num.names$ -- 45
+pop$ -- 123
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 310
+skip$ -- 327
 stack$ -- 0
-substring$ -- 1106
-swap$ -- 192
-text.length$ -- 19
+substring$ -- 1146
+swap$ -- 205
+text.length$ -- 20
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 138
-width$ -- 46
-write$ -- 500
+while$ -- 142
+width$ -- 47
+write$ -- 512
 (There were 3 error messages)

@@ -4,19 +4,19 @@
 \contentsline {section}{\numberline {2.2}Central Pattern Generator}{11}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Simple Sinusoidal Oscillator}{12}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Systems of Differential Equations}{12}{subsection.2.2.2}
-\contentsline {subsubsection}{Matsuoka oscillator}{13}{section*.2}
-\contentsline {subsubsection}{Van der Pol oscillator}{14}{section*.3}
+\contentsline {subsubsection}{Matsuoka oscillator}{12}{section*.2}
+\contentsline {subsubsection}{Van der Pol oscillator}{13}{section*.3}
 \contentsline {subsubsection}{Rayleigh oscillator}{14}{section*.4}
-\contentsline {subsubsection}{Spiking Integrate and Fire with Adaption neurons}{15}{section*.5}
+\contentsline {subsubsection}{Spiking Integrate and Fire with Adaption neurons}{14}{section*.5}
 \contentsline {section}{\numberline {2.3}Neural Networks}{15}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Feed-Forward Networks}{15}{subsection.2.3.1}
 \contentsline {subsubsection}{Multi-layer perceptron}{15}{section*.6}
 \contentsline {subsubsection}{Radial Basis Function Network}{15}{section*.7}
-\contentsline {subsubsection}{Cerebellar Model Articulation Controller}{16}{section*.8}
+\contentsline {subsubsection}{Cerebellar Model Articulation Controller}{15}{section*.8}
 \contentsline {subsection}{\numberline {2.3.2}Recurrent Networks}{16}{subsection.2.3.2}
 \contentsline {subsubsection}{Jordan and Elman Recurrent NN}{16}{section*.9}
-\contentsline {subsubsection}{Fully Connected Recurrent NN}{17}{section*.10}
-\contentsline {subsubsection}{Reservoir}{18}{section*.11}
+\contentsline {subsubsection}{Fully Connected Recurrent NN}{16}{section*.10}
+\contentsline {subsubsection}{Reservoir}{17}{section*.11}
 \contentsline {section}{\numberline {2.4}Hidden Markov Model}{18}{section.2.4}
 \contentsline {section}{\numberline {2.5}Rule based approach}{19}{section.2.5}
 \contentsline {chapter}{\numberline {3}Bipedal locomotion control}{20}{chapter.3}

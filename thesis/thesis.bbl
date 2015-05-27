@@ -267,4 +267,12 @@ Tohru Katayama, Takahira Ohki, Toshio Inoue, and Tomoyuki Kato.
   previewable demand.
 \newblock {\em International Journal of Control}, 41(3):677--699, 1985.
 
+\bibitem{audren2014model}
+Herv{\'e} Audren, Joris Vaillant, Abderrahmane Kheddar, Adrien Escande, Kenji
+  Kaneko, and Eiichi Yoshida.
+\newblock Model preview control in multi-contact motion-application to a
+  humanoid robot.
+\newblock In {\em Intelligent Robots and Systems (IROS 2014), 2014 IEEE/RSJ
+  International Conference on}, pages 4030--4035. IEEE, 2014.
+
 \end{thebibliography}

@@ -60,7 +60,7 @@
 		\section{Analytical approach}
 		The oldest one and also the most studied group is analytical one. It requires the knowledge of general form that locomotion should take.
 
-		For bipedal locomotion it s required to accomplish the following steps \cite{wright2014intelligent}:
+		For bipedal locomotion it's required to accomplish the following steps \cite{wright2014intelligent}:
 		\begin{enumerate}
 			\item Apply stability constraints
 			\item Design gait algorithm (including double support, single support and no-support phases).
@@ -69,12 +69,11 @@
 
 		According to \cite{tang2008analysis}, the most natural method that represents the human body is inverted pendulum.
 		Inverted pendulum model of human balance problem is one of the most primitive and old example of analytical approach \cite{winter1995human}. It stated that control of the balance can be achieved with two components: ankle mechanism (invertors/evertors) and hip load/unloading mechanism. In different positions each of the mechanism plays a different role. Thus in tandem or intermediate position balance is achieved by invertors/evertors mechanism while direction is controlled by hip load/unloading mechanism. It doubts on commonly used condition: reaction force of the floor has to go thought center of gravity of the robot. It was stated, that modern bio-mechanical studies show that there are angular moments around center of gravity. 
-		Thus this approach is too approximate and it is not very accurate.
-		Moreover, according to \cite{kuo2007six} six determinants theory\cite{inman1953major} well described by inverted pendulum model needs more energy to control the mechanism and this problem can be solved by passive dynamic walking machines, that need external energy only for transition from one pendular stance leg to another. In \cite{collins2005bipedal} such architecture was considered. There robot was able to move forward at constant not very high speed and author mentioned that the gait of the robot was human like. Human-like gait is desirable because of its energy effectiveness \cite{golliday1977approach}.\\
+		Thus this approach is too approximate and it is not very accurate. In \cite{collins2005bipedal} passive dynamics architecture was considered. There robot was able to move forward at constant not very high speed and author mentioned that the gait of the robot was human like. Human-like gait is desirable because of its energy effectiveness \cite{golliday1977approach}.\\
 		Furthermore, \cite{anderson2005powered} summaries principles that allows to combine passive dynamic control with powered bipeds. The results show that the gait become energy efficient however it implies further work on robustness and flexibility of walking\\
 
 		In 1970 Miomir Vukobratovic proposed Zero Moment Point (ZMP), a theoretical model to explain biped locomotion. Also ZMP is a basic dynamical stability constraint.
-		According to \cite{manchester2011stable} we can divide all the existing humanoid bipedal walking robots into two big groups: ZMP-controlled ones and passive - dynamic walkers.\\
+		According to \cite{manchester2011stable} we can divide all the existing humanoid bipedal walking robots into two big groups: ZMP-controlled ones and passive dynamic walkers.\\
 		Zero moment point is a concept related with dynamics and control of legged locomotion for humanoid robots. It specifies the point with respect to which dynamic reaction force at the contact of the foot with the ground does not produce any moment in the horizontal direction, i.e. the point where the total of horizontal inertia and gravity forces equals to zero.
 		Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can reduce all the forces and moments with one single force $F_a$ and moment $M_a$ respectively  \cref{fig:1}.
 	
@@ -99,14 +98,14 @@
 			\vspace{-0.1cm}
 		\end{figure}
 
-		According to \cite{kajita2003biped}, this ZMP should be on the foot. The problem is that we cannot manipulate the foot directly \cite{mitobe2000control}. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction (conditions from the paragraph above doesn't hold and R and $M_z$ doesn't compensate correspondent components of $F_a$ and $M_a$) than foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, in \cite{sardain2004forces} it was proven: if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, than robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed simultaneously and the main problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.
+		According to \cite{kajita2003biped}, this ZMP should be on the foot. The problem is that we cannot manipulate the foot directly \cite{mitobe2000control}. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction (conditions from the paragraph above didn't hold thus R and $M_z$ didn't compensate correspondent components of $F_a$ and $M_a$) than foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, in \cite{sardain2004forces} it was proven: if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, than robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed simultaneously and the main problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.
 		The name zero moment point relates to the fact, that dynamical stability is maintained if horizontal components $M_x$ and $M_y$ are both equal to zero.
 	
 		\begin{equation}\label{eq:ZMP1}
 			M_x = M_y = 0
 		\end{equation}
 
-		In the point P there should exist such equivalent force R and vertical moment $M_z$ that compensate the force reaction of the ground and maintains the stability of the construction. If we want to achieve the dynamical stability, that the following equations holds:
+		In the point P there should exist such equivalent force R and vertical moment $M_z$ that compensate the force reaction of the ground and maintain the stability of the construction. If we want to achieve the dynamical stability the following equation holds:
 
 		\begin{equation}\label{eq:ZMP2}
 			R + F_a + mg = 0
@@ -217,7 +216,7 @@
 			\begin{equation}\label{eq:Sin1}
 				\theta_{hip} (\phi) = A_{hip} sin(\phi) 
 			\end{equation}
- 			However it is to simple model and according to \cite{wright2014intelligent}, is not very appropriate for bipeds, while it is good for systems that are statically stable. 
+ 			However it is too simple model and according to \cite{wright2014intelligent}, is not very appropriate for bipeds, while it is good for systems that are statically stable. 
 		\subsection{Systems of Differential Equations}
 			Analysis of biological CPGs has identified oscillators made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are able to generate different gaits and produces various solutions from sinusoidal to more complex forms. It can control biped even on the rough ground.
 			\subsubsection{Matsuoka oscillator}
@@ -296,12 +295,12 @@
 				
 				\subsubsection{Jordan and Elman Recurrent NN}
 					Jordan recurrent NN is similar to FFN, the difference is that output of the network is recurrently fed to the input.\\
-					Elman recurrent NN the difference from Jordan recurrent NN is that delayed output of hidden layer is connected with input of hidden layer. The Elman network was used in \cite{berns1995neural}, the resilient back-propagation training algorithm was used and the system showed an ability to learn supervised trajectories and interpolate between them. The example of Elman recurrent NN is shown on \ref{fig:5} 
+					The example of Elman recurrent NN is shown on \ref{fig:5}. The difference between Elman recurrent NN and Jordan recurrent NN is that delayed output of hidden layer $y_i$ is connected with input of hidden layer. Delay here is done by $u_i$ nodes from hidden layer. The Elman network was used in \cite{berns1995neural}, the resilient back-propagation training algorithm was used and the system showed an ability to learn supervised trajectories and interpolate between them.
 					
 					\begin{figure}[h!]
 						\vspace{-0.2cm}
 						\centering
-						\begin{tikzpicture}[-,>=stealth',shorten >=1pt,auto,node distance=3cm,
+						\begin{tikzpicture}[scale = 0.4, -,>=stealth',shorten >=1pt,auto,node distance=3cm,
 							thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
 							
 							\node (1) {};
@@ -413,7 +412,7 @@
 		\begin{enumerate}
 			\item Initial contact
 			\item Loading Response
-			\item Mid-stance
+			\item Mid stance
 			\item Terminal Stance
 			\item Pre swing
 			\item Initial swing
@@ -440,7 +439,7 @@
 		\end{equation}
 		
 		$Z_h$ here is the height of CoM of the cart.\\
-		In order to prevent system failing we want ot control cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in literature survey when ZMP lies in support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that system will fall. So we can try to define the desired ZMP trajectory of the system. For the beginning we will consider movement only in frontal plane. Frontal plane is represented on \cref{fig:7}. Desired trajectory for our system in frontal plane is provided on \ref{fig:8}.
+		In order to prevent system failing we want ot control cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in literature survey when ZMP lies in support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that system will fall. So we can try to define the desired ZMP trajectory of the system. We can define two planes in which robot can move. They are frontal and sagittal planes. Also there is transverse plane but we now will consider movement only in frontal plane. All the planes are represented on \cref{fig:7}. Desired trajectory for our system in frontal plane is provided on \ref{fig:8}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -458,7 +457,7 @@
 			\label{fig:8}
 			\vspace{-0.1cm}
 		\end{figure}
-		It represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the end of the step. Here the amplitude if frictions is defined by parameters of robot (step width in frontal plane). Thus we can build simple system represented on \cref{fig:9}.
+		It represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the end of the step. Here the amplitude of frictions is defined by parameters of robot (step width in frontal plane). Thus we can build simple system represented on \cref{fig:9}. The input of this system is reference trajectory of ZMP. Controller takes as input error between reference ZMP trajectory and real measured ZMP trajectory and generates control signal that is applied to the cart. 
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
@@ -655,8 +654,10 @@
 			\vspace{-0.1cm}
 		\end{figure}
 	\chapter{Future work}
+		Due to the limitations of the model it is necessary to develop model that is more similar to real robot. Moreover to apply preview controller on a real robot and even on advanced simulator it is still necessary to develop inverse kinematics module that will transform CoM trajectories to trajectories for every joint. Here rule based approaches can be used because the robot is a redundant construction and for every trajectory there will be a lot of configuration and thus it is necessary to choose the best one.
 	\chapter{Summary}
-	
+		In this work different approaches to bipedal locomotion were considered. Classification of existing methods was also done and it was the basics for development dynamic balance algorithm for bipedal robot locomotion. It was chosen two approaches: analytical one (ZMP criteria for dynamical stability) and CPG (controller output should generate pattern for locomotion). Results of realized preview controller on provided models show stable smooth trajectories and thus it seems reliable to try this approach on the real robot. There are works \cite{kajita2003biped, audren2014model} that already applied preview controller to real robots. However in their works they don't consider application of these technics to simulation of the robot. As were shown in Chapter 4 direct application of preview controller to robot model gives very good but physically unreachable results. Due to the fact that motors have limited acceleration system cannot react as fast as controller try to stabilize the system. However controller was limited by physical constraints and results of control become the similar to fully analytical solution during one step period. Thus the developed approach is interesting because it can adopt to disturbances and uneven terrain despite of the fact that it produces only the pattern for the robot.
+			
 	\bibliographystyle{unsrt}
 	\bibliography{robotics}
 	
