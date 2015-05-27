@@ -360,7 +360,7 @@
 	                             (9) edge node {$\vdots$} (14)
 	                             (17) edge node {$\vdots$} (18);
 						\end{tikzpicture}
-						\caption{Elman recurrent NN}
+						\caption{Elman recurrent NN. Inputs are $X_i$, hidden layer contains nodes $y_i$ that delays connected to them outputs of $Y_i$. Outputs of the network are nodes $Z_i$}
 						\label{fig:5}
 						\vspace{-0.1cm}
 					\end{figure}
@@ -435,10 +435,10 @@
 		The equation that describes this process was derived in \cite{kajita2003biped} and is represented bellow:
 		
 		\begin{equation}
-			P = X -\dfrac{Z_h}{g} \ddot{X}
+			P = X -\dfrac{Z_c}{g} \ddot{X}
 		\end{equation}
 		
-		$Z_h$ here is the height of CoM of the cart.\\
+		$Z_c$ here is the height of CoM of the cart, g is gravitational acceleration and $\ddot{X}$ is second time derivative.\\
 		In order to prevent system failing we want ot control cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in literature survey when ZMP lies in support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that system will fall. So we can try to define the desired ZMP trajectory of the system. We can define two planes in which robot can move. They are frontal and sagittal planes. Also there is transverse plane but we now will consider movement only in frontal plane. All the planes are represented on \cref{fig:7}. Desired trajectory for our system in frontal plane is provided on \ref{fig:8}.
 		
 		\begin{figure}[h!]
@@ -522,13 +522,13 @@
 			\begin{figure}[h!]
 				\vspace{-0.2cm}
 				\centering
-				{\includegraphics[width=0.7\textwidth]{11}}
+				{\includegraphics[width=0.5\textwidth]{11}}
 				\caption{Generalized regulator \cite{hazell2008discrete}}
 				\label{fig:11}
 				\vspace{-0.1cm}
 			\end{figure}
 			
-			On \cref{fig:11} there is a generalized regulator. The input for the system is $\omega$. The system is controlled by input signal u and returns output signal z, while y is measurements output.
+			On \cref{fig:11} there is a generalized regulator. The input for the system is $\omega$. The system is controlled by input signal u and returns output signal z, while y is measurements output. Thus K here is a feedback controller and P represents the controlled system.
 			
 			The matrix equation \ref{eq:oc6}
 			
@@ -536,17 +536,24 @@
 				X = A^{'}XA + Q - \bar{L}^{'} \bar{R}^{-1} \bar{L}
 			\end{equation}
 			
-			is known as Discrete Algebraic Riccati Equation (DARE). Where $\bar{R} = R + B^{'}XB$. With $\bar{R} = R + B^{'}XB$ and $\bar{L} = L + B^{'}XA$. The solution of this equation are considered and derived in \cite{hazell2008discrete}. Also we can write DARE in a short form: $X = D(A,B,Q,R,L;X)$ and $D(A,B,Q,R,L;X) = A^{'} XA + Q -  \bar{L}^{'} \bar{R}^{-1} \bar{L}$.
+			is known as Discrete Algebraic Riccati Equation (DARE). Here $\bar{R} = R + B^{'}XB$ and $\bar{L} = L + B^{'}XA$. The solution of this equation are considered and derived in \cite{hazell2008discrete}. Also we can write DARE in a short form: $X = D(A,B,Q,R,L;X)$ and $D(A,B,Q,R,L;X) = A^{'} XA + Q -  \bar{L}^{'} \bar{R}^{-1} \bar{L}$.
 		
 		\subsection{Preview control} 
-			Katayama et al. in \cite{katayama1985design} introduced new method of control general regulators with preview control. The key idea was to look forward for N discrete steps and predict desirable value of controlled signal. The form of control signal was derived by \cite{katayama1985design} and it is given in \ref{eq:pc1}
+			Katayama et al. in \cite{katayama1985design} introduced new method of control general regulators with preview control. The key idea was to look forward for N discrete steps and predict desirable value of controlled signal. The form of control signal was derived by \cite{katayama1985design} as a theorem. The theorem says that optimal control signal have the form that is represented on \ref{eq:pc1}.
 			
 			\begin{equation}\label{eq:pc1}
 				u(k) = -G_I \sum^{k}_{i=0} e(i) - G_xx(k) - \sum^{N_l}_{l=1}G_d(l)y_d(k+l)
 			\end{equation}
-		
-			Here $G_I = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{I}$, \\$G_x = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{F}$,\\
-			$G_d(1) = -G_I$ and $G_d(l) = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{X}(l-1)$.\\
+			
+			\begin{description}
+				\item
+				Where $G_I = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{I}$
+				\item
+				$G_x = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{F}$
+				\item
+				$G_d(1) = -G_I$ and $G_d(l) = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{X}(l-1)$.
+			\end{description}
+			
 			Moreover $\tilde{K}$ here is a solution of DARE in the form of \ref{eq:pc2}
 			\begin{equation}\label{eq:pc2}
 				\tilde{K} = \tilde{A}^T\tilde{K}\tilde{A} - \tilde{A}^T \tilde{K} \tilde{B} [R + \tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T\tilde{K}\tilde{A} + \tilde{Q}
@@ -574,7 +581,7 @@
 				\vspace{-0.1cm}
 			\end{figure}
 	\chapter{Implementation}
-		Initially the model of cat-table was developed. The design is represented on \cref{fig:13}
+		Initially the cat table model was developed. The design is represented on \cref{fig:13}
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
@@ -590,7 +597,7 @@
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.2\textwidth]{14}}
-			\caption{Cart-table model block}
+			\caption{Cart-table model block. Xddot is input second time derivative (velocity of CoM). Y\_COM is height of CoM that can deviate and thus cannot be constant. P is measured ZMP.}
 			\label{fig:14}
 			\vspace{-0.1cm}
 		\end{figure}
@@ -601,7 +608,7 @@
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{15}}
-			\caption{PID regulated cart-table}
+			\caption{PID regulated cart-table. X is trajectory of CoM. Desired ZMP is reference signal of ZMP. P is real computed ZMP.}
 			\label{fig:15}
 			\vspace{-0.1cm}
 		\end{figure}
@@ -612,7 +619,7 @@
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{16}}
-			\caption{PID regulator of cart-table}
+			\caption{PID controller. P error is error between reference ZMP and measured ZMP. Control is velocity of cart table model that is necessary to compensate error between desired ZMP and measured ZMP.}
 			\label{fig:16}
 			\vspace{-0.1cm}
 		\end{figure}
@@ -636,12 +643,21 @@
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{18}}
-			\caption{Preview controller design}
+			\caption{Preview controller design. Here X is input of current CoM trajectory, p error is error between reference ZMP and measured ZMP, weighted feature is function that computes weighted sum of 10000 next time samples of desired ZMP. Control is controll signal that represents the third time derivative of trajectory of cart.}
 			\label{fig:18}
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		Control signal for preview controller is the third time derivative of trajectory and due to this fact between controller and cart-table model transition block should be provided. This block is a integrator because integration of control signal gives us exactly the second time derivative (velocity).
+		Control signal for preview controller is the third time derivative of trajectory and due to this fact between controller and cart-table model transition block should be provided. This block is a integrator because integration of control signal gives us exactly the second time derivative (velocity). Preview control of cart table model is represented on \cref{fig:20}
+		
+		\begin{figure}[h!]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=1\textwidth]{20}}
+			\caption{Preview control of cart table model.}
+			\label{fig:20}
+			\vspace{-0.1cm}
+		\end{figure}
 		
 		The results of this controller are represented on \cref{fig:19} are much better and we can see only no late response and no overshooting in ZMP trajectory. Thus the system become much more stable than in PID case. 
 		
@@ -649,7 +665,7 @@
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{19}}
-			\caption{Preview controller results}
+			\caption{Preview controller model}
 			\label{fig:19}
 			\vspace{-0.1cm}
 		\end{figure}
