@@ -15,46 +15,47 @@ Repeated entry---line 513 of file robotics.bib
  : @inproceedings{miyakoshi1998three
  :                                  ,
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "rostami1998impactless"
 Warning--empty journal in hazell2008discrete
-You've used 45 entries,
+You've used 44 entries,
             1791 wiz_defined-function locations,
-            724 strings with 12212 characters,
-and the built_in function-call counts, 12956 in all, are:
-= -- 1289
-> -- 455
-< -- 20
-+ -- 170
-- -- 125
-* -- 891
-:= -- 1887
-add.period$ -- 149
-call.type$ -- 45
-change.case$ -- 46
+            717 strings with 12033 characters,
+and the built_in function-call counts, 12711 in all, are:
+= -- 1265
+> -- 448
+< -- 19
++ -- 167
+- -- 123
+* -- 869
+:= -- 1849
+add.period$ -- 146
+call.type$ -- 44
+change.case$ -- 45
 chr.to.int$ -- 0
-cite$ -- 46
-duplicate$ -- 586
-empty$ -- 1251
-format.name$ -- 125
-if$ -- 2985
+cite$ -- 45
+duplicate$ -- 577
+empty$ -- 1227
+format.name$ -- 123
+if$ -- 2933
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 44
-newline$ -- 228
-num.names$ -- 45
+int.to.str$ -- 44
+missing$ -- 43
+newline$ -- 223
+num.names$ -- 44
 pop$ -- 123
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 327
+skip$ -- 324
 stack$ -- 0
-substring$ -- 1146
-swap$ -- 205
-text.length$ -- 20
+substring$ -- 1121
+swap$ -- 203
+text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 142
-width$ -- 47
-write$ -- 512
+while$ -- 139
+width$ -- 46
+write$ -- 500
 (There were 3 error messages)

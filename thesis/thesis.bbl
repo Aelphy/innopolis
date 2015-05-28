@@ -30,17 +30,6 @@ David~A Winter.
 \newblock Human balance and posture control during standing and walking.
 \newblock {\em Gait \& posture}, 3(4):193--214, 1995.
 
-\bibitem{kuo2007six}
-Arthur~D Kuo.
-\newblock The six determinants of gait and the inverted pendulum analogy: A
-  dynamic walking perspective.
-\newblock {\em Human movement science}, 26(4):617--656, 2007.
-
-\bibitem{inman1953major}
-Verne~T Inman, Howard~D Eberhart, et~al.
-\newblock The major determinants in normal and pathological gait.
-\newblock {\em The journal of bone \& joint surgery}, 35(3):543--558, 1953.
-
 \bibitem{collins2005bipedal}
 Steven~Hartley Collins and Andy Ruina.
 \newblock A bipedal walking robot with efficient and human-like gait.
@@ -249,13 +238,6 @@ Jong~Hyeon Park.
   motions of biped robots.
 \newblock {\em Fuzzy sets and systems}, 134(1):189--203, 2003.
 
-\bibitem{rostami1998impactless}
-Mostafa Rostami and Guy Bessonnet.
-\newblock Impactless sagittal gait of a biped robot during the single support
-  phase.
-\newblock In {\em Robotics and Automation, 1998. Proceedings. 1998 IEEE
-  International Conference on}, volume~2, pages 1385--1391. IEEE, 1998.
-
 \bibitem{hazell2008discrete}
 Andrew Hazell.
 \newblock Discrete-time optimal preview control.
@@ -266,6 +248,18 @@ Tohru Katayama, Takahira Ohki, Toshio Inoue, and Tomoyuki Kato.
 \newblock Design of an optimal controller for a discrete-time system subject to
   previewable demand.
 \newblock {\em International Journal of Control}, 41(3):677--699, 1985.
+
+\bibitem{ha2007effective}
+Taesin Ha and Chong-Ho Choi.
+\newblock An effective trajectory generation method for bipedal walking.
+\newblock {\em Robotics and Autonomous Systems}, 55(10):795--810, 2007.
+
+\bibitem{choi2006fuzzy}
+Kyu-Cheon Choi and Hyun-Jeong Lee.
+\newblock Fuzzy posture control for biped walking robot based on force sensor
+  for zmp.
+\newblock In {\em SICE-ICASE, 2006. International Joint Conference}, pages
+  1185--1189. IEEE, 2006.
 
 \bibitem{audren2014model}
 Herv{\'e} Audren, Joris Vaillant, Abderrahmane Kheddar, Adrien Escande, Kenji
