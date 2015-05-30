@@ -46,7 +46,25 @@
 		Human workspace is very specific due to people's two arms and two legs. A universal robot should operate in the same environment and workspace. For this reason other areas of robotics are developing now.
 		
 		One of these is a robotic system including an anthropomorphic bipedal walking robot. Such robot's kinematics, size and weight are similar to human's, it is equipped with an energy source, communication channel with the control station, and a powerful autonomous control system, allowing it to perform actions in supervised or automatic mode. For instance, autonomous actions include independent movement from place to place in absence of communication. Such robots have significant advantages in workspaces initially adapted for humans.
-
+		
+		However nowadays there are still only limited number of robots able to walk. Furthermore these robots are too expensive to let them go out of the laboratory. It is reasoned by the fact hat humanoids are extremely complex dynamical non-linear systems. The last fact means that there is no closed-form solution for control such robots. It can be explained by several reasons: 
+		
+		\begin{enumerate}
+			\item Humanoids are undereducated due to inertia frame. Inherently, at each contact point, a conversion from internal joint forces to external reaction forces is needed by the humanoid’s interaction with its environment \cite{sugihara2005fast}.
+			\item Humanoids are multybody systems with very big amount of Degrees of Freedom (DoF). Thus their dynamics require a complicated coordinate frame handling \cite{sugihara2005fast}. 
+			\item Humanoids structure is not constant. It consists of three various kinematic chains. Dealing with such situations in a conventional way requires the robot to plan all potential link structures beforehand and shift between them while executing \cite{.sugihara2005fast}
+		\end{enumerate}
+		
+		On the other hand humanoids have some fundamental characteristics regardless of kinematic structure \cite{vukobratovic2004zero}. Humanoids have one one extra passive DoF that is described by ability to rotate around any of the foot boundaries. Also the gait of humanoids is usually symmetrical. Finally, biped locomotion systems interchange single- and double-support phases at a fixed interval. In the statically-stable double-support phase the biped is supported by both feet while in the statically-unstable single- support phase only one foot contacts the ground and the other swings from back to front. This explains the structure-varying principle as the humanoid alters its structure from an open to a closed kinematic chain throughout one walking cycle. \cite{controlbipedal}
+		
+		Bipedal locomotion is considered by different science theories and cannot be described by only one of them. Robotics, Cybernetics, Biomechatronics, AI are only several of prospectives that a required to take into account in bipedal robots development.
+		
+		Bipedal locomotion research is motivated by several reasons. They are better understanding of human locomotion, bipeds ability in rough terrain.
+		
+		Any attempt to build artificial biped require simplified model of robot. Humans possess approximately 350 muscle pairs for walking. That involves a very complex dynamics.
+		
+		
+		The goal of this thesis is to investigate locomotion principles and to develop a control method for simulated humanoid robots. The root of this control method is based on the Zero-Moment Point, the prominent dynamic stability criterion which has been thoroughly formulated, studied and used in the last 30 years in the robotics research community \cite{controlbipedal}. Due to the high complexity, the humanoid locomotion still remains challenging and has plenty more to advance in the future.
 	\chapter{Literature review}
 		Bipedal locomotion is a very complex task and according to \cite{erbatur2002study} it is described by nontrivial dynamics. It still doesn't have a complete general solution. However the research of this problem has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
 		According to \cite{wright2014intelligent}, there are 5 groups of approaches to the problem of locomotion control. These are:
@@ -761,8 +779,12 @@
 	\chapter{Future Work}
 		Due to the limitations of the model it is necessary to develop a model that is more similar to a real robot. Moreover to apply the preview controller on a real robot and even on advanced simulator it is still necessary to develop an inverse kinematics module that will transform CoM trajectories to trajectories for every joint. Here a rule based approaches can be used because the robot is a redundant construction and for every trajectory there will be a lot of configurations and thus it is necessary to choose the best one. Moreover it is necessary to combine two controllers in sagital and frontal planes.
 		The next step after tuning control parameters on the model is to apply it to a real robot.
+		Described in this thesis control method is capable for pattern generation and so future work should consider optimization methods for generated trajectory to prevent the robot from falling on the rough terrain.
+		When control algorithm is developed the structure of the robot should be revised in order to maintain optimal criteria. For example this criteria could be an energy consumption or the speed of the movements.
+		After several iterations of algorithm and structure optimization the robot will become able for walk, however further investigations of AI and object detection are still necessary. It is reasoned by the level of autonomy that we want robot to achieve. It is impossible to program  all possible conditions for robot and thus it have to deal with some level of uncertainty.
 	\chapter{Summary}
 		In this work different approaches to bipedal locomotion were considered. Classification of existing methods was also done and it was the basics for development of a dynamic balance algorithm for bipedal robot locomotion. Two approaches were chosen: analytical one (ZMP criteria for dynamical stability) and CPG (controller output should generate a pattern for locomotion). Results of implemented preview controller on provided models show stable smooth trajectories and thus it seems reliable to try this approach on the real robot. There are works \cite{kajita2003biped, audren2014model} that already applied preview controller to real robots. However in their works the authors don't consider application of these techniques to simulation of the robot. As shown in Chapter 5 a direct application of preview controller to robot model gives very good but physically unreachable results. Due to the fact that motors have limited accelerations, the system cannot react as fast as the controller tries to stabilize the system. However the controller was limited by physical constraints and the results of control became similar to the fully analytical solution during one step period. Thus the developed approach is promising because it can adapt to disturbances and uneven terrain despite the fact that it produces only the pattern for the robot.
+		Thus it was developed pattern generation subsystem that can be applied to a real robot. It requires additional control to maintain another stability criteria, for example FRI. Moreover stable bipedal locomotion requires efficient processing of extrinsic sensors data in order to predict possible disturbances before they are applied to the robot.
 			
 	\bibliographystyle{unsrtnat}
 	\bibliography{robotics}

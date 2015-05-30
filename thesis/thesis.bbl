@@ -1,4 +1,4 @@
-\begin{thebibliography}{46}
+\begin{thebibliography}{48}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,6 +9,26 @@
 Rolf Pfeifer, Max Lungarella, and Fumiya Iida.
 \newblock Self-organization, embodiment, and biologically inspired robotics.
 \newblock \emph{science}, 318\penalty0 (5853):\penalty0 1088--1093, 2007.
+
+\bibitem[Sugihara and Nakamura(2005)]{sugihara2005fast}
+Tomomichi Sugihara and Yoshihiko Nakamura.
+\newblock A fast online gait planning with boundary condition relaxation for
+  humanoid robots.
+\newblock In \emph{Robotics and Automation, 2005. ICRA 2005. Proceedings of the
+  2005 IEEE International Conference on}, pages 305--310. IEEE, 2005.
+
+\bibitem[Vukobratovi{\'c} and Borovac(2004)]{vukobratovic2004zero}
+Miomir Vukobratovi{\'c} and Branislav Borovac.
+\newblock Zero-moment point—thirty five years of its life.
+\newblock \emph{International Journal of Humanoid Robotics}, 1\penalty0
+  (01):\penalty0 157--173, 2004.
+
+\bibitem[Bachar(2015)]{controlbipedal}
+Yariv Bachar.
+\newblock Developing controllers for biped humanoid locomotion {@ONLINE}, may
+  2015.
+\newblock URL
+  \url{http://www.inf.ed.ac.uk/publications/thesis/online/IM040191.pdf}.
 
 \bibitem[Erbatur et~al.(2002)Erbatur, Okazaki, Obiya, Takahashi, and
   Kawamura]{erbatur2002study}
@@ -62,12 +82,6 @@ Stuart~O Anderson, Martijn Wisse, Christopher~G Atkeson, Jessica~K Hodgins,
 Ian~R Manchester, Uwe Mettin, Fumiya Iida, and Russ Tedrake.
 \newblock Stable dynamic walking over uneven terrain.
 \newblock \emph{The International Journal of Robotics Research}, page~3, 2011.
-
-\bibitem[Vukobratovi{\'c} and Borovac(2004)]{vukobratovic2004zero}
-Miomir Vukobratovi{\'c} and Branislav Borovac.
-\newblock Zero-moment point—thirty five years of its life.
-\newblock \emph{International Journal of Humanoid Robotics}, 1\penalty0
-  (01):\penalty0 157--173, 2004.
 
 \bibitem[Kajita et~al.(2003)Kajita, Kanehiro, Kaneko, Fujiwara, Harada, Yokoi,
   and Hirukawa]{kajita2003biped}

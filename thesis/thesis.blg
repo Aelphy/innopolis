@@ -17,46 +17,49 @@ Repeated entry---line 513 of file robotics.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "EuclideanFunction" isn't style-file defined
 --line 563 of file robotics.bib
+Warning--entry type for "controlbipedal" isn't style-file defined
+--line 590 of file robotics.bib
+Warning--I didn't find a database entry for ".sugihara2005fast"
 Warning--empty journal in hazell2008discrete
-You've used 46 entries,
+You've used 48 entries,
             2481 wiz_defined-function locations,
-            830 strings with 13215 characters,
-and the built_in function-call counts, 20444 in all, are:
-= -- 1881
-> -- 874
-< -- 47
-+ -- 344
-- -- 252
-* -- 1517
-:= -- 3033
-add.period$ -- 153
-call.type$ -- 46
-change.case$ -- 93
-chr.to.int$ -- 46
-cite$ -- 47
-duplicate$ -- 1062
-empty$ -- 1908
-format.name$ -- 330
-if$ -- 4520
+            839 strings with 13532 characters,
+and the built_in function-call counts, 21225 in all, are:
+= -- 1957
+> -- 896
+< -- 50
++ -- 354
+- -- 258
+* -- 1560
+:= -- 3140
+add.period$ -- 160
+call.type$ -- 48
+change.case$ -- 97
+chr.to.int$ -- 48
+cite$ -- 49
+duplicate$ -- 1107
+empty$ -- 1989
+format.name$ -- 340
+if$ -- 4703
 int.to.chr$ -- 1
-int.to.str$ -- 47
-missing$ -- 44
-newline$ -- 238
-num.names$ -- 138
-pop$ -- 408
+int.to.str$ -- 49
+missing$ -- 45
+newline$ -- 248
+num.names$ -- 144
+pop$ -- 432
 preamble$ -- 1
-purify$ -- 46
+purify$ -- 48
 quote$ -- 0
-skip$ -- 696
+skip$ -- 730
 stack$ -- 0
-substring$ -- 1253
-swap$ -- 265
-text.length$ -- 21
+substring$ -- 1289
+swap$ -- 280
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 322
+type$ -- 336
 warning$ -- 1
-while$ -- 190
+while$ -- 197
 width$ -- 0
-write$ -- 620
+write$ -- 646
 (There were 3 error messages)
