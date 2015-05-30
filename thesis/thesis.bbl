@@ -1,4 +1,4 @@
-\begin{thebibliography}{48}
+\begin{thebibliography}{49}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -55,6 +55,12 @@ Zhe Tang, Meng~Joo Er, and C-J Chien.
 David~A Winter.
 \newblock Human balance and posture control during standing and walking.
 \newblock \emph{Gait \& posture}, 3\penalty0 (4):\penalty0 193--214, 1995.
+
+\bibitem[Knight and Weimar(2013)]{knight2013difference}
+Adam~C Knight and Wendi~H Weimar.
+\newblock Difference in ratio of evertor to invertor activity between the
+  dominant and nondominant legs during simulated lateral ankle sprain.
+\newblock \emph{Journal of sport rehabilitation}, 22\penalty0 (4), 2013.
 
 \bibitem[Collins and Ruina(2005)]{collins2005bipedal}
 Steven~Hartley Collins and Andy Ruina.
