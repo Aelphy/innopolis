@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2014)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
-The style file: unsrt.bst
+The style file: unsrtnat.bst
 Database file #1: robotics.bib
 Repeated entry---line 467 of file robotics.bib
  : @article{vundavilli2010dynamically
@@ -15,47 +15,48 @@ Repeated entry---line 513 of file robotics.bib
  : @inproceedings{miyakoshi1998three
  :                                  ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "rostami1998impactless"
+Warning--entry type for "EuclideanFunction" isn't style-file defined
+--line 563 of file robotics.bib
 Warning--empty journal in hazell2008discrete
-You've used 44 entries,
-            1791 wiz_defined-function locations,
-            717 strings with 12033 characters,
-and the built_in function-call counts, 12711 in all, are:
-= -- 1265
-> -- 448
-< -- 19
-+ -- 167
-- -- 123
-* -- 869
-:= -- 1849
-add.period$ -- 146
-call.type$ -- 44
-change.case$ -- 45
-chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 577
-empty$ -- 1227
-format.name$ -- 123
-if$ -- 2933
-int.to.chr$ -- 0
-int.to.str$ -- 44
-missing$ -- 43
-newline$ -- 223
-num.names$ -- 44
-pop$ -- 123
+You've used 46 entries,
+            2481 wiz_defined-function locations,
+            830 strings with 13215 characters,
+and the built_in function-call counts, 20444 in all, are:
+= -- 1881
+> -- 874
+< -- 47
++ -- 344
+- -- 252
+* -- 1517
+:= -- 3033
+add.period$ -- 153
+call.type$ -- 46
+change.case$ -- 93
+chr.to.int$ -- 46
+cite$ -- 47
+duplicate$ -- 1062
+empty$ -- 1908
+format.name$ -- 330
+if$ -- 4520
+int.to.chr$ -- 1
+int.to.str$ -- 47
+missing$ -- 44
+newline$ -- 238
+num.names$ -- 138
+pop$ -- 408
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 46
 quote$ -- 0
-skip$ -- 324
+skip$ -- 696
 stack$ -- 0
-substring$ -- 1121
-swap$ -- 203
-text.length$ -- 19
+substring$ -- 1253
+swap$ -- 265
+text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 322
 warning$ -- 1
-while$ -- 139
-width$ -- 46
-write$ -- 500
+while$ -- 190
+width$ -- 0
+write$ -- 620
 (There were 3 error messages)

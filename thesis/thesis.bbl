@@ -1,272 +1,315 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{46}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{pfeifer2007self}
+\bibitem[Pfeifer et~al.(2007)Pfeifer, Lungarella, and Iida]{pfeifer2007self}
 Rolf Pfeifer, Max Lungarella, and Fumiya Iida.
 \newblock Self-organization, embodiment, and biologically inspired robotics.
-\newblock {\em science}, 318(5853):1088--1093, 2007.
+\newblock \emph{science}, 318\penalty0 (5853):\penalty0 1088--1093, 2007.
 
-\bibitem{erbatur2002study}
+\bibitem[Erbatur et~al.(2002)Erbatur, Okazaki, Obiya, Takahashi, and
+  Kawamura]{erbatur2002study}
 Kemalettin Erbatur, Akihiro Okazaki, Keisuke Obiya, Taro Takahashi, and Atsuo
   Kawamura.
 \newblock A study on the zero moment point measurement for biped walking
   robots.
-\newblock In {\em Advanced Motion Control, 2002. 7th International Workshop
+\newblock In \emph{Advanced Motion Control, 2002. 7th International Workshop
   on}, pages 431--436. IEEE, 2002.
 
-\bibitem{wright2014intelligent}
+\bibitem[Wright and Jordanov(2014)]{wright2014intelligent}
 Joe Wright and Ivan Jordanov.
 \newblock Intelligent approaches in locomotion-a review.
-\newblock {\em Journal of Intelligent \& Robotic Systems}, pages 1--23, 2014.
+\newblock \emph{Journal of Intelligent \& Robotic Systems}, pages 1--23, 2014.
 
-\bibitem{tang2008analysis}
+\bibitem[Tang et~al.(2008)Tang, Er, and Chien]{tang2008analysis}
 Zhe Tang, Meng~Joo Er, and C-J Chien.
 \newblock Analysis of human gait using an inverted pendulum model.
-\newblock In {\em Fuzzy Systems, 2008. FUZZ-IEEE 2008.(IEEE World Congress on
+\newblock In \emph{Fuzzy Systems, 2008. FUZZ-IEEE 2008.(IEEE World Congress on
   Computational Intelligence). IEEE International Conference on}, pages
   1174--1178. IEEE, 2008.
 
-\bibitem{winter1995human}
+\bibitem[Winter(1995)]{winter1995human}
 David~A Winter.
 \newblock Human balance and posture control during standing and walking.
-\newblock {\em Gait \& posture}, 3(4):193--214, 1995.
+\newblock \emph{Gait \& posture}, 3\penalty0 (4):\penalty0 193--214, 1995.
 
-\bibitem{collins2005bipedal}
+\bibitem[Collins and Ruina(2005)]{collins2005bipedal}
 Steven~Hartley Collins and Andy Ruina.
 \newblock A bipedal walking robot with efficient and human-like gait.
-\newblock In {\em Robotics and Automation, 2005. ICRA 2005. Proceedings of the
+\newblock In \emph{Robotics and Automation, 2005. ICRA 2005. Proceedings of the
   2005 IEEE International Conference on}, pages 1983--1988. Ieee, 2005.
 
-\bibitem{golliday1977approach}
+\bibitem[Golliday~Jr and Hemami(1977)]{golliday1977approach}
 C~Golliday~Jr and Hooshang Hemami.
 \newblock An approach to analyzing biped locomotion dynamics and designing
   robot locomotion controls.
-\newblock {\em Automatic Control, IEEE Transactions on}, 22(6):963--972, 1977.
+\newblock \emph{Automatic Control, IEEE Transactions on}, 22\penalty0
+  (6):\penalty0 963--972, 1977.
 
-\bibitem{anderson2005powered}
+\bibitem[Anderson et~al.(2005)Anderson, Wisse, Atkeson, Hodgins, Zeglin, and
+  Moyer]{anderson2005powered}
 Stuart~O Anderson, Martijn Wisse, Christopher~G Atkeson, Jessica~K Hodgins,
   GJ~Zeglin, and Brian Moyer.
 \newblock Powered bipeds based on passive dynamic principles.
-\newblock In {\em Humanoid Robots, 2005 5th IEEE-RAS International Conference
+\newblock In \emph{Humanoid Robots, 2005 5th IEEE-RAS International Conference
   on}, pages 110--116. IEEE, 2005.
 
-\bibitem{manchester2011stable}
+\bibitem[Manchester et~al.(2011)Manchester, Mettin, Iida, and
+  Tedrake]{manchester2011stable}
 Ian~R Manchester, Uwe Mettin, Fumiya Iida, and Russ Tedrake.
 \newblock Stable dynamic walking over uneven terrain.
-\newblock {\em The International Journal of Robotics Research}, page~3, 2011.
+\newblock \emph{The International Journal of Robotics Research}, page~3, 2011.
 
-\bibitem{vukobratovic2004zero}
+\bibitem[Vukobratovi{\'c} and Borovac(2004)]{vukobratovic2004zero}
 Miomir Vukobratovi{\'c} and Branislav Borovac.
 \newblock Zero-moment point—thirty five years of its life.
-\newblock {\em International Journal of Humanoid Robotics}, 1(01):157--173,
-  2004.
+\newblock \emph{International Journal of Humanoid Robotics}, 1\penalty0
+  (01):\penalty0 157--173, 2004.
 
-\bibitem{kajita2003biped}
+\bibitem[Kajita et~al.(2003)Kajita, Kanehiro, Kaneko, Fujiwara, Harada, Yokoi,
+  and Hirukawa]{kajita2003biped}
 Shuuji Kajita, Fumio Kanehiro, Kenji Kaneko, Kiyoshi Fujiwara, Kensuke Harada,
   Kazuhito Yokoi, and Hirohisa Hirukawa.
 \newblock Biped walking pattern generation by using preview control of
   zero-moment point.
-\newblock In {\em Robotics and Automation, 2003. Proceedings. ICRA'03. IEEE
+\newblock In \emph{Robotics and Automation, 2003. Proceedings. ICRA'03. IEEE
   International Conference on}, volume~2, pages 1620--1626. IEEE, 2003.
 
-\bibitem{mitobe2000control}
+\bibitem[Mitobe et~al.(2000)Mitobe, Capi, and Nasu]{mitobe2000control}
 Kazuhisa Mitobe, Genci Capi, and Yasuo Nasu.
 \newblock Control of walking robots based on manipulation of the zero moment
   point.
-\newblock {\em Robotica}, 18(06):651--657, 2000.
+\newblock \emph{Robotica}, 18\penalty0 (06):\penalty0 651--657, 2000.
 
-\bibitem{sardain2004forces}
+\bibitem[Sardain and Bessonnet(2004)]{sardain2004forces}
 Philippe Sardain and Guy Bessonnet.
 \newblock Forces acting on a biped robot. center of pressure-zero moment point.
-\newblock {\em Systems, Man and Cybernetics, Part A: Systems and Humans, IEEE
-  Transactions on}, 34(5):630--637, 2004.
+\newblock \emph{Systems, Man and Cybernetics, Part A: Systems and Humans, IEEE
+  Transactions on}, 34\penalty0 (5):\penalty0 630--637, 2004.
 
-\bibitem{dekker2009zero}
+\bibitem[Dekker(2009)]{dekker2009zero}
 MHP Dekker.
 \newblock Zero-moment point method for stable biped walking.
-\newblock {\em Eindhoven University of Technology}, 2009.
+\newblock \emph{Eindhoven University of Technology}, 2009.
 
-\bibitem{collins2001three}
+\bibitem[Collins et~al.(2001)Collins, Wisse, and Ruina]{collins2001three}
 Steven~H Collins, Martijn Wisse, and Andy Ruina.
 \newblock A three-dimensional passive-dynamic walking robot with two legs and
   knees.
-\newblock {\em The International Journal of Robotics Research}, 20(7):607--615,
-  2001.
+\newblock \emph{The International Journal of Robotics Research}, 20\penalty0
+  (7):\penalty0 607--615, 2001.
 
-\bibitem{hirai1998development}
+\bibitem[Hirai et~al.(1998)Hirai, Hirose, Haikawa, and
+  Takenaka]{hirai1998development}
 Kazuo Hirai, Masato Hirose, Yuji Haikawa, and Toru Takenaka.
 \newblock The development of honda humanoid robot.
-\newblock In {\em Robotics and Automation, 1998. Proceedings. 1998 IEEE
+\newblock In \emph{Robotics and Automation, 1998. Proceedings. 1998 IEEE
   International Conference on}, volume~2, pages 1321--1326. IEEE, 1998.
 
-\bibitem{kim2012zmp}
+\bibitem[Kim et~al.(2012)Kim, Kim, and Park]{kim2012zmp}
 Dong~W Kim, Nak-Hyun Kim, and Gwi-Tae Park.
 \newblock Zmp based neural network inspired humanoid robot control.
-\newblock {\em Nonlinear Dynamics}, 67(1):793--806, 2012.
+\newblock \emph{Nonlinear Dynamics}, 67\penalty0 (1):\penalty0 793--806, 2012.
 
-\bibitem{goswami1999postural}
+\bibitem[Goswami(1999)]{goswami1999postural}
 Ambarish Goswami.
 \newblock Postural stability of biped robots and the foot-rotation indicator
   (fri) point.
-\newblock {\em The International Journal of Robotics Research}, 18(6):523--533,
-  1999.
+\newblock \emph{The International Journal of Robotics Research}, 18\penalty0
+  (6):\penalty0 523--533, 1999.
 
-\bibitem{grillner1975locomotion}
+\bibitem[Grillner(1975)]{grillner1975locomotion}
 S\_ Grillner.
 \newblock Locomotion in vertebrates: central mechanisms and reflex interaction.
-\newblock {\em Physiological reviews}, 55(2):247--304, 1975.
+\newblock \emph{Physiological reviews}, 55\penalty0 (2):\penalty0 247--304,
+  1975.
 
-\bibitem{lee2007construction}
+\bibitem[Lee and Yam(2007)]{lee2007construction}
 Wai~Man Lee and Yeung Yam.
 \newblock Construction of central pattern generator using piecewise affine
   systems.
-\newblock In {\em Control and Automation, 2007. ICCA 2007. IEEE International
+\newblock In \emph{Control and Automation, 2007. ICCA 2007. IEEE International
   Conference on}, pages 1729--1734. IEEE, 2007.
 
-\bibitem{miyakoshi1998three}
+\bibitem[Miyakoshi et~al.(1998)Miyakoshi, Taga, Kuniyoshi, and
+  Nagakubo]{miyakoshi1998three}
 Seiichi Miyakoshi, Gentaro Taga, Yasuo Kuniyoshi, and Akihiko Nagakubo.
 \newblock Three dimensional bipedal stepping motion using neural
   oscillators-towards humanoid motion in the real world.
-\newblock In {\em Intelligent Robots and Systems, 1998. Proceedings., 1998
+\newblock In \emph{Intelligent Robots and Systems, 1998. Proceedings., 1998
   IEEE/RSJ International Conference on}, volume~1, pages 84--89. IEEE, 1998.
 
-\bibitem{zhu2006central}
+\bibitem[Zhu et~al.(2006)Zhu, Zhang, and Lan]{zhu2006central}
 Kuanyi Zhu, Dingguo Zhang, and Li~Lan.
 \newblock On central pattern generator of biological motor system.
-\newblock In {\em Control, Automation, Robotics and Vision, 2006. ICARCV'06.
+\newblock In \emph{Control, Automation, Robotics and Vision, 2006. ICARCV'06.
   9th International Conference on}, pages 1--5. IEEE, 2006.
 
-\bibitem{morimoto2008biologically}
+\bibitem[Morimoto et~al.(2008)Morimoto, Endo, Nakanishi, and
+  Cheng]{morimoto2008biologically}
 Jun Morimoto, Gen Endo, Jun Nakanishi, and Gordon Cheng.
 \newblock A biologically inspired biped locomotion strategy for humanoid
   robots: Modulation of sinusoidal patterns by a coupled oscillator model.
-\newblock {\em Robotics, IEEE Transactions on}, 24(1):185--191, 2008.
+\newblock \emph{Robotics, IEEE Transactions on}, 24\penalty0 (1):\penalty0
+  185--191, 2008.
 
-\bibitem{grillner1995neural}
+\bibitem[Grillner et~al.(1995)Grillner, Deliagina, El~Manira, Hill, Orlovsky,
+  Wall{\'e}n, Ekeberg, and Lansner]{grillner1995neural}
 Sten Grillner, Tanja Deliagina, A~El~Manira, RH~Hill, GN~Orlovsky,
   P~Wall{\'e}n, {\"O}~Ekeberg, and A~Lansner.
 \newblock Neural networks that co-ordinate locomotion and body orientation in
   lamprey.
-\newblock {\em Trends in neurosciences}, 18(6):270--279, 1995.
+\newblock \emph{Trends in neurosciences}, 18\penalty0 (6):\penalty0 270--279,
+  1995.
 
-\bibitem{matsuoka1985sustained}
+\bibitem[Matsuoka(1985)]{matsuoka1985sustained}
 Kiyotoshi Matsuoka.
 \newblock Sustained oscillations generated by mutually inhibiting neurons with
   adaptation.
-\newblock {\em Biological cybernetics}, 52(6):367--376, 1985.
+\newblock \emph{Biological cybernetics}, 52\penalty0 (6):\penalty0 367--376,
+  1985.
 
-\bibitem{liu2008central}
+\bibitem[Liu et~al.(2008)Liu, Habib, Watanabe, and Izumi]{liu2008central}
 Guang~Lei Liu, Maki~K Habib, Keigo Watanabe, and Kiyotaka Izumi.
 \newblock Central pattern generators based on matsuoka oscillators for the
   locomotion of biped robots.
-\newblock {\em Artificial Life and Robotics}, 12(1-2):264--269, 2008.
+\newblock \emph{Artificial Life and Robotics}, 12\penalty0 (1-2):\penalty0
+  264--269, 2008.
 
-\bibitem{kanamaru2007van}
+\bibitem[Kanamaru(2007)]{kanamaru2007van}
 Takashi Kanamaru.
 \newblock Van der pol oscillator.
-\newblock {\em Scholarpedia}, 2(1):2202, 2007.
+\newblock \emph{Scholarpedia}, 2\penalty0 (1):\penalty0 2202, 2007.
 
-\bibitem{russell2007configuring}
+\bibitem[Russell et~al.(2007)Russell, Orchard, and
+  Etienne-Cummings]{russell2007configuring}
 Alexander Russell, Garrick Orchard, and Ralph Etienne-Cummings.
 \newblock Configuring of spiking central pattern generator networks for bipedal
   walking using genetic algorthms.
-\newblock In {\em Circuits and Systems, 2007. ISCAS 2007. IEEE International
+\newblock In \emph{Circuits and Systems, 2007. ISCAS 2007. IEEE International
   Symposium on}, pages 1525--1528. IEEE, 2007.
 
-\bibitem{vundavilli2010dynamically}
+\bibitem[Vundavilli and Pratihar(2010)]{vundavilli2010dynamically}
 Pandu~Ranga Vundavilli and Dilip~Kumar Pratihar.
 \newblock Dynamically balanced optimal gaits of a ditch-crossing biped robot.
-\newblock {\em Robotics and Autonomous Systems}, 58(4):349--361, 2010.
+\newblock \emph{Robotics and Autonomous Systems}, 58\penalty0 (4):\penalty0
+  349--361, 2010.
 
-\bibitem{ilg1995learning}
+\bibitem[Downey(2015)]{EuclideanFunction}
+Rod Downey.
+\newblock Euclidean domains and euclidean functions {@ONLINE}, may 2015.
+\newblock URL
+  \url{http://homepages.ecs.vuw.ac.nz/~downey/chicago_domain_2010.pdf}.
+
+\bibitem[Ilg and Berns(1995)]{ilg1995learning}
 Winfried Ilg and Karsten Berns.
 \newblock A learning architecture based on reinforcement learning for adaptive
   control of the walking machine lauron.
-\newblock {\em Robotics and Autonomous Systems}, 15(4):321--334, 1995.
+\newblock \emph{Robotics and Autonomous Systems}, 15\penalty0 (4):\penalty0
+  321--334, 1995.
 
-\bibitem{albus1975new}
+\bibitem[Albus(1975)]{albus1975new}
 JS~Albus.
 \newblock A new approach to manipulator control: The cerebellar model
   articulation controller.
-\newblock {\em Transaction of the ASME Journal of Dynamic Systems},
-  97(3):270--277, 1975.
+\newblock \emph{Transaction of the ASME Journal of Dynamic Systems},
+  97\penalty0 (3):\penalty0 270--277, 1975.
 
-\bibitem{sabourin2005robustness}
+\bibitem[Sabourin and Bruneau(2005)]{sabourin2005robustness}
 Christophe Sabourin and Olivier Bruneau.
 \newblock Robustness of the dynamic walk of a biped robot subjected to
   disturbing external forces by using cmac neural networks.
-\newblock {\em Robotics and Autonomous Systems}, 51(2):81--99, 2005.
+\newblock \emph{Robotics and Autonomous Systems}, 51\penalty0 (2):\penalty0
+  81--99, 2005.
 
-\bibitem{berns1995neural}
+\bibitem[Berns et~al.(1995)Berns, Dillmann, and Piekenbrock]{berns1995neural}
 Karsten Berns, R{\"u}diger Dillmann, and Stefan Piekenbrock.
 \newblock Neural networks for the control of a six-legged walking machine.
-\newblock {\em Robotics and autonomous systems}, 14(2):233--244, 1995.
+\newblock \emph{Robotics and autonomous systems}, 14\penalty0 (2):\penalty0
+  233--244, 1995.
 
-\bibitem{reil2002evolution}
+\bibitem[Reil and Husbands(2002)]{reil2002evolution}
 Torsten Reil and Phil Husbands.
 \newblock Evolution of central pattern generators for bipedal walking in a
   real-time physics environment.
-\newblock {\em Evolutionary Computation, IEEE Transactions on}, 6(2):159--168,
-  2002.
+\newblock \emph{Evolutionary Computation, IEEE Transactions on}, 6\penalty0
+  (2):\penalty0 159--168, 2002.
 
-\bibitem{petridis1994recurrent}
+\bibitem[Petridis and Papaikonomou(1994)]{petridis1994recurrent}
 V~Petridis and A~Papaikonomou.
 \newblock Recurrent neural networks as pattern generators.
-\newblock In {\em Proc IEEE International Conference on Neural Networks}, pages
-  872--875. Citeseer, 1994.
+\newblock In \emph{Proc IEEE International Conference on Neural Networks},
+  pages 872--875. Citeseer, 1994.
 
-\bibitem{wyffels2009design}
+\bibitem[Wyffels and Schrauwen(2009)]{wyffels2009design}
 Francis Wyffels and Benjamin Schrauwen.
 \newblock Design of a central pattern generator using reservoir computing for
   learning human motion.
-\newblock In {\em Advanced Technologies for Enhanced Quality of Life, 2009.
+\newblock In \emph{Advanced Technologies for Enhanced Quality of Life, 2009.
   AT-EQUAL'09.}, pages 118--122. IEEE, 2009.
 
-\bibitem{inamura2004embodied}
+\bibitem[Inamura et~al.(2004)Inamura, Toshima, Tanie, and
+  Nakamura]{inamura2004embodied}
 Tetsunari Inamura, Iwaki Toshima, Hiroaki Tanie, and Yoshihiko Nakamura.
 \newblock Embodied symbol emergence based on mimesis theory.
-\newblock {\em The International Journal of Robotics Research},
-  23(4-5):363--377, 2004.
+\newblock \emph{The International Journal of Robotics Research}, 23\penalty0
+  (4-5):\penalty0 363--377, 2004.
 
-\bibitem{yang1994hidden}
+\bibitem[Yang and Xu(1994)]{yang1994hidden}
 Jie Yang and Yangsheng Xu.
 \newblock Hidden markov model for control strategy learning.
 \newblock Technical report, DTIC Document, 1994.
 
-\bibitem{park2003fuzzy}
+\bibitem[Park(2003)]{park2003fuzzy}
 Jong~Hyeon Park.
 \newblock Fuzzy-logic zero-moment-point trajectory generation for reduced trunk
   motions of biped robots.
-\newblock {\em Fuzzy sets and systems}, 134(1):189--203, 2003.
+\newblock \emph{Fuzzy sets and systems}, 134\penalty0 (1):\penalty0 189--203,
+  2003.
 
-\bibitem{hazell2008discrete}
+\bibitem[Rostami and Bessonnet(1998)]{rostami1998impactless}
+Mostafa Rostami and Guy Bessonnet.
+\newblock Impactless sagittal gait of a biped robot during the single support
+  phase.
+\newblock In \emph{Robotics and Automation, 1998. Proceedings. 1998 IEEE
+  International Conference on}, volume~2, pages 1385--1391. IEEE, 1998.
+
+\bibitem[Hazell(2008)]{hazell2008discrete}
 Andrew Hazell.
 \newblock Discrete-time optimal preview control.
 \newblock 2008.
 
-\bibitem{katayama1985design}
+\bibitem[Katayama et~al.(1985)Katayama, Ohki, Inoue, and
+  Kato]{katayama1985design}
 Tohru Katayama, Takahira Ohki, Toshio Inoue, and Tomoyuki Kato.
 \newblock Design of an optimal controller for a discrete-time system subject to
   previewable demand.
-\newblock {\em International Journal of Control}, 41(3):677--699, 1985.
+\newblock \emph{International Journal of Control}, 41\penalty0 (3):\penalty0
+  677--699, 1985.
 
-\bibitem{ha2007effective}
+\bibitem[Ha and Choi(2007)]{ha2007effective}
 Taesin Ha and Chong-Ho Choi.
 \newblock An effective trajectory generation method for bipedal walking.
-\newblock {\em Robotics and Autonomous Systems}, 55(10):795--810, 2007.
+\newblock \emph{Robotics and Autonomous Systems}, 55\penalty0 (10):\penalty0
+  795--810, 2007.
 
-\bibitem{choi2006fuzzy}
+\bibitem[Choi and Lee(2006)]{choi2006fuzzy}
 Kyu-Cheon Choi and Hyun-Jeong Lee.
 \newblock Fuzzy posture control for biped walking robot based on force sensor
   for zmp.
-\newblock In {\em SICE-ICASE, 2006. International Joint Conference}, pages
+\newblock In \emph{SICE-ICASE, 2006. International Joint Conference}, pages
   1185--1189. IEEE, 2006.
 
-\bibitem{audren2014model}
+\bibitem[Audren et~al.(2014)Audren, Vaillant, Kheddar, Escande, Kaneko, and
+  Yoshida]{audren2014model}
 Herv{\'e} Audren, Joris Vaillant, Abderrahmane Kheddar, Adrien Escande, Kenji
   Kaneko, and Eiichi Yoshida.
 \newblock Model preview control in multi-contact motion-application to a
   humanoid robot.
-\newblock In {\em Intelligent Robots and Systems (IROS 2014), 2014 IEEE/RSJ
+\newblock In \emph{Intelligent Robots and Systems (IROS 2014), 2014 IEEE/RSJ
   International Conference on}, pages 4030--4035. IEEE, 2014.
 
 \end{thebibliography}

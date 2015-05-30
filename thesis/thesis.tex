@@ -13,6 +13,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{listings}
+\usepackage[square,numbers]{natbib}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \graphicspath{{images/}}
@@ -33,61 +34,61 @@
 	\newpage
 
 	\chapter{Introduction and Overview}
-		Nowadays humanity has invented almost all devices that are needed for modern humans and society in general. Science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments. We can find these patterns in such old area as automobile industry for example. In robotics there are no such patterns yet. It means that inventions in robotics can enrich their creator. That is one of the reasons to work in robotics sphere.
+		Nowadays humanity has invented almost all devices that are needed for modern humans and society in general. Science is now engaged in the improvement and optimization of existing solutions. These solutions can be traced with trends that are repeated and replicated. This approach is quite good: gain experience, accumulate knowledge and apply them to the latest developments. We can find these patterns in such old area as automobile industry for example. In robotics there are no such patterns yet. It means that inventions in robotics can enrich creator of these inventions. That is one of the reasons to work in robotics sphere.
 		
-		Robotics considers hardware agents that are called robots and operated in the environment that is called workspace. According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of the environment where a robot works, because robots will interact with this environment. From this point of we can distinguish robots by their reachable workspace. From this point of view we can distinguish mobile robots which reachable workspace is not constant and also is usually partial observable. On the other hand there are static robots, that can interact with environment only with end-effectors. They usually have fixed and usually fully observable workspace.
+		Robotics considers hardware agents that are called robots. This agents operates in the environment that is called workspace. According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of the environment where a robot works, because robots will interact with this environment. We can distinguish robots by their reachable workspace. From this point of view we can distinguish mobile robots whose reachable workspace is not constant and also is usually partially observable. On the other hand there are static robots, that can interact with environment only with end-effectors. They usually have fixed and usually fully observable workspace.
 		
-		It was a common belief before the advent of industrial robots that robots should look like humans. The first use of the word "robot" refers to a humanoid machine that was supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by the human was called robot. Intensive development of robots started after the Second World War, which was associated with the emergence of the nuclear industry.
+		It was a common belief before the advent of industrial robots that robots should look like humans. The first use of the word "robot" refers to a humanoid machine that was supposed to serve a human. However, from the very beginning almost every automatic device intended for production and other operations normally performed by a human was called robot. Intensive development of robots started after the Second World War, which was associated with the emergence of the nuclear industry.
 		
-		The word robot was initially attributed in 1921 to fictional humanoid by Karel Capaek. Nowadays almost every professor teaching robotics can give their own definition of robots and all of them will not be similar. One of robot today's definition is autonomous device that work in automatic mode. It can be attributed to the machine "Lunokhod-1", created in 1966. It was the first machine in the history that worked on the surface of the Moon (1970). Another modern definition is a mechanical or virtual artificial agent, usually an electro-mechanical machine that is guided by a computer program or electronic circuitry.
+		The word robot was initially attributed in 1921 to fictional humanoid by Karel Capaek. Nowadays almost every professor teaching robotics can give his own definition of robots and all of them will not be similar. One of robot today's definition is autonomous device that work in automatic mode. It can be attributed to the machine "Lunokhod-1", created in 1966. It was the first machine in the history that worked on the surface of the Moon (1970). Another modern definition is a mechanical or virtual artificial agent, usually an electro-mechanical machine that is guided by a computer program or electronic circuitry.
 		
-		Lately robots began to replace humans not only in manufacturing but also in the military sphere. Constantly emerging information about the achievements of the leading countries in the development of military land, underwater robots and unmanned aerial vehicles is evidenced for this thesis. Despite of high price robotic products become a part of our usual life, e.g. automatic vacuum cleaners, robotic toys, smart houses, e.t.c. There is a tendency that robots become cheaper with constantly increasing abilities. It means that in not very far future very smart robots will become affordable for our usual life. Such robotic tools will replace human in difficult and dangerous environments. And proposes the task to develop universal robot that can solve wide spectrum of tasks in the same environment as human works in. If we want a mechanism to perform its actions in environment that was developed for people it is obvious solution to make this mechanism similar to human. Robots that have similar to human kinematics and appearance are called anthropomorphic robots. Example of such robots are well known. They appear in films, literature and now they becomes part of our life, e.g. professor Ishiguro developed robot that is similar to him and during his trips this robot conducts professor's lectures while he can be on another part of Earth. Anthropomorphic robots now can be divided into two big groups. Bipedal anthropomorphic robots and other anthropomorphic robots. Bipedal robots are the robots that perform their locomotion by two legs. It is important to contrast bipedal anthropomorphic robotics because of many reasons. One of them is that bipedal humanoid walking robots comprise the area of robotics that is developing most rapidly nowadays. It is reasoned by the following fact: human workspace includes very complex and uneven terrains that is hard to overcome all the other ways except by legs. On the other hand bipedalism allows creatures to inhabit and adopt to very wide range of environments that is our initial wish - to work in the same workspace with people. On the other hand, in the last century robotics is mainly focused on space and defense areas. It motivates the trend towards automation is a core part of progress. Automation reduces the cost of technical processes and the risk to humans. Therefore, the research and development for this task are on the cutting edge of science and technology and require special attention and investment into its development. There are more and more situations requiring people to perform a wide variety of work in heavy, dangerous, and sometimes incompatible with the life conditions. In response, there are new tools of extreme robotics. However, for the most part they are very similar to each other. Usually, autonomous wheeled or tracked vehicles with manipulators are used to perform tasks on the ground. Mostly these robots are teleoperated. These robots are being produced for more than a dozen years. Engineers have so far accumulated a lot of experience in their development and applications, which are in some cases very efficient. However, it is obvious that this technique has (like any other) a limited scope of application. People still have to work in dangerous conditions such as in chemical, biological, or radioactive hazards, work in extremely hot or cold conditions, fight against criminals and terrorist.
-		Human workspace is very specific due to people's two arms and two legs. Universal robot should operate in the same environment and workspace. For this reason other areas of extreme robotics are developing now.
+		Lately robots began to replace humans not only in manufacturing but also in the military sphere. Constantly emerging information about the achievements of the leading countries in the development of military land, underwater robots and unmanned aerial vehicles supports for this thesis. Despite of high price robotic products become a part of our usual life, e.g. automatic vacuum cleaners, robotic toys, smart houses, etc. There is a tendency that robots become cheaper with constantly increasing abilities. It means that in not very far future very smart robots will become affordable for our usual life. Such robotic tools will replace humans in difficult and dangerous environments. This proposes the task to develop universal robots that can solve wide spectrum of tasks in the same environment as human works in. If we want a mechanism to perform its actions in environment that was developed for people it is an obvious solution to make this mechanism similar to human. Robots that have similar to human kinematics and appearance are called anthropomorphic robots. Examples of such robots are well known. They appear in films, literature and now they become part of our life, e.g. professor Ishiguro developed a robot that is similar to him and during his trips this robot conducts professor's lectures while he can be on another part of Earth. Anthropomorphic robots now can be divided into two big group. Bipedal anthropomorphic robots and other anthropomorphic robots. Bipedal robots are the robots that perform their locomotion by two legs. It is important to contrast bipedal anthropomorphic robotics because of many reasons. One of them is that bipedal humanoid walking robots comprise the area of robotics that is developing most rapidly nowadays. It is reasoned by the following fact: human workspace includes very complex and uneven terrains which are hard to overcome all the other ways except by legs. On the other hand bipedalism allows creatures to inhabit and adopt to very wide range of environments. Our initial wish was to design a robot able to work in the same workspace with people. On the other hand, in the last century robotics is mainly focused on space and defense areas. It motivates the trend towards automation as a core part of progress. Automation reduces the cost of technical processes and the risk to humans. Therefore, the research and development for this task are on the cutting edge of science and technology and require special attention and investment into its development. There are more and more situations requiring people to perform a wide variety of work in heavy, dangerous, and sometimes incompatible with life conditions. In response, there are new tools of extreme robotics. However, for the most part they are very similar to each other. Usually, autonomous wheeled or tracked vehicles with manipulators are used to perform tasks on the ground. Mostly these robots are teleoperated. These robots are being produced for more than a dozen years. Engineers have so far accumulated a lot of experience in their development and applications, which are in some cases very efficient. However, it is obvious that this technique has (like any other) a limited scope of application. People still have to work in dangerous conditions such as in chemical, biological, or radioactive hazards, work in extremely hot or cold conditions, fight against criminals and terrorists.
+		Human workspace is very specific due to people's two arms and two legs. A universal robot should operate in the same environment and workspace. For this reason other areas of robotics are developing now.
 		
-		One of these is a robotic system including an anthropomorphic bipedal walking robot. Such robot's kinematics, size and weight are similar to human's, it is equipped with an energy source, communication channel with the control station, and a powerful autonomous control system, allowing it to perform actions in supervisory or automatic mode. For instance, autonomous actions include independent movement from place to place in absence of communication. Such robots have significant advantages in workspaces initially adapted for humans.
+		One of these is a robotic system including an anthropomorphic bipedal walking robot. Such robot's kinematics, size and weight are similar to human's, it is equipped with an energy source, communication channel with the control station, and a powerful autonomous control system, allowing it to perform actions in supervised or automatic mode. For instance, autonomous actions include independent movement from place to place in absence of communication. Such robots have significant advantages in workspaces initially adapted for humans.
 
 	\chapter{Literature review}
-		Bipedal locomotion is a very complex task and according to \cite{erbatur2002study} it is described by nontrivial dynamics. It still doesn't have complete general solution however the research of this has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
-		According to \cite{wright2014intelligent}, there are 5 groups of approaches to the problem of locomotion control. There are:
+		Bipedal locomotion is a very complex task and according to \cite{erbatur2002study} it is described by nontrivial dynamics. It still doesn't have a complete general solution. However the research of this problem has a long history. The development of the models starts from the inverted pendulum model of human walking and goes to the complex approach of actuated passive walking with ZMP control.\\
+		According to \cite{wright2014intelligent}, there are 5 groups of approaches to the problem of locomotion control. These are:
 		
 		\begin{enumerate}
 			\item Analytical.\\ It uses equations of physical values to generate walking trajectories.
-			\item Central Pattern Generator (CPG).\\ When biologically inspired creature walks it has two different mechanisms of motion control. CPG is analog of generator that produces the pattern that doesn't require to be adopted. And also control mechanism applied to generated by CPG pattern with external data from sensors as input make the movement to be adopted to very big variety of disturbances.
-			\item Neural Networks.\\ This approach is a try of simulating the control process of biologically inspired creatures.
-			\item Hidden Markov Model (HMM).\\ HMM are good for pattern recognition, thus we can use it to recognize patterns in gaits.
+			\item Central Pattern Generator (CPG).\\ When a biologically inspired creature walk it has two different mechanisms of motion control. CPG is an analog of generator that produces the pattern that doesn't require to be adapted. And also control mechanism applied to generated by CPG pattern with external data from sensors as input make the movement to be adapted to a very big variety of disturbances.
+			\item Neural Networks.\\ This approach is an attempt to simulate the control process of biological creatures.
+			\item Hidden Markov Model (HMM).\\ HMMs are good for pattern recognition, thus we can use them to recognize patterns in gaits.
 			\item Rule based.\\ The main idea behind this approach is to build the rules for all possible variations of configuration.
 		\end{enumerate}
 
 		\section{Analytical approach}
-		The oldest one and also the most studied group is analytical one. It requires the knowledge of general form that locomotion should take.
+		The oldest one and also the most studied group is the analytical one. It requires the knowledge of general form that locomotion should take.
 
 		For bipedal locomotion it's required to accomplish the following steps \cite{wright2014intelligent}:
 		\begin{enumerate}
 			\item Apply stability constraints
-			\item Design gait algorithm (including double support, single support and no-support phases).
+			\item Design a gait algorithm (including double support, single support and no-support phases).
 			\item Solve remaining degrees of freedom (DoF) with Inverse Kinematics (IK).
 		\end{enumerate}
 
-		According to \cite{tang2008analysis}, the most natural method that represents the human body is inverted pendulum. Inverted pendulum model of human balance problem is one of the most primitive and old example of analytical approach \cite{winter1995human}. It stated that control of the balance can be achieved with two components: ankle mechanism (invertors/evertors) and hip load/unloading mechanism. In different positions each of the mechanism plays a different role. Thus in tandem or intermediate position balance is achieved by invertors/evertors mechanism while direction is controlled by hip load/unloading mechanism. It doubts on commonly used condition: reaction force of the floor has to go thought center of gravity of the robot. It was stated, that modern bio-mechanical studies show that there are angular moments around center of gravity. 
-		Thus this approach is too approximate and it is not very accurate. In \cite{collins2005bipedal} passive dynamics architecture was considered. There robot was able to move forward at constant not very high speed and author mentioned that the gait of the robot was human like. Human-like gait is desirable because of its energy effectiveness \cite{golliday1977approach}.\\
-		Furthermore, \cite{anderson2005powered} summaries principles that allows to combine passive dynamic control with powered bipeds. The results show that the gait become energy efficient however it implies further work on robustness and flexibility of walking\\
+		According to \cite{tang2008analysis}, the most natural method that represents the human body is inverted pendulum. Inverted pendulum model of human balance problem is one of the most primitive and old examples of analytical approach \cite{winter1995human}. It state that control of the balance can be achieved with two components: ankle mechanism (invertors/evertors) and hip load/unloading mechanisms. In different positions each of the mechanism plays a different role. Thus in tandem (intermediate position) balance is achieved by invertors/evertors mechanism while direction is controlled by hip load/unloading mechanism. It violates commonly used condition: reaction force of the floor has to go thought center of gravity of the robot. Modern bio-mechanical studies show that there are angular moments around center of gravity. 
+		Thus this approach is too approximate and it is not very accurate. In \cite{collins2005bipedal} passive dynamics architecture was considered. There robot was able to move forward at constant not very high speed and the author mentioned that the gait of the robot was human like. Human-like gait is desirable because of its energy effectiveness \cite{golliday1977approach}.\\
+		Furthermore, \cite{anderson2005powered} summarizes principles that allows to combine passive dynamic control with powered bipeds. The results show that the gait becomes energy efficient, however it implies further work on robustness and flexibility of walking.\\
 
 		In 1970 Miomir Vukobratovic proposed Zero Moment Point (ZMP), a theoretical model to explain biped locomotion. Also ZMP is a basic dynamical stability constraint.
 		According to \cite{manchester2011stable} we can divide all the existing humanoid bipedal walking robots into two big groups: ZMP-controlled ones and passive dynamic walkers.\\
 		Zero moment point is a concept related with dynamics and control of legged locomotion for humanoid robots. It specifies the point with respect to which dynamic reaction force at the contact of the foot with the ground does not produce any moment in the horizontal direction, i.e. the point where the total of horizontal inertia and gravity forces equals to zero.
-		Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can reduce all the forces and moments with one single force $F_a$ and moment $M_a$ respectively  \cref{fig:1}.
+		Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can reduce all the forces and moments with one single force $F_a$ and moment $M_a$ respectively  (see \cref{fig:1}).
 	
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{1}}
-			\caption{The sole with acting forces on it}
+			\caption{A sole with acting forces on it}
 			\label{fig:1}
 			\vspace{-0.1cm}
 		\end{figure}
 
-		On the figure above we consider only the sole separately from other parts of the leg. It has its own center of gravity G. At point P there is resulting ground reaction that maintains the construction in the equilibrium. The force of ground reaction R and moment M consists of its three components ($R_x$, $R_y$, $R_z$) and ($M_x$, $M_y$, $M_z$) respectively. Horizontal components of R should compensate friction force in the point of contact. Thus, the horizontal reaction of force ($R_x$, $R_y$) represents 
-		friction force that compensate horizontal component of $F_a$. In the same time the moment $M_z$ represents friction reaction forces \cref{fig:2} that compensates vertical component of $M_a$ and the moment induced by $F_a$. \cite{vukobratovic2004zero}
+		On the figure above we consider only the sole separately from other parts of the leg. It has its own center of gravity G. At point P there is a resulting ground reaction that maintains the construction in the equilibrium. The force of ground reaction R and moment M consists of its three components ($R_x$, $R_y$, $R_z$) and ($M_x$, $M_y$, $M_z$) respectively. Horizontal components of R should compensate friction force in the point of contact. Thus, the horizontal reaction of force ($R_x$, $R_y$) represents 
+		friction force that compensate horizontal component of $F_a$. At the same time the moment $M_z$ represents friction reaction forces (see \cref{fig:2}).  It compensates vertical component of $M_a$ and the moment induced by $F_a$. \cite{vukobratovic2004zero}
 
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -98,7 +99,7 @@
 			\vspace{-0.1cm}
 		\end{figure}
 
-		According to \cite{kajita2003biped}, this ZMP should be on the foot. The problem is that we cannot manipulate the foot directly \cite{mitobe2000control}. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction (conditions from the paragraph above didn't hold thus R and $M_z$ didn't compensate correspondent components of $F_a$ and $M_a$) than foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, in \cite{sardain2004forces} it was proven: if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, than robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed simultaneously and the main problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.
+		According to \cite{kajita2003biped}, this ZMP should be on the foot. The problem is that we cannot manipulate the foot directly \cite{mitobe2000control}. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction (conditions from the paragraph above didn't hold thus R and $M_z$ didn't compensate correspondent components of $F_a$ and $M_a$) than the foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, in \cite{sardain2004forces} it was proven that if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, then robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed continuously and the main problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.
 		The name zero moment point relates to the fact, that dynamical stability is maintained if horizontal components $M_x$ and $M_y$ are both equal to zero.
 	
 		\begin{equation}\label{eq:ZMP1}
@@ -111,7 +112,7 @@
 			R + F_a + mg = 0
 		\end{equation}
 
-		Where $m$ is a foot mass. In \cite{vukobratovic2004zero} there is defined  point O - the origin coordinates frame from which we can define radius vectors $\vec{OP}$, $\vec{OG}$ and $\vec{OA}$ where A is a point of ankle joint.
+		Where $m$ is a mass of the foot. O is defined In \cite{vukobratovic2004zero} as the origin coordinates frame from which we can define radius vectors $\vec{OP}$, $\vec{OG}$ and $\vec{OA}$ where A is a point of ankle joint.
 
 		\begin{equation}\label{eq:ZMP3}
 			\vec{OP} \times \vec{R} + \vec{OG} \times mg + M_A + M_z + \vec{OA} \times F_a = 0
@@ -123,7 +124,7 @@
 			(\vec{OP} \times \vec{R})^H + \vec{OG} \times mg + M_A^H + (\vec{OA} \times F_a)^H = 0
 		\end{equation}
 
-		According to \cite{vukobratovic2004zero} equation \ref{eq:ZMP4} represents the foot equilibrium. However ot doesn't solve the problem, that it is still unknown whether for the given motion of mechanism it is in the equilibrium. It is only of ZMP lies inside the support polygon.
+		According to \cite{vukobratovic2004zero} equation \ref{eq:ZMP4} represents the foot equilibrium. However it doesn't solve the problem, because it is still unknown whether for the given motion of mechanism it is in the equilibrium. It is only if ZMP lies inside the support polygon.
 		
 		In \cite{dekker2009zero} it was stated, that we have to make the following assumptions in order to compute the position of ZMP:
 
@@ -131,7 +132,7 @@
 			\item
 				The bipedal robot consists of n rigid links.
 			\item
-				All kinematic information, such as position of CoM, link orientation, velocities, etc. are known and calculated by forward kinematics.
+				All kinematic information, such as position of Center of Mass (CoM), link orientation, velocities, etc. are known and calculated by forward kinematics.
 			\item
 				The floor is rigid and motionless.
 			\item
@@ -146,7 +147,7 @@
 			m_{robot} = \sum^n_{i=1}{m_i}
 		\end{equation}
 
-		In \cite{dekker2009zero} it was considered schematic bipedal robot to derive the coordinates of ZMP [Fig. 3]
+		Schematic bipedal robot was considered in \cite{dekker2009zero} in order to derive the coordinates of ZMP (Fig. 3).
 
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -167,13 +168,13 @@
 			H = \sum^n_{i=1}{\dot{p_i} \times m_i \dot{p_i} + I_i \omega_i}
 		\end{equation}
 
-		Where $\omega_i$ is a angular velocity and $I_i$ is inertia tensor that is computed as:
+		Where $\omega_i$ is an angular velocity and $I_i$ is inertia tensor that is computed as:
 		\begin{equation} \label{eq:ZMP8}
-			I_i = R_i I_i R_i^T
+			I_i = R_i I_i^{\prime} R_i^T
 		\end{equation}
-		Here $R_i$ is a rotation matrix from i-link w.r.t. the origin base frame and $I_i$ is a inertia matrix of i-link w.r.t. the link frame origin attached to their links.
+		Here $R_i$ is a rotation matrix from i-link w.r.t. the origin base frame and $I_i^{\prime}$ is a inertia matrix of i-link w.r.t. the link frame origin attached to their links.
 
-		Taking the derivative from \ref{eq:ZMP6} and \ref{eq:ZMP7} we have got:
+		Taking the derivative of \ref{eq:ZMP6} and \ref{eq:ZMP7} we get:
 		\begin{equation} \label{eq:ZMP9}
 			\dot{P} = \sum^n_{i=1}{m_i \ddot{p_i}}
 		\end{equation}
@@ -181,17 +182,17 @@
 			\dot{H} = \sum^n_{i=1}{\ddot{p_i} \times m_i \dot{p_i} + \dot{p_i} \times m_i \ddot{p_i} + I_i \dot{\omega_i}} + \omega_i \times I_i \omega_i
 		\end{equation}
 
-		In \cite{manchester2011stable} it was mentioned that ZMP approach give us the solution that is based on the principle of dynamical stability, however it is not energy efficient. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{collins2001three} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
-		It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, elsewhere the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{vukobratovic2004zero} ZMP method is the most well known and so it is necessary to start with it. \\
-		According to \cite{vukobratovic2004zero} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only in the edge or in the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{vukobratovic2004zero} suggests the way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite obvious. Compute wanted ZMP coordinates, measure the error and apply correcting signal. Very important notion is about Center of Pressure (CoP). According to \cite{vukobratovic2004zero} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident. Usually ZMP is required to be under the center of the foot during the single support phase, transitioning to the other foot in the double support phase.\\
-		ASIMO - bipedal robot of Honda company was build on top of this theory and the history of its evolution is described in \cite{hirai1998development}. Nowadays ASIMO is one of the most developed robot, it can interact with human and perform different task starting with playing footboll and finishing stair climbing.\\ 
-		In \cite{kim2012zmp} it was mentioned the new approach to solve ZMP control problem. Using neural network trained with back propagation method was used to control the position of the robot given the errors between ZMP position and CoP.
-		In \cite{goswami1999postural} the problem of foot rotation was formulated. The author introduced the Foot-Rotation Indicator (FRI) the point, that can leave the support polygon and describe the impeding rotation. When FRI lies outside the support polygon it means that there is rotational moment and acting on the foot that helps control instability of the gait.
+		In \cite{manchester2011stable} it was mentioned that ZMP approach gives us the solution that is based on the principle of dynamical stability, however it is not energy efficient. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{collins2001three} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
+		It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, otherwise the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{vukobratovic2004zero} ZMP method is the most well known and so it is reasonable to start with it. \\
+		According to \cite{vukobratovic2004zero} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only on the edge or at the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{vukobratovic2004zero} suggests a way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite straightforward. Compute desired ZMP coordinates, measure the error and apply correcting signal. A very important notion is about Center of Pressure (CoP). According to \cite{vukobratovic2004zero} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident. Usually ZMP is required to be under the center of the foot during the single support phase, transitioning to the other foot in the double support phase.\\
+		ASIMO - a bipedal robot of Honda company, was build on top of this theory and the history of its evolution is described in \cite{hirai1998development}. Nowadays ASIMO is one of the most developed robots, it can interact with humans and perform different task  from playing footboll to stair climbing.\\ 
+		A new approach to solve ZMP control problem was proposed in \cite{kim2012zmp}. Neural network trained with back propagation method was used to control the position of the robot. It was given the errors between ZMP position and CoP.
+		In \cite{goswami1999postural} the problem of foot rotation was formulated. The author introduced the Foot-Rotation Indicator (FRI) the point, that can leave the support polygon. It describes the impeding rotation. When FRI lies outside the support polygon it means that there is rotational moment. In order to control instability of the gait acting on the foot is necessary to compensate this rotation.
 
 	\section{Central Pattern Generator}
 
-		Experiment in \cite{grillner1975locomotion} shown that reflexes are significant for locomotion. During reverse engineering neural network that controls locomotion was found. It was situated in spinal regions that was the reason to name this network Central Pattern Generator (CPG).
-		Another definition of CPG can be found in \cite{lee2007construction}: CPG is rhythm generating network in the nervous system which create and control the rhythmic motor patterns of animal motions. This approach for gait generation was considered in \cite{miyakoshi1998three}. Neural oscillator was used for generation biped motions. And it can be described as neural network, produces rhythmic pattern outputs without the need for patterned input \cite{wright2014intelligent}. CPG is a group of oscillating neurons with some phase between them which results rhythmic body motion. The pattern is generated not only by internal neural system but also by external sensor information \cite{miyakoshi1998three}. The key element in CPG is adaptive neural element, that can be described by pair of first order differential equations. Each pair of the following equations from adaptive neuron.
+		An experiment conducted in \cite{grillner1975locomotion} shows that reflexes are significant for locomotion. During human brain reverse engineering a neural network that controls locomotion was found. It was situated in spinal regions which is the reason to name this network Central Pattern Generator (CPG).
+		Another definition of CPG can be found in \cite{lee2007construction}: CPG is a rhythm generating network in the nervous system which creates and controls the rhythmic motor patterns of animal motions. CPG approach for gait generation was considered in \cite{miyakoshi1998three}. Neural oscillator was used for generation of biped motions. And it can be described as a neural network, that produces rhythmic pattern outputs without the need for patterned input \cite{wright2014intelligent}. CPG is a group of oscillating neurons with some phase between them which results in rhythmic body motion. The pattern is generated not only by the internal neural system but also by the external sensor information \cite{miyakoshi1998three}. The key element in CPG is an adaptive neural element that can be described by a pair of first order differential equations. Each pair of the following equations form an adaptive neuron.
 
 		\begin{equation}\label{eq:CPG1}
 			\tau_1 \dot{x}_1 = -x_1 - \beta f(\nu_1) -  \gamma f(x_2) + u_0 + u_{f_1}
@@ -206,34 +207,34 @@
 			\tau_2 \dot{\nu}_2 = -\nu_2  + f(x_2)
 		\end{equation}
 
-		Here $x_1$  is initial state of neuron, excited by the constant input $u_0$. When excitation reaches some threshold neuron goes to state $\nu_1$ through equation \ref{eq:CPG2}. When it exceeds some threshold it starts to suppress to the state $x_1$ through the \ref{eq:CPG1} equation by the factor $\beta$. Thus $x_1$, $x_2$, $\nu_1$ and $\nu_2$ are state variables. $\beta$ represents the rate of adaptations, $u_{f_1}$ and $u_{f_2}$ are the feedback inputs mainly from sensors, $\gamma$ is the coefficient between state variables and f(x) is a threshold function. Such element works the following way: when it takes constant input it reacts, then adapts and stop reacting, generating oscillations. \\ Human like gait was achieved by robot with small Degree of Freedom (DoF) in \cite{miyakoshi1998three}. The idea of this oscillator was to build robust system that perform simple control with minimum structure of neural architecture that can be interesting for high DoF robot.\\
+		Here $x_1$  is initial state of neuron, fired by the constant input $u_0$. When firing reaches some threshold, the neuron goes to state $\nu_1$ through equation \ref{eq:CPG2}. When it exceeds some threshold it starts to return to the state $x_1$ through the \ref{eq:CPG1} equation by the factor $\beta$. Thus $x_1$, $x_2$, $\nu_1$ and $\nu_2$ are state variables. $\beta$ represents the rate of adaptations, $u_{f_1}$ and $u_{f_2}$ are the feedback inputs mainly from sensors, $\gamma$ is the coefficient between state variables and f(x) is a threshold function. Such element works the following way: when it takes constant input it reacts, then adapts and stop reacting, generating oscillations. \\ Human like gait was achieved by a robot with small Degree of Freedom (DoF) in \cite{miyakoshi1998three}. The idea of this oscillator was to build a robust system that performs simple control with minimum structure of neural architecture that can be interesting for high DoF robot.\\
 		A detailed examination of a biological CPG from an engineering perspective was conducted in \cite{zhu2006central} but, for most applications, the neuron pair is approximated with a pair of differential equations \cite{wright2014intelligent}.
 
 		Oscillators can be divided into two types : Simple Sinusoidal Oscillator and Systems of Differential Equations \cite{wright2014intelligent}. Each of them is described bellow.
 
 		\subsection{Simple Sinusoidal Oscillator}
-			For sinusoidal signal it is very easy to maintain phase relationships. Human sized biped was considered in \cite{morimoto2008biologically}. The sinusoidal pattern is used for control of parameters, like phase or joint angle. The equation \ref{eq:Sin1} shows the example of hip angle control by phase $\phi$ and hip amplitude $A_{hip}$.
+			For sinusoidal signal it is very easy to maintain phase relationships. Human sized biped controlled by Simple Sinusoidal Oscillator was considered in \cite{morimoto2008biologically}. The sinusoidal pattern is used for control of parameters, like phase or joint angle. The equation \ref{eq:Sin1} shows the example of hip angle control by phase $\phi$ and hip amplitude $A_{hip}$.
 			\begin{equation}\label{eq:Sin1}
 				\theta_{hip} (\phi) = A_{hip} sin(\phi) 
 			\end{equation}
- 			However it is too simple model and according to \cite{wright2014intelligent}, is not very appropriate for bipeds, while it is good for systems that are statically stable. 
+ 			However it is a very simple model and according to \cite{wright2014intelligent}, is not very appropriate for bipeds, while it is good for systems that are statically stable. Statically stable systems are the systems that van maintain their stability during the continuous absence of movements.
 		\subsection{Systems of Differential Equations}
-			Analysis of biological CPGs has identified oscillators made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are able to generate different gaits and produces various solutions from sinusoidal to more complex forms. It can control biped even on the rough ground.
+			Analysis of biological CPGs has identified oscillators made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are applicable for the  generate different gaits and produce various solutions from sinusoidal to more complex forms. It can control biped even on the rough ground.
 			\subsubsection{Matsuoka oscillator}
-				Matsuoka oscillator is capable for different gait and is widely used \cite{wright2014intelligent}. They are popular because of their dynamics and in particular limit cycle behavior \cite{matsuoka1985sustained}.
+				Matsuoka oscillator is capable for different gaits and is widely used \cite{wright2014intelligent}. They are popular because of their dynamics and in particular limit cycle behavior \cite{matsuoka1985sustained}.
 				
 				The model of neuron with adaptation can be represented the following way:
 				\begin{equation}\label{eq:Mats1}
 					\begin{split}
-						\tau \dot{x} + x = \sum^n_{j = 1} c_j s_j - b x \prime\\
+						\tau \dot{x} + x = \sum^n_{j = 1} c_j s_j - b x^{\prime}\\
 						T \dot{x} \prime  + x \prime = y\\
 						y = g(x - \theta)
 					\end{split}
 				\end{equation}
 				
-				Here $\tau$ is a time constant, x is membrane potential of the neuron, $s_j$ is impulse rate of input stimuli, $\theta$ is threshold value below which neuron doesn't fire, $c_j$ weights of synaptic conjunctions ($>$ 0 for excitatory synapses and $<$ 0 for inhibitory synapses), y is firing rate of the neuron, $x \prime$ is the variable that represents the degree of the adaptation, T ($>$0) and b($\geq 0$) are parameters that specify the time course of the adaptation \cite{matsuoka1985sustained}.
+				Here $\tau$ is a variable, that represents time delay, x is a membrane potential of the neuron, $s_j$ is an impulse rate of input stimuli, $\theta$ is a threshold value below which neuron doesn't fire, $c_j$ are weights of synaptic conjunctions ($>$ 0 for activating synapses and $<$ 0 for inhibitory synapses), y is a firing rate of the neuron, $x^{\prime}$ is the variable that represents the degree of the adaptation, T ($>$0) and b($\geq 0$) are parameters that specify the time course of the adaptation \cite{matsuoka1985sustained}.
 				
-				Matsuoka in \cite{matsuoka1985sustained} discuss oscillations generated by mutual inhibition between n neurons with adaptation:
+				Matsuoka in \cite{matsuoka1985sustained} discusses oscillations generated by mutual inhibition between n neurons with adaptation:
 				\begin{equation}\label{eq:Mats2}
 					\begin{split}
 						\dot{x}_i + x_i = - \sum^n_{j = 1} a_{ij} y_j - b x \prime + s_i\\
@@ -242,9 +243,9 @@
 					\end{split}
 				\end{equation}
 				
-				Here $a_{ij}$ represents the strength of inhibitory connection between the neurons. $a_{ij} >$ 0 for i$\neq$j and = 0 for i=j. $\sum^n_{j = 1} a_{ij} y_j $ is the total input from the neurons inside a neural network and $s_{i}$ is the total input from the outside the network. 
+				Here $a_{ij}$ represents the strength of inhibitory connection between the neurons. $a_{ij} >$ 0 for i$\neq$j and = 0 for i=j. $\sum^n_{j = 1} a_{ij} y_j $ is the total input from the neurons inside a neural network and $s_{i}$ is the total input from the outside of the network. 
 				
-				Matsuoka oscillator schematically is represented in \ref{fig:4}.
+				Matsuoka oscillator is schematically represented in \cref{fig:4}.
 				\begin{figure}[h!]
 					\vspace{-0.2cm}
 					\centering
@@ -256,46 +257,54 @@
 				
 				Two neurons, a flexor (f) and an extensor (e), reciprocally inhibit each other. External inputs ($g_i$) such as sensory feedback or inputs for other neurons can be either inhibitory or excitatory, depending on the gain ($h_i$). Black circles indicate inhibitory inputs. White circles indicate excitatory inputs. Gray circles can be either inhibitory or excitatory.
 			\subsubsection{Van der Pol oscillator}
-				Van der Pol oscillator benefits are stable limit cycles and relatively interpretable coefficients. Frequency, amplitude and shape coefficients can be identified, although they are not completely independent. Transition between gaits is reached with simple change of oscillator parameters.
+				Van der Pol oscillator benefits are stable limit cycles and relatively interpretable coefficients. Frequency, amplitude and shape coefficients can be identified, although they are not completely independent. Transition between gaits is reached with a simple change of oscillator parameters.
 				
-				The equation of van der Pol oscillator is:
+				The equation of Van der Pol oscillator is:
 				
 				\begin{equation}\label{eq:Pol1}
 					\ddot{x} - \epsilon(1 - x^2)\dot{x} + x = 0
 				\end{equation}
 				
 				Where x is the dynamical variable and $\epsilon > 0$ a parameter.
-				The van der Pol oscillator has exactly one limit cycle and all other trajectories spiral into it that is proved in \cite{kanamaru2007van}.
+				The van der Pol oscillator has exactly one limit cycle and all other trajectories spiral into it which is proved in \cite{kanamaru2007van}.
 			\subsubsection{Rayleigh oscillator}
-				Rayleigh oscillator is similar to Van der Pol oscillator but it has reduced sensory requirements, that is an advantage over conventional prosthetic systems.
+				Rayleigh oscillator is similar to the Van der Pol oscillator but it has reduced sensory requirements, that is an advantage over conventional prosthetic systems.
 				
 				The equation of Rayleigh oscillator is:
 				
 				\begin{equation}\label{eq:Rel1}
 					\ddot{x} + \epsilon(3x^2 - 1)\dot{x} + (\omega^2 - \epsilon)x = 0
 				\end{equation}
+				
+				Comparison of \ref{eq:Rel1} and \ref{eq:Pol1} shows that Rayleigh oscillator is parametrized with $\epsilon$ and $\omega$ Van der Pol oscillator.
 			\subsubsection{Spiking Integrate and Fire with Adaption neurons}
-				Spiking Integrate and Fire with Adaption neurons were used in \cite{russell2007configuring} for biped locomotion. The CPG was a hierarchical structure of hip timing, knee timing and output patterning. This structure allowed to tune parameters of every of three hierarchical part, and so to configure walking frequency, gait and joint angles independently.
+				Spiking Integrate and Fire with Adaption neurons were used in \cite{russell2007configuring} for biped locomotion. The CPG was a hierarchical structure of hip timing, knee timing and output patterning. This structure allowed to tune parameters of every of three hierarchical parts, and so to configure walking frequency, gait and joint angles independently.
 		\section{Neural Networks}
-		Despite of the fact that oscillators can be described as a neural network they do not require any input for their work. Canonical Neural Networks (NN) have input data and output. There are several groups of NN.
+		Despite the fact that oscillators can be described as a neural network they do not require any input for their work. Canonical Neural Networks (NN) have input data and output. There are several groups of NN that are used for bipeds control. The most popular of them are described bellow.
 
 			\subsection{Feed-Forward Networks}
-				In this networks each neuron has its own connection and transfer function. They a ready for state motion generation.  Input data is current kinematics and sensory data. They can generate not state based trajectories only with time input. 
+				In this networks each neuron has its own connection and transfer function. They a ready for state motion generation.  Input data is current kinematics and sensory data. Current kinematics is the kinematic configuration in the given time frame. This type of NN can generate not state based trajectories only with time as input. 
 				\subsubsection{Multi-layer perceptron}
-					Multi-layer perceptron (MLP) is one of such models. They have from three (input, output, hidden) layers and can have more hidden ones. According to \cite{vundavilli2010dynamically}, two MLPs were used to specify parameters of a bipedal ditch crossing gait trained with Genetic Algorithm (GA). It produced the best solution in terms of stability. It was more stable and efficient than one from a fully analytical approach, and slightly better than the result obtained with a fuzzy logic based method. Activation function of perceptron is sigmoid function.
+					Multi-layer perceptron (MLP) is one of such models. They have from two (input, output, hidden) layers and can have more hidden ones. According to \cite{vundavilli2010dynamically}, two MLPs were used to specify parameters of a bipedal ditch crossing gait trained with Genetic Algorithm (GA). It produced the best solution in terms of stability. It was more stable and efficient than one from a fully analytical approach, and slightly better than the result obtained with a fuzzy logic based method. Activation function of perceptron is usually a sigmoid function.
 				\subsubsection{Radial Basis Function Network}
-					Radial Basis Function Network is another example of Feed-Forward Networks (FFN). Activation function is usually Gaussian or Euclidean. Neurons in hidden layers connected only with small part of input neurons. For this reason two types of vectors are necessary: wights vector and centre vector which is the same dimension as input. Each vector responds if it is close to its weight vector. Output neurones are the functions of linear combinations of outputs of network and their wighted connections.
-					It was used for hexapod locomotion \cite{ilg1995learning}.
+					Radial Basis Function Network is another example of Feed-Forward Networks (FFN). Activation function is usually Gaussian (\ref{eq:gf}) or Euclidean which is described in \cite{EuclideanFunction}.
+					
+					\begin{equation}\label{eq:gf}
+						f(x) = a exp \left(  - \dfrac{(x - b)^2}{2c^2} \right)
+					\end{equation}
+					
+					Neurons in hidden layers are connected only with a small part of input neurons. For this reason two types of vectors are necessary: wights vector and centre vector which is the same dimension as input. Each vector responds if it is close to the weight vector. Output neurons are functions of linear combinations of network outputs and their wighted connections.
+					It was successfully used for hexapod locomotion \cite{ilg1995learning}.
 				\subsubsection{Cerebellar Model Articulation Controller}
-					A Cerebellar Model Articulation Controller (CMAC) is a type of associative memory network based on cerebellum \cite{albus1975new}. Input space is continuous and divided into hyper-rectangles. So input should be located at one rectangle in the moment. Numerous hidden layers are slightly moved rectangles. Hence rectangles will overlap on different layers. The output for each layer is wighted sum of activated rectangles. The CMACs successfully learned the movement patterns and showed resilience to perturbation (including on uneven or slippery floors), thereby translating a rigid analytical solution into an adaptable one \cite{sabourin2005robustness}.
+					A Cerebellar Model Articulation Controller (CMAC) is a type of associative memory network based on cerebellum \cite{albus1975new}. Input space is continuous and divided into hyper-rectangles. So input should be located in one rectangle at each moment. Numerous hidden layers are slightly moved rectangles. Hence rectangles will overlap on different layers. The output for each layer is a weighted sum of activated rectangles. The CMACs successfully learned the movement patterns and showed resilience to perturbations (including uneven or slippery floors), thereby translating a rigid analytical solution into an adaptable one \cite{sabourin2005robustness}.
 			\subsection{Recurrent Networks}
-				The structure of such networks is more complicated that FFN. Thus we can produce more complex patterns and handle different type input.
+				The structure of such networks is more complicated that FFN. Thus we can produce more complex patterns and handle different types of input.
 				
-				For recurrent networks there are different types of input and the difference between FFN is that pattern is not required to be provided as an input but it is generated , tuned or chosen internally by the inputs. 
+				For recurrent networks there are different types of input and the difference from FFN is that pattern is not required to be provided as an input but it is generated , tuned or chosen internally by the inputs. 
 				
 				\subsubsection{Jordan and Elman Recurrent NN}
 					Jordan recurrent NN is similar to FFN, the difference is that output of the network is recurrently fed to the input.\\
-					The example of Elman recurrent NN is shown on \ref{fig:5}. The difference between Elman recurrent NN and Jordan recurrent NN is that delayed output of hidden layer $y_i$ is connected with input of hidden layer. Delay here is done by $u_i$ nodes from hidden layer. The Elman network was used in \cite{berns1995neural}, the resilient back-propagation training algorithm was used and the system showed an ability to learn supervised trajectories and interpolate between them.
+					The example of Elman recurrent NN is shown on \ref{fig:5}. The difference between Elman recurrent NN and Jordan recurrent NN is that delayed output of hidden layer $y_i$ is connected with inputs of the hidden layer. A delay here is done by $u_i$ nodes from the hidden layer. The Elman network was used in \cite{berns1995neural}, the resilient back-propagation training algorithm was used and the system showed an ability to learn supervised trajectories and interpolate between them.
 					
 					\begin{figure}[h!]
 						\vspace{-0.2cm}
@@ -360,7 +369,7 @@
 	                             (9) edge node {$\vdots$} (14)
 	                             (17) edge node {$\vdots$} (18);
 						\end{tikzpicture}
-						\caption{Elman recurrent NN. Inputs are $X_i$, hidden layer contains nodes $y_i$ that delays connected to them outputs of $Y_i$. Outputs of the network are nodes $Z_i$}
+						\caption{Elman recurrent NN. Inputs are $x_i$, hidden layer contains nodes $u_i$ that delays connected to them outputs of $y_i$. Outputs of the network are nodes $Z_i$}
 						\label{fig:5}
 						\vspace{-0.1cm}
 					\end{figure}
@@ -368,51 +377,51 @@
 				\subsubsection{Fully Connected Recurrent NN}
 					In several works \cite{reil2002evolution}, \cite{petridis1994recurrent} a network of several fully connected leaky-integrator neurons were used as a pattern generator. 
 					
-					The network was able to learn multiple sinusoidal patterns, selectable by an input level, but evolution took more generations as the number of patterns required increased. Learned patterns were resilient to noise at the inputs, and even if the input was disrupted by a large amount, the output would quickly return to normal when the input was corrected. It was found that a six neuron model was sufficient to store eight different sinusoidal patterns, as long as the form of those patterns was different \cite{wright2014intelligent}.
+					The network was able to learn multiple sinusoidal patterns, selectable by an input level, but evolution took more generations as the number of required patterns increased. Learned patterns were resilient to noise at the inputs, and even if the input was disrupted by a large amount, the output would quickly return to normal when the input was corrected. It was found that a six neuron model was sufficient to store eight different sinusoidal patterns, as long as the form of those patterns was different \cite{wright2014intelligent}.
 					
-					The problem of GA parameters optimization is that for complex systems a huge amount of generations will necessary. 
+					The problem of GA parameters optimization is that for complex systems a huge amount of generations will be necessary. 
 				\subsubsection{Reservoir}
-					Usually recurrent NN should be as small as possible шт order to simplify parameters tuning. Reservoir network follows different principle. It uses big network with potentially much redundancy. The idea is that during training only output layer is trained and reservoir is unchanged. It works with the following assumption: system dynamics is already present when the network is constructed randomly and the only necessary thing is to adjust weights for it. Thus the training process is very simple, e.g. linear regression.
+					Usually recurrent NN should be as small as possible in order to simplify parameters tuning. Reservoir network follows a different principle. It uses a big network with potentially much redundancy. The idea is that during training only output layer is trained and reservoir is unchanged. It works with the following assumption: system dynamics is already present when the network is constructed randomly and the only necessary thing is to adjust weights for it. Thus the training process is very simple, e.g. a linear regression.
 					
-					There is practice \cite{wyffels2009design} of generating trajectories with reservoir taken the human capture data.
+					There is practice \cite{wyffels2009design} of generating trajectories with reservoir taken the human captured data.
 		\section{Hidden Markov Model}
-			Learning by imitation is one of commonly used approach for bipedal locomotion researches. Obviously, direct copying of movements of operator is impossible due to different kinematic and dynamic characteristics. So, from the operator we can take only the pattern and than imitate it on the robot. Observing is estimating the underlying state variables based on the source system through output data. For this task Hidden Markov Models (HMM) can be used \cite{inamura2004embodied}. 
+			Learning by imitation is one of commonly used approaches for bipedal locomotion researches. Obviously, direct copying of movements of an operator is impossible due to different kinematic and dynamic characteristics. So, from the operator we can take only the pattern and then imitate it on the robot. Observing here is estimating the underlying state variables. It is based on the source system through the output data. For this task Hidden Markov Models (HMM) can be used \cite{inamura2004embodied}. 
 			
-			Recognition algorithm is used for identification of movement. If movement was not identified it is added to database as new. Hidden Markov model provides abstraction of the pattern which is used for motion synthesis.
+			A recognition algorithm is used for identification of movement. If movement was not identified, it is added to the database as new. Hidden Markov model provides abstraction of the pattern which is used for motion synthesis.
 			
 			Although typically used for imitation tasks, HMM have also been employed to detect problematic states.
 			
-			HMM itself is finite state automaton. It is defined by set of states with initial and final states, transition probability matrix where element $a_ij$ is probability of transition from state i to state j.
+			HMM itself is a finite state automaton. It is defined by a set of states with initial and final states, transition probability matrix where element $a_{ij}$ is the probability of transition from state i to state j.
 			
-			In feedback system that defines controller error signal is the input. Controller based on its input generates output signal that is called control signal. In order to obtain finite set of decision patterns, it is necessary to divide control space into finite number of subspaces. According to  \cite{yang1994hidden}, the following steps are necessary to define HMM-based controller:
+			In a feedback system that defines a controller an error signal is the input. Controller basing on its input generates an output signal that is called the control signal. In order to obtain a finite set of decision patterns, it is necessary to divide the control space into a finite number of subspaces. According to  \cite{yang1994hidden}, the following steps are necessary to define an HMM-based controller:
 			
 			\begin{enumerate}
 				\item
-					Correspondence  between control signal and controller input (error signal) can be established because according to definition of HMM control signal depends only on finite number of previous input signals.
+					A correspondence  between the control signal and controller input (error signal) can be established due to the definition of HMM the control signal depends only on a finite number of previous input signals.
 				\item 
-					Define set of patterns. At each time control signal belongs to one of patterns. Also control signal in each moment of time corresponds to one of the set of k previous input signals.
+					Define a set of patterns. At each time the control signal belongs to one of the patterns. Also control signal at each moment of time corresponds to one of the set of k previous input signals.
 				\item
-					It is necessary to label the data. It means that set of input signals is mapped to the set of possible control signals.
+					It is necessary to label the data. It means that the set of input signals is mapped to the set of possible control signals.
 				\item
-					Train the model by describing control signals by the data.
+					Train the model by the data describing control signals.
 				\item
 					Collect a set of trained models.
 			\end{enumerate} 
 			
 		\section{Rule Based Approach}
-			After the identification of the current state we can find the next one using rule-based method. For bipeds fuzzy-logic systems were used in some researches \cite{park2003fuzzy}.  Fuzzy logic controller helps to deal with a bit of uncertainty in the environment. And it can be used to vary ZMP position in the support polygon \cite{park2003fuzzy}. For proper work it requires optimization of rules, that was basically chosen \cite{vundavilli2010dynamically}.
-			The main idea is to divide the set of all possible combinations of system parameters into the area and for each region of this area define the control function that can be used when system is identified to be in the correspondent state.
+			After the identification of the current state we can find the next one using rule-based method. For bipeds fuzzy-logic systems were used in some researches \cite{park2003fuzzy}.  A fuzzy logic controller helps to deal with a bit of uncertainty in the environment. And it can be used to vary ZMP position in the support polygon \cite{park2003fuzzy}. For proper work it requires optimization of rules, that were basically chosen \cite{vundavilli2010dynamically}.
+			The main idea is to divide the set of all possible combinations of system parameters into the area and for each region of this area define the control function that can be used when system is identified to be in the corresponding state.
 		
 		
 	\chapter{Bipedal Locomotion Control}
-		According to literature review there are a lot different approaches for bipedal robot locomotion. In this work several of them would be combined.
+		According to the literature review there are a lot of different approaches for bipedal robot locomotion. In this work several of them would be combined.
 		We can define two support phases of walking: single support phase (during this phase only one foot is on the ground) and double support phase (two feet are on the ground simultaneously).
-		We can break bipedal locomotion in following phases \cite{rostami1998impactless}:
+		We can break bipedal locomotion into the following phases \cite{rostami1998impactless}:
 		
 		\begin{enumerate}
 			\item Initial contact
 			\item Loading Response
-			\item Mid stance
+			\item Mid Stance
 			\item Terminal Stance
 			\item Pre swing
 			\item Initial swing
@@ -431,15 +440,15 @@
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		When cart is far away from Center of Mass (CoM) that is denoted as X, ZMP point that is denoted as P goes out of support area. When it is happen the system becomes unstable.
+		When cart is far away from the Center of Mass (CoM) that is denoted as X, ZMP point that is denoted as P goes out of support area. When it happens the system becomes unstable.
 		The equation that describes this process was derived in \cite{kajita2003biped} and is represented bellow:
 		
 		\begin{equation}\label{eq:eqv1}
 			P = X -\dfrac{Z_c}{g} \ddot{X}
 		\end{equation}
 		
-		$Z_c$ here is the height of CoM of the cart, g is gravitational acceleration and $\ddot{X}$ is second time derivative.\\
-		In order to prevent system failing we want ot control cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in literature survey when ZMP lies in support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that system will fall. So we can try to define the desired ZMP trajectory of the system. We can define two planes in which robot can move. They are frontal and sagittal planes. Also there is transverse plane but we now will consider movement only in frontal plane. All the planes are represented on \cref{fig:7}. Desired trajectory for our system in frontal plane is provided on \ref{fig:8}.
+		$Z_c$ here is the height of CoM of the cart, g is the gravitational acceleration and $\ddot{X}$ is the second time derivative.\\
+		In order to prevent system falling we want to control the cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in the literature survey when ZMP lies in the support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that the system will fall. So we can try to define the desired ZMP trajectory of the system. We can define two planes in which the robot can move. They are frontal and sagittal planes. Also there is a transverse plane but we now will consider movement only in frontal plane for simplicity. All the planes are represented on \cref{fig:7}. Desired trajectory for our system in frontal plane is provided on \ref{fig:8}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -457,7 +466,7 @@
 			\label{fig:8}
 			\vspace{-0.1cm}
 		\end{figure}
-		It represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the end of the step. Here the amplitude of frictions is defined by parameters of robot (step width in frontal plane). Thus we can build simple system represented on \cref{fig:9}. The input of this system is reference trajectory of ZMP. Controller takes as input error between reference ZMP trajectory and real measured ZMP trajectory and generates control signal that is applied to the cart. 
+		It represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the end of the step. Here the amplitude of frictions is defined by parameters of robot (step width in frontal plane). Thus we can build the simple system represented on \cref{fig:9}. The input of this system is the reference trajectory of ZMP. Controller takes the error between reference ZMP trajectory and real measured ZMP trajectory as input and generates control signal that is applied to the cart. 
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
@@ -466,19 +475,19 @@
 			\label{fig:9}
 			\vspace{-0.1cm}
 		\end{figure}
-		Where controller is PID (proportional integral derivative) regulator maintains ZMP trajectory to be closed to desired one. We can see that our real ZMP trajectory is late and so CoM trajectory is late too. The result of such control is represented on \cref{fig:10}.
+		If the controller is PID (proportional integral derivative) the regulator maintains ZMP trajectory to be closed to the desired one. We can see that our real ZMP trajectory is late and so CoM trajectory is late too. The result of such control is represented on \cref{fig:10}.
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{10}}
-			\caption{PID regulated ZMP trajectories. Due to fast change of desired trajectory in the moment of phase change in real ZMP trajectory fast rising was observed.}
+			\caption{PID regulated ZMP trajectories. Due to fast change of desired trajectory in the moment of phase change real ZMP trajectory the fast risings.}
 			\label{fig:10}
 			\vspace{-0.1cm}
 		\end{figure}
-		Kajita et all in \cite{kajita2003biped} introduced simple idea. To look forward to desired ZMP. And try to predict what will happen before it happens. Hence the theory of optimal control matters and it will be described bellow how to make predictive control system for such unstable object as cart of the table model for example. Further in Chapter 4 such controller would be applied to the model of robot and in Chapter 5 the results will be evaluated.
+		Kajita et all in \cite{kajita2003biped} introduced a simple idea, to look forward to the desired ZMP. And try to predict what will happen before it happens. Hence the theory of optimal control comes into view and it will be described bellow how to make a predictive control system for such an unstable object as cart on the table model for example. Further in Chapter 4 such controller would be applied to the model of robot and in Chapter 5 the results will be evaluated.
 		
 		\section{Optimal Control}
-			According to \cite{hazell2008discrete} it is necessary to introduce discrete-time state-space model. On \ref{eq:oc1} this model is introduced. It represents dependency between next state and current state of variable.
+			According to \cite{hazell2008discrete} it is necessary to introduce a discrete-time state-space model. \ref{eq:oc1} introduces this model. It represents a dependency between the next state and current state of variables.
 			
 			\begin{equation}\label{eq:oc1}
 				\begin{split}
@@ -489,7 +498,7 @@
 			
 			Where k is time index, x(k) is a vector of state values, u(k) is a vector of input values, y(k) is a vector of output values. A, B, C, D are  appropriately dimensioned real matrices \cite{hazell2008discrete}.
 			
-			We define G - transfer function associated with model \ref{eq:oc1}. G is defined as \ref{eq:oc2}
+			We define G, the  transfer function associated with model \ref{eq:oc1}. G is defined as in \ref{eq:oc2}
 			
 			\begin{equation}\label{eq:oc2}
 				G(Z) = C(ZI - A)^{-1}B+D
@@ -497,19 +506,19 @@
 			
 			Where Z is Z-transform variable.
 			
-			We can estimate the size of transfer function by measures that a known as $H_2$ and $H_\infty$. $H_2$ norm will be denoted as $||G(Z)||_2$ and is defined as \ref{eq:oc3}.
+			We can estimate the size of the transfer function by measures that are known as $H_2$ and $H_\infty$. $H_2$ norm will be denoted as $||G(Z)||_2$ and is defined as in \ref{eq:oc3}.
 			
 			\begin{equation}\label{eq:oc3}
-				||G(Z)||_2 = Tr\{ B^{'} XB + D^{'} D \}
+				||G(Z)||_2 = Tr\{ B^{T} XB + D^{T} D \}
 			\end{equation}
 			
 			Where X is defined by \ref{eq:oc4}.
 			
 			\begin{equation}\label{eq:oc4}
-				X = A^{'} XA + C^{'} C
+				X = A^{T} XA + C^{T} C
 			\end{equation}
 			
-			According to \cite{hazell2008discrete} 	$H_2$ norm of transfer function is a gain in power from input to output, assuming that the input signal is white and Gaussian.  
+			According to \cite{hazell2008discrete} 	$H_2$ norm of the transfer function is a gain in power from input to output, assuming that the input signal is white.  
 			
 			$H_\infty$ is denoted as $||G(Z)||_\infty$ and is defined by \ref{eq:oc5}.		
 			
@@ -517,7 +526,7 @@
 				||G(Z)||_\infty = \sup_{\omega} \dfrac{||z||_2}{||\omega||_2}
 			\end{equation}
 			
-			Here $z = G\omega$, $\omega$ is assumed to be a realization of unit power, Gaussian, white-noise process and z is real values vector of input. Hence $H_\infty$ defines maximum possible gain in power from input ot output.
+			Here $z = G\omega$, $\omega$ is assumed to be a realization of a unit power, Gaussian, white-noise process and z is the real values vector of input. Hence $H_\infty$ defines the maximum possible gain in power from input ot output.
 			
 			\begin{figure}[h!]
 				\vspace{-0.2cm}
@@ -528,18 +537,18 @@
 				\vspace{-0.1cm}
 			\end{figure}
 			
-			On \cref{fig:11} there is a generalized regulator. The input for the system is $\omega$. The system is controlled by input signal u and returns output signal z, while y is measurements output. Thus K here is a feedback controller and P represents the controlled system.
+			There is a generalized regulator on \cref{fig:11}. The input for the system is $\omega$. The system is controlled by input signal u and returns an output signal z, while y is measurements output. Thus K here is a feedback controller and P represents the controlled system.
 			
 			The matrix equation \ref{eq:oc6}
 			
 			\begin{equation}\label{eq:oc6}
-				X = A^{'}XA + Q - \bar{L}^{'} \bar{R}^{-1} \bar{L}
+				X = A^{T}XA + Q - \bar{L}^{T} \bar{R}^{-1} \bar{L}
 			\end{equation}
 			
-			is known as Discrete Algebraic Riccati Equation (DARE). Here $\bar{R} = R + B^{'}XB$ and $\bar{L} = L + B^{'}XA$. The solution of this equation are considered and derived in \cite{hazell2008discrete}. Also we can write DARE in a short form: $X = D(A,B,Q,R,L;X)$ and $D(A,B,Q,R,L;X) = A^{'} XA + Q -  \bar{L}^{'} \bar{R}^{-1} \bar{L}$.
+			is known as Discrete Algebraic Riccati Equation (DARE). Here $\bar{R} = R + B^{T}XB$ and $\bar{L} = L + B^{T}XA$. The solution of this equation is considered and derived in \cite{hazell2008discrete}. Also we can write DARE in a short form: $X = D(A,B,Q,R,L;X)$ and $D(A,B,Q,R,L;X) = A^{T} XA + Q -  \bar{L}^{T} \bar{R}^{-1} \bar{L}$.
 		
 		\subsection{Preview Control} 
-			Katayama et al. in \cite{katayama1985design} introduced new method of control general regulators with preview control. The key idea was to look forward for N discrete steps and predict desirable value of controlled signal. The form of control signal was derived by \cite{katayama1985design} as a theorem. The theorem says that optimal control signal have the form that is represented on \ref{eq:pc1}.
+			Katayama et al. in \cite{katayama1985design} introduced a new method of control for general regulators with preview control. The key idea was to look forward for N discrete steps and predict the desirable value of controlled signal. The form of control signal was derived by \cite{katayama1985design} as a theorem. The theorem says that optimal control signal have the form that is represented in \ref{eq:pc1}.
 			
 			\begin{equation}\label{eq:pc1}
 				u(k) = -G_I \sum^{k}_{i=0} e(i) - G_xx(k) - \sum^{N_l}_{l=1}G_d(l)y_d(k+l)
@@ -568,20 +577,22 @@
 				\end{split}
 			\end{equation}
 			
-			And finally $I_p$ is $p * p$ identity matrix.
+			And finally $I_p$ is a $p * p$ identity matrix.
 			
-			This theorem was proven in \cite{katayama1985design}. And Kajita et al. in \cite{kajita2003biped} proved, that the necessary prediction for the system is 1.6 seconds due to the character за dependency on this parameter that is shown on \cref{fig:12} 
+			This theorem was proven in \cite{katayama1985design}. And Kajita et al. in \cite{kajita2003biped} proved that the necessary prediction for the system is 1.6 seconds due to the dependency law on this parameter that is shown on \cref{fig:12} 
 			
 			\begin{figure}[h!]
 				\vspace{-0.2cm}
 				\centering
 				{\includegraphics[width=0.7\textwidth]{12}}
-				\caption{Importance of N preview \cite{kajita2003biped}}
+				\caption{Power Gain dependency from the time \cite{kajita2003biped}}
 				\label{fig:12}
 				\vspace{-0.1cm}
 			\end{figure}
+			
+			For the moment we have everything to design control system for the model of bipedal robot.
 	\chapter{Implementation}
-		Initially the cat table model was developed. The design is represented on \cref{fig:13}
+		Initially the cart table model was developed. The design is represented on \cref{fig:13}
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
@@ -591,18 +602,18 @@
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		Further it will be represented as block on \cref{fig:14}.
+		Further it will be represented as a block on \cref{fig:14}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.2\textwidth]{14}}
-			\caption{Cart-table model block. Xddot is input second time derivative (velocity of CoM). Y\_COM is height of CoM that can deviate and thus cannot be constant. P is measured ZMP.}
+			\caption{Cart-table model block. Xddot is input second time derivative (velocity of CoM). Y\_COM is the height of CoM that can deviate and thus cannot be constant. P is measured ZMP.}
 			\label{fig:14}
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		This system is controlled by second time derivative, that represents speed. To have the initial control model Propotional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is on \cref{fig:15}.
+		This system is controlled by second time derivative that represents speed. To have the initial control model Proportional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is on \cref{fig:15}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -613,13 +624,13 @@
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		And the regulator itself looks as on \cref{fig:16}.
+		The regulator itself looks as on \cref{fig:16}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{16}}
-			\caption{PID controller. P error is error between reference ZMP and measured ZMP. Control is velocity of cart table model that is necessary to compensate error between desired ZMP and measured ZMP.}
+			\caption{PID controller. P error is the error between reference ZMP and measured ZMP. Control is velocity of cart table model that is necessary to compensate the error between desired ZMP and measured ZMP.}
 			\label{fig:16}
 			\vspace{-0.1cm}
 		\end{figure}
@@ -635,9 +646,9 @@
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		We can see that actual ZMP trajectory lates and due to this fact the CoM trajectory reaches the bound of support polygon and thus it makes the system unstable.
+		We can see that the actual ZMP trajectory lates and due to this fact the CoM trajectory reaches the bound of support polygon and thus it makes the system unstable.
 		
-		After that preview control with 1.6 second prediction was applied. The difference between PID controlled model controller model and control signal. The model of preview controller  is represented on \cref{fig:18}.
+		After that the preview control with 1.6 second prediction was applied. The model of preview controller  is represented on \cref{fig:18}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -648,7 +659,7 @@
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		Control signal for preview controller is the third time derivative of trajectory and due to this fact between controller and cart-table model transition block should be provided. This block is a integrator because integration of control signal gives us exactly the second time derivative (velocity). Preview control of cart table model is represented on \cref{fig:20}
+		The control signal for preview controller is the third time derivative of trajectory and due to this fact a transition block between controller and cart-table model should be provided. This block is an integrator because integration of control signal gives us exactly the second time derivative (acceleration). Preview control of cart table model is represented on \cref{fig:20}
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -659,7 +670,7 @@
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		The results of this controller are represented on \cref{fig:19} are much better and we can see only no late response and no overshooting in ZMP trajectory. Thus the system become much more stable than in PID case. 
+		The results of this controller are represented on \cref{fig:19} and are much better : we can see no late response and no overshooting in ZMP trajectory. Thus the system become much more stable than in the PID case. 
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -671,7 +682,7 @@
 		\end{figure}
 		
 	\chapter{Evaluation}
-		After tuning of preview controller parameters (N samples look ahead) it was build the simple model of bipedal robot with 12 Degrees of Freedom (DoF). The model is represented on \cref{fig:21}. In \cite{ha2007effective} simplification of bipedal model was introduced. According to this simplification we can write ZMP equation in the form of \ref{eq:CoG1}.
+		After tuning of preview controller parameters (N samples look ahead) a simple model of bipedal robot with 12 Degrees of Freedom (DoF) was built. The model is represented on \cref{fig:21}. In \cite{ha2007effective} a simplification of bipedal model was introduced. According to this simplification we can write ZMP equation in the form of \ref{eq:CoG1}.
 		
 		\begin{equation}\label{eq:CoG1}
 			\begin{split}
@@ -699,7 +710,7 @@
 		
 		Where $C_1 = \dfrac{0.2(1+e^{0.5\omega })}{(e^{-0.5\omega }-e^{0.5\omega })}$, $C_2=-0.2-C_1$, $\omega = \sqrt{\dfrac{g}{Z_c}}$.
 		
-		Trajectory of CoM in frontal plane of this analytical solution is represented on \cref{fig:24}.
+		The trajectory of CoM in frontal plane of this analytical solution is represented on \cref{fig:24}.
 		
 			\begin{figure}[h!]
 				\vspace{-0.2cm}
@@ -710,8 +721,8 @@
 				\vspace{-0.1cm}
 			\end{figure}
 		
-		Direct application of preview controller shows perfect results, that are represented on \cref{fig:25}. However this results cannot be used on practice because motors cannot work with given acceleration. Thus preview controller was restricted with some values, that represents maximum motors acceleration.
-		Considering preview control application for CoM trajectory generation in frontal plane it is necessary to mention that some related works \cite{choi2006fuzzy} consider control signal not in the form of \ref{eq:pc1} but in the form of \ref{eq:pc4}.
+		A direct application of preview controller shows perfect results which are represented on \cref{fig:25}. However these results cannot be used on practice because motors cannot work with given acceleration. Thus the preview controller was restricted with some values, that represents maximum motors acceleration.
+		Considering the preview control application for CoM trajectory generation in frontal plane it is necessary to mention that some related works, for example \cite{choi2006fuzzy} consider control signal not in the form of \ref{eq:pc1} but in the form of \ref{eq:pc4}.
 		
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -726,7 +737,7 @@
 			u(k) = -G_I e(i) - G_xx(k) - \sum^{N_l}_{l=1}G_d(l)y_d(k+l)
 		\end{equation}
 		
-		 There was not found motivation for this form, but it is obvious that for small disturbances integrated error and current error are small and close to zero. Preview controllers of two forms \ref{eq:pc1} and \ref{eq:pc4} were applied with restrictions to the robot model to generate CoM trajectory in frontal plane. Results are provided bellow.
+		 There is motivation for this form mentioned in articles, but it is obvious that for small disturbances integrated error and current error are small and close to zero. Preview controllers of two forms \ref{eq:pc1} and \ref{eq:pc4} were applied with restrictions to the robot model to generate CoM trajectory in frontal plane. Results are provided bellow.
 		 
 	 	\begin{figure}[h!]
 	 		\vspace{-0.2cm}
@@ -745,15 +756,15 @@
 	 		\vspace{-0.1cm}
 	 	\end{figure}
 	 	
-	 	We can see that trajectory on \cref{fig:23} is smoother than trajectory on \cref{fig:22}. It means that there would be less disturbances provided motors. Thus the form \ref{eq:pc1} is more preferable that form \ref{eq:pc4}.
-	 	Moreover we can see, that trajectory of analytical derivations is close to trajectory of preview controller. It means that preview controller can efficiently solve problem of trajectory generation. This approach seems to be more preferable because it allows robot to operate in environment with uncertainty.
+	 	We can see that trajectory on \cref{fig:23} is smoother than trajectory on \cref{fig:22}. It means that there would be less disturbances provided by motors. Thus the form \ref{eq:pc1} is more preferable than the form \ref{eq:pc4}.
+	 	Moreover we can see that the trajectory of analytical derivations is close to the trajectory of preview controller. It means that the preview controller can efficiently solve the problem of trajectory generation. This approach seems to be more preferable because it allows a robot to operate in environments with uncertainty.
 	\chapter{Future Work}
-		Due to the limitations of the model it is necessary to develop model that is more similar to real robot. Moreover to apply preview controller on a real robot and even on advanced simulator it is still necessary to develop inverse kinematics module that will transform CoM trajectories to trajectories for every joint. Here rule based approaches can be used because the robot is a redundant construction and for every trajectory there will be a lot of configuration and thus it is necessary to choose the best one. Moreover it is necessary to combine two controllers in sagital and frontal planes.
+		Due to the limitations of the model it is necessary to develop a model that is more similar to a real robot. Moreover to apply the preview controller on a real robot and even on advanced simulator it is still necessary to develop an inverse kinematics module that will transform CoM trajectories to trajectories for every joint. Here a rule based approaches can be used because the robot is a redundant construction and for every trajectory there will be a lot of configurations and thus it is necessary to choose the best one. Moreover it is necessary to combine two controllers in sagital and frontal planes.
 		The next step after tuning control parameters on the model is to apply it to a real robot.
 	\chapter{Summary}
-		In this work different approaches to bipedal locomotion were considered. Classification of existing methods was also done and it was the basics for development dynamic balance algorithm for bipedal robot locomotion. It was chosen two approaches: analytical one (ZMP criteria for dynamical stability) and CPG (controller output should generate pattern for locomotion). Results of realized preview controller on provided models show stable smooth trajectories and thus it seems reliable to try this approach on the real robot. There are works \cite{kajita2003biped, audren2014model} that already applied preview controller to real robots. However in their works they don't consider application of these technics to simulation of the robot. As were shown in Chapter 5 direct application of preview controller to robot model gives very good but physically unreachable results. Due to the fact that motors have limited acceleration system cannot react as fast as controller try to stabilize the system. However controller was limited by physical constraints and results of control become similar to fully analytical solution during one step period. Thus the developed approach is interesting because it can adopt to disturbances and uneven terrain despite of the fact that it produces only the pattern for the robot.
+		In this work different approaches to bipedal locomotion were considered. Classification of existing methods was also done and it was the basics for development of a dynamic balance algorithm for bipedal robot locomotion. Two approaches were chosen: analytical one (ZMP criteria for dynamical stability) and CPG (controller output should generate a pattern for locomotion). Results of implemented preview controller on provided models show stable smooth trajectories and thus it seems reliable to try this approach on the real robot. There are works \cite{kajita2003biped, audren2014model} that already applied preview controller to real robots. However in their works the authors don't consider application of these techniques to simulation of the robot. As shown in Chapter 5 a direct application of preview controller to robot model gives very good but physically unreachable results. Due to the fact that motors have limited accelerations, the system cannot react as fast as the controller tries to stabilize the system. However the controller was limited by physical constraints and the results of control became similar to the fully analytical solution during one step period. Thus the developed approach is promising because it can adapt to disturbances and uneven terrain despite the fact that it produces only the pattern for the robot.
 			
-	\bibliographystyle{unsrt}
+	\bibliographystyle{unsrtnat}
 	\bibliography{robotics}
 	
 	\begin{appendices}
