@@ -24,14 +24,13 @@
 \contentsline {section}{\numberline {3.2}Human Locomotion Models}{28}{section.3.2}
 \contentsline {section}{\numberline {3.3}Optimal Control}{31}{section.3.3}
 \contentsline {section}{\numberline {3.4}Preview Control}{33}{section.3.4}
-\contentsline {chapter}{\numberline {4}Implementation}{35}{chapter.4}
+\contentsline {chapter}{\numberline {4}Implementation And Evaluation}{35}{chapter.4}
 \contentsline {section}{\numberline {4.1}Cart Table Model}{35}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}PID Controller}{36}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Preview Controller}{38}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Simple Bipedal Robot Model}{41}{section.4.2}
-\contentsline {chapter}{\numberline {5}Evaluation}{43}{chapter.5}
-\contentsline {chapter}{\numberline {6}Future Work}{45}{chapter.6}
-\contentsline {chapter}{\numberline {7}Summary}{46}{chapter.7}
+\contentsline {chapter}{\numberline {5}Future Work}{45}{chapter.5}
+\contentsline {chapter}{\numberline {6}Summary}{46}{chapter.6}
 \contentsline {chapter}{Bibliography}{47}{chapter*.12}
 \contentsline {chapter}{Appendix \numberline {A}Preview control parameters estimation algorithm}{53}{Appendix.1.A}
 \contentsline {chapter}{Appendix \numberline {B}Desired ZMP generation algorithm}{55}{Appendix.1.B}
