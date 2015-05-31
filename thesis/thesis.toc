@@ -1,37 +1,37 @@
-\contentsline {chapter}{\numberline {1}Introduction and Overview}{3}{chapter.1}
-\contentsline {chapter}{\numberline {2}Literature review}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}Analytical Approach}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}Central Pattern Generator Approach}{15}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Simple Sinusoidal Oscillator}{16}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Systems of Differential Equations}{17}{subsection.2.2.2}
-\contentsline {subsubsection}{Matsuoka oscillator}{17}{section*.2}
-\contentsline {subsubsection}{Van der Pol oscillator}{19}{section*.3}
-\contentsline {subsubsection}{Rayleigh oscillator}{19}{section*.4}
-\contentsline {subsubsection}{Spiking Integrate and Fire with Adaption neurons}{19}{section*.5}
-\contentsline {section}{\numberline {2.3}Neural Networks Approach}{20}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Feed-Forward Networks}{20}{subsection.2.3.1}
-\contentsline {subsubsection}{Multi-layer Perceptron}{20}{section*.6}
-\contentsline {subsubsection}{Radial Basis Function Network}{20}{section*.7}
-\contentsline {subsubsection}{Cerebellar Model Articulation Controller}{21}{section*.8}
-\contentsline {subsection}{\numberline {2.3.2}Recurrent Networks}{21}{subsection.2.3.2}
-\contentsline {subsubsection}{Jordan and Elman Recurrent Neural Networks}{21}{section*.9}
-\contentsline {subsubsection}{Fully Connected Recurrent Neural Networks}{22}{section*.10}
-\contentsline {subsubsection}{Reservoir}{23}{section*.11}
-\contentsline {section}{\numberline {2.4}Hidden Markov Model Approach}{23}{section.2.4}
-\contentsline {section}{\numberline {2.5}Rule Based Approach}{24}{section.2.5}
-\contentsline {chapter}{\numberline {3}Bipedal Locomotion Control}{25}{chapter.3}
-\contentsline {section}{\numberline {3.1}Locomotion Phases}{25}{section.3.1}
-\contentsline {section}{\numberline {3.2}Human Locomotion Models}{26}{section.3.2}
-\contentsline {section}{\numberline {3.3}Optimal Control}{29}{section.3.3}
-\contentsline {section}{\numberline {3.4}Preview Control}{31}{section.3.4}
-\contentsline {chapter}{\numberline {4}Implementation}{33}{chapter.4}
-\contentsline {section}{\numberline {4.1}Cart Table Model}{33}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}PID Controller}{34}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Preview Controller}{36}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Simple Bipedal Robot Model}{39}{section.4.2}
-\contentsline {chapter}{\numberline {5}Evaluation}{40}{chapter.5}
-\contentsline {chapter}{\numberline {6}Future Work}{44}{chapter.6}
-\contentsline {chapter}{\numberline {7}Summary}{45}{chapter.7}
-\contentsline {chapter}{Bibliography}{46}{chapter*.12}
-\contentsline {chapter}{Appendix \numberline {A}Preview control parameters estimation algorithm}{52}{Appendix.1.A}
-\contentsline {chapter}{Appendix \numberline {B}Desired ZMP generation algorithm}{54}{Appendix.1.B}
+\contentsline {chapter}{\numberline {1}Introduction and Overview}{5}{chapter.1}
+\contentsline {chapter}{\numberline {2}Literature review}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Analytical Approach}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}Central Pattern Generator Approach}{17}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Simple Sinusoidal Oscillator}{18}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Systems of Differential Equations}{19}{subsection.2.2.2}
+\contentsline {subsubsection}{Matsuoka oscillator}{19}{section*.2}
+\contentsline {subsubsection}{Van der Pol oscillator}{21}{section*.3}
+\contentsline {subsubsection}{Rayleigh oscillator}{21}{section*.4}
+\contentsline {subsubsection}{Spiking Integrate and Fire with Adaption neurons}{21}{section*.5}
+\contentsline {section}{\numberline {2.3}Neural Networks Approach}{22}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Feed-Forward Networks}{22}{subsection.2.3.1}
+\contentsline {subsubsection}{Multi-layer Perceptron}{22}{section*.6}
+\contentsline {subsubsection}{Radial Basis Function Network}{22}{section*.7}
+\contentsline {subsubsection}{Cerebellar Model Articulation Controller}{23}{section*.8}
+\contentsline {subsection}{\numberline {2.3.2}Recurrent Networks}{23}{subsection.2.3.2}
+\contentsline {subsubsection}{Jordan and Elman Recurrent Neural Networks}{23}{section*.9}
+\contentsline {subsubsection}{Fully Connected Recurrent Neural Networks}{24}{section*.10}
+\contentsline {subsubsection}{Reservoir}{25}{section*.11}
+\contentsline {section}{\numberline {2.4}Hidden Markov Model Approach}{25}{section.2.4}
+\contentsline {section}{\numberline {2.5}Rule Based Approach}{26}{section.2.5}
+\contentsline {chapter}{\numberline {3}Bipedal Locomotion Control}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}Locomotion Phases}{27}{section.3.1}
+\contentsline {section}{\numberline {3.2}Human Locomotion Models}{28}{section.3.2}
+\contentsline {section}{\numberline {3.3}Optimal Control}{31}{section.3.3}
+\contentsline {section}{\numberline {3.4}Preview Control}{33}{section.3.4}
+\contentsline {chapter}{\numberline {4}Implementation}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Cart Table Model}{35}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}PID Controller}{36}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Preview Controller}{38}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Simple Bipedal Robot Model}{41}{section.4.2}
+\contentsline {chapter}{\numberline {5}Evaluation}{42}{chapter.5}
+\contentsline {chapter}{\numberline {6}Future Work}{45}{chapter.6}
+\contentsline {chapter}{\numberline {7}Summary}{46}{chapter.7}
+\contentsline {chapter}{Bibliography}{47}{chapter*.12}
+\contentsline {chapter}{Appendix \numberline {A}Preview control parameters estimation algorithm}{53}{Appendix.1.A}
+\contentsline {chapter}{Appendix \numberline {B}Desired ZMP generation algorithm}{55}{Appendix.1.B}

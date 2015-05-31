@@ -23,11 +23,34 @@
 \floatname{program}{Program}
  
 \begin{document}
-	
 	\title{Final Year Project Report\\ Development and implementation dynamic balance algorithms for bipedal robot locomotion.}
 	\author{Usvyatsov Mikhail\\Innopolis University\\Kazan\\  ~\\ \normalsize Supervisor: Prof. Evgeni Magid}
 	\date{\normalsize \today}
-	\maketitle
+	\centerline{\mbox{\includegraphics[width=90mm]{iu.jpg}}}
+	{\let\newpage\relax\maketitle}
+	
+		\newpage
+		%%% Page containing a legal statement
+		\noindent
+		I declare that I carried out this bachelor thesis independently, and only with the cited
+		sources, literature and other professional sources.
+		
+		\medskip\noindent
+		I understand that my work relates to the rights and obligations in particular the fact that Innopolis
+		University has the right to conclude a license agreement on the use of this
+		work as a school work pursuant.
+		
+		\vspace{18mm}
+		\noindent
+		%% Place and date of signature
+		In \makebox[4cm]{\dotfill} on \makebox[2.5cm]{\dotfill}
+		\hspace*{\fill}
+		Author signature
+		\hspace*{\fill}
+		
+		\vspace*{\stretch{1}}
+	
+	\newpage
 	
 	\tableofcontents
 	
@@ -523,7 +546,7 @@
 				\label{fig:9}
 				\vspace{-0.1cm}
 			\end{figure}
-			If the controller is PID (proportional integral derivative) the regulator which maintains ZMP trajectory close to the desired one. We can see in in \cref{fig:10} that our real ZMP trajectory follow the desired trajectory with the late. The result of such control is represented in \cref{fig:10}.
+			If the controller is PID (proportional integral derivative) the regulator which maintains ZMP trajectory close to the desired one. We can see in \cref{fig:10} that our real ZMP trajectory follow the desired trajectory with the late. The result of such control is represented in \cref{fig:10}.
 			\begin{figure}[H]
 				\vspace{-0.2cm}
 				\centering
@@ -560,7 +583,7 @@
 				||G(Z)||_2 = Tr\{ B^{T} XB + D^{T} D \}
 			\end{equation}
 			
-			Where $X$ should satisfy eq. (\ref{eq:oc4}):
+			Where $X$ should satisfy eq. (\ref{eq:oc4}).
 			
 			\begin{equation}\label{eq:oc4}
 				X = A^{T} XA + C^{T} C
@@ -730,17 +753,16 @@
 				\end{figure}
 				
 				This developed controller should be applied to the model of robot. Initialy we will consider the simple model of robot. The experiment is described in Chapter 5.
-		\section{Simple Bipedal Robot Model}		
-	\chapter{Evaluation}
-		After tuning of preview controller parameters (N samples look ahead) a simple model of a bipedal robot with 12 Degrees of Freedom (DoF) was built. The model is represented on \cref{fig:21}. According to simplification we can write ZMP equation in the following way \cite{ha2007effective}: 
-		
-		\begin{equation}\label{eq:CoG1}
+		\section{Simple Bipedal Robot Model}
+			After tuning of preview controller parameters (N samples look ahead) a simple model of a bipedal robot with 12 Degrees of Freedom (DoF) was built. The model is represented on \cref{fig:21}. According to simplification we can write ZMP equation in the following way \cite{ha2007effective}: 
+			
+			\begin{equation}\label{eq:CoG1}
 			\begin{split}
-				X_{CoG}(t) = X_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\alpha Z_{CoG}} t} \right) + \sqrt{\dfrac{\alpha Z_{CoG}}{g}} \dot{X}_{CoG}(0) sinh\left(\sqrt{\dfrac{g}{\alpha Z_{CoG}} t}\right)\\
-				Y_{CoG}(t) = Y_{CoG}(0) cosh(\sqrt{\dfrac{g}{\beta Z_{CoG}} t}) + \sqrt{\dfrac{\beta Z_{CoG}}{g}} \dot{Y}_{CoG}(0) sinh(\sqrt{\dfrac{g}{\beta Z_{CoG}} t})
+			X_{CoG}(t) = X_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\alpha Z_{CoG}}} t \right) + \sqrt{\dfrac{\alpha Z_{CoG}}{g}} \dot{X}_{CoG}(0) sinh\left(\sqrt{\dfrac{g}{\alpha Z_{CoG}} } t\right)\\
+			Y_{CoG}(t) = Y_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\beta Z_{CoG}}} t \right) + \sqrt{\dfrac{\beta Z_{CoG}}{g}} \dot{Y}_{CoG}(0) sinh \left( \sqrt{\dfrac{g}{\beta Z_{CoG}}} t \right)
 			\end{split}
-		\end{equation}
-		
+			\end{equation}
+	\chapter{Evaluation}
 		Where $X_{CoG}$, $Y_{CoG}$, $\dot{X}_{CoG}$ and $\dot{Y}_{CoG}$ are X coordinate, Y coordinate, X velocity and Y velocity of Center of Gravity (CoG) respectively. Parameters $\alpha$ and $\beta$ defines robot configuration and the optimal values for model on \cref{fig:21} are 0.65 and 0.45 respectively.
 		
 		\begin{figure}[H]
