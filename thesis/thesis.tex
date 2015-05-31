@@ -757,44 +757,45 @@
 			After tuning of preview controller parameters (N samples look ahead) a simple model of a bipedal robot with 12 Degrees of Freedom (DoF) was built. The model is represented on \cref{fig:21}. According to simplification we can write ZMP equation in the following way \cite{ha2007effective}: 
 			
 			\begin{equation}\label{eq:CoG1}
-			\begin{split}
-			X_{CoG}(t) = X_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\alpha Z_{CoG}}} t \right) + \sqrt{\dfrac{\alpha Z_{CoG}}{g}} \dot{X}_{CoG}(0) sinh\left(\sqrt{\dfrac{g}{\alpha Z_{CoG}} } t\right)\\
-			Y_{CoG}(t) = Y_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\beta Z_{CoG}}} t \right) + \sqrt{\dfrac{\beta Z_{CoG}}{g}} \dot{Y}_{CoG}(0) sinh \left( \sqrt{\dfrac{g}{\beta Z_{CoG}}} t \right)
-			\end{split}
+				\begin{split}
+					X_{CoG}(t) = X_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\alpha Z_{CoG}}} t \right) + \sqrt{\dfrac{\alpha Z_{CoG}}{g}} \dot{X}_{CoG}(0) sinh\left(\sqrt{\dfrac{g}{\alpha Z_{CoG}} } t\right)\\
+					Y_{CoG}(t) = Y_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\beta Z_{CoG}}} t \right) + \sqrt{\dfrac{\beta Z_{CoG}}{g}} \dot{Y}_{CoG}(0) sinh \left( \sqrt{\dfrac{g}{\beta Z_{CoG}}} t \right)
+				\end{split}
 			\end{equation}
-	\chapter{Evaluation}
-		Where $X_{CoG}$, $Y_{CoG}$, $\dot{X}_{CoG}$ and $\dot{Y}_{CoG}$ are X coordinate, Y coordinate, X velocity and Y velocity of Center of Gravity (CoG) respectively. Parameters $\alpha$ and $\beta$ defines robot configuration and the optimal values for model on \cref{fig:21} are 0.65 and 0.45 respectively.
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=0.7\textwidth]{21}}
-			\caption{12 DoF bipedal robot model}
-			\label{fig:21}
-			\vspace{-0.1cm}
-		\end{figure} 
-		
-		Analytical solution of \ref{eq:eqv1} applied to bipedal robot with provided $\alpha$ and $\beta$ under assumptions from \cite{ha2007effective} can be defined as follows:
-		
-		\begin{equation}
+			
+			Where $X_{CoG}$, $Y_{CoG}$,  $Z_{CoG}$, $\dot{X}_{CoG}$ and $\dot{Y}_{CoG}$ are X coordinate, Y coordinate, Z coordinate, X velocity and Y velocity of Center of Gravity (CoG) respectively. Parameters $\alpha$ and $\beta$ define robot configuration and the optimal values for our model (\cref{fig:21}) are 0.65 and 0.45 respectively.
+			
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.7\textwidth]{21}}
+				\caption{12 DoF bipedal robot model}
+				\label{fig:21}
+				\vspace{-0.1cm}
+			\end{figure}
+			
+			Analytical solution of eq. (\ref{eq:eqv1}) applied to bipedal robot with provided $\alpha$ and $\beta$ under the assumption that height of robot's CoM isn't changing significantly can be defined as follows:
+			
+			\begin{equation}
 			X_{CoM} = C_1 e^{-\omega t} + C_2 e^{\omega t}
-		\end{equation}
-		
-		Where $C_1 = \dfrac{0.2(1+e^{0.5\omega })}{(e^{-0.5\omega }-e^{0.5\omega })}$, $C_2=-0.2-C_1$, $\omega = \sqrt{\dfrac{g}{Z_c}}$.
-		
-		The trajectory of CoM in frontal plane of this analytical solution is represented on \cref{fig:24}.
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=0.7\textwidth]{24}}
-			\caption{Analytically synthesized CoM trajectory.}
-			\label{fig:24}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		A direct application of preview controller shows perfect results which are represented on \cref{fig:25}. However these results cannot be used on practice because motors cannot work with given acceleration. Thus the preview controller was restricted with some values, that represents maximum motors acceleration.
-		Considering the preview control application for CoM trajectory generation in frontal plane it is necessary to mention that some related works, for example \cite{choi2006fuzzy} consider control signal not in the form of \ref{eq:pc1} but in the form of \ref{eq:pc4}.
+			\end{equation}
+			
+			where $C_1 = \dfrac{0.2(1+e^{0.5\omega })}{(e^{-0.5\omega }-e^{0.5\omega })}$, $C_2=-0.2-C_1$, $\omega = \sqrt{\dfrac{g}{Z_c}}$, g is the gravitational acceleration, $Z_c$ is robot's CoM height.
+			
+			The trajectory of CoM in frontal plane of this analytical solution is represented in \cref{fig:24}.
+			
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.7\textwidth]{24}}
+				\caption{Analytically synthesized CoM trajectory.}
+				\label{fig:24}
+				\vspace{-0.1cm}
+			\end{figure}
+			
+			A direct application of a preview controller shows results which are represented in \cref{fig:25}. Unfortunately, these results cannot be used in practice because physical motors cannot provide the desired accelerations. Hence the preview controller was restricted with maximum motors acceleration.
+			Considering the preview control application for CoM trajectory generation in frontal plane it is necessary to mention that some related works, for example \cite{choi2006fuzzy} consider control signal not in the form of \ref{eq:pc1} but in the form of \ref{eq:pc4}.
+	\chapter{Evaluation}		
 		
 		\begin{figure}[H]
 			\vspace{-0.2cm}

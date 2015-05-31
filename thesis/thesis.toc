@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {4.1.1}PID Controller}{36}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Preview Controller}{38}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Simple Bipedal Robot Model}{41}{section.4.2}
-\contentsline {chapter}{\numberline {5}Evaluation}{42}{chapter.5}
+\contentsline {chapter}{\numberline {5}Evaluation}{43}{chapter.5}
 \contentsline {chapter}{\numberline {6}Future Work}{45}{chapter.6}
 \contentsline {chapter}{\numberline {7}Summary}{46}{chapter.7}
 \contentsline {chapter}{Bibliography}{47}{chapter*.12}
