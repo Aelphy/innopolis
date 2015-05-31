@@ -532,10 +532,10 @@
 				\label{fig:10}
 				\vspace{-0.1cm}
 			\end{figure}
-			Kajita et all in \cite{kajita2003biped} introduced a simple idea, to look forward to the desired ZMP. And try to predict what will happen before it happens. Hence the theory of optimal control comes into view and it will be described bellow how to make a predictive control system for such an unstable object as cart on the table model for example. Further in Chapter 4 such controller would be applied to the model of robot and in Chapter 5 the results will be evaluated.
+			Kajita et all in \cite{kajita2003biped} introduced a simple idea, to look forward to the desired ZMP  and try to predict what will happen before it happens. Hence the theory of optimal control comes into view and it will be described bellow how to make a predictive control system for such an unstable object as cart on the table model. Further Chapter 4 presents such controller being applied to the model of a biped robot and Chapter 5 demonstrates the evaluation of it.
 			
 		\section{Optimal Control}
-			According to \cite{hazell2008discrete} it is necessary to introduce a discrete-time state-space model. \ref{eq:oc1} introduces this model. It represents a dependency between the next state and current state of variables.
+			Next we introduce a discrete-time state-space model. Equation \ref{eq:oc1} introduces this model. This system of equations represents a dependency between the next state and current state of system though variables x and y \cite{hazell2008discrete}.
 			
 			\begin{equation}\label{eq:oc1}
 				\begin{split}
@@ -544,37 +544,37 @@
 				\end{split}
 			\end{equation}
 			
-			Where k is time index, x(k) is a vector of state values, u(k) is a vector of input values, y(k) is a vector of output values. A, B, C, D are  appropriately dimensioned real matrices \cite{hazell2008discrete}.
+			Where k is a discrete time index, x(k) is a vector of state values (trajectory, velocity and acceleration), u(k) is a control signal (jerk), y(k) is a vector of system output values (trajectory, velocity and acceleration). A, B, C, D are  appropriately dimensioned real matrices that defines system parameters and would be defined further in this chapter \cite{hazell2008discrete}.
 			
-			We define G, the  transfer function associated with model \ref{eq:oc1}. G is defined as in \ref{eq:oc2}
+			We define G, the  transfer function associated with model defined be eq. (\ref{eq:oc1}). G is defined as in \ref{eq:oc2}
 			
 			\begin{equation}\label{eq:oc2}
 				G(Z) = C(ZI - A)^{-1}B+D
 			\end{equation}
 			
-			Where Z is Z-transform variable.
+			Where Z is Z-transform variable and I is an identity matrix.
 			
-			We can estimate the size of the transfer function by measures that are known as $H_2$ and $H_\infty$. $H_2$ norm will be denoted as $||G(Z)||_2$ and is defined as in \ref{eq:oc3}.
+			We can estimate the size of the transfer function by measures $H_2$ and $H_\infty$. $H_2$ norm will be denoted as $||G(Z)||_2$ and is defined as in the following way:
 			
 			\begin{equation}\label{eq:oc3}
 				||G(Z)||_2 = Tr\{ B^{T} XB + D^{T} D \}
 			\end{equation}
 			
-			Where X is defined by \ref{eq:oc4}.
+			Where $X$ should satisfy eq. (\ref{eq:oc4}):
 			
 			\begin{equation}\label{eq:oc4}
 				X = A^{T} XA + C^{T} C
 			\end{equation}
 			
-			According to \cite{hazell2008discrete} 	$H_2$ norm of the transfer function is a gain in power from input to output, assuming that the input signal is white.  
-			
-			$H_\infty$ is denoted as $||G(Z)||_\infty$ and is defined by \ref{eq:oc5}.		
+			$H_2$ norm of the transfer function is a gain in power from input to output, assuming that the input signal is white \cite{hazell2008discrete}.
+
+			$H_\infty$ is denoted as $||G(Z)||_\infty$ and is defined as:
 			
 			\begin{equation}\label{eq:oc5}
 				||G(Z)||_\infty = \sup_{\omega} \dfrac{||z||_2}{||\omega||_2}
 			\end{equation}
 			
-			Here $z = G\omega$, $\omega$ is assumed to be a realization of a unit power, Gaussian, white-noise process and z is the real values vector of input. Hence $H_\infty$ defines the maximum possible gain in power from input ot output.
+			where $z = G\omega$, $\omega$ is assumed to be a realization of a unit power, Gaussian, white-noise process and z is the real values vector of input. Hence $H_\infty$ defines the maximum possible gain in power from input ot output.
 			
 			\begin{figure}[H]
 				\vspace{-0.2cm}
@@ -585,49 +585,44 @@
 				\vspace{-0.1cm}
 			\end{figure}
 			
-			There is a generalized regulator on \cref{fig:11}. The input for the system is $\omega$. The system is controlled by input signal u and returns an output signal z, while y is measurements output. Thus K here is a feedback controller and P represents the controlled system.
+			There is a generalized regulator in \cref{fig:11}. The input for the system is $\omega$. The system is controlled by input signal u, $\omega$ represents all exogenous inputs including noise and disturbances. The system returns an output signal z, while y is measurements and references output. Thus K here is a feedback controller and P represents the controlled system.
 			
-			The matrix equation \ref{eq:oc6}
+			The following matrix equation
 			
 			\begin{equation}\label{eq:oc6}
 				X = A^{T}XA + Q - \bar{L}^{T} \bar{R}^{-1} \bar{L}
 			\end{equation}
 			
-			is known as Discrete Algebraic Riccati Equation (DARE). Here $\bar{R} = R + B^{T}XB$ and $\bar{L} = L + B^{T}XA$. The solution of this equation is considered and derived in \cite{hazell2008discrete}. Also we can write DARE in a short form: $X = D(A,B,Q,R,L;X)$ and $D(A,B,Q,R,L;X) = A^{T} XA + Q -  \bar{L}^{T} \bar{R}^{-1} \bar{L}$.
+			is known as Discrete Algebraic Riccati Equation (DARE). Here $\bar{R} = R + B^{T}XB$ and $\bar{L} = L + B^{T}XA$. The solution of this equation derived in \cite{hazell2008discrete}. Also we can write DARE in a short form: $X = D(A,B,Q,R,L;X)$ and $D(A,B,Q,R,L;X) = A^{T} XA + Q -  \bar{L}^{T} \bar{R}^{-1} \bar{L}$.
 		
 		\subsection{Preview Control} 
-			Katayama et al. in \cite{katayama1985design} introduced a new method of control for general regulators with preview control. The key idea was to look forward for N discrete steps and predict the desirable value of controlled signal. The form of control signal was derived by \cite{katayama1985design} as a theorem. The theorem says that optimal control signal have the form that is represented in \ref{eq:pc1}.
+			Katayama et al. in \cite{katayama1985design} introduced a new method of control for general regulators with preview control. The key idea was to look forward for N discrete steps and predict the desirable value of controlled signal. The form of the control signal was derived as a theorem in \cite{katayama1985design}. The theorem says that the optimal control signal have the form of:
 			
 			\begin{equation}\label{eq:pc1}
-				u(k) = -G_I \sum^{k}_{i=0} e(i) - G_xx(k) - \sum^{N_l}_{l=1}G_d(l)y_d(k+l)
+				u(k) = -G_I \sum^{k}_{i=0} e(i) - G_xx(k) - \sum^{N}_{l=1}G_d(l)y_d(k+l)
 			\end{equation}
 			
-			\begin{description}
-				\item
-				Where $G_I = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{I}$
-				\item
-				$G_x = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{F}$
-				\item
-				$G_d(1) = -G_I$ and $G_d(l) = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{X}(l-1)$.
-			\end{description}
+			Where $G_I = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{I}$ represents integral coefficient, e(i) is an error between controlled value and its referenced value, $G_x = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{F}$ represents proportional coefficient, x(k) is the controlled value, $G_d(1) = -G_I$ and $G_d(l) = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{X}(l-1)$ represents feature coefficients at time l, $y_d(t)$ is a value of reference signal at time t.
 			
-			Moreover $\tilde{K}$ here is a solution of DARE in the form of \ref{eq:pc2}
+			with the solution of DARE $\tilde{K}$ in the form:
+			
 			\begin{equation}\label{eq:pc2}
 				\tilde{K} = \tilde{A}^T\tilde{K}\tilde{A} - \tilde{A}^T \tilde{K} \tilde{B} [R + \tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T\tilde{K}\tilde{A} + \tilde{Q}
 			\end{equation}
+			
+			where:
+			
 			\begin{equation}\label{eq:pc3}
-				\begin{split}
-					\tilde{B} = \begin{bmatrix} C B \\ B \end{bmatrix}\\
-					\tilde{I} = \begin{bmatrix} I_p \\ 0 \end{bmatrix}\\
-					\tilde{F} = \begin{bmatrix} CA \\ A \end{bmatrix}\\
-					\tilde{Q} = \begin{bmatrix} Q_e & 0 \\ 0 & Q_x \end{bmatrix}\\
-					\tilde{A} = \begin{bmatrix} \tilde{I} & \tilde{F} \end{bmatrix}
-				\end{split}
+				\tilde{B} = \begin{bmatrix} C B \\ B \end{bmatrix},
+				\tilde{I} = \begin{bmatrix} I_p \\ 0 \end{bmatrix},
+				\tilde{F} = \begin{bmatrix} CA \\ A \end{bmatrix},
+				\tilde{Q} = \begin{bmatrix} Q_e & 0 \\ 0 & Q_x \end{bmatrix},
+				\tilde{A} = \begin{bmatrix} \tilde{I} & \tilde{F} \end{bmatrix}
 			\end{equation}
 			
-			And finally $I_p$ is a $p * p$ identity matrix.
+			And finally $I_p$ is a $p * p$ identity matrix p is defined by the size of matrices C and A in order to allow computation of matrix $\tilde{A}$.
 			
-			This theorem was proven in \cite{katayama1985design}. And Kajita et al. in \cite{kajita2003biped} proved that the necessary prediction for the system is 1.6 seconds due to the dependency law on this parameter that is shown on \cref{fig:12} 
+			Kajita et al. in \cite{kajita2003biped} proved that the necessary prediction for the cart table model is 1.6 seconds due to the dependency law on this parameter which is shown in \cref{fig:12} 
 			
 			\begin{figure}[H]
 				\vspace{-0.2cm}
@@ -641,12 +636,12 @@
 			For the moment we have everything to design control system for the model of bipedal robot.
 	\chapter{Implementation}
 		The modeling of real-world objects is a very difficult task. It takes into account physical lows, gravity and frictions. Simulation environment for this thesis is Simulink.  Simulink is a framework in matlab environment. It provides primitives that can be used for real world models building. Also it provides the interface for high-level frameworks, that realizes high-level primitives for modeling. SimMechanics is one of packages in Simulink. It contains the blocks for mechanical modeling of multi body systems.  Robots are multi body systems and hence SimMechanics is a suitable choice for the environment.  
-		Initially the cart table model was developed. The design is represented on \cref{fig:13}
+		Initially the cart table model was developed. The design is represented in \cref{fig:13}
 		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{13}}
-			\caption{Cart-table model}
+			\caption{Cart-table model. Xddot is acceleration, Xdot is velocity, X is trajectory of cart CoM. Y\_CoM is the height of cart CoM. P is computed ZMP position.}
 			\label{fig:13}
 			\vspace{-0.1cm}
 		\end{figure}
@@ -662,7 +657,7 @@
 			\vspace{-0.1cm}
 		\end{figure}
 		
-		This system is controlled by second time derivative that represents speed. To have the initial control model Proportional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is on \cref{fig:15}.
+		This system is controlled by the second time derivative that represents speed. For the initial control model Proportional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is shown in \cref{fig:15}.
 		
 		\begin{figure}[H]
 			\vspace{-0.2cm}
