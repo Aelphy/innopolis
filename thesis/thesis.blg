@@ -19,46 +19,50 @@ Warning--entry type for "EuclideanFunction" isn't style-file defined
 --line 563 of file robotics.bib
 Warning--entry type for "controlbipedal" isn't style-file defined
 --line 590 of file robotics.bib
+Warning--entry type for "gait" isn't style-file defined
+--line 607 of file robotics.bib
+Warning--entry type for "medical" isn't style-file defined
+--line 615 of file robotics.bib
 Warning--empty journal in hazell2008discrete
-You've used 49 entries,
+You've used 50 entries,
             2481 wiz_defined-function locations,
-            843 strings with 13735 characters,
-and the built_in function-call counts, 21533 in all, are:
-= -- 1983
-> -- 911
-< -- 51
+            843 strings with 13784 characters,
+and the built_in function-call counts, 21630 in all, are:
+= -- 1989
+> -- 904
+< -- 53
 + -- 360
-- -- 262
-* -- 1581
-:= -- 3190
-add.period$ -- 163
-call.type$ -- 49
-change.case$ -- 99
-chr.to.int$ -- 49
-cite$ -- 50
-duplicate$ -- 1125
-empty$ -- 2018
-format.name$ -- 347
-if$ -- 4769
+- -- 260
+* -- 1570
+:= -- 3200
+add.period$ -- 165
+call.type$ -- 50
+change.case$ -- 101
+chr.to.int$ -- 50
+cite$ -- 51
+duplicate$ -- 1134
+empty$ -- 2040
+format.name$ -- 346
+if$ -- 4795
 int.to.chr$ -- 1
-int.to.str$ -- 50
-missing$ -- 46
-newline$ -- 253
-num.names$ -- 147
-pop$ -- 439
+int.to.str$ -- 51
+missing$ -- 45
+newline$ -- 257
+num.names$ -- 150
+pop$ -- 459
 preamble$ -- 1
-purify$ -- 49
+purify$ -- 50
 quote$ -- 0
-skip$ -- 743
+skip$ -- 754
 stack$ -- 0
-substring$ -- 1291
-swap$ -- 282
+substring$ -- 1268
+swap$ -- 286
 text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 343
+type$ -- 350
 warning$ -- 1
 while$ -- 199
 width$ -- 0
-write$ -- 659
+write$ -- 668
 (There were 3 error messages)

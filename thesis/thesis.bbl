@@ -1,4 +1,4 @@
-\begin{thebibliography}{49}
+\begin{thebibliography}{50}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -128,11 +128,6 @@ Kazuo Hirai, Masato Hirose, Yuji Haikawa, and Toru Takenaka.
 \newblock The development of honda humanoid robot.
 \newblock In \emph{Robotics and Automation, 1998. Proceedings. 1998 IEEE
   International Conference on}, volume~2, pages 1321--1326. IEEE, 1998.
-
-\bibitem[Kim et~al.(2012)Kim, Kim, and Park]{kim2012zmp}
-Dong~W Kim, Nak-Hyun Kim, and Gwi-Tae Park.
-\newblock Zmp based neural network inspired humanoid robot control.
-\newblock \emph{Nonlinear Dynamics}, 67\penalty0 (1):\penalty0 793--806, 2012.
 
 \bibitem[Goswami(1999)]{goswami1999postural}
 Ambarish Goswami.
@@ -296,6 +291,15 @@ Mostafa Rostami and Guy Bessonnet.
   phase.
 \newblock In \emph{Robotics and Automation, 1998. Proceedings. 1998 IEEE
   International Conference on}, volume~2, pages 1385--1391. IEEE, 1998.
+
+\bibitem[Hill(2015)]{gait}
+P.~Hill.
+\newblock Gait {@ONLINE}, may 2015.
+\newblock URL \url{https://www.studyblue.com/notes/note/n/gait/deck/13079492}.
+
+\bibitem[()]{medical}
+American heritage® stedman's medical dictionary {@ONLINE}, may 2015.
+\newblock URL \url{http://medical-dictionary.thefreedictionary.com}.
 
 \bibitem[Hazell(2008)]{hazell2008discrete}
 Andrew Hazell.

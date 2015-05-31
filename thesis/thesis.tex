@@ -105,7 +105,7 @@
 		Zero moment point is a concept related to dynamics and control of legged locomotion for humanoid robots. It specifies the point with respect to which dynamic reaction force at the contact of the foot with the ground does not produce any moment in the horizontal direction, i.e. the point where the total sum of horizontal inertia and gravity forces equals to zero.
 		Miomir Vukobratovic in \cite{vukobratovic2004zero} defines ZMP (Zero Moment Point) as a point in which we can replace all the forces and moments with one single force $F_a$ and moment $M_a$ respectively  (see \cref{fig:1}). Also ZMP is a basic dynamical stability constraint.	According to \cite{manchester2011stable} we can divide all the existing humanoid bipedal walking robots into two big groups: ZMP-controlled ones and passive dynamic walkers.
 	
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{1}}
@@ -117,7 +117,7 @@
 		Figure \ref{fig:1} demonstrates only the sole separately from other parts of the leg. G is a Center of Gravity of the sole. At point P there is a resulting ground reaction. This ground reaction force maintains the robot in the equilibrium position. Equilibrium means that robot is not falling. The force of ground reaction R and moment M consists of its three components ($R_x$, $R_y$, $R_z$) and ($M_x$, $M_y$, $M_z$) respectively. Horizontal components of R should compensate friction force in the point of contact. Thus, the horizontal reaction of force ($R_x$, $R_y$) represents 
 		friction force that compensate horizontal component of $F_a$. At the same time the moment $M_z$ represents friction reaction forces (see \cref{fig:2}).  It compensates vertical component of $M_a$ and the moment induced by $F_a$. \cite{vukobratovic2004zero}
 
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{2}}
@@ -178,7 +178,7 @@
 
 		Schematic bipedal robot with math m was considered in \cite{dekker2009zero} in order to derive the coordinates of ZMP (\cref{fig:3}).
 
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{3}}
@@ -284,7 +284,7 @@
 				where $a_{ij}$ represents the strength of inhibitory connection between the neurons. $a_{ij} >$ 0 for i$\neq$j and $a_{ij}$ = 0 for i = j. $\sum^n_{j = 1} a_{ij} y_j $ is the total input from the neurons inside a neural network and $s_{i}$ is the total input from the outside of the network, $y_j$ is input from neuron j. 
 				
 				Matsuoka oscillator is schematically represented in \cref{fig:4}.
-				\begin{figure}[h!]
+				\begin{figure}[H]
 					\vspace{-0.2cm}
 					\centering
 					{\includegraphics[width=0.7\textwidth]{4}}
@@ -345,7 +345,7 @@
 					Jordan recurrent NN is similar to FFN, the difference is that output of the network is recurrently fed to the input.\\
 					The example of Elman recurrent NN is shown in (\cref{fig:5}). The difference between Elman recurrent NN and Jordan recurrent NN is that delayed output of hidden layer $y_i$ is connected with the inputs of a hidden layer. A delay here is done by $u_i$ nodes from the hidden layer. The Elman network was used in \cite{berns1995neural}, the resilient back-propagation training algorithm was used and the system showed an ability to learn supervised trajectories and interpolate between them.
 					
-					\begin{figure}[h!]
+					\begin{figure}[H]
 						\vspace{-0.2cm}
 						\centering
 						\scalebox {0.7} {
@@ -428,13 +428,9 @@
 		\section{Hidden Markov Model Approach}
 			Learning by imitation is one of commonly used approaches for bipedal locomotion researches. Obviously, direct copying of movements of an operator is impossible due to different kinematic and dynamic characteristics. So, from the operator we can take only the pattern and then imitate it on the robot. Observing here is estimating the underlying state variables. It is based on the source system through the output data. For this task Hidden Markov Models (HMM) can be used \cite{inamura2004embodied}. 
 			
-			A recognition algorithm is used for identification of movement. If movement was not identified, it is added to the database as new. Hidden Markov model provides abstraction of the pattern which is used for motion synthesis.
+			A recognition algorithm is used for identification of movement. If movement was not identified, it is added to the database as new. Hidden Markov model provides abstraction of the pattern which is used for motion synthesis. Although typically used for imitation tasks, HMM have also been employed to detect problematic states.	HMM itself is a finite state automaton. It is defined by a set of states with initial and final states, transition probability matrix where element $a_{ij}$ is the probability of transition from state i to state j.
 			
-			Although typically used for imitation tasks, HMM have also been employed to detect problematic states.
-			
-			HMM itself is a finite state automaton. It is defined by a set of states with initial and final states, transition probability matrix where element $a_{ij}$ is the probability of transition from state i to state j.
-			
-			In a feedback system that defines a controller an error signal is the input. Controller basing on its input generates an output signal that is called the control signal. In order to obtain a finite set of decision patterns, it is necessary to divide the control space into a finite number of subspaces. According to  \cite{yang1994hidden}, the following steps are necessary to define an HMM-based controller:
+			 Controller basing on its input generates an output signal that is called the control signal. Input for controller is difference between reference signal and system output. In order to obtain a finite set of decision patterns, it is necessary to divide the control space into a finite number of subspaces. According to  \cite{yang1994hidden}, the following steps are necessary to define an HMM-based controller:
 			
 			\begin{enumerate}
 				\item
@@ -449,84 +445,95 @@
 					Collect a set of trained models.
 			\end{enumerate} 
 			
+			HMM are good for simple systems control, however it requires a lot of space and time for teaching the HMM controller to work with complex multi body systems.
+			
 		\section{Rule Based Approach}
-			After the identification of the current state we can find the next one using rule-based method. For bipedal robots fuzzy-logic systems were used in some researches \cite{park2003fuzzy}.  A fuzzy logic controller helps to deal with a bit of uncertainty in the environment. And it can be used to vary ZMP position in the support polygon \cite{park2003fuzzy}. For proper work it requires optimization of rules, that were basically chosen \cite{vundavilli2010dynamically}.
-			The main idea is to divide the set of all possible combinations of system parameters into the area and for each region of this area define the control function that can be used when system is identified to be in the corresponding state.
-		
+			After the identification of the current state we can find the next one using rule-based method. For bipedal robots fuzzy-logic systems were used in some researches \cite{park2003fuzzy}.  A fuzzy logic controller helps to deal with a bit of uncertainty in the environment. And it can be used to vary ZMP position in the support polygon \cite{park2003fuzzy}. For the work it requires optimization of rules, that were basically chosen \cite{vundavilli2010dynamically}.
+			The main idea is to divide the set of all possible system configurations into the clusters. For each cluster assign the control function. Hence during the work control function will be chosen according to the current robot configuration from the set of all possible control functions according to the current configuration.
+			Fuzzy logic controller is a  perspective approach for solving dynamical stability problem for bipedal robots because it divide all the configuration space into the subspaces. For each subspace control function is  defined in an optimal way.
 		
 	\chapter{Bipedal Locomotion Control}
-		According to the literature review there are a lot of different approaches for bipedal robot locomotion. In this work several of them would be combined.
-		We can define two support phases of walking: single support phase (during this phase only one foot is on the ground) and double support phase (two feet are on the ground simultaneously).
-		We can break bipedal locomotion into the following phases \cite{rostami1998impactless}:
+		According to the literature review there are a lot of different approaches for bipedal robot locomotion. In this work several of them were combined.
+		We define two support phases of walking: single support phase (during this phase only one foot is in contact with the ground) and double support phase (two feet are in the contact ground simultaneously).
 		
-		\begin{enumerate}
-			\item Initial contact
-			\item Loading Response
-			\item Mid Stance
-			\item Terminal Stance
-			\item Pre swing
-			\item Initial swing
-			\item Mid swing
-			\item Late swing			
-		\end{enumerate}
-		
-		One of the most simple models of human during single support phase is cart-table model. That is represented on \cref{fig:6}
-		
-		\begin{figure}[h!]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=0.7\textwidth]{6}}
-			\caption{Cart-table model \cite{kajita2003biped}}
-			\label{fig:6}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		When cart is far away from the Center of Mass (CoM) that is denoted as X, ZMP point that is denoted as P goes out of support area. When it happens the system becomes unstable.
-		The equation that describes this process was derived in \cite{kajita2003biped} and is represented bellow:
-		
-		\begin{equation}\label{eq:eqv1}
-			P = X -\dfrac{Z_c}{g} \ddot{X}
-		\end{equation}
-		
-		$Z_c$ here is the height of CoM of the cart, g is the gravitational acceleration and $\ddot{X}$ is the second time derivative.\\
-		In order to prevent system falling we want to control the cart in the way that maintains the trajectory of ZMP of the system inside the support polygon. We want this because as were stated in the literature survey when ZMP lies in the support polygon it maintains the dynamical stability of the system but when it leaves the region of support polygon we have a risk that the system will fall. So we can try to define the desired ZMP trajectory of the system. We can define two planes in which the robot can move. They are frontal and sagittal planes. Also there is a transverse plane but we now will consider movement only in frontal plane for simplicity. All the planes are represented on \cref{fig:7}. Desired trajectory for our system in frontal plane is provided on \ref{fig:8}.
-		
-		\begin{figure}[h!]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=0.4\textwidth]{7}}
-			\caption{Human planes [The American Heritage® Medical Dictionary]}
-			\label{fig:7}
-			\vspace{-0.1cm}
-		\end{figure}
-		\begin{figure}[h!]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=0.8\textwidth]{8}}
-			\caption{Desired ZMP trajectory шт frontal plane \cite{kajita2003biped}}
-			\label{fig:8}
-			\vspace{-0.1cm}
-		\end{figure}
-		It represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the end of the step. Here the amplitude of frictions is defined by parameters of robot (step width in frontal plane). Thus we can build the simple system represented on \cref{fig:9}. The input of this system is the reference trajectory of ZMP. Controller takes the error between reference ZMP trajectory and real measured ZMP trajectory as input and generates control signal that is applied to the cart. 
-		\begin{figure}[h!]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=0.7\textwidth]{9}}
-			\caption{PID regulated ZMP control \cite{kajita2003biped}}
-			\label{fig:9}
-			\vspace{-0.1cm}
-		\end{figure}
-		If the controller is PID (proportional integral derivative) the regulator maintains ZMP trajectory to be closed to the desired one. We can see that our real ZMP trajectory is late and so CoM trajectory is late too. The result of such control is represented on \cref{fig:10}.
-		\begin{figure}[h!]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=1\textwidth]{10}}
-			\caption{PID regulated ZMP trajectories. Due to fast change of desired trajectory in the moment of phase change real ZMP trajectory the fast risings.}
-			\label{fig:10}
-			\vspace{-0.1cm}
-		\end{figure}
-		Kajita et all in \cite{kajita2003biped} introduced a simple idea, to look forward to the desired ZMP. And try to predict what will happen before it happens. Hence the theory of optimal control comes into view and it will be described bellow how to make a predictive control system for such an unstable object as cart on the table model for example. Further in Chapter 4 such controller would be applied to the model of robot and in Chapter 5 the results will be evaluated.
-		
+		\section{Locomotion Phases}
+			We can break bipedal locomotion into the following phases \cite{rostami1998impactless}:
+			
+			\begin{enumerate}
+				\item Stance phase.\\
+					During this phase the load is on a bearing leg. It starts from the double support phase during weight acceptance. Than during single limb support phase only bearing leg is in the contact with the ground.
+				\item Swing phase.\\
+					During this phase there is limb advancement. It starts from double support phase and than finishes with single support phase.
+			\end{enumerate}
+			
+			This phases can be identified on (\cref{fig:26}).
+			 \begin{figure}[H]
+			 	\vspace{-0.2cm}
+			 	\centering
+			 	{\includegraphics[width=1\textwidth]{26}}
+			 	\caption{Human gait cycle \cite{gait}}
+			 	\label{fig:26}
+			 	\vspace{-0.1cm}
+			 \end{figure}
+			
+		\section{Human Locomotion Models}
+			One of the most simple models of human during single support phase is cart-table model, which is represented in \cref{fig:6}.
+			
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.7\textwidth]{6}}
+				\caption{Cart-table model \cite{kajita2003biped}. M is cart mass. $Z_c$ is the height of cart CoM. $\tau_{ZMP}$ is the moment around ZMP. x is the cart trajectory, $\ddot{x}$ is the cart acceleration}
+				\label{fig:6}
+				\vspace{-0.1cm}
+			\end{figure}
+			
+			When cart is far away from the Center of Mass (CoM), ZMP point goes out of support area shown in \cref{fig:6}. When it happens the system becomes unstable. The distance from zero point O to the center of table support polygon is denoted as X, the distance from zero to ZMP coordinate is denoted as P.
+			The equation that describes this process was derived in \cite{kajita2003biped} and is represented bellow:
+			
+			\begin{equation}\label{eq:eqv1}
+				P = x -\dfrac{Z_c}{g} \ddot{x}
+			\end{equation}
+			
+			where $Z_c$ is the height of CoM of the cart, g is the gravitational acceleration and $\ddot{X}$ is the second time derivative.\\
+			In order to prevent system falling we have to control the cart in the way that maintains the trajectory of ZMP of the system which guaranties that ZMP always stays inside the support polygon. When ZMP lies within the support polygon it maintains the dynamical stability of the system. When it leaves the region of support polygon we have a risk that the system can loose the stability and fall. Thus our target is to define the desired ZMP trajectory of the system. We define two planes in which the robot can move: frontal and sagittal planes. Also while there exists a transverse plane as well. We now consider only locomotion in frontal plane for simplicity. All the planes are represented in \cref{fig:7}. Desired trajectory for our system in frontal plane is provided in \cref{fig:8}.
+			
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.4\textwidth]{7}}
+				\caption{Human planes \cite{medical}}
+				\label{fig:7}
+				\vspace{-0.1cm}
+			\end{figure}
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.8\textwidth]{8}}
+				\caption{Desired ZMP trajectory in frontal plane \cite{kajita2003biped}. ZMP reference is the desired ZMP trajectory. ZMP is measured from zero in frontal plane.}
+				\label{fig:8}
+				\vspace{-0.1cm}
+			\end{figure}
+			Desired trajectory represents the movement of ZMP from the region of standing foot to the region of swinging foot in the moment of the step completing. Here the amplitude of frictions is defined by parameters of robot (step width in frontal plane). Thus we can build a simple control system represented in \cref{fig:9}. The input of this system is the reference trajectory of ZMP. Controller takes the error between reference ZMP trajectory and real measured ZMP trajectory as an input and generates control signal that is applied to the cart. 
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.7\textwidth]{9}}
+				\caption{PID regulated ZMP control \cite{kajita2003biped}}
+				\label{fig:9}
+				\vspace{-0.1cm}
+			\end{figure}
+			If the controller is PID (proportional integral derivative) the regulator which maintains ZMP trajectory close to the desired one. We can see in in \cref{fig:10} that our real ZMP trajectory follow the desired trajectory with the late. The result of such control is represented in \cref{fig:10}.
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=1\textwidth]{10}}
+				\caption{PID regulated ZMP trajectories. Due to fast change of desired trajectory in the moment of phase change real ZMP trajectory the fast risings.}
+				\label{fig:10}
+				\vspace{-0.1cm}
+			\end{figure}
+			Kajita et all in \cite{kajita2003biped} introduced a simple idea, to look forward to the desired ZMP. And try to predict what will happen before it happens. Hence the theory of optimal control comes into view and it will be described bellow how to make a predictive control system for such an unstable object as cart on the table model for example. Further in Chapter 4 such controller would be applied to the model of robot and in Chapter 5 the results will be evaluated.
+			
 		\section{Optimal Control}
 			According to \cite{hazell2008discrete} it is necessary to introduce a discrete-time state-space model. \ref{eq:oc1} introduces this model. It represents a dependency between the next state and current state of variables.
 			
@@ -569,7 +576,7 @@
 			
 			Here $z = G\omega$, $\omega$ is assumed to be a realization of a unit power, Gaussian, white-noise process and z is the real values vector of input. Hence $H_\infty$ defines the maximum possible gain in power from input ot output.
 			
-			\begin{figure}[h!]
+			\begin{figure}[H]
 				\vspace{-0.2cm}
 				\centering
 				{\includegraphics[width=0.5\textwidth]{11}}
@@ -622,7 +629,7 @@
 			
 			This theorem was proven in \cite{katayama1985design}. And Kajita et al. in \cite{kajita2003biped} proved that the necessary prediction for the system is 1.6 seconds due to the dependency law on this parameter that is shown on \cref{fig:12} 
 			
-			\begin{figure}[h!]
+			\begin{figure}[H]
 				\vspace{-0.2cm}
 				\centering
 				{\includegraphics[width=0.7\textwidth]{12}}
@@ -635,7 +642,7 @@
 	\chapter{Implementation}
 		The modeling of real-world objects is a very difficult task. It takes into account physical lows, gravity and frictions. Simulation environment for this thesis is Simulink.  Simulink is a framework in matlab environment. It provides primitives that can be used for real world models building. Also it provides the interface for high-level frameworks, that realizes high-level primitives for modeling. SimMechanics is one of packages in Simulink. It contains the blocks for mechanical modeling of multi body systems.  Robots are multi body systems and hence SimMechanics is a suitable choice for the environment.  
 		Initially the cart table model was developed. The design is represented on \cref{fig:13}
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{13}}
@@ -646,7 +653,7 @@
 		
 		Further it will be represented as a block on \cref{fig:14}.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.2\textwidth]{14}}
@@ -657,7 +664,7 @@
 		
 		This system is controlled by second time derivative that represents speed. To have the initial control model Proportional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is on \cref{fig:15}.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{15}}
@@ -668,7 +675,7 @@
 		
 		The regulator itself looks as on \cref{fig:16}.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{16}}
@@ -679,7 +686,7 @@
 		
 		The results of such control are represented on \cref{fig:17}.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{17}}
@@ -692,7 +699,7 @@
 		
 		After that the preview control with 1.6 second prediction was applied. The model of preview controller  is represented on \cref{fig:18}.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{18}}
@@ -703,7 +710,7 @@
 		
 		The control signal for preview controller is the third time derivative of trajectory and due to this fact a transition block between controller and cart-table model should be provided. This block is an integrator because integration of control signal gives us exactly the second time derivative (acceleration). Preview control of cart table model is represented on \cref{fig:20}
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=1\textwidth]{20}}
@@ -714,7 +721,7 @@
 		
 		The results of this controller are represented on \cref{fig:19} and are much better : we can see no late response and no overshooting in ZMP trajectory. Thus the system become much more stable than in the PID case. 
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
  			{\includegraphics[width=1\textwidth]{19}}
@@ -737,7 +744,7 @@
 		
 		Where $X_{CoG}$, $Y_{CoG}$, $\dot{X}_{CoG}$ and $\dot{Y}_{CoG}$ are X coordinate, Y coordinate, X velocity and Y velocity of Center of Gravity (CoG) respectively. Parameters $\alpha$ and $\beta$ defines robot configuration and the optimal values for model on \cref{fig:21} are 0.65 and 0.45 respectively.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{21}}
@@ -756,19 +763,19 @@
 		
 		The trajectory of CoM in frontal plane of this analytical solution is represented on \cref{fig:24}.
 		
-			\begin{figure}[h!]
-				\vspace{-0.2cm}
-				\centering
-				{\includegraphics[width=0.7\textwidth]{24}}
-				\caption{Analytically synthesized CoM trajectory.}
-				\label{fig:24}
-				\vspace{-0.1cm}
-			\end{figure}
+		\begin{figure}[H]
+			\vspace{-0.2cm}
+			\centering
+			{\includegraphics[width=0.7\textwidth]{24}}
+			\caption{Analytically synthesized CoM trajectory.}
+			\label{fig:24}
+			\vspace{-0.1cm}
+		\end{figure}
 		
 		A direct application of preview controller shows perfect results which are represented on \cref{fig:25}. However these results cannot be used on practice because motors cannot work with given acceleration. Thus the preview controller was restricted with some values, that represents maximum motors acceleration.
 		Considering the preview control application for CoM trajectory generation in frontal plane it is necessary to mention that some related works, for example \cite{choi2006fuzzy} consider control signal not in the form of \ref{eq:pc1} but in the form of \ref{eq:pc4}.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\vspace{-0.2cm}
 			\centering
 			{\includegraphics[width=0.7\textwidth]{25}}
@@ -783,7 +790,7 @@
 		
 		 There is motivation for this form mentioned in articles, but it is obvious that for small disturbances integrated error and current error are small and close to zero. Preview controllers of two forms \ref{eq:pc1} and \ref{eq:pc4} were applied with restrictions to the robot model to generate CoM trajectory in frontal plane. Results are provided bellow.
 		 
-	 	\begin{figure}[h!]
+	 	\begin{figure}[H]
 	 		\vspace{-0.2cm}
 	 		\centering
 	 		{\includegraphics[width=0.7\textwidth]{22}}
@@ -791,7 +798,7 @@
 	 		\label{fig:22}
 	 		\vspace{-0.1cm}
 	 	\end{figure}
-	 	\begin{figure}[h!]
+	 	\begin{figure}[H]
 	 		\vspace{-0.2cm}
 	 		\centering
 	 		{\includegraphics[width=0.7\textwidth]{23}}
