@@ -595,7 +595,7 @@
 			
 			is known as Discrete Algebraic Riccati Equation (DARE). Here $\bar{R} = R + B^{T}XB$ and $\bar{L} = L + B^{T}XA$. The solution of this equation derived in \cite{hazell2008discrete}. Also we can write DARE in a short form: $X = D(A,B,Q,R,L;X)$ and $D(A,B,Q,R,L;X) = A^{T} XA + Q -  \bar{L}^{T} \bar{R}^{-1} \bar{L}$.
 		
-		\subsection{Preview Control} 
+		\section{Preview Control} 
 			Katayama et al. in \cite{katayama1985design} introduced a new method of control for general regulators with preview control. The key idea was to look forward for N discrete steps and predict the desirable value of controlled signal. The form of the control signal was derived as a theorem in \cite{katayama1985design}. The theorem says that the optimal control signal have the form of:
 			
 			\begin{equation}\label{eq:pc1}
@@ -635,104 +635,108 @@
 			
 			For the moment we have everything to design control system for the model of bipedal robot.
 	\chapter{Implementation}
-		The modeling of real-world objects is a very difficult task. It takes into account physical lows, gravity and frictions. Simulation environment for this thesis is Simulink.  Simulink is a framework in matlab environment. It provides primitives that can be used for real world models building. Also it provides the interface for high-level frameworks, that realizes high-level primitives for modeling. SimMechanics is one of packages in Simulink. It contains the blocks for mechanical modeling of multi body systems.  Robots are multi body systems and hence SimMechanics is a suitable choice for the environment.  
-		Initially the cart table model was developed. The design is represented in \cref{fig:13}
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=1\textwidth]{13}}
-			\caption{Cart-table model. Xddot is acceleration, Xdot is velocity, X is trajectory of cart CoM. Y\_CoM is the height of cart CoM. P is computed ZMP position.}
-			\label{fig:13}
-			\vspace{-0.1cm}
-		\end{figure}
+		The modeling of real-world objects is a very difficult task. It takes into account physical lows, gravity and frictions. Simulation environment for this thesis is Simulink.  Simulink is a framework in matlab environment. It provides primitives that can be used for real world models building. Also it provides the interface for high-level frameworks, that realizes high-level primitives for modeling. SimMechanics is one of packages in Simulink. It contains the blocks for mechanical modeling of multi body systems.  Robots are multi body systems and hence SimMechanics is a suitable choice for the environment.
 		
-		Further it will be represented as a block on \cref{fig:14}.
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=0.2\textwidth]{14}}
-			\caption{Cart-table model block. Xddot is input second time derivative (velocity of CoM). Y\_COM is the height of CoM that can deviate and thus cannot be constant. P is measured ZMP.}
-			\label{fig:14}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		This system is controlled by the second time derivative that represents speed. For the initial control model Proportional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is shown in \cref{fig:15}.
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=1\textwidth]{15}}
-			\caption{PID regulated cart-table. X is trajectory of CoM. Desired ZMP is reference signal of ZMP. P is real computed ZMP.}
-			\label{fig:15}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		The regulator itself looks as on \cref{fig:16}.
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=0.7\textwidth]{16}}
-			\caption{PID controller. P error is the error between reference ZMP and measured ZMP. Control is velocity of cart table model that is necessary to compensate the error between desired ZMP and measured ZMP.}
-			\label{fig:16}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		The results of such control are represented on \cref{fig:17}.
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=1\textwidth]{17}}
-			\caption{PID regulator control results.}
-			\label{fig:17}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		We can see that the actual ZMP trajectory lates and due to this fact the CoM trajectory reaches the bound of support polygon and thus it makes the system unstable.
-		
-		After that the preview control with 1.6 second prediction was applied. The model of preview controller  is represented on \cref{fig:18}.
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=1\textwidth]{18}}
-			\caption{Preview controller design. Here X is input of current CoM trajectory, p error is error between reference ZMP and measured ZMP, weighted feature is function that computes weighted sum of 10000 next time samples of desired ZMP. Control is controll signal that represents the third time derivative of trajectory of cart.}
-			\label{fig:18}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		The control signal for preview controller is the third time derivative of trajectory and due to this fact a transition block between controller and cart-table model should be provided. This block is an integrator because integration of control signal gives us exactly the second time derivative (acceleration). Preview control of cart table model is represented on \cref{fig:20}
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
-			{\includegraphics[width=1\textwidth]{20}}
-			\caption{Preview control of cart table model.}
-			\label{fig:20}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		The results of this controller are represented on \cref{fig:19} and are much better : we can see no late response and no overshooting in ZMP trajectory. Thus the system become much more stable than in the PID case. 
-		
-		\begin{figure}[H]
-			\vspace{-0.2cm}
-			\centering
- 			{\includegraphics[width=1\textwidth]{19}}
-			\caption{Preview controller model}
-			\label{fig:19}
-			\vspace{-0.1cm}
-		\end{figure}
-		
-		This developed controller should be applied to the model of robot. Initialy we will consider the simple model of robot. The experiment is described in Chapter 5.
-		
+		\section{Cart Table Model}
+			Initially the cart table model was developed. The design is represented in \cref{fig:13}
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=1\textwidth]{13}}
+				\caption{Cart-table model. Xddot is acceleration, Xdot is velocity, X is trajectory of cart CoM. Y\_CoM is the height of cart CoM. P is computed ZMP position.}
+				\label{fig:13}
+				\vspace{-0.1cm}
+			\end{figure}
+			
+			Further it will be represented as a block on \cref{fig:14}.
+			
+			\begin{figure}[H]
+				\vspace{-0.2cm}
+				\centering
+				{\includegraphics[width=0.2\textwidth]{14}}
+				\caption{Cart-table model block. Xddot is second time derivative of the input (velocity of CoM). Y\_COM is the height of CoM that can deviate and thus cannot be constant. P is a computed cart's ZMP trajectory.}
+				\label{fig:14}
+				\vspace{-0.1cm}
+			\end{figure}
+			
+			\subsection{PID Controller}
+				This system is controlled by the second time derivative that represents speed. For the initial control model Proportional Integral Derivative (PID) regulator was applied. The system of PID regulated cart-table model is shown in \cref{fig:15}.
+				
+				\begin{figure}[H]
+					\vspace{-0.2cm}
+					\centering
+					{\includegraphics[width=1\textwidth]{15}}
+					\caption{PID regulated cart-table. X is trajectory of CoM. Desired ZMP is reference ZMP trajectory. P is real measured ZMP trajectory. Xdot is a velocity, X is trajectory of a cart. Sine wave with low amplitude was used for modeling cart CoM height}
+					\label{fig:15}
+					\vspace{-0.1cm}
+				\end{figure}
+				
+				The regulator is demonstrated in \cref{fig:16}.
+				
+				\begin{figure}[H]
+					\vspace{-0.2cm}
+					\centering
+					{\includegraphics[width=0.7\textwidth]{16}}
+					\caption{PID controller. P error is the error between reference ZMP and measured ZMP. Control is velocity of cart table model that is necessary to compensate the error between desired ZMP and measured ZMP.}
+					\label{fig:16}
+					\vspace{-0.1cm}
+				\end{figure}
+				
+				The results of such control are represented on \cref{fig:17}.
+				
+				\begin{figure}[H]
+					\vspace{-0.2cm}
+					\centering
+					{\includegraphics[width=1\textwidth]{17}}
+					\caption{PID regulator control results. Desired ZMP is yellow and it is a reference signal for ZMP. Cart ZMP is violet and it represents measured value of cart ZMP. CoM trajectory is blue. Over control is observed because of PID transfer function impacts system stability.}
+					\label{fig:17}
+					\vspace{-0.1cm}
+				\end{figure}
+				
+				We can see that the actual ZMP trajectory lates and due to this fact the CoM trajectory reaches the bound of support polygon and thus it makes the system unstable.
+			
+			\subsection{Preview Controller}
+				After that the preview control with 1.6 second prediction was applied. The model of preview controller  is represented in \cref{fig:18}.
+				
+				\begin{figure}[H]
+					\vspace{-0.2cm}
+					\centering
+					{\includegraphics[width=1\textwidth]{18}}
+					\caption{Preview controller design. Here X is input of cart current CoM trajectory, p error is an error between the reference ZMP and the measured ZMP, weighted future is function that computes weighted sum of 16000 next time samples of desired ZMP. Control is a control signal that represents the third time derivative of the cart trajectory. Kvel, Kaccel and Kx are $G_x$ components from eq. (\ref{eq:pc1}). Digital clock element is necessary for addressing future values of ZMP reference signal.}
+					\label{fig:18}
+					\vspace{-0.1cm}
+				\end{figure}
+				
+				The control signal for preview controller is the third time derivative of trajectory and due to this fact a transition block between controller and cart-table model should be provided. This block is an integrator because integration of control signal gives us exactly the second time derivative (acceleration). Preview control of cart table model is represented in \cref{fig:20}
+				
+				\begin{figure}[H]
+					\vspace{-0.2cm}
+					\centering
+					{\includegraphics[width=1\textwidth]{20}}
+					\caption{Preview control of cart table model.}
+					\label{fig:20}
+					\vspace{-0.1cm}
+				\end{figure}
+				
+				The results of this controller are represented on \cref{fig:19} and are much better : we can see no late response and no overshooting in ZMP trajectory. Thus the system becomes significantly more stable than in the PID controller case. 
+				
+				\begin{figure}[H]
+					\vspace{-0.2cm}
+					\centering
+		 			{\includegraphics[width=1\textwidth]{19}}
+					\caption{Preview controller of cart table model results. Desired ZMP trajectory is yellow and it is not visible due to the fact that actual cart ZMP trajectory that is violet follows ZMP reference signal very well with very little overshoot. Cart CoM trajectory is blue colored.}
+					\label{fig:19}
+					\vspace{-0.1cm}
+				\end{figure}
+				
+				This developed controller should be applied to the model of robot. Initialy we will consider the simple model of robot. The experiment is described in Chapter 5.
+		\section{Simple Bipedal Robot Model}		
 	\chapter{Evaluation}
-		After tuning of preview controller parameters (N samples look ahead) a simple model of bipedal robot with 12 Degrees of Freedom (DoF) was built. The model is represented on \cref{fig:21}. In \cite{ha2007effective} a simplification of bipedal model was introduced. According to this simplification we can write ZMP equation in the form of \ref{eq:CoG1}.
+		After tuning of preview controller parameters (N samples look ahead) a simple model of a bipedal robot with 12 Degrees of Freedom (DoF) was built. The model is represented on \cref{fig:21}. According to simplification we can write ZMP equation in the following way \cite{ha2007effective}: 
 		
 		\begin{equation}\label{eq:CoG1}
 			\begin{split}
-				X_{CoG}(t) = X_{CoG}(0) cosh(\sqrt{\dfrac{g}{\alpha Z_{CoG}} t}) + \sqrt{\dfrac{\alpha Z_{CoG}}{g}} \dot{X}_{CoG}(0) sinh(\sqrt{\dfrac{g}{\alpha Z_{CoG}} t})\\
+				X_{CoG}(t) = X_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\alpha Z_{CoG}} t} \right) + \sqrt{\dfrac{\alpha Z_{CoG}}{g}} \dot{X}_{CoG}(0) sinh\left(\sqrt{\dfrac{g}{\alpha Z_{CoG}} t}\right)\\
 				Y_{CoG}(t) = Y_{CoG}(0) cosh(\sqrt{\dfrac{g}{\beta Z_{CoG}} t}) + \sqrt{\dfrac{\beta Z_{CoG}}{g}} \dot{Y}_{CoG}(0) sinh(\sqrt{\dfrac{g}{\beta Z_{CoG}} t})
 			\end{split}
 		\end{equation}
