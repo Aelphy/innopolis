@@ -38,7 +38,7 @@
 	
 		The word robot was initially attributed in 1921 to fictional humanoid by Karel Capaek. Also the first use of the word "robot" refers to a humanoid machine that was supposed to serve a human. It was a common belief before the advent of industrial robots that robots should look like humans. However, from the very beginning almost every automatic device intended for production and other operations normally performed by a human was called robot. Intensive development of robots started after the Second World War, which was associated with the emergence of the nuclear industry.
 		
-		The science studying robots is called robotics. Robotics considers hardware agents that are called robots. 		Nowadays almost every professor teaching robotics can give his own definition of robots and all of them will not be similar. One of robot today's definition is autonomous device that work in automatic mode. It can be attributed to the machine "Lunokhod-1", created in 1966. It was the first machine in the history that worked on the surface of the Moon (1970). Another modern definition is a mechanical or virtual artificial agent, usually an electro-mechanical machine that is guided by a computer program or electronic circuitry. This agents operates in the environment that is called workspace. According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of the environment where a robot works, because robots will interact with this environment. We can distinguish robots by their reachable workspace. From this point of view we can distinguish mobile robots whose reachable workspace is not constant and also is usually partially observable. On the other hand there are static robots, that can interact with environment only with end-effectors. They usually have fixed and usually fully observable workspace. 
+		The science studying robots is called robotics. Robotics considers hardware agents that are called robots. 		Nowadays almost every professor teaching robotics can give his own definition of robots and all of them will not be similar. One of robot today's definition is autonomous device that work in automatic mode. It can be attributed to the machine "Lunokhod-1", created in 1966. It was the first machine in the history that worked on the surface of the Moon (1970). Another modern definition is a mechanical or virtual artificial agent, usually an electro-mechanical machine that is guided by a computer program or electronic circuitry. This agents operates in the environment that is called workspace. According to \cite{pfeifer2007self} it is very important to consider the level of uncertainty of the environment where a robot works, because robots will interact with this environment. We can distinguish robots by their reachable workspace. From this point of view we can distinguish mobile robots whose reachable workspace is not constant and also is usually partially observable. On the other hand there are static robots, that can interact with environment only with end-effectors. They have fixed and usually fully observable workspace. 
 		
 		Constantly emerging information about the achievements of the leading countries in the development of military land, underwater robots and unmanned aerial vehicles supports for this thesis. Despite of high price robotic products become a part of our usual life, e.g. automatic vacuum cleaners, robotic toys, smart houses, etc.
 		There is a tendency that robots become cheaper with constantly increasing abilities. It means that in not very far future very smart robots will become affordable for our usual life. Lately robots began to replace humans not only in manufacturing but also in the military sphere.
@@ -79,7 +79,7 @@
 			\item Rule based approach.\\ The main idea behind this approach is to create rules for all possible configurations of anthropomorphic robot. The configuration here is referred as to combination of robot parameters (joints angle configuration and for example the position of ZMP or another stability criterias). Hence the configuration is a vector, that fully defines the robot in the given time frame with predefined level of accuracy.
 		\end{enumerate}
 
-		\section{Analytical approach}
+		\section{Analytical Approach}
 			This approach is the oldest one. Furthermore analytical approach is most studied between all the approaches for bipedal robots dynamical stability problem. It requires the knowledge of general form that locomotion should take.
 
 		For bipedal locomotion it's required to accomplish the following steps \cite{wright2014intelligent}:
@@ -126,34 +126,36 @@
 			\vspace{-0.1cm}
 		\end{figure}
 
-		According to \cite{kajita2003biped}, this ZMP should be on the foot. The problem is that we cannot manipulate the foot directly \cite{mitobe2000control}. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction (conditions from the paragraph above didn't hold thus R and $M_z$ didn't compensate correspondent components of $F_a$ and $M_a$) than the foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment that will affect the robot. On the other hand, in \cite{sardain2004forces} it was proven that if ZMP was achieved in the polygon of foot and moreover it coincides with the contact point, then robot is stable, due to the fact, that all the resulting forces lies in vertical direction. During the walk the position of ZMP should be computed continuously and the main problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.
+		 ZMP should lie in the foot plane in order robot to be stable \cite{kajita2003biped}. The problem is that we cannot manipulate the foot directly \cite{mitobe2000control}. According to \cite{vukobratovic2004zero} we can do it by ensuring the appropriate dynamics of the mechanism above the foot. If the resulting force in ZMP lies not in vertical direction (above mentioned conditions don't hold and thus R and $M_z$ didn't compensate correspondent components of $F_a$ and $M_a$) than the foot will slide. It means that dynamical stability was not achieved due to the fact, that there is a rotational moment which affects the robot. On the other hand, in \cite{sardain2004forces} it was proven that if ZMP lies in the foot area (that is usually called the support polygon) and moreover it coincides with the contact point with point P (see \cref{fig:1}), then the robot is stable, due to the fact, that all the resulting forces lie in the vertical direction. During the walk the position of ZMP should be computed continuously and the main problem of control is to keep ZMP and contact point to be coincided inside the support polygon of contact foot with the ground.
 		The name zero moment point relates to the fact, that dynamical stability is maintained if horizontal components $M_x$ and $M_y$ are both equal to zero.
 	
 		\begin{equation}\label{eq:ZMP1}
 			M_x = M_y = 0
 		\end{equation}
 
-		In the point P there should exist such equivalent force R and vertical moment $M_z$ that compensate the force reaction of the ground and maintain the stability of the construction. If we want to achieve the dynamical stability the following equation holds:
+		In the point P there should exist such equivalent force R and vertical moment $M_z$ that compensate the force reaction of the ground and maintain the stability of the construction. To achieve the dynamical stability the following equation should hold:
 
 		\begin{equation}\label{eq:ZMP2}
 			R + F_a + mg = 0
 		\end{equation}
 
-		Where $m$ is a mass of the foot. O is defined In \cite{vukobratovic2004zero} as the origin coordinates frame from which we can define radius vectors $\vec{OP}$, $\vec{OG}$ and $\vec{OA}$ where A is a point of ankle joint.
+		Where $m$ is a mass of the foot and g is a gravitational acceleration. O is defined In \cite{vukobratovic2004zero} as the origin coordinates frame we can define radius vectors $\vec{OP}$, $\vec{OG}$ and $\vec{OA}$ where A is a point of ankle joint.
 
 		\begin{equation}\label{eq:ZMP3}
 			\vec{OP} \times \vec{R} + \vec{OG} \times mg + M_A + M_z + \vec{OA} \times F_a = 0
 		\end{equation}
 
-		Placing the origin frame into the point P and making a projection on the horizontal plane gives us the following equations: 
+		Placing the origin frame at point P and making a projection on the horizontal plane gives us the following equations: 
 
 		\begin{equation}\label{eq:ZMP4}
 			(\vec{OP} \times \vec{R})^H + \vec{OG} \times mg + M_A^H + (\vec{OA} \times F_a)^H = 0
 		\end{equation}
-
-		According to \cite{vukobratovic2004zero} equation \ref{eq:ZMP4} represents the foot equilibrium. However it doesn't solve the problem, because it is still unknown whether for the given motion of mechanism it is in the equilibrium. It is only if ZMP lies inside the support polygon.
 		
-		In \cite{dekker2009zero} it was stated, that we have to make the following assumptions in order to compute the position of ZMP:
+		Where H denotes horizontal component.\\
+		
+		Equation \ref{eq:ZMP4} represents the foot equilibrium \cite{vukobratovic2004zero}. However it doesn't solve the problem, because it is still unknown whether for the given motion of mechanism it (mechanism) is kept in the equilibrium. It is only if ZMP lies inside the support polygon.
+		
+		Thus, we have to make the following assumptions in order to compute the position of ZMP \cite{dekker2009zero}:
 
 		\begin{enumerate}
 			\item
@@ -163,7 +165,7 @@
 			\item
 				The floor is rigid and motionless.
 			\item
-				The feet cannot slide over the floor surface.
+				The feet cannot slide with regard to the floor surface.
 			\item
 				All joints are actively actuated.
 		\end{enumerate}
@@ -174,7 +176,7 @@
 			m_{robot} = \sum^n_{i=1}{m_i}
 		\end{equation}
 
-		Schematic bipedal robot was considered in \cite{dekker2009zero} in order to derive the coordinates of ZMP (Fig. 3).
+		Schematic bipedal robot with math m was considered in \cite{dekker2009zero} in order to derive the coordinates of ZMP (\cref{fig:3}).
 
 		\begin{figure}[h!]
 			\vspace{-0.2cm}
@@ -185,7 +187,7 @@
 			\vspace{-0.1cm}
 		\end{figure}
 
-		Here $p_i$ are the distances between base frame and equivalent center of mass of i-link. From this total linear momentum P is:
+		$p_i$ are the distances between base frame and equivalent center of mass of i-link (see \cref{fig:3}). Then total linear momentum P given that $\dot{p_i}$ is $p_i$ velocity can be described by \ref{eq:ZMP6}.
 	
 		\begin{equation} \label{eq:ZMP6}
 			P = \sum^n_{i=1}{m_i \dot{p_i}}
@@ -195,13 +197,13 @@
 			H = \sum^n_{i=1}{\dot{p_i} \times m_i \dot{p_i} + I_i \omega_i}
 		\end{equation}
 
-		Where $\omega_i$ is an angular velocity and $I_i$ is inertia tensor that is computed as:
+		where $\omega_i$ is an angular velocity and $I_i$ is inertia tensor of link i which is computed as:
 		\begin{equation} \label{eq:ZMP8}
 			I_i = R_i I_i^{\prime} R_i^T
 		\end{equation}
-		Here $R_i$ is a rotation matrix from i-link w.r.t. the origin base frame and $I_i^{\prime}$ is a inertia matrix of i-link w.r.t. the link frame origin attached to their links.
+		where $R_i$ is a rotation matrix that maps i-link coordinate frame w.r.t. the origin base frame, $R_i^T$ is transposed R and $I_i^{\prime}$ is a inertia matrix of i-link w.r.t. the link frame origin attached to their links.
 
-		Taking the derivative of \ref{eq:ZMP6} and \ref{eq:ZMP7} we get:
+		Taking the derivative of \ref{eq:ZMP6} and \ref{eq:ZMP7}:
 		\begin{equation} \label{eq:ZMP9}
 			\dot{P} = \sum^n_{i=1}{m_i \ddot{p_i}}
 		\end{equation}
@@ -209,17 +211,20 @@
 			\dot{H} = \sum^n_{i=1}{\ddot{p_i} \times m_i \dot{p_i} + \dot{p_i} \times m_i \ddot{p_i} + I_i \dot{\omega_i}} + \omega_i \times I_i \omega_i
 		\end{equation}
 
-		In \cite{manchester2011stable} it was mentioned that ZMP approach gives us the solution that is based on the principle of dynamical stability, however it is not energy efficient. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{collins2001three} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
-		It was mentioned earlier that active control of the robot should be performed with applying dynamical stability principle, otherwise the robot will loose the balance and fall. So, it makes sense to apply passive-walker dynamics with ZMP based control. According to \cite{vukobratovic2004zero} ZMP method is the most well known and so it is reasonable to start with it. \\
-		According to \cite{vukobratovic2004zero} the most important task in the bipedal locomotion is to maintain dynamical stability. It can be accomplished if the foot have a full contact with the ground, it means, that the contact is not only on the edge or at the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment there. So, during the motion the position of ZMP changes and there are situations when ZMP reaches the edge of support polygon. In these situations if additional moments appear, robot will rotate around foot edge and collapse. \cite{vukobratovic2004zero} suggests a way to measure the load on the sole via force sensors on it. The algorithm of ZMP control is quite straightforward. Compute desired ZMP coordinates, measure the error and apply correcting signal. A very important notion is about Center of Pressure (CoP). According to \cite{vukobratovic2004zero} the pressure between foot and the ground can be replaced with the force applied in CoP. With this we can define stability condition as ZMP and CoP coincident. Usually ZMP is required to be under the center of the foot during the single support phase, transitioning to the other foot in the double support phase.\\
+		where dots represents time derivatives.\\
+		
+		ZMP approach gives us the solution that is based on the principle of dynamical stability, however it is not energy efficient \cite{manchester2011stable}. It requires simultaneous control over all the joints of the robot. The method that was described in \cite{collins2001three} is called passive-walker dynamics and it uses gravity forces to reduce the amount of necessary energy to control the robot.\\
+		
+		In order not to loose the balance and not to fall active control of the robot should be performed with applying dynamical stability principle. So, it makes sense to apply passive-walker dynamics with ZMP based control.\\
+		
+		The most important task in the bipedal locomotion is to maintain dynamical stability \cite{vukobratovic2004zero}. It can be accomplished if the foot have a full contact with the ground, i.e. the contact is not only on the edge or at the point. Moreover it shows that ZMP position depends on the robot dynamics: the resulting force in the contact polygon and total moment in ZMP. So, during the motion the position of ZMP changes and there are situations when ZMP reaches the edge of a support polygon. In these situations if additional moments appear, robot will rotate around foot edge and will lose the stability. A way to measure the load on the sole is to analyze force sensors on it \cite{vukobratovic2004zero}. The algorithm of ZMP control is quite straightforward. Compute desired ZMP coordinates, measure the error between current ZMP position and reference ZMP value, apply correcting signal. A very important notion is Center of Pressure (CoP). As the pressure between foot and the ground can be replaced with the force applied in CoP \cite{vukobratovic2004zero}. With this we can define stability condition as ZMP and CoP coincidence. Usually ZMP is required to be under the center of the foot during a single support phase and moves to the other foot in the double support phase.\\
 		ASIMO - a bipedal robot of Honda company, was build on top of this theory and the history of its evolution is described in \cite{hirai1998development}. Nowadays ASIMO is one of the most developed robots, it can interact with humans and perform different task  from playing footboll to stair climbing.\\ 
-		A new approach to solve ZMP control problem was proposed in \cite{kim2012zmp}. Neural network trained with back propagation method was used to control the position of the robot. It was given the errors between ZMP position and CoP.
-		In \cite{goswami1999postural} the problem of foot rotation was formulated. The author introduced the Foot-Rotation Indicator (FRI) the point, that can leave the support polygon. It describes the impeding rotation. When FRI lies outside the support polygon it means that there is rotational moment. In order to control instability of the gait acting on the foot is necessary to compensate this rotation.
+		In \cite{goswami1999postural} the problem of foot rotation was formulated. The author introduced the Foot-Rotation Indicator (FRI). FRI is the point, that can leave the support polygon. It describes the impeding rotation. When FRI lies outside the support polygon it means that there is rotational moment. In order to control instability of the gait acting on the foot is necessary to compensate this rotation.
 
-	\section{Central Pattern Generator}
-
+	\section{Central Pattern Generator Approach}
+		During the grows humans train the mechanism that can solve some simple problems without mental activities. This mechanism applies trained pattern to the problem. The name of this mechanism is reflex.
 		An experiment conducted in \cite{grillner1975locomotion} shows that reflexes are significant for locomotion. During human brain reverse engineering a neural network that controls locomotion was found. It was situated in spinal regions which is the reason to name this network Central Pattern Generator (CPG).
-		Another definition of CPG can be found in \cite{lee2007construction}: CPG is a rhythm generating network in the nervous system which creates and controls the rhythmic motor patterns of animal motions. CPG approach for gait generation was considered in \cite{miyakoshi1998three}. Neural oscillator was used for generation of motions for bipedal robot. And it can be described as a neural network, that produces rhythmic pattern outputs without the need for patterned input \cite{wright2014intelligent}. CPG is a group of oscillating neurons with some phase between them which results in rhythmic body motion. The pattern is generated not only by the internal neural system but also by the external sensor information \cite{miyakoshi1998three}. The key element in CPG is an adaptive neural element that can be described by a pair of first order differential equations. Each pair of the following equations form an adaptive neuron.
+		Another definition of CPG can be found in \cite{lee2007construction}: CPG is a rhythm generating network in the nervous system which creates and controls the rhythmic motor patterns of animal motions. CPG approach for gait generation was considered in \cite{miyakoshi1998three}. Neural oscillator was used for generation of motions for bipedal robot. Moreover it can be described as a neural network produces rhythmic pattern outputs without the need for patterned input \cite{wright2014intelligent}. CPG is a group of oscillating neurons with some phase between them which results into rhythmic body motion. The pattern is generated not only by the internal neural system but also by the external sensor information, e.g. info from sonar or camera \cite{miyakoshi1998three}. The key element in CPG is an adaptive neural element that can be described by a pair of first order differential equations. Each pair of the following equations forms an adaptive neuron.
 
 		\begin{equation}\label{eq:CPG1}
 			\tau_1 \dot{x}_1 = -x_1 - \beta f(\nu_1) -  \gamma f(x_2) + u_0 + u_{f_1}
@@ -234,43 +239,49 @@
 			\tau_2 \dot{\nu}_2 = -\nu_2  + f(x_2)
 		\end{equation}
 
-		Here $x_1$  is initial state of neuron, fired by the constant input $u_0$. When firing reaches some threshold, the neuron goes to state $\nu_1$ through equation \ref{eq:CPG2}. When it exceeds some threshold it starts to return to the state $x_1$ through the \ref{eq:CPG1} equation by the factor $\beta$. Thus $x_1$, $x_2$, $\nu_1$ and $\nu_2$ are state variables. $\beta$ represents the rate of adaptations, $u_{f_1}$ and $u_{f_2}$ are the feedback inputs mainly from sensors, $\gamma$ is the coefficient between state variables and f(x) is a threshold function. Such element works the following way: when it takes constant input it reacts, then adapts and stop reacting, generating oscillations. \\ Human like gait was achieved by a robot with small Degree of Freedom (DoF) in \cite{miyakoshi1998three}. The idea of this oscillator was to build a robust system that performs simple control with minimum structure of neural architecture that can be interesting for high DoF robot.\\
-		A detailed examination of a biological CPG from an engineering perspective was conducted in \cite{zhu2006central} but, for most applications, the neuron pair is approximated with a pair of differential equations \cite{wright2014intelligent}.
+		where $x_1$  is initial state of neuron, fired by the constant input $u_0$, $x_1$, $x_2$, $\nu_1$ and $\nu_2$ are state variables, dot represents time derivative.  When firing reaches some threshold, the neuron goes to state $\nu_1$ through eq. (\ref{eq:CPG2}). When it exceeds some threshold it starts to return to the state $x_1$ through the eq. (\ref{eq:CPG1}) by the factor $\beta$. $\beta$ represents the rate of adaptations, if $\beta$ is big, the return to state $x_1$ is fast. $u_{f_1}$ and $u_{f_2}$ are the feedback inputs from sensors, $\gamma$ is the coefficient between state variables and f(x) is a threshold function that has zero gain until x is less than threshold value and not zero gain otherwise . Such element works the following way: when it takes constant input it reacts, then adapts and stop reacting. Oscillations generation is the process of reaction and adaptation itself. \\
+		
+		Human like gait was achieved by a robot with small Degree of Freedom (DoF) in \cite{miyakoshi1998three}. The idea of this oscillator was to build a robust system that performs simple control with minimum structure of neural architecture that can be perspective for high DoF robot.\\
+		
+		A detailed examination of a biological CPG from an engineering perspective was conducted in \cite{zhu2006central} but, for most applications, the neuron pair is still approximated with a pair of differential equations \cite{wright2014intelligent}.
 
-		Oscillators can be divided into two types : Simple Sinusoidal Oscillator and Systems of Differential Equations \cite{wright2014intelligent}. Each of them is described bellow.
+		These oscillators can be divided into two types : Simple Sinusoidal Oscillator and Systems of Differential Equations \cite{wright2014intelligent}, which are described in details bellow in Sec. 2.2.1 and Sec. 2.2.2
 
 		\subsection{Simple Sinusoidal Oscillator}
-			For sinusoidal signal it is very easy to maintain phase relationships. Human sized bipedal robot controlled by Simple Sinusoidal Oscillator was considered in \cite{morimoto2008biologically}. The sinusoidal pattern is used for control of parameters, like phase or joint angle. The equation \ref{eq:Sin1} shows the example of hip angle control by phase $\phi$ and hip amplitude $A_{hip}$.
+			For a sinusoidal signal it is very easy to maintain phase relationships. Human sized bipedal robot controlled by Simple Sinusoidal Oscillator was considered in \cite{morimoto2008biologically}. The sinusoidal pattern is used for control of parameters, like phase or joint angle. The equation (\ref{eq:Sin1}) shows the example of hip angle control by phase $\phi$ and hip amplitude $A_{hip}$.
 			\begin{equation}\label{eq:Sin1}
 				\theta_{hip} (\phi) = A_{hip} sin(\phi) 
 			\end{equation}
- 			However it is a very simple model and according to \cite{wright2014intelligent}, is not very appropriate for anthropomorphic robots, while it is good for systems that are statically stable. Statically stable systems are the systems that van maintain their stability during the continuous absence of movements.
+ 			However it is a very simple model which is good for systems that are statically stable, but is not appropriate for anthropomorphic robots \cite{wright2014intelligent}. Statically stable systems are the systems that van maintain their stability during the continuous absence of movements.is good for systems that are statically stable
 		\subsection{Systems of Differential Equations}
-			Analysis of biological CPGs has identified oscillators made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are applicable for the  generate different gaits and produce various solutions from sinusoidal to more complex forms. It can control anthropomorphic robot  even on the rough ground.
+			Analysis of biological CPGs has identified that oscillators are made from pairs of mutually inhibiting neurons \cite{grillner1995neural}. These oscillators are applicable for the  generate different gaits and produce various solutions from sinusoidal to more complex forms. It can control anthropomorphic robot even on the rough terrain.
 			\subsubsection{Matsuoka oscillator}
 				Matsuoka oscillator is capable for different gaits and is widely used \cite{wright2014intelligent}. They are popular because of their dynamics and in particular limit cycle behavior \cite{matsuoka1985sustained}.
 				
-				The model of neuron with adaptation can be represented the following way:
+				The model of neuron with adaptation can be represented in the following way:
 				\begin{equation}\label{eq:Mats1}
 					\begin{split}
 						\tau \dot{x} + x = \sum^n_{j = 1} c_j s_j - b x^{\prime}\\
-						T \dot{x} \prime  + x \prime = y\\
+						T \dot{x}^{\prime}  + x^{\prime} = y\\
 						y = g(x - \theta)
 					\end{split}
 				\end{equation}
 				
-				Here $\tau$ is a variable, that represents time delay, x is a membrane potential of the neuron, $s_j$ is an impulse rate of input stimuli, $\theta$ is a threshold value below which neuron doesn't fire, $c_j$ are weights of synaptic conjunctions ($>$ 0 for activating synapses and $<$ 0 for inhibitory synapses), y is a firing rate of the neuron, $x^{\prime}$ is the variable that represents the degree of the adaptation, T ($>$0) and b($\geq 0$) are parameters that specify the time course of the adaptation \cite{matsuoka1985sustained}.
+				Here $\tau$ is a variable, that represents time delay, $x$ is a membrane potential of the neuron, $s_j$ is an impulse rate of input stimuli, $\theta$ is a threshold value below which neuron doesn't fire, $c_j$ are weights of synaptic conjunctions ($>$ 0 for activating synapses and $<$ 0 for inhibitory synapses), y is a firing rate of the neuron, $x^{\prime}$ is the variable that represents the degree of the adaptation, T ($>$0) and b($\geq 0$) are parameters that specify the time course of the adaptation \cite{matsuoka1985sustained}.
+				Activating synapses are neurons with positive signs of output signal.
+				Inhibitory synapses are neurons that have negative sign of output signal.
+				Degree of the adaptation is the speed of reaction to disturbance. Firing is the notion of process during which the neuron emits an action potential. 
 				
 				Matsuoka in \cite{matsuoka1985sustained} discusses oscillations generated by mutual inhibition between n neurons with adaptation:
 				\begin{equation}\label{eq:Mats2}
 					\begin{split}
-						\dot{x}_i + x_i = - \sum^n_{j = 1} a_{ij} y_j - b x \prime + s_i\\
-						T \dot{x} \prime _i  + x \prime _i= y_i\\
+						\dot{x}_i + x_i = - \sum^n_{j = 1} a_{ij} y_j - b x^{\prime} + s_i\\
+						T \dot{x}^{\prime}_i  + x^{\prime}_i= y_i\\
 						y = g(x_i)\ \ (i = 1,...,n) 
 					\end{split}
 				\end{equation}
 				
-				Here $a_{ij}$ represents the strength of inhibitory connection between the neurons. $a_{ij} >$ 0 for i$\neq$j and = 0 for i=j. $\sum^n_{j = 1} a_{ij} y_j $ is the total input from the neurons inside a neural network and $s_{i}$ is the total input from the outside of the network. 
+				where $a_{ij}$ represents the strength of inhibitory connection between the neurons. $a_{ij} >$ 0 for i$\neq$j and $a_{ij}$ = 0 for i = j. $\sum^n_{j = 1} a_{ij} y_j $ is the total input from the neurons inside a neural network and $s_{i}$ is the total input from the outside of the network, $y_j$ is input from neuron j. 
 				
 				Matsuoka oscillator is schematically represented in \cref{fig:4}.
 				\begin{figure}[h!]
@@ -282,7 +293,7 @@
 					\vspace{-0.1cm}
 				\end{figure}
 				
-				Two neurons, a flexor (f) and an extensor (e), reciprocally inhibit each other. External inputs ($g_i$) such as sensory feedback or inputs for other neurons can be either inhibitory or excitatory, depending on the gain ($h_i$). Black circles indicate inhibitory inputs. White circles indicate excitatory inputs. Gray circles can be either inhibitory or excitatory.
+				Two neurons, a flexor (f) and an extensor (e), reciprocally inhibit each other. External inputs ($g_i$) such as sensory feedback or inputs for other neurons can be either inhibitory or excitatory, depending on the gain ($h_i$) - that is defined by external sensory inputs. Black circles indicate inhibitory inputs. White circles indicate excitatory inputs. Gray circles can be either inhibitory or excitatory.
 			\subsubsection{Van der Pol oscillator}
 				Van der Pol oscillator benefits are stable limit cycles and relatively interpretable coefficients. Frequency, amplitude and shape coefficients can be identified, although they are not completely independent. Transition between gaits is reached with a simple change of oscillator parameters.
 				
@@ -292,7 +303,7 @@
 					\ddot{x} - \epsilon(1 - x^2)\dot{x} + x = 0
 				\end{equation}
 				
-				Where x is the dynamical variable and $\epsilon > 0$ a parameter.
+				where x is the dynamical variable and $\epsilon > 0$ a parameter, a dot represents time derivative.
 				The van der Pol oscillator has exactly one limit cycle and all other trajectories spiral into it which is proved in \cite{kanamaru2007van}.
 			\subsubsection{Rayleigh oscillator}
 				Rayleigh oscillator is similar to the Van der Pol oscillator but it has reduced sensory requirements, that is an advantage over conventional prosthetic systems.
@@ -303,16 +314,17 @@
 					\ddot{x} + \epsilon(3x^2 - 1)\dot{x} + (\omega^2 - \epsilon)x = 0
 				\end{equation}
 				
-				Comparison of \ref{eq:Rel1} and \ref{eq:Pol1} shows that Rayleigh oscillator is parametrized with $\epsilon$ and $\omega$ Van der Pol oscillator.
+				where x is the dynamical variable and $\epsilon > 0$ a parameter, a dot represents time derivative.
+				Comparison of \ref{eq:Rel1} and \ref{eq:Pol1} shows that Rayleigh oscillator is parametrized with $\omega$ Van der Pol oscillator.
 			\subsubsection{Spiking Integrate and Fire with Adaption neurons}
-				Spiking Integrate and Fire with Adaption neurons were used in \cite{russell2007configuring} for bipedal locomotion. The CPG was a hierarchical structure of hip timing, knee timing and output patterning. This structure allowed to tune parameters of every of three hierarchical parts, and so to configure walking frequency, gait and joint angles independently.
-		\section{Neural Networks}
+				Spiking Integrate and Fire with Adaption neurons were used in \cite{russell2007configuring} for bipedal locomotion. The CPG has a hierarchical structure of hip timing, knee timing and output patterning. This structure allowed to tune parameters of every of three hierarchical parts, and so to configure walking frequency, gait and joint angles independently.
+		\section{Neural Networks Approach}
 		Despite the fact that oscillators can be described as a neural network they do not require any input for their work. Canonical Neural Networks (NN) have input data and output. There are several groups of NN that are used for bipedal robots control. The most popular of them are described bellow.
 
 			\subsection{Feed-Forward Networks}
-				In this networks each neuron has its own connection and transfer function. They a ready for state motion generation.  Input data is current kinematics and sensory data. Current kinematics is the kinematic configuration in the given time frame. This type of NN can generate not state based trajectories only with time as input. 
-				\subsubsection{Multi-layer perceptron}
-					Multi-layer perceptron (MLP) is one of such models. They have from two (input, output, hidden) layers and can have more hidden ones. According to \cite{vundavilli2010dynamically}, two MLPs were used to specify parameters of a bipedal ditch crossing gait trained with Genetic Algorithm (GA). It produced the best solution in terms of stability. It was more stable and efficient than one from a fully analytical approach, and slightly better than the result obtained with a fuzzy logic based method. Activation function of perceptron is usually a sigmoid function.
+				In this networks each neuron has its own connection and transfer function. Feed-Forward Networks are ready for state motion generation.  Input data is current kinematics and sensory data. Current kinematics is the kinematic configuration in the given time frame. 
+				\subsubsection{Multi-layer Perceptron}
+					Multi-layer perceptron (MLP) is one of such models. They can have three (input, output, hidden) and more layers (more hidden layers). According to \cite{vundavilli2010dynamically}, two MLPs were used to specify parameters of a bipedal ditch crossing gait trained with Genetic Algorithm (GA). It produced the best solution in terms of stability. It was more stable and efficient than one from a fully analytical approach, and slightly better than the result obtained with a fuzzy logic based method.
 				\subsubsection{Radial Basis Function Network}
 					Radial Basis Function Network is another example of Feed-Forward Networks (FFN). Activation function is usually Gaussian (\ref{eq:gf}) or Euclidean which is described in \cite{EuclideanFunction}.
 					
@@ -320,18 +332,18 @@
 						f(x) = a exp \left(  - \dfrac{(x - b)^2}{2c^2} \right)
 					\end{equation}
 					
-					Neurons in hidden layers are connected only with a small part of input neurons. For this reason two types of vectors are necessary: wights vector and centre vector which is the same dimension as input. Each vector responds if it is close to the weight vector. Output neurons are functions of linear combinations of network outputs and their wighted connections.
+					Neurons in hidden layers are connected only with a small part of input neurons. For this reason two types of vectors are necessary: wights vector and centre vector (centre vector dimension is the same as input one). Each vector responds if it is close to the weights vector. Output neurons are functions of linear combinations of network outputs and their wighted connections.
 					It was successfully used for hexapod locomotion \cite{ilg1995learning}.
 				\subsubsection{Cerebellar Model Articulation Controller}
-					A Cerebellar Model Articulation Controller (CMAC) is a type of associative memory network based on cerebellum \cite{albus1975new}. Input space is continuous and divided into hyper-rectangles. So input should be located in one rectangle at each moment. Numerous hidden layers are slightly moved rectangles. Hence rectangles will overlap on different layers. The output for each layer is a weighted sum of activated rectangles. The CMACs successfully learned the movement patterns and showed resilience to perturbations (including uneven or slippery floors), thereby translating a rigid analytical solution into an adaptable one \cite{sabourin2005robustness}.
+					A Cerebellar Model Articulation Controller (CMAC) is a type of associative memory network based on cerebellum \cite{albus1975new}. Input space is continuous and divided into hyper-rectangles. So input should be located in one rectangle at each moment. Numerous hidden layers are stored in slightly moved from the input rectangles. Hence rectangles will overlap on different layers. The output for each layer is a weighted sum of activated rectangles. Activated rectangle is one that are placed near the input point. The CMACs successfully learned the movement patterns and showed resilience to perturbations (including uneven or slippery floors), thereby translating a rigid analytical solution into an adaptable one \cite{sabourin2005robustness}.
 			\subsection{Recurrent Networks}
 				The structure of such networks is more complicated that FFN. Thus we can produce more complex patterns and handle different types of input.
 				
 				For recurrent networks there are different types of input and the difference from FFN is that pattern is not required to be provided as an input but it is generated , tuned or chosen internally by the inputs. 
 				
-				\subsubsection{Jordan and Elman Recurrent NN}
+				\subsubsection{Jordan and Elman Recurrent Neural Networks}
 					Jordan recurrent NN is similar to FFN, the difference is that output of the network is recurrently fed to the input.\\
-					The example of Elman recurrent NN is shown on \ref{fig:5}. The difference between Elman recurrent NN and Jordan recurrent NN is that delayed output of hidden layer $y_i$ is connected with inputs of the hidden layer. A delay here is done by $u_i$ nodes from the hidden layer. The Elman network was used in \cite{berns1995neural}, the resilient back-propagation training algorithm was used and the system showed an ability to learn supervised trajectories and interpolate between them.
+					The example of Elman recurrent NN is shown in (\cref{fig:5}). The difference between Elman recurrent NN and Jordan recurrent NN is that delayed output of hidden layer $y_i$ is connected with the inputs of a hidden layer. A delay here is done by $u_i$ nodes from the hidden layer. The Elman network was used in \cite{berns1995neural}, the resilient back-propagation training algorithm was used and the system showed an ability to learn supervised trajectories and interpolate between them.
 					
 					\begin{figure}[h!]
 						\vspace{-0.2cm}
@@ -403,17 +415,17 @@
 						\vspace{-0.1cm}
 					\end{figure}
 					
-				\subsubsection{Fully Connected Recurrent NN}
+				\subsubsection{Fully Connected Recurrent Neural Networks}
 					In several works \cite{reil2002evolution}, \cite{petridis1994recurrent} a network of several fully connected leaky-integrator neurons were used as a pattern generator. 
 					
 					The network was able to learn multiple sinusoidal patterns, selectable by an input level, but evolution took more generations as the number of required patterns increased. Learned patterns were resilient to noise at the inputs, and even if the input was disrupted by a large amount, the output would quickly return to normal when the input was corrected. It was found that a six neuron model was sufficient to store eight different sinusoidal patterns, as long as the form of those patterns was different \cite{wright2014intelligent}.
 					
-					The problem of GA parameters optimization is that for complex systems a huge amount of generations will be necessary. 
+					The problem of GA parameters optimization is that for complex systems a huge amount of generations will be necessary. So it can be applied only for offline patterns generation. 
 				\subsubsection{Reservoir}
 					Usually recurrent NN should be as small as possible in order to simplify parameters tuning. Reservoir network follows a different principle. It uses a big network with potentially much redundancy. The idea is that during training only output layer is trained and reservoir is unchanged. It works with the following assumption: system dynamics is already present when the network is constructed randomly and the only necessary thing is to adjust weights for it. Thus the training process is very simple, e.g. a linear regression.
 					
-					There is practice \cite{wyffels2009design} of generating trajectories with reservoir taken the human captured data.
-		\section{Hidden Markov Model}
+					Generating trajectories with reservoir can be done taken the human captured data as input \cite{wyffels2009design}.
+		\section{Hidden Markov Model Approach}
 			Learning by imitation is one of commonly used approaches for bipedal locomotion researches. Obviously, direct copying of movements of an operator is impossible due to different kinematic and dynamic characteristics. So, from the operator we can take only the pattern and then imitate it on the robot. Observing here is estimating the underlying state variables. It is based on the source system through the output data. For this task Hidden Markov Models (HMM) can be used \cite{inamura2004embodied}. 
 			
 			A recognition algorithm is used for identification of movement. If movement was not identified, it is added to the database as new. Hidden Markov model provides abstraction of the pattern which is used for motion synthesis.
