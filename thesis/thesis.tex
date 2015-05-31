@@ -835,10 +835,10 @@
 		The next step after tuning control parameters on the model is to apply it to a real robot.
 		Described in this thesis control method is capable for pattern generation and so future work should consider optimization methods for generated trajectory to prevent the robot from falling on the rough terrain.
 		When control algorithm is developed the structure of the robot should be revised in order to maintain optimal criteria. For example this criteria could be an energy consumption or the speed of the movements.
-		After several iterations of algorithm and structure optimization the robot will become able for walk, however further investigations of AI and object detection are still necessary. It is reasoned by the level of autonomy that we want robot to achieve. It is impossible to program  all possible conditions for robot and thus it have to deal with some level of uncertainty.
+		After several iterations of algorithm and structure optimization the robot will become able for walk, however further investigations of AI and object detection are still necessary. It is reasoned by the level of autonomy that we want robot to achieve. It is impossible to preprogram all the possible conditions for the robot and hence it have to deal with some level of uncertainty.
 	\chapter{Summary}
-		In this work different approaches to bipedal locomotion were considered. Classification of existing methods was also done and it was the basics for development of a dynamic balance algorithm for bipedal robot locomotion. Two approaches were chosen: analytical one (ZMP criteria for dynamical stability) and CPG (controller output should generate a pattern for locomotion). Results of implemented preview controller on provided models show stable smooth trajectories and thus it seems reliable to try this approach on the real robot. There are works \cite{kajita2003biped, audren2014model} that already applied preview controller to real robots. However in their works the authors don't consider application of these techniques to simulation of the robot. As shown in Chapter 4 a direct application of preview controller to robot model gives very good but physically unreachable results. Due to the fact that motors have limited accelerations, the system cannot react as fast as the controller tries to stabilize the system. However the controller was limited by physical constraints and the results of control became similar to the fully analytical solution during one step period. Thus the developed approach is promising because it can adapt to disturbances and uneven terrain despite the fact that it produces only the pattern for the robot.
-		Thus it was developed pattern generation subsystem that can be applied to a real robot. It requires additional control to maintain another stability criteria, for example FRI. Moreover stable bipedal locomotion requires efficient processing of extrinsic sensors data in order to predict possible disturbances before they are applied to the robot.
+		In this work different approaches to bipedal locomotion were considered. Classification of existing methods was also done and it was the basics for development of a dynamic balance algorithm for bipedal robot locomotion. Two approaches were chosen: analytical one (ZMP criteria for dynamical stability) and CPG (controller output should generate a pattern for locomotion). Results of implemented preview controller on provided models show stable smooth trajectories and thus it seems reliable to try this approach on the real robot. There are works \cite{kajita2003biped, audren2014model} that already applied preview controller to real robots. However in their works the authors don't consider application of these techniques to simulation of the robot and don't provide technical details. As shown in Chapter 4 a direct application of preview controller to robot model gives very good but physically unreachable results. Due to the fact that motors have limited accelerations, the system cannot react as fast as the controller tries to stabilize the system. The controller was limited by the constraints of the physical motors and the results of control became similar to the fully analytical solution during one step period. Hence the developed approach is promising because it can adapt to disturbances and uneven terrain because of feedback loop.
+		Moreover stable bipedal locomotion requires efficient processing of sensors data in order to predict possible disturbances before they are applied to the robot.
 			
 	\bibliographystyle{unsrtnat}
 	\bibliography{robotics}
@@ -846,13 +846,16 @@
 	\begin{appendices}
 		\chapter{Preview control parameters estimation algorithm}
 			\begin{lstlisting}
+% compute preview controller coefficients
 function [Ke, Kx, G] = preview_control_params(T, Zh, N)
-	R = 1e-6;
+	% Cost function optimisation parameters
+	R = 1e-6; 
 	Qe = 1;
 	Qdpos = 0;
 	Qdvel = 0;
 	Qdaccel = 0;
-	g = 9.8;
+	
+	g = 9.8; % gravity acceleration
 	
 	% derivative state coefficient matrix
 	A = [1 T T^2/2;0 1  T;0 0 1];
@@ -891,7 +894,7 @@ end
 			\end{lstlisting}
 		\chapter{Desired ZMP generation algorithm}
 			\begin{lstlisting}
-g = 9.8;
+g = 9.8; % gravity acceleration
 Zc = 0.85; % height of CoM
 T = 1e-4; % descitisation step
 N = 16000; % preview steps

@@ -45,7 +45,7 @@ Joe Wright and Ivan Jordanov.
 \newblock \emph{Journal of Intelligent \& Robotic Systems}, pages 1--23, 2014.
 
 \bibitem[Tang et~al.(2008)Tang, Er, and Chien]{tang2008analysis}
-Zhe Tang, Meng~Joo Er, and C-J Chien.
+Zhe Tang, Meng~Joo Er, and Chiang-Ju Chien.
 \newblock Analysis of human gait using an inverted pendulum model.
 \newblock In \emph{Fuzzy Systems, 2008. FUZZ-IEEE 2008.(IEEE World Congress on
   Computational Intelligence). IEEE International Conference on}, pages
@@ -69,7 +69,7 @@ Steven~Hartley Collins and Andy Ruina.
   2005 IEEE International Conference on}, pages 1983--1988. Ieee, 2005.
 
 \bibitem[Golliday~Jr and Hemami(1977)]{golliday1977approach}
-C~Golliday~Jr and Hooshang Hemami.
+C~Golliday~Jr and H~Hemami.
 \newblock An approach to analyzing biped locomotion dynamics and designing
   robot locomotion controls.
 \newblock \emph{Automatic Control, IEEE Transactions on}, 22\penalty0
@@ -77,7 +77,7 @@ C~Golliday~Jr and Hooshang Hemami.
 
 \bibitem[Anderson et~al.(2005)Anderson, Wisse, Atkeson, Hodgins, Zeglin, and
   Moyer]{anderson2005powered}
-Stuart~O Anderson, Martijn Wisse, Christopher~G Atkeson, Jessica~K Hodgins,
+Stuart~O. Anderson, Martijn Wisse, Christopher~G Atkeson, Jessica~K Hodgins,
   GJ~Zeglin, and Brian Moyer.
 \newblock Powered bipeds based on passive dynamic principles.
 \newblock In \emph{Humanoid Robots, 2005 5th IEEE-RAS International Conference
@@ -146,8 +146,7 @@ S\_ Grillner.
 Wai~Man Lee and Yeung Yam.
 \newblock Construction of central pattern generator using piecewise affine
   systems.
-\newblock In \emph{Control and Automation, 2007. ICCA 2007. IEEE International
-  Conference on}, pages 1729--1734. IEEE, 2007.
+\newblock In \emph{Control and Automation}, pages 1729--1734. IEEE, 2007.
 
 \bibitem[Miyakoshi et~al.(1998)Miyakoshi, Taga, Kuniyoshi, and
   Nagakubo]{miyakoshi1998three}

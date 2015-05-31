@@ -26,7 +26,7 @@ Warning--entry type for "medical" isn't style-file defined
 Warning--empty journal in hazell2008discrete
 You've used 50 entries,
             2481 wiz_defined-function locations,
-            843 strings with 13784 characters,
+            843 strings with 13732 characters,
 and the built_in function-call counts, 21630 in all, are:
 = -- 1989
 > -- 904
