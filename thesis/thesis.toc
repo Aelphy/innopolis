@@ -29,8 +29,8 @@
 \contentsline {subsection}{\numberline {4.1.1}PID Controller}{36}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Preview Controller}{38}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Simple Bipedal Robot Model}{41}{section.4.2}
-\contentsline {chapter}{\numberline {5}Future Work}{45}{chapter.5}
-\contentsline {chapter}{\numberline {6}Summary}{46}{chapter.6}
-\contentsline {chapter}{Bibliography}{47}{chapter*.12}
-\contentsline {chapter}{Appendix \numberline {A}Preview control parameters estimation algorithm}{53}{Appendix.1.A}
-\contentsline {chapter}{Appendix \numberline {B}Desired ZMP generation algorithm}{55}{Appendix.1.B}
+\contentsline {chapter}{\numberline {5}Future Work}{46}{chapter.5}
+\contentsline {chapter}{\numberline {6}Summary}{47}{chapter.6}
+\contentsline {chapter}{Bibliography}{48}{chapter*.12}
+\contentsline {chapter}{Appendix \numberline {A}Preview control parameters estimation algorithm}{54}{Appendix.1.A}
+\contentsline {chapter}{Appendix \numberline {B}Desired ZMP generation algorithm}{56}{Appendix.1.B}
