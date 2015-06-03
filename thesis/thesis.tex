@@ -77,7 +77,7 @@
 		However nowadays there are still only limited number of robots able to walk. Furthermore these robots are too expensive to let them go out of the laboratory. It is reasoned by the fact hat humanoids are extremely complex dynamical non-linear systems. The last fact means that there is no closed-form solution for control such robots. It can be explained by several reasons: 
 		
 		\begin{enumerate}
-			\item Humanoids are undereducated due to inertia frame. Inherently, at each contact point, a conversion from internal joint forces to external reaction forces is needed by the humanoid’s interaction with its environment \cite{sugihara2005fast}.
+			\item Humanoids are underactuated due to inertia frame. Inherently, at each contact point, a conversion from internal joint forces to external reaction forces is needed by the humanoid’s interaction with its environment \cite{sugihara2005fast}.
 			\item Humanoids are multybody systems with very big amount of Degrees of Freedom (DoF). Thus their dynamics require a complicated coordinate frame handling \cite{sugihara2005fast}. 
 			\item Humanoids structure is not constant. It consists of three various kinematic chains. Dealing with such situations in a conventional way requires the robot to plan all potential link structures beforehand and shift between them while executing \cite{	sugihara2005fast}
 		\end{enumerate}
@@ -272,7 +272,7 @@
 		
 		A detailed examination of a biological CPG from an engineering perspective was conducted in \cite{zhu2006central} but, for most applications, the neuron pair is still approximated with a pair of differential equations \cite{wright2014intelligent}.
 
-		These oscillators can be divided into two types : Simple Sinusoidal Oscillator and Systems of Differential Equations \cite{wright2014intelligent}, which are described in details bellow in Sec. 2.2.1 and Sec. 2.2.2
+		These oscillators can be divided into two types: Simple Sinusoidal Oscillator and Systems of Differential Equations \cite{wright2014intelligent}, which are described in details bellow in Sec. 2.2.1 and Sec. 2.2.2
 
 		\subsection{Simple Sinusoidal Oscillator}
 			For a sinusoidal signal it is very easy to maintain phase relationships. Human sized bipedal robot controlled by Simple Sinusoidal Oscillator was considered in \cite{morimoto2008biologically}. The sinusoidal pattern is used for control of parameters, like phase or joint angle. The equation (\ref{eq:Sin1}) shows the example of hip angle control by phase $\phi$ and hip amplitude $A_{hip}$.
