@@ -7,46 +7,48 @@ Warning--entry type for "gait" isn't style-file defined
 --line 597 of file robotics.bib
 Warning--entry type for "medical" isn't style-file defined
 --line 605 of file robotics.bib
+Warning--entry type for "walle" isn't style-file defined
+--line 632 of file robotics.bib
 Warning--empty journal in hazell2008discrete
-You've used 11 entries,
+You've used 13 entries,
             1935 wiz_defined-function locations,
-            541 strings with 5571 characters,
-and the built_in function-call counts, 4833 in all, are:
-= -- 495
-> -- 174
-< -- 11
-+ -- 60
-- -- 58
-* -- 397
-:= -- 799
-add.period$ -- 33
-call.type$ -- 11
-change.case$ -- 84
-chr.to.int$ -- 11
-cite$ -- 12
-duplicate$ -- 190
-empty$ -- 342
-format.name$ -- 73
-if$ -- 974
+            549 strings with 5806 characters,
+and the built_in function-call counts, 5481 in all, are:
+= -- 556
+> -- 204
+< -- 13
++ -- 70
+- -- 68
+* -- 446
+:= -- 920
+add.period$ -- 38
+call.type$ -- 13
+change.case$ -- 99
+chr.to.int$ -- 13
+cite$ -- 14
+duplicate$ -- 217
+empty$ -- 381
+format.name$ -- 85
+if$ -- 1098
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 9
-newline$ -- 55
-num.names$ -- 33
-pop$ -- 75
+missing$ -- 10
+newline$ -- 64
+num.names$ -- 39
+pop$ -- 89
 preamble$ -- 1
-purify$ -- 84
+purify$ -- 99
 quote$ -- 0
-skip$ -- 157
+skip$ -- 178
 stack$ -- 0
-substring$ -- 397
-swap$ -- 43
-text.length$ -- 5
+substring$ -- 423
+swap$ -- 47
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 66
+type$ -- 78
 warning$ -- 1
-while$ -- 41
+while$ -- 46
 width$ -- 0
-write$ -- 141
-(There were 3 warnings)
+write$ -- 164
+(There were 4 warnings)

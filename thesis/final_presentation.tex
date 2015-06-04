@@ -54,7 +54,7 @@
 	\begin{frame}
 		\frametitle{Introduction and Motivation: the development of robotics in minds}
 		\centering
-		Trends in robotics are near to be developed.
+		Trends in robotics are near to be developed
 		
 		\begin{figure}[h!]
 			\begin{minipage}[H]{0.20\linewidth}
@@ -79,15 +79,15 @@
 	\begin{frame}
 		\frametitle{Introduction and Motivation: the development of robotics in minds}
 		\centering
-		Robotics, Cybernetics, Biomechatronics, AI are only several of prospectives that a required to take into account in bipedal robots development.
+		Robotics, Cybernetics, Biomechatronics, AI are only several of prospectives that a required to take into account in bipedal robots development
 		
 		\begin{figure}[h!]
-			\begin{minipage}[H]{0.45\linewidth}
+			\begin{minipage}[H]{0.4\linewidth}
 				\includegraphics[width=\linewidth]{presentation_images/3}
 				\caption{Terminator, 1984}
 			\end{minipage}
 			\hfill
-			\begin{minipage}[H]{0.45\linewidth}
+			\begin{minipage}[H]{0.4\linewidth}
 				\includegraphics[width=\linewidth]{presentation_images/5}
 				\caption{I, robot, 2004}
 			\end{minipage}
@@ -108,10 +108,10 @@
 
 	\begin{frame}
 		\frametitle{Introduction and Motivation}
-		\begin{block}{Humanoid robot definition}
+		\begin{block}{What is a robot ?}
 			\begin{itemize}
 				\item
-					Mechanism with body structure resembles that of a human: head, torso, legs, arms, hands \cite{hirai1998development}
+					Mechanism with body structure resembles that of a human: head, torso, legs, arms, hands (\cite{hirai1998development})
 			\end{itemize}
 		\end{block}
 		\begin{figure}[h!]
@@ -161,7 +161,7 @@
 					Low speed
 				\item(-)
 					Complex control
-				\item(?) Special tasks cannot be performed by general robots as good as by devices that were designed for this proper task.
+				\item(?) Special tasks cannot be performed by general robots as good as by devices that were designed for this proper task
 			\end{itemize}
 		\end{block}
 	\end{frame}
@@ -188,12 +188,27 @@
 				\begin{minipage}[H]{\linewidth}
 					\centering
 					\includegraphics[scale=0.5]{presentation_images/7}
-					\caption{Human represented as a set of kinematic chains, \cite{seo2011improved}}
+					\caption{Human represented as a set of kinematic chains, (\cite{seo2011improved})}
 				\end{minipage}
 			\end{figure}
 		\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\section*{Problem Overview}
+	\begin{frame}
+		\frametitle{Problem Overview}
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[scale=0.5]{presentation_images/32}
+				\caption{Human structure changing}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 	\section*{Related Work}
 	\begin{frame}
 		\frametitle{Related work}
@@ -202,7 +217,7 @@
 				\item
 					Analytical approach (ZMP based and others)
 				\item
-					Central Pattern Generator approach
+					Central Pattern Generator (CPG) approach
 				\item
 					Neural Networks approach
 				\item 
@@ -212,6 +227,14 @@
 			\end{itemize}
 		\end{block}
 	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Bibliography}    
+	\bibliographystyle{apalike}
+	\bibliography{robotics}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -253,7 +276,7 @@ acts on Zero Moment Point
 			\begin{minipage}[H]{\linewidth}
 				\centering
 				\includegraphics[width=0.5\linewidth]{presentation_images/8}
-				\caption{Zero Moment Point (ZMP), \cite{vukobratovic2004zero}}
+				\caption{Zero Moment Point (ZMP) (\cite{vukobratovic2004zero})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -294,7 +317,7 @@ acts on Zero Moment Point
 			\begin{minipage}[H]{\linewidth}
 				\centering
 				\includegraphics[width=\linewidth]{presentation_images/9}
-				\caption{Feed Forward Network, \cite{kim2012zmp}}
+				\caption{Feed Forward Network (\cite{kim2012zmp})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -348,15 +371,25 @@ acts on Zero Moment Point
 				\item 
 					For each cluster assign the control function
 				\item During the work control function will be chosen according to the current robot configuration
+			\end{itemize}
+		\end{block}
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Related work: Rule Based Approach}
+		\begin{block}{Rule Based Approach principle}
+			\begin{itemize}
 				\item
-					Current configuration defines the possible control function
+				Current configuration defines the possible control function
 				\item Fuzzy logic controller is a perspective approach for solving dynamical stability problem
 				\item Fuzzy logic controller divide all the configuration space into the subspaces
 				\item For each subspace control function is defined in an optimal way
 			\end{itemize}
 		\end{block}
 	\end{frame}
-
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\section*{Theoretical Aspects of Bipedal Robots Control}
@@ -368,7 +401,7 @@ acts on Zero Moment Point
 		\begin{figure}[h!]
 			\begin{minipage}[H]{\linewidth}
 				\includegraphics[width=\linewidth]{presentation_images/26}
-				\caption{Gait cycle decomposition, \cite{gait}}
+				\caption{Gait cycle decomposition (\cite{gait})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -382,8 +415,7 @@ acts on Zero Moment Point
 				\item(+)
 					Easy to understand
 				\item(-)
-					Is not precise
-					
+					Not precise
 			\end{itemize}
 		\end{block}
 		
@@ -391,7 +423,7 @@ acts on Zero Moment Point
 			\begin{minipage}[H]{\linewidth}
 				\centering
 				\includegraphics[width=0.5\linewidth]{presentation_images/11}
-				\caption{Cart table model, \cite{kajita2003biped}}
+				\caption{Cart table model (\cite{kajita2003biped})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -400,16 +432,27 @@ acts on Zero Moment Point
 
 	\begin{frame}
 		\frametitle{Theoretical Aspects of Bipedal Robots Control: cart table model}
-		\begin{equation}
-			P = x - \dfrac{Z_c}{g} \ddot{x}
-		\end{equation}		
-		\begin{figure}[h!]
-			\begin{minipage}[H]{\linewidth}
-				\centering
-				\includegraphics[width=0.4\linewidth]{presentation_images/11}
-				\caption{Cart table model, \cite{kajita2003biped}}
-			\end{minipage}
-		\end{figure}
+		\begin{block}{Cart table model}
+			\begin{itemize}
+				\item
+					M is cart mass
+				\item
+					x is cart trajectory
+				\item
+					$\ddot{x}$ is cart acceleration
+				\item
+					p is ZMP coordinate
+				\item
+					$Z_c$ is height of cart CoM
+				\item
+					$\tau_{ZMP}$ is rotational moment in ZMP
+				\item
+					Cart table dynamics:
+					\begin{equation}
+						P = x - \dfrac{Z_c}{g} \ddot{x}
+					\end{equation}		
+			\end{itemize}
+		\end{block}
 	\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -427,7 +470,10 @@ acts on Zero Moment Point
 						p = \begin{bmatrix} 1 & 0  & - \dfrac{Z_c}{g} \end{bmatrix}\begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix}
 					\end{equation}
 				\item
-					u is the third time derivative of x
+					u is the jerk
+					\begin{equation}
+						u = \dfrac{d^3 x}{dt^3}
+					\end{equation}
 			\end{itemize}
 		\end{block}
 	\end{frame}
@@ -450,7 +496,7 @@ acts on Zero Moment Point
 			\begin{minipage}[H]{\linewidth}
 				\centering
 				\includegraphics[width=0.3\linewidth]{presentation_images/12}
-				\caption{Human planes, \cite{medical}}
+				\caption{Human planes (\cite{medical})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -462,7 +508,7 @@ acts on Zero Moment Point
 		\begin{block}{Control principle}
 			\begin{itemize}
 				\item
-				Find ZMP pattern that corresponds to wanted robot locomotion direction
+				Find ZMP pattern that corresponds to desired robot locomotion direction
 				\item
 				Calculate the cart trajectory to realize the given ZMP pattern
 				\item
@@ -474,7 +520,7 @@ acts on Zero Moment Point
 			\begin{minipage}[H]{\linewidth}
 				\centering
 				\includegraphics[width=0.85\linewidth]{presentation_images/13}
-				\caption{ZMP desired trajectory in frontal plane, \cite{kajita2003biped}}
+				\caption{ZMP desired trajectory in frontal plane (\cite{kajita2003biped})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -495,15 +541,17 @@ acts on Zero Moment Point
 	\end{block}
 	
 	\begin{figure}[h!]
-		\begin{minipage}[H]{\linewidth}
+		\begin{minipage}[H]{0.45\linewidth}
 			\centering
-			\includegraphics[width=0.35\linewidth]{presentation_images/13}
+			\includegraphics[width=\linewidth]{presentation_images/13}
 		\end{minipage}
-		\begin{minipage}[H]{\linewidth}
+		\hfill
+		\begin{minipage}[H]{0.45\linewidth}
 			\centering
-			\includegraphics[width=0.35\linewidth]{presentation_images/14}
+			\includegraphics[width=\linewidth]{presentation_images/14}
 		\end{minipage}
-		\caption{Inverse control principle, \cite{kajita2003biped}}
+		
+		\caption{Inverse control principle (\cite{kajita2003biped})}
 	\end{figure}
 \end{frame}
 
@@ -524,7 +572,7 @@ acts on Zero Moment Point
 		
 		\begin{figure}[h!]
 			\includegraphics[width=0.5\linewidth]{presentation_images/15}
-			\caption{Generalized regulator, \cite{hazell2008discrete}}
+			\caption{Generalized regulator (\cite{hazell2008discrete})}
 		\end{figure}
 	\end{frame}
 
@@ -566,7 +614,7 @@ acts on Zero Moment Point
 				
 				\begin{equation}
 					\begin{split}
-						||G(Z)||_2 = Tr\{ B^{T} XB + D^{T} D \}
+						||G(Z)||_2 = Trace\{ B^{T} XB + D^{T} D \}
 					\end{split}
 				\end{equation}
 			\item
@@ -575,7 +623,12 @@ acts on Zero Moment Point
 					X = A^TXA + C^TC
 				\end{equation}
 			\item
-				Physical meaning is a gain in power from input to output, assuming that the input signal is white noise.
+				Physical meaning is a gain in power from input to output, assuming that the input signal is white noise
+				
+				\begin{figure}[h!]
+					\includegraphics[width=0.1\linewidth]{presentation_images/33}
+					\caption{White noise realisation (\cite{manchester2011stable})}
+				\end{figure}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -602,7 +655,7 @@ acts on Zero Moment Point
 					$\omega$ is assumed to be a realization of a unit power, Gaussian, white noise
 					process and z is the real values vector of input
 				\item
-					Physical meaning is a maximum possible gain in power from input to output, assuming that the input signal is white noise.
+					Physical meaning is a maximum possible gain in power from input to output, assuming that the input signal is white noise
 			\end{itemize}
 		\end{block}
 	\end{frame}
@@ -618,7 +671,7 @@ acts on Zero Moment Point
 				\item
 					Predict the desirable value of controlled signal
 				\item
-					\cite{katayama1985design} proved the theorem that optimal control signal has the followong form:
+					(\cite{katayama1985design}) proved the theorem that optimal control signal has the followong form:
 					\begin{equation}
 						u(k) = -G_I \sum^{k}_{i=0} e(i) - G_xx(k) - \sum^{N}_{l=1}G_d(l)y_d(k+l)
 					\end{equation}
@@ -635,7 +688,7 @@ acts on Zero Moment Point
 			\begin{minipage}[H]{\linewidth}
 				\centering
 				\includegraphics[width=0.7\linewidth]{presentation_images/16}
-				\caption{Preview Gain dependency from the time \cite{kajita2003biped}}
+				\caption{Preview Gain dependency from the time (\cite{kajita2003biped})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -702,7 +755,9 @@ acts on Zero Moment Point
 				\item
 					PID controller is defined by its coefficients
 				\item
-					Coefficients can be adjusted by several algorithms: response analysis, transfer function analysis. In this work matlab proprietary algorithm was used. 
+					Coefficients can be adjusted by several algorithms: response analysis, transfer function analysis
+				\item 
+					In this work matlab proprietary algorithm was used 
 			\end{itemize}
 		\end{block}
 		
@@ -717,7 +772,7 @@ acts on Zero Moment Point
 
 	\begin{frame}
 		\frametitle{Implementation and Evaluation: PID controller}
-		The results of PID control show that it cannot be applied for such unstable system as cart on table is.
+		The results of PID control show that it cannot be applied for such unstable system as cart on table
 		
 		\begin{figure}[h!]
 			\centering
@@ -746,7 +801,7 @@ acts on Zero Moment Point
 				\item
 					Preview controller is defined by its coefficients, and number of preview steps
 				\item
-					These coefficients can be find by cost function optimization introduced in \cite{katayama1985design} 
+					These coefficients can be found by cost function optimization introduced in (\cite{katayama1985design})
 			\end{itemize}
 		\end{block}
 		
@@ -761,7 +816,7 @@ acts on Zero Moment Point
 
 	\begin{frame}
 		\frametitle{Implementation and Evaluation: Preview controller}
-		The results of preview control show that it can be applied for such unstable system as cart on table is because of very precise work.
+		The results of preview control show that it can be applied for such unstable system as cart on table is
 		
 		\begin{figure}[h!]
 			\centering
@@ -774,7 +829,7 @@ acts on Zero Moment Point
 
 	\begin{frame}
 		\frametitle{Implementation and Evaluation: Preview controller for robot model}
-		It was used 12 DoF robot model designed in simulink environment.
+		We use 12 DoF robot model in simulink environment
 		
 		\begin{figure}[h!]
 			\centering
@@ -790,7 +845,7 @@ acts on Zero Moment Point
 		\begin{block}{Trajectories}
 			\begin{itemize}
 				\item
-					For one step we want ZMP to be located in zero position.
+					During each step we want ZMP to be located in one point under the foot	
 				\item
 					Trajectory of robot CoM is the solution of the following equation:
 					
@@ -839,7 +894,7 @@ acts on Zero Moment Point
 		\begin{block}{Trajectories}
 			\begin{itemize}
 				\item
-					Preview control was applied to the model of robot with limitation of maximum acceleration.
+					Preview control was applied to the model of robot with limitation of maximum acceleration
 				\item
 					The results become close to analytical one
 			\end{itemize}
@@ -864,7 +919,7 @@ acts on Zero Moment Point
 		\begin{block}{Trajectories}
 			\begin{itemize}
 				\item
-					\cite{choi2006fuzzy} consider another form of control signal
+					(\cite{choi2006fuzzy}) considers modified form of control signal
 				\item
 					\begin{equation}
 						u(k) = -G_I e(i) - G_xx(k) - \sum^{N_l}_{l=1}G_d(l)y_d(k+l)
@@ -877,7 +932,7 @@ acts on Zero Moment Point
 
 	\begin{frame}
 		\frametitle{Implementation and Evaluation}
-		The result of modified preview controller with the same parameters.
+		The result of modified preview controller with the same parameters
 		
 		\begin{figure}[h!]
 			\centering
@@ -899,11 +954,7 @@ acts on Zero Moment Point
 			\item
 				Combine two controllers in sagital and frontal planes
 			\item
-				Apply it to a real robot
-			\item
-				Revise the structure of the robot
-			\item
-				Design AI
+				Apply preview controller to a real robot
 		\end{itemize}
 	\end{frame}
 	
@@ -913,11 +964,11 @@ acts on Zero Moment Point
 		\frametitle{Summary}
 		\begin{itemize}
 			\item
-				Different approaches to bipedal locomotion were considered
+				Different approaches to bipedal locomotion
 			\item
-				It was implemented solution consisted of CPG approach (preview controller) and ZMP criterion
+				It was implemented solution consisted of Central Pattern Generator approach (preview controller) and Zero Moment Point criterion
 			\item
-				Alternative structure of preview controller was considered
+				Alternative structure of preview controller
 			\item
 				Evaluation of results shows that Preview control is a perspective approach for bipedal locomotion
 			\item
@@ -931,7 +982,8 @@ acts on Zero Moment Point
 		\frametitle{Thanks for the attention}
 		Now it's time for your questions
 		\begin{figure}[h]
-			\center{\includegraphics[width=0.7\linewidth]{presentation_images/31}} 
+			\center{\includegraphics[width=0.6\linewidth]{presentation_images/31}} 
+			 \caption{Wall-e (\cite{walle})}
 		\end{figure}
 	\end{frame}
 	
@@ -1022,14 +1074,6 @@ acts on Zero Moment Point
 		\end{equation}
 		
 		where $C_1 = \dfrac{0.2(1+e^{0.5\omega })}{(e^{-0.5\omega }-e^{0.5\omega })}$, $C_2=-0.2-C_1$, $\omega = \sqrt{\dfrac{g}{Z_c}}$, g is the gravitational acceleration, $Z_c$ is robot's CoM height.
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-
-	\begin{frame}[allowframebreaks]
-		\frametitle{Bibliography}    
-			\bibliographystyle{apalike}
-			\bibliography{robotics}
 	\end{frame}
 		
 \end{document}
