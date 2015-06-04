@@ -573,7 +573,7 @@
 			
 			Where k is a discrete time index, x(k) is a vector of state values (trajectory, velocity and acceleration), u(k) is a control signal (jerk), y(k) is a vector of system output values (trajectory, velocity and acceleration). A, B, C, D are  appropriately dimensioned real matrices that defines system parameters and would be defined further in this chapter \cite{hazell2008discrete}.
 			
-			We define G, the  transfer function associated with model defined be eq. (\ref{eq:oc1}). G is defined as in \ref{eq:oc2}
+			We define G, the  transfer function associated with model defined be eq. (\ref{eq:oc1}). G is defined as in eq. \ref{eq:oc2}
 			
 			\begin{equation}\label{eq:oc2}
 				G(Z) = C(ZI - A)^{-1}B+D
@@ -593,7 +593,7 @@
 				X = A^{T} XA + C^{T} C
 			\end{equation}
 			
-			$H_2$ norm of the transfer function is a gain in power from input to output, assuming that the input signal is white \cite{hazell2008discrete}.
+			$H_2$ norm of the transfer function is a gain in power from input to output, assuming that the input signal is white noise \cite{hazell2008discrete}.
 
 			$H_\infty$ is denoted as $||G(Z)||_\infty$ and is defined as:
 			
@@ -601,7 +601,7 @@
 				||G(Z)||_\infty = \sup_{\omega} \dfrac{||z||_2}{||\omega||_2}
 			\end{equation}
 			
-			where $z = G\omega$, $\omega$ is assumed to be a realization of a unit power, Gaussian, white-noise process and z is the real values vector of input. Hence $H_\infty$ defines the maximum possible gain in power from input ot output.
+			where $z = G\omega$, $\omega$ is assumed to be a realization of a unit power, Gaussian, white noise process and z is the real values vector of input. Hence $H_\infty$ defines the maximum possible gain in power from input ot output.
 			
 			\begin{figure}[H]
 				\vspace{-0.2cm}
@@ -655,7 +655,7 @@
 				\vspace{-0.2cm}
 				\centering
 				{\includegraphics[width=0.7\textwidth]{12}}
-				\caption{Power Gain dependency from the time \cite{kajita2003biped}}
+				\caption{Preview Gain dependency from the time \cite{kajita2003biped}}
 				\label{fig:12}
 				\vspace{-0.1cm}
 			\end{figure}

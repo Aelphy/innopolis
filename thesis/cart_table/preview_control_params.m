@@ -1,5 +1,5 @@
 function [Ke, Kx, G] = preview_control_params(T, Zh, N)
-    R = 1e-6;
+    R = 1e-2;
     Qe = 1;
     Qdpos = 0;
     Qdvel = 0;

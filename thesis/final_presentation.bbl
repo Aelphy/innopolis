@@ -1,37 +1,50 @@
-\begin{thebibliography}{5}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{}
 
-\bibitem[Hirai et~al.(1998)Hirai, Hirose, Haikawa, and
-  Takenaka]{hirai1998development}
-Kazuo Hirai, Masato Hirose, Yuji Haikawa, and Toru Takenaka.
+\bibitem[Hazell, 2008]{hazell2008discrete}
+Hazell, A. (2008).
+\newblock Discrete-time optimal preview control.
+
+\bibitem[Hill, 2015]{gait}
+Hill, P. (2015).
+\newblock Gait {@ONLINE}.
+
+\bibitem[Hirai et~al., 1998]{hirai1998development}
+Hirai, K., Hirose, M., Haikawa, Y., and Takenaka, T. (1998).
 \newblock The development of honda humanoid robot.
-\newblock In \emph{Robotics and Automation, 1998. Proceedings. 1998 IEEE
-  International Conference on}, volume~2, pages 1321--1326. IEEE, 1998.
+\newblock In {\em Robotics and Automation, 1998. Proceedings. 1998 IEEE
+  International Conference on}, volume~2, pages 1321--1326. IEEE.
 
-\bibitem[Seo et~al.(2011)Seo, Lee, and Choi]{seo2011improved}
-Yung-Ho Seo, Chil-Woo Lee, and Jong-Soo Choi.
-\newblock Improved numerical inverse kinematics for human pose estimation.
-\newblock \emph{Optical Engineering}, 50\penalty0 (3):\penalty0 037001--037001,
-  2011.
+\bibitem[Kajita et~al., 2003]{kajita2003biped}
+Kajita, S., Kanehiro, F., Kaneko, K., Fujiwara, K., Harada, K., Yokoi, K., and
+  Hirukawa, H. (2003).
+\newblock Biped walking pattern generation by using preview control of
+  zero-moment point.
+\newblock In {\em Robotics and Automation, 2003. Proceedings. ICRA'03. IEEE
+  International Conference on}, volume~2, pages 1620--1626. IEEE.
 
-\bibitem[Vukobratovi{\'c} and Borovac(2004)]{vukobratovic2004zero}
-Miomir Vukobratovi{\'c} and Branislav Borovac.
-\newblock Zero-moment point—thirty five years of its life.
-\newblock \emph{International Journal of Humanoid Robotics}, 1\penalty0
-  (01):\penalty0 157--173, 2004.
+\bibitem[Katayama et~al., 1985]{katayama1985design}
+Katayama, T., Ohki, T., Inoue, T., and Kato, T. (1985).
+\newblock Design of an optimal controller for a discrete-time system subject to
+  previewable demand.
+\newblock {\em International Journal of Control}, 41(3):677--699.
 
-\bibitem[Kim et~al.(2012)Kim, Kim, and Park]{kim2012zmp}
-Dong~W Kim, Nak-Hyun Kim, and Gwi-Tae Park.
+\bibitem[Kim et~al., 2012]{kim2012zmp}
+Kim, D.~W., Kim, N.-H., and Park, G.-T. (2012).
 \newblock Zmp based neural network inspired humanoid robot control.
-\newblock \emph{Nonlinear Dynamics}, 67\penalty0 (1):\penalty0 793--806, 2012.
+\newblock {\em Nonlinear Dynamics}, 67(1):793--806.
 
-\bibitem[Hill(2015)]{gait}
-P.~Hill.
-\newblock Gait {@ONLINE}, may 2015.
-\newblock URL \url{https://www.studyblue.com/notes/note/n/gait/deck/13079492}.
+\bibitem[Seo et~al., 2011]{seo2011improved}
+Seo, Y.-H., Lee, C.-W., and Choi, J.-S. (2011).
+\newblock Improved numerical inverse kinematics for human pose estimation.
+\newblock {\em Optical Engineering}, 50(3):037001--037001.
+
+\bibitem[Stedman, 2015]{medical}
+Stedman (2015).
+\newblock American heritage® stedman's medical dictionary {@ONLINE}.
+
+\bibitem[Vukobratovi{\'c} and Borovac, 2004]{vukobratovic2004zero}
+Vukobratovi{\'c}, M. and Borovac, B. (2004).
+\newblock Zero-moment point—thirty five years of its life.
+\newblock {\em International Journal of Humanoid Robotics}, 1(01):157--173.
 
 \end{thebibliography}

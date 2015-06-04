@@ -11,6 +11,8 @@
 \usepackage{epstopdf}
 \usepackage{animate}
 \usepackage{caption}
+\usepackage{cite}
+\usepackage{natbib}
 \setbeamercovered{transparent}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
@@ -98,7 +100,8 @@
 	\begin{frame}
 		\frametitle{Introduction and Motivation: humanoid robots development}
 		\begin{figure}[h!]
-			\includegraphics[width=\linewidth]{presentation_images/6}
+			\includegraphics[width=0.8\linewidth]{presentation_images/6}
+			\caption{Evolution of Honda humanoids}
 		\end{figure}
 	\end{frame}
 	
@@ -112,16 +115,29 @@
 					Mechanism with body structure resembles that of a human: head, torso, legs, arms, hands \cite{hirai1998development}
 			\end{itemize}
 		\end{block}
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.3\linewidth]{presentation_images/17}
+				\caption{Humanoid robot}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Introduction and Motivation}
 		\begin{block}{Why humanoids ?}
 			\begin{itemize}
 				\item
-					Ability to work directly in the same human environment without any modification
+				Ability to work directly in the same human environment without any modification
 				\item
-					General-purpose workers
+				General-purpose workers
 				\item
-					Social integration
+				Social integration
 				\item
-					Work with same tools as humans
+				Work with same tools as humans
 			\end{itemize}
 		\end{block}
 	\end{frame}
@@ -172,7 +188,7 @@
 		\begin{minipage}[H]{\linewidth}
 			\centering
 			\includegraphics[scale=0.5]{presentation_images/7}
-			\caption{Human as a kinematic chains \cite{seo2011improved}}
+			\caption{Human as a kinematic chains, \cite{seo2011improved}}
 		\end{minipage}
 	\end{figure}
 \end{frame}
@@ -278,7 +294,7 @@ acts on Zero Moment Point
 			\begin{minipage}[H]{\linewidth}
 				\centering
 				\includegraphics[width=\linewidth]{presentation_images/9}
-				\caption{Feed Forward Network \cite{kim2012zmp}}
+				\caption{Feed Forward Network, \cite{kim2012zmp}}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -351,7 +367,7 @@ acts on Zero Moment Point
 		\begin{figure}[h!]
 			\begin{minipage}[H]{\linewidth}
 				\includegraphics[width=\linewidth]{presentation_images/26}
-				\caption{Gait cycle decomposition \cite{gait}}
+				\caption{Gait cycle decomposition, \cite{gait}}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -362,13 +378,19 @@ acts on Zero Moment Point
 		\frametitle{Theoretical aspects of bipedal robots control}
 		\begin{block}{Cart table model}
 			\begin{itemize}
-				\item
+				\item(+)
+					Easy to understand
+				\item(-)
+					Is not precise
+					
 			\end{itemize}
 		\end{block}
 		
 		\begin{figure}[h!]
 			\begin{minipage}[H]{\linewidth}
-				%\includegraphics[width=\linewidth]{presentation_images/26}
+				\centering
+				\includegraphics[width=0.5\linewidth]{presentation_images/11}
+				\caption{Cart table model, \cite{kajita2003biped}}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -376,9 +398,300 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control: cart table model}
+		\begin{equation}
+			P = x - \dfrac{Z_c}{g} \ddot{x}
+		\end{equation}		
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.4\linewidth]{presentation_images/11}
+				\caption{Cart table model, \cite{kajita2003biped}}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control: cart table model}
+		\begin{block}{Proper dynamics of cart table model}
+			\begin{itemize}
+				\item
+					\begin{equation}
+						\dfrac{d}{dt} \begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0& 0 \end{bmatrix}  \begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix} + \begin{bmatrix} 0 \\0 \\ 1 \end{bmatrix} u
+					\end{equation}
+				\item
+					\begin{equation}
+						p = \begin{bmatrix} 1 & 0  & - \dfrac{Z_c}{g} \end{bmatrix}\begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix}
+					\end{equation}
+				\item
+					u is the third time derivative of x
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control}
+		\begin{block}{Human planes intersting for locomotion}
+			\begin{itemize}
+				\item
+					Sagittal plane
+				\item
+					Frontal plane
+					
+			\end{itemize}
+		\end{block}
+		
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.3\linewidth]{presentation_images/12}
+				\caption{Human planes, \cite{medical}}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control}
+		\begin{block}{Control principle}
+			\begin{itemize}
+				\item
+				Find ZMP pattern that corresponds to wanted robot locomotion direction
+				\item
+				Calculate the cart trajectory to realize the given ZMP pattern
+				\item
+				Apply correction to robot in order to follow pattern
+			\end{itemize}
+		\end{block}
+		
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.85\linewidth]{presentation_images/13}
+				\caption{ZMP desired trajectory in frontal plane, \cite{kajita2003biped}}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Theoretical aspects of bipedal robots control}
+	\begin{block}{Control principle}
+		\begin{itemize}
+			\item
+			Find ZMP pattern that corresponds to wanted robot locomotion direction
+			\item
+			Calculate the cart trajectory to realize the given ZMP pattern
+			\item
+			Apply correction to robot in order to follow pattern
+		\end{itemize}
+	\end{block}
+	
+	\begin{figure}[h!]
+		\begin{minipage}[H]{\linewidth}
+			\centering
+			\includegraphics[width=0.35\linewidth]{presentation_images/13}
+		\end{minipage}
+		\begin{minipage}[H]{\linewidth}
+			\centering
+			\includegraphics[width=0.35\linewidth]{presentation_images/14}
+		\end{minipage}
+		\caption{Inverse control principle, \cite{kajita2003biped}}
+	\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control}
+		\begin{block}{Optimal Control}
+			\begin{itemize}
+				\item
+					State space model
+				\item
+					Transfer function
+				\item
+					Transfer function measures
+			\end{itemize}
+		\end{block}
+		
+		\begin{figure}[h!]
+			\includegraphics[width=0.5\linewidth]{presentation_images/15}
+			\caption{Generalized regulator, \cite{hazell2008discrete}}
+		\end{figure}
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control: Optimal Control}
+		\begin{block}{Optimal Control}
+			\begin{itemize}
+				\item
+					State space model
+					\begin{equation}
+						\begin{split}
+							x(k+1) = Ax(k) + Bu(k)\\
+							y(k) = Cx(k) + Du(k)
+						\end{split}
+					\end{equation}
+				\item
+					Transfer function
+					\begin{equation}
+						\begin{split}
+							G(Z) = C(ZI - A)^{-1} B + D
+						\end{split}
+					\end{equation}
+					
+					Where Z is Z transform variable
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Theoretical aspects of bipedal robots control: Optimal Control}
+	\begin{block}{Optimal Control}
+		\begin{itemize}
+			\item
+				Transfer function measures
+				
+				\begin{equation}
+					\begin{split}
+						||G(Z)||_2 = Tr\{ B^{T} XB + D^{T} D \}
+					\end{split}
+				\end{equation}
+			\item
+				X should satisfy:
+				\begin{equation}
+					X = A^TXA + C^TC
+				\end{equation}
+			\item
+				Physical meaning is a gain in power from input to output, assuming that the input signal is white noise.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control: Optimal Control}
+		\begin{block}{Optimal Control}
+			\begin{itemize}
+				\item
+					Transfer function measures
+					
+					\begin{equation}
+						\begin{split}
+							||G(Z)||_\infty = \sup_{\omega} \dfrac{||z||_2}{||\omega||_2}
+						\end{split}
+					\end{equation}
+				\item
+					\begin{equation}
+					z  =G \omega
+					\end{equation}
+				\item
+					$\omega$ is assumed to be a realization of a unit power, Gaussian, white noise
+					process and z is the real values vector of input
+				\item
+					Physical meaning is a maximum possible gain in power from input to output, assuming that the input signal is white noise.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control: Preview Control}
+		\begin{block}{Preview Control}
+			\begin{itemize}
+				\item
+					 Look forward for N discrete steps
+				\item
+					Predict the desirable value of controlled signal
+				\item
+					\cite{katayama1985design} proved the theorem that optimal control signal has the followong form:
+					\begin{equation}
+						u(k) = -G_I \sum^{k}_{i=0} e(i) - G_xx(k) - \sum^{N}_{l=1}G_d(l)y_d(k+l)
+					\end{equation}
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical aspects of bipedal robots control: Preview Control}
+		It makes sense to find critical number of important future steps.
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.7\linewidth]{presentation_images/16}
+				\caption{Preview Gain dependency from the time \cite{kajita2003biped}}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation}
+		\begin{block}{What was done?}
+			\begin{itemize}
+				\item
+					Implementation of cart table model
+				\item
+					Implementation of PID controlled cart table model
+				\item
+					Implementation of preview controlled cart table model
+				\item
+					Comparison of preview and PID control result
+				\item
+					Preview control was applied to robot model
+			\end{itemize}
+		\end{block}
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Implementation and Evaluation: }
+	\begin{block}{Controller}
+		\begin{itemize}
+			\item
+				PID controller
+			\item
+				Preview controller
+		\end{itemize}
+	\end{block}
+	
+	\begin{figure}[h!]
+		\begin{minipage}[H]{\linewidth}
+			\centering
+			\includegraphics[width=0.35\linewidth]{presentation_images/13}
+		\end{minipage}
+		\begin{minipage}[H]{\linewidth}
+			\centering
+			\includegraphics[width=0.35\linewidth]{presentation_images/14}
+		\end{minipage}
+		\caption{Inverse control principle, \cite{kajita2003biped}}
+	\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
 		\frametitle{Summary}
 		\begin{itemize}
-			\item 
+			\item
+				ololo
 		\end{itemize}
 	\end{frame}
 
@@ -393,10 +706,10 @@ acts on Zero Moment Point
 	\end{frame}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-	
-	\centering
-	Bibliography
-	\bibliographystyle{unsrtnat}
-	\bibliography{robotics}
+	\begin{frame}[allowframebreaks]
+		\frametitle{Bibliography}    
+			\bibliographystyle{apalike}
+			\bibliography{robotics}
+	\end{frame}
 		
 \end{document}
