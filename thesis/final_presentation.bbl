@@ -51,6 +51,12 @@ Matsuoka, K. (1985).
   adaptation.
 \newblock {\em Biological cybernetics}, 52(6):367--376.
 
+\bibitem[Nakamura and Yamane, 2000]{nakamura2000dynamics}
+Nakamura, Y. and Yamane, K. (2000).
+\newblock Dynamics computation of structure-varying kinematic chains and its
+  application to human figures.
+\newblock {\em Robotics and Automation, IEEE Transactions on}, 16(2):124--134.
+
 \bibitem[Seo et~al., 2011]{seo2011improved}
 Seo, Y.-H., Lee, C.-W., and Choi, J.-S. (2011).
 \newblock Improved numerical inverse kinematics for human pose estimation.

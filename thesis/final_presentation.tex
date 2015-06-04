@@ -202,7 +202,7 @@
 			\begin{minipage}[H]{\linewidth}
 				\centering
 				\includegraphics[scale=0.5]{presentation_images/32}
-				\caption{Human structure changing}
+				\caption{Human structure changing (\cite{nakamura2000dynamics})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -590,6 +590,9 @@ acts on Zero Moment Point
 							y(k) = Cx(k) + Du(k)
 						\end{split}
 					\end{equation}
+					
+					A, B, C, D are parameters matrices.
+					x is a input vector, y is output vector.
 				\item
 					Transfer function
 					\begin{equation}
@@ -950,9 +953,9 @@ acts on Zero Moment Point
 			\item
 				Develop a model that is more similar to a real robot
 			\item
-				Develop an inverse kinematics module	
+				Develop an inverse kinematics module that takes CoM trajectory and generates trajectories for all other joints
 			\item
-				Combine two controllers in sagital and frontal planes
+				Combine two controllers in sagittal and frontal planes
 			\item
 				Apply preview controller to a real robot
 		\end{itemize}
@@ -1074,6 +1077,16 @@ acts on Zero Moment Point
 		\end{equation}
 		
 		where $C_1 = \dfrac{0.2(1+e^{0.5\omega })}{(e^{-0.5\omega }-e^{0.5\omega })}$, $C_2=-0.2-C_1$, $\omega = \sqrt{\dfrac{g}{Z_c}}$, g is the gravitational acceleration, $Z_c$ is robot's CoM height.
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+	\begin{frame}
+		\frametitle{Materials} 
+		
+		\begin{equation}
+			J = \sum^\infty_{i = k} \{e^T(i) Q_e e(i) + \bigtriangleup x^T(i) Q_x \bigtriangleup x(i) + \bigtriangleup u^T(i) R \bigtriangleup u(i) \}
+		\end{equation}
 	\end{frame}
 		
 \end{document}
