@@ -16,8 +16,7 @@
 \setbeamercovered{transparent}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
-\usetheme{Warsaw}
-\usecolortheme{sidebartab}
+\usetheme{Boadilla}
 
 \title[\hbox to 56mm{Bipedal robot locomotion control\hfill\insertframenumber\,/\,\inserttotalframenumber}]
             {Development and implementation dynamic balance algorithms for bipedal robot locomotion}
@@ -42,16 +41,16 @@
 		\begin{itemize}
 			\item Introduction and Motivation
 			\item Problem Overview
-			\item Related work
-			\item Theoretical aspects of bipedal robots control
-			\item Implementation and evaluation
-			\item Future work
+			\item Related Work
+			\item Theoretical Aspects of Bipedal Robots Control
+			\item Implementation and Evaluation
+			\item Future Work
 			\item Summary
 		\end{itemize}
 	\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+	\section*{Introduction and Motivation}
 	\begin{frame}
 		\frametitle{Introduction and Motivation: the development of robotics in minds}
 		\centering
@@ -144,57 +143,58 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-	\frametitle{Introduction and Motivation}
-	\begin{block}{Humanoids Advantages and Disadvantages}
-		\begin{itemize}
-			\item(+)
-				Universal environment
-			\item(+)
-				Natural, human-like
-			\item(+)
-				Uneven terrains
-			\item(-)
-				Difficult locomotion
-			\item(-)
-				Complex design
-			\item(-)
-				Low speed
-			\item(-)
-				Complex control
-			\item(?) Special tasks cannot be performed by general robots as good as by devices that were designed for this proper task.
-		\end{itemize}
-	\end{block}
-\end{frame}
+	\begin{frame}
+		\frametitle{Introduction and Motivation}
+		\begin{block}{Humanoids Advantages and Disadvantages}
+			\begin{itemize}
+				\item(+)
+					Universal environment
+				\item(+)
+					Natural, human-like
+				\item(+)
+					Uneven terrains
+				\item(-)
+					Difficult locomotion
+				\item(-)
+					Complex design
+				\item(-)
+					Low speed
+				\item(-)
+					Complex control
+				\item(?) Special tasks cannot be performed by general robots as good as by devices that were designed for this proper task.
+			\end{itemize}
+		\end{block}
+	\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-	\frametitle{Problem Overview}
-	\begin{block}{Bipedal locomotion difficulties}
-		\begin{itemize}
-			\item
-				Humanoids are underactuated due to inertia frame
-			\item
-				Difficult to solve Inverse Kinematics
-			\item
-				Several kinematic chains
-			\item 
-				Requires the robot to plan motions
-		\end{itemize}
-	\end{block}
-	
-	\begin{figure}[h!]
-		\begin{minipage}[H]{\linewidth}
-			\centering
-			\includegraphics[scale=0.5]{presentation_images/7}
-			\caption{Human as a kinematic chains, \cite{seo2011improved}}
-		\end{minipage}
-	\end{figure}
-\end{frame}
+	\section*{Problem Overview}
+		\begin{frame}
+			\frametitle{Problem Overview}
+			\begin{block}{Bipedal locomotion difficulties}
+				\begin{itemize}
+					\item
+						Humanoids are underactuated due to inertia frame
+					\item
+						Difficult to solve Inverse Kinematics
+					\item
+						Several kinematic chains
+					\item 
+						Requires the robot to plan motions
+				\end{itemize}
+			\end{block}
+			
+			\begin{figure}[h!]
+				\begin{minipage}[H]{\linewidth}
+					\centering
+					\includegraphics[scale=0.5]{presentation_images/7}
+					\caption{Human represented as a set of kinematic chains, \cite{seo2011improved}}
+				\end{minipage}
+			\end{figure}
+		\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+	\section*{Related Work}
 	\begin{frame}
 		\frametitle{Related work}
 		\begin{block}{Bipedal locomotion control approaches}
@@ -235,7 +235,7 @@
 					Foot Rotation Indicator (FRI)
 			\end{itemize}
 		\end{block}
-	\end{frame}
+ 	\end{frame}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -358,9 +358,10 @@ acts on Zero Moment Point
 	\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+	
+	\section*{Theoretical Aspects of Bipedal Robots Control}
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control}
 		\centering
 		Locomotion is a periodic gait cycle.
 		
@@ -375,7 +376,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control}
 		\begin{block}{Cart table model}
 			\begin{itemize}
 				\item(+)
@@ -398,7 +399,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control: cart table model}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: cart table model}
 		\begin{equation}
 			P = x - \dfrac{Z_c}{g} \ddot{x}
 		\end{equation}		
@@ -414,7 +415,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control: cart table model}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: cart table model}
 		\begin{block}{Proper dynamics of cart table model}
 			\begin{itemize}
 				\item
@@ -434,7 +435,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control}
 		\begin{block}{Human planes intersting for locomotion}
 			\begin{itemize}
 				\item
@@ -457,7 +458,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control}
 		\begin{block}{Control principle}
 			\begin{itemize}
 				\item
@@ -481,7 +482,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Theoretical aspects of bipedal robots control}
+	\frametitle{Theoretical Aspects of Bipedal Robots Control}
 	\begin{block}{Control principle}
 		\begin{itemize}
 			\item
@@ -509,7 +510,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control}
 		\begin{block}{Optimal Control}
 			\begin{itemize}
 				\item
@@ -530,7 +531,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control: Optimal Control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
 		\begin{block}{Optimal Control}
 			\begin{itemize}
 				\item
@@ -557,7 +558,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Theoretical aspects of bipedal robots control: Optimal Control}
+	\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
 	\begin{block}{Optimal Control}
 		\begin{itemize}
 			\item
@@ -582,7 +583,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control: Optimal Control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
 		\begin{block}{Optimal Control}
 			\begin{itemize}
 				\item
@@ -609,7 +610,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control: Preview Control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: Preview Control}
 		\begin{block}{Preview Control}
 			\begin{itemize}
 				\item
@@ -628,7 +629,7 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Theoretical aspects of bipedal robots control: Preview Control}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: Preview Control}
 		It makes sense to find critical number of important future steps.
 		\begin{figure}[h!]
 			\begin{minipage}[H]{\linewidth}
@@ -641,6 +642,7 @@ acts on Zero Moment Point
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+	\section*{Implementation and Evaluation}
 	\begin{frame}
 		\frametitle{Implementation and Evaluation}
 		\begin{block}{What was done?}
@@ -662,36 +664,264 @@ acts on Zero Moment Point
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Implementation and Evaluation: }
-	\begin{block}{Controller}
+	\frametitle{Implementation and Evaluation: Cart table model}
+	\begin{block}{Cart table model}
 		\begin{itemize}
 			\item
-				PID controller
-			\item
-				Preview controller
+				Can be described by the following equation:
+				\begin{equation}
+						P = x - \dfrac{Z_c}{g} \ddot{x}
+				\end{equation}
 		\end{itemize}
 	\end{block}
 	
 	\begin{figure}[h!]
-		\begin{minipage}[H]{\linewidth}
-			\centering
-			\includegraphics[width=0.35\linewidth]{presentation_images/13}
-		\end{minipage}
-		\begin{minipage}[H]{\linewidth}
-			\centering
-			\includegraphics[width=0.35\linewidth]{presentation_images/14}
-		\end{minipage}
-		\caption{Inverse control principle, \cite{kajita2003biped}}
+		\centering
+		\includegraphics[width=0.8\linewidth]{presentation_images/18}
+		\caption{Cart table model in simulink environment}
 	\end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
+		\frametitle{Implementation and Evaluation: PID controlled cart table model}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{presentation_images/19}
+			\caption{PID controlled cart table}
+		\end{figure}
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation: PID controller}
+		\begin{block}{PID controller}
+			\begin{itemize}
+				\item
+					PID controller is defined by its coefficients
+				\item
+					Coefficients can be adjusted by several algorithms: response analysis, transfer function analysis. In this work matlab proprietary algorithm was used. 
+			\end{itemize}
+		\end{block}
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{presentation_images/20}
+			\caption{PID controller}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation: PID controller}
+		The results of PID control show that it cannot be applied for such unstable system as cart on table is.
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{presentation_images/21}
+			\caption{PID controlled cart table model results}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation: Preview controlled cart table model}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{presentation_images/22}
+			\caption{Preview controlled cart table}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation: Preview controller}
+		\begin{block}{Preview controller}
+			\begin{itemize}
+				\item
+					Preview controller is defined by its coefficients, and number of preview steps
+				\item
+					These coefficients can be find by cost function optimization introduced in \cite{katayama1985design} 
+			\end{itemize}
+		\end{block}
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.8\linewidth]{presentation_images/23}
+			\caption{Preview controlled cart table}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation: Preview controller}
+		The results of preview control show that it can be applied for such unstable system as cart on table is because of very precise work.
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.8\linewidth]{presentation_images/24}
+			\caption{Preview controlled cart table model results}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation: Preview controller for robot model}
+		It was used 12 DoF robot model designed in simulink environment.
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.8\linewidth]{presentation_images/25}
+			\caption{12 DoF robot model}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation}
+		\begin{block}{Trajectories}
+			\begin{itemize}
+				\item
+					For one step we want ZMP to be located in zero position.
+				\item
+					Trajectory of robot CoM is the solution of the following equation:
+					
+					\begin{equation}
+						x - \dfrac{Z_c}{g} \ddot{x} = 0
+					\end{equation}
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation: Trajectories}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{presentation_images/27}
+			\caption{Analytically generated CoM trajectory}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation}
+		\begin{block}{Trajectories}
+			\begin{itemize}
+				\item
+					Preview control was applied to the model of robot
+				\item
+					The results are perfect but physically unreachable
+			\end{itemize}
+		\end{block}
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.68\linewidth]{presentation_images/28}
+			\caption{Ideal preview control results}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation}
+		\begin{block}{Trajectories}
+			\begin{itemize}
+				\item
+					Preview control was applied to the model of robot with limitation of maximum acceleration.
+				\item
+					The results become close to analytical one
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.8\linewidth]{presentation_images/29}
+			\caption{Limited preview control results}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation}
+		\begin{block}{Trajectories}
+			\begin{itemize}
+				\item
+					\cite{choi2006fuzzy} consider another form of control signal
+				\item
+					\begin{equation}
+						u(k) = -G_I e(i) - G_xx(k) - \sum^{N_l}_{l=1}G_d(l)y_d(k+l)
+					\end{equation}
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Implementation and Evaluation}
+		The result of modified preview controller with the same parameters.
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.8\linewidth]{presentation_images/30}
+			\caption{Limited preview control results}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\section*{Future Work}
+	\begin{frame}
+		\frametitle{Future Work}
+		\begin{itemize}
+			\item
+				Develop a model that is more similar to a real robot
+			\item
+				Develop an inverse kinematics module	
+			\item
+				Combine two controllers in sagital and frontal planes
+			\item
+				Apply it to a real robot
+			\item
+				Revise the structure of the robot
+			\item
+				Design AI
+		\end{itemize}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Summary}
+	\begin{frame}
 		\frametitle{Summary}
 		\begin{itemize}
 			\item
-				ololo
+				Different approaches to bipedal locomotion were considered
+			\item
+				It was implemented solution consisted of CPG approach (preview controller) and ZMP criterion
+			\item
+				Alternative structure of preview controller was considered
+			\item
+				Evaluation of results shows that Preview control is a perspective approach for bipedal locomotion
+			\item
+				Physical motors restrictions can be applied to the model
 		\end{itemize}
 	\end{frame}
 
@@ -701,11 +931,101 @@ acts on Zero Moment Point
 		\frametitle{Thanks for the attention}
 		Now it's time for your questions
 		\begin{figure}[h]
-			%\center{\includegraphics[width=0.75\linewidth]{presentation_images/be_healthy.jpg}} 
+			\center{\includegraphics[width=0.7\linewidth]{presentation_images/31}} 
 		\end{figure}
 	\end{frame}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+	\begin{frame}
+		\frametitle{Materials} 
+		\begin{equation}\label{eq:CoG1}
+			\begin{split}
+			X_{CoG}(t) = X_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\alpha Z_{CoG}}} t \right) + \sqrt{\dfrac{\alpha Z_{CoG}}{g}} \dot{X}_{CoG}(0) sinh\left(\sqrt{\dfrac{g}{\alpha Z_{CoG}} } t\right)\\
+			Y_{CoG}(t) = Y_{CoG}(0) cosh \left( \sqrt{\dfrac{g}{\beta Z_{CoG}}} t \right) + \sqrt{\dfrac{\beta Z_{CoG}}{g}} \dot{Y}_{CoG}(0) sinh \left( \sqrt{\dfrac{g}{\beta Z_{CoG}}} t \right)
+		\end{split}
+		\end{equation}		
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+	\begin{frame}
+		\frametitle{Materials} 
+		\begin{equation}\label{eq:CPG1}
+		\tau_1 \dot{x}_1 = -x_1 - \beta f(\nu_1) -  \gamma f(x_2) + u_0 + u_{f_1}
+		\end{equation}
+		\begin{equation}\label{eq:CPG2}
+		\tau_2 \dot{\nu}_1 = -\nu_1  + f(x_1)
+		\end{equation}
+		\begin{equation}\label{eq:CPG3}
+		\tau_1 \dot{x}_2 = -x_2 - \beta f(\nu_2) -  \gamma f(x_1) + u_0 + u_{f_2}
+		\end{equation}
+		\begin{equation}\label{eq:CPG4}
+		\tau_2 \dot{\nu}_2 = -\nu_2  + f(x_2)
+		\end{equation}
+		
+		where $x_1$  is initial state of neuron, fired by the constant input $u_0$, $x_1$, $x_2$, $\nu_1$ and $\nu_2$ are state variables, dot represents time derivative.  When firing reaches some threshold, the neuron goes to state $\nu_1$ through eq. (\ref{eq:CPG2}). When it exceeds some threshold it starts to return to the state $x_1$ through the eq. (\ref{eq:CPG1}) by the factor $\beta$. $\beta$ represents the rate of adaptations, if $\beta$ is big, the return to state $x_1$ is fast. $u_{f_1}$ and $u_{f_2}$ are the feedback inputs from sensors, $\gamma$ is the coefficient between state variables and f(x) is a threshold function that has zero gain until x is less than threshold value and not zero gain otherwise . Such element works the following way: when it takes constant input it reacts, then adapts and stop reacting. Oscillations generation is the process of reaction and adaptation itself.
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Materials} 
+	
+		Matsuoka in \cite{matsuoka1985sustained} discusses oscillations generated by mutual inhibition between n neurons with adaptation:
+		\begin{equation}\label{eq:Mats2}
+		\begin{split}
+		\dot{x}_i + x_i = - \sum^n_{j = 1} a_{ij} y_j - b x^{\prime} + s_i\\
+		T \dot{x}^{\prime}_i  + x^{\prime}_i= y_i\\
+		y = g(x_i)\ \ (i = 1,...,n) 
+		\end{split}
+		\end{equation}
+		
+		where $a_{ij}$ represents the strength of inhibitory connection between the neurons. $a_{ij} >$ 0 for i$\neq$j and $a_{ij}$ = 0 for i = j. $\sum^n_{j = 1} a_{ij} y_j $ is the total input from the neurons inside a neural network and $s_{i}$ is the total input from the outside of the network, $y_j$ is input from neuron j. 
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+	\begin{frame}
+		\frametitle{Materials} 
+		
+		\begin{equation}\label{eq:pc1}
+		u(k) = -G_I \sum^{k}_{i=0} e(i) - G_xx(k) - \sum^{N}_{l=1}G_d(l)y_d(k+l)
+		\end{equation}
+		
+		Where $G_I = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{I}$ represents integral coefficient, e(i) is an error between controlled value and its referenced value, $G_x = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{K} \tilde{F}$ represents proportional coefficient, x(k) is the controlled value, $G_d(1) = -G_I$ and $G_d(l) = [R+\tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T \tilde{X}(l-1)$ represents feature coefficients at time l, $y_d(t)$ is a value of reference signal at time t.
+		
+		with the solution of DARE $\tilde{K}$ in the form:
+		
+		\begin{equation}\label{eq:pc2}
+		\tilde{K} = \tilde{A}^T\tilde{K}\tilde{A} - \tilde{A}^T \tilde{K} \tilde{B} [R + \tilde{B}^T \tilde{K} \tilde{B}]^{-1} \tilde{B}^T\tilde{K}\tilde{A} + \tilde{Q}
+		\end{equation}
+		
+		where:
+		
+		\begin{equation}\label{eq:pc3}
+		\tilde{B} = \begin{bmatrix} C B \\ B \end{bmatrix},
+		\tilde{I} = \begin{bmatrix} I_p \\ 0 \end{bmatrix},
+		\tilde{F} = \begin{bmatrix} CA \\ A \end{bmatrix},
+		\tilde{Q} = \begin{bmatrix} Q_e & 0 \\ 0 & Q_x \end{bmatrix},
+		\tilde{A} = \begin{bmatrix} \tilde{I} & \tilde{F} \end{bmatrix}
+		\end{equation}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+	\begin{frame}
+		\frametitle{Materials} 
+		
+		\begin{equation}
+		X_{CoM} = C_1 e^{-\omega t} + C_2 e^{\omega t}
+		\end{equation}
+		
+		where $C_1 = \dfrac{0.2(1+e^{0.5\omega })}{(e^{-0.5\omega }-e^{0.5\omega })}$, $C_2=-0.2-C_1$, $\omega = \sqrt{\dfrac{g}{Z_c}}$, g is the gravitational acceleration, $Z_c$ is robot's CoM height.
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
 	\begin{frame}[allowframebreaks]
 		\frametitle{Bibliography}    
 			\bibliographystyle{apalike}
