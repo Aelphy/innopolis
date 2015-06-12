@@ -459,7 +459,7 @@ class Normalizer():
 
     def __init__(self):
         self.stemmer = nltk.PorterStemmer()
-        self.stop_words_pattern = (r'\b(' + r'|'.join(self.STOP_WORDS) + r')\b\s*')
+        self.stop_words_pattern = re.compile(r'\b(' + r'|'.join(self.STOP_WORDS) + r')\b\s*')
         self.tags_pattern = re.compile('<[^>]+>')
         self.punctuation_transform = str.maketrans(string.punctuation, len(string.punctuation) * ' ')
 

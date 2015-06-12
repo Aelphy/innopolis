@@ -4,18 +4,19 @@ from datetime import datetime
 from glob import glob
 import os
 
+
 class Preprocessor():
     def __init__(self, data_dir, start_index=0):
         self.normalizer = Normalizer()
         self.data_dir = data_dir
-        self.docs_number = len(glob(os.path.join(self.data_dir, '**', '**', '*.nxml')))
+        self.docs_number = len(glob(os.path.join(self.data_dir, '**', '*.nxml')))
         self.inserter = Inserter()
         self.start_index = 0
 
 
     def preprocess(self):
         print('Start time: {0}'.format(datetime.now()))
-        for index, file_name in enumerate(sorted(glob(os.path.join(self.data_dir, '**', '**', '*.nxml')))):
+        for index, file_name in enumerate(sorted(glob(os.path.join(self.data_dir, '**', '*.nxml')))):
             if index >= self.start_index:
                 terms = self.normalizer.normalize(file_name)
 
