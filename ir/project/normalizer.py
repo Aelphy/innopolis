@@ -459,12 +459,14 @@ class Normalizer():
 
     def __init__(self):
         self.stemmer = nltk.PorterStemmer()
-        self.stop_words_pattern = re.compile(r'\b(' + r'|'.join(self.STOP_WORDS) + r')\b\s*')
-        self.tags_pattern = re.compile('<.*?>')
+        self.stop_words_pattern = re.compile('(' + '|'.join(self.STOP_WORDS) + ')')
+        self.tags_pattern = re.compile('<[^>]+>')
+        self.punctuation_transform = str.maketrans(string.punctuation, len(string.punctuation) * ' ')
 
 
     def clear_string(self, line):
-        return ' '.join(self.delete_tags(line).split()).translate(str.maketrans(len(string.punctuation) * ' ',  len(string.punctuation) * ' ', string.punctuation))
+        clear_line = ' '.join(self.delete_tags(line).split()).translate(self.punctuation_transform)
+        return re.sub(self.stop_words_pattern, ' ', clear_line)
 
 
     def normalize(self, file_full_path):
@@ -472,13 +474,13 @@ class Normalizer():
 
         with open(file_full_path) as f:
             for line in f:
-                words = self.clear_string(line).lower()
+                words = self.clear_string(line)
 
-                for word in self.stop_words_pattern.sub('', words).split():
+                for word in words.split():
                     result.append(self.stemmer.stem(word))
 
         return result
 
 
     def delete_tags(self, line):
-        return re.sub(self.tags_pattern, '', line)
+        return re.sub(self.tags_pattern, ' ', line)

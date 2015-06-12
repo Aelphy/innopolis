@@ -4,7 +4,7 @@ class Inserter():
     def __init__(self):
         self.redis = redis.StrictRedis(host='localhost')
 
-    def insert(self, key, doc_id, tf, docs_number):
+    def insert(self, key, doc_id, tf):
         if self.redis.hexists(key, doc_id):
             self.redis.hincrby(key, doc_id, tf)
         else:
