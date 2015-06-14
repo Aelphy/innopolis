@@ -473,14 +473,22 @@ class Normalizer():
         return re.sub(self.tags_pattern, ' ', line)
 
 
+    def normalize_line(self, line):
+        result = []
+
+        words = self.clear_string(line)
+
+        for word in words.split():
+            result.append(self.stemmer.stem(word))
+
+        return result
+
+
     def normalize(self, file_full_path):
         result = []
 
         with open(file_full_path) as f:
             for line in f:
-                words = self.clear_string(line)
-
-                for word in words.split():
-                    result.append(self.stemmer.stem(word))
+                result.append(normalize_line(line))
 
         return result
