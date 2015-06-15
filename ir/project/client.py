@@ -4,7 +4,7 @@ import socket
 import math
 import sys
 import os
-import ipdb
+import time
 
 
 class Client():
@@ -135,12 +135,16 @@ if __name__ == '__main__':
         if query == 'exit':
             break
 
+        start = time.time()
         result = client.process_query(query)
+        end = time.time()
 
         if not result:
             print('Nothing was found')
         else:
             for document, score in result:
                 print(client.document_identificators[document], score)
+
+        print('Query processing time: {0}'.format(end - start))
 
     sys.exit()
