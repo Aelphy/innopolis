@@ -1,34 +1,39 @@
 from normalizer import Normalizer
+from color import *
 import socket
 import math
 import sys
+import os
 import ipdb
 
 
 class Client():
-    def __init__(self, host='192.168.0.107', port=7777, list_file='inputfiles-full.txt', freqs_file='wordlist'):
+    def __init__(self, host='192.168.0.107', port=7777, list_file='inputfiles-full.txt', freqs_file='wordlist', dataset_dir='/home/aelphy/Desktop/ir_project_dataset'):
         self.normalizer = Normalizer()
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect((host, port))
         self.document_freqs_list_filename = freqs_file
         self.document_list_filename = list_file
+        self.dataset_dir = dataset_dir
 
         self.documents_freqs = {}
-        self.document_indetificators = {}
+        self.document_identificators = {}
+        self.identificator_documents = {}
 
         with open(self.document_list_filename) as f:
             for line in f:
                 data = line.strip().split()
                 index = int(data[0])
-                indetifier = data[1]
-                self.document_indetificators[index] = indetifier
+                identifier = data[1]
+                self.document_identificators[index] = identifier
+                self.identificator_documents[identifier] = index
 
         self.documents_number = index
 
         with open(self.document_freqs_list_filename) as f:
-            for index, line in enumerate(f):
+            for line in f:
                 data = line.strip().split()
-                self.documents_freqs[index + 1] = int(data[0])
+                self.documents_freqs[self.identificator_documents[data[1]]] = int(data[0])
 
         self.avgdl = sum(self.documents_freqs.values()) / float(self.documents_number)
         self.k1 = 2.0
@@ -72,9 +77,11 @@ class Client():
 
     def parse_message_array(self, message_array):
         result = {}
+        i = 0
 
-        for i in range(len(message_array) - 1):
+        while i <= len(message_array) - 1:
             result[int(message_array[i])] = int(message_array[i + 1])
+            i = i + 2
 
         return result
 
@@ -95,7 +102,16 @@ class Client():
         for document in documents:
             document_scores[document] = self.score_document(document, term_doc_tf, terms)
 
-        return sorted(document_scores.items(), key=lambda x: x[1], reverse=True)
+        result = sorted(document_scores.items(), key=lambda x: x[1], reverse=True)
+        best_match = result[0]
+        best_match_file = open(os.path.join(self.dataset_dir, client.document_identificators[best_match[0]]), 'r')
+        best_match_data = ' '.join(best_match_file.readlines())
+
+        for term in terms:
+            best_match_data = best_match_data.replace(term, color.RED + term + color.END)
+
+        print(best_match_data)
+        return result
 
 
     def score_document(self, document, term_doc_tf, terms):
@@ -125,6 +141,6 @@ if __name__ == '__main__':
             print('Nothing was found')
         else:
             for document, score in result:
-                print(client.document_indetificators[document], score)
+                print(client.document_identificators[document], score)
 
     sys.exit()
