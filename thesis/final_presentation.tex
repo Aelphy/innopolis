@@ -35,26 +35,11 @@
 	\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Outline}
-		\begin{itemize}
-			\item Introduction and Motivation
-			\item Problem Overview
-			\item Related Work
-			\item Theoretical Aspects of Bipedal Robots Control
-			\item Implementation and Evaluation
-			\item Future Work
-			\item Summary
-		\end{itemize}
-	\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section*{Introduction and Motivation}
 	\begin{frame}
 		\frametitle{Introduction and Motivation: the development of robotics in minds}
 		\centering
-		Trends in robotics are near to be developed
+		Universal robots applications
 		
 		\begin{figure}[h!]
 			\begin{minipage}[H]{0.20\linewidth}
@@ -77,90 +62,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
-		\frametitle{Introduction and Motivation: the development of robotics in minds}
-		\centering
-		Robotics, Cybernetics, Biomechatronics, AI are only several of prospectives that a required to take into account in bipedal robots development
-		
-		\begin{figure}[h!]
-			\begin{minipage}[H]{0.4\linewidth}
-				\includegraphics[width=\linewidth]{presentation_images/3}
-				\caption{Terminator, 1984}
-			\end{minipage}
-			\hfill
-			\begin{minipage}[H]{0.4\linewidth}
-				\includegraphics[width=\linewidth]{presentation_images/5}
-				\caption{I, robot, 2004}
-			\end{minipage}
-		\end{figure}
-	\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Introduction and Motivation: humanoid robots development}
-		\begin{figure}[h!]
-			\includegraphics[width=0.8\linewidth]{presentation_images/6}
-			\caption{Evolution of Honda humanoids}
-		\end{figure}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Introduction and Motivation}
-		\begin{block}{What is a robot ?}
-			\begin{itemize}
-				\item
-					Mechanism with body structure resembles that of a human: head, torso, legs, arms, hands (\cite{hirai1998development})
-			\end{itemize}
-		\end{block}
-		\begin{figure}[h!]
-			\begin{minipage}[H]{\linewidth}
-				\centering
-				\includegraphics[width=0.3\linewidth]{presentation_images/17}
-				\caption{Humanoid robot}
-			\end{minipage}
-		\end{figure}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Introduction and Motivation}
-		\begin{block}{Why humanoids ?}
-			\begin{itemize}
-				\item
-				Ability to work directly in the same human environment without any modification
-				\item
-				General-purpose workers
-				\item
-				Social integration
-				\item
-				Work with same tools as humans
-			\end{itemize}
-		\end{block}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
 		\frametitle{Introduction and Motivation}
 		\begin{block}{Humanoids Advantages and Disadvantages}
 			\begin{itemize}
 				\item(+)
-					Universal environment
+					Environment that is the same as humans'
 				\item(+)
 					Natural, human-like
 				\item(+)
 					Uneven terrains
 				\item(-)
-					Difficult locomotion
+					Difficult locomotion control
 				\item(-)
 					Complex design
 				\item(-)
 					Low speed
-				\item(-)
-					Complex control
 				\item(?) Special tasks cannot be performed by general robots as good as by devices that were designed for this proper task
 			\end{itemize}
 		\end{block}
@@ -179,8 +95,6 @@
 						Difficult to solve Inverse Kinematics
 					\item
 						Several kinematic chains
-					\item 
-						Requires the robot to plan motions
 				\end{itemize}
 			\end{block}
 			
@@ -198,6 +112,13 @@
 	\section*{Problem Overview}
 	\begin{frame}
 		\frametitle{Problem Overview}
+		\begin{block}{Bipedal locomotion difficulties}
+			\begin{itemize}
+				\item 
+					Motions planning
+			\end{itemize}
+		\end{block}
+
 		\begin{figure}[h!]
 			\begin{minipage}[H]{\linewidth}
 				\centering
@@ -230,164 +151,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 
-\begin{frame}[allowframebreaks]
-	\frametitle{Bibliography}    
-	\bibliographystyle{apalike}
-	\bibliography{robotics}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 	\begin{frame}
-		\frametitle{Related work: Analytical approach}
-		\begin{block}{Steps required for bipedal locomotion}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control}
+		\begin{block}{Human planes intersting for locomotion}
 			\begin{itemize}
 				\item
-					Apply stability constraints
+				Sagittal plane
 				\item
-					Design a gait algorithm
-				\item
-					Solve remaining Degrees of Freedom
-			\end{itemize}
-		\end{block}
-		\begin{block}{Stability measures}
-			\begin{itemize}
-				\item
-					Zero Moment Point (ZMP)
-				\item
-					Foot Rotation Indicator (FRI)
-			\end{itemize}
-		\end{block}
- 	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Related work: Analytical approach}
-		\begin{block}{ZMP}
-			\begin{itemize}
-				\item
-					The distributed floor reaction force can be replaced by a single force R
-acts on Zero Moment Point
+				Frontal plane
+				
 			\end{itemize}
 		\end{block}
 		
 		\begin{figure}[h!]
 			\begin{minipage}[H]{\linewidth}
 				\centering
-				\includegraphics[width=0.5\linewidth]{presentation_images/8}
-				\caption{Zero Moment Point (ZMP) (\cite{vukobratovic2004zero})}
+				\includegraphics[width=0.3\linewidth]{presentation_images/12}
+				\caption{Human planes (\cite{medical})}
 			\end{minipage}
 		\end{figure}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Related work: Central Pattern Generator Approach}
-		\begin{block}{Human walking process}
-			\begin{itemize}
-				\item
-					Rhythm generating
-				\item
-					Control and adaptation mechanism
-					
-			\end{itemize}
-		\end{block}
-		\begin{block}{CPG principle}
-			\begin{itemize}
-				\item
-					Biological CPGs are made from pairs of mutually inhibiting neurons
-				\item
-					Pairs of mutually inhibiting neurons are described by systems of differential equations
-				\item
-					CPG is a neural network working without input
-			\end{itemize}
-		\end{block}
-	\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Related work: Neural Networks Approach}
-		\centering
-		Feed-Forward Networks
-		
-		\begin{figure}[h!]
-			\begin{minipage}[H]{\linewidth}
-				\centering
-				\includegraphics[width=\linewidth]{presentation_images/9}
-				\caption{Feed Forward Network (\cite{kim2012zmp})}
-			\end{minipage}
-		\end{figure}
-	\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Related work: Neural Networks Approach}
-		\centering
-		Recurrent networks 
-		
-		\begin{figure}[h!]
-			\begin{minipage}[H]{\linewidth}
-				\centering
-				\includegraphics[width=0.5\linewidth]{presentation_images/10}
-				\caption{Elman Recurrent Network}
-			\end{minipage}
-		\end{figure}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Related work: Hidden Markov Model Approach}
-		\begin{block}{HMM for bipedal locomotion algorithm}
-			\begin{itemize}
-				\item
-					A correspondence between the control signal and controller input
-				\item 
-					 The control signal depends only on a finite number of previous input signals
-				\item
-					Define a set of patterns
-				\item
-					Set of input signals is mapped to the set of possible control signals
-				\item
-					Train the model by the data describing control signals
-				\item
-					 Collect a set of trained models
-			\end{itemize}
-		\end{block}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Related work: Rule Based Approach}
-		\begin{block}{Rule Based Approach principle}
-			\begin{itemize}
-				\item
-					Divide the set of all possible system configurations into the clusters
-				\item 
-					For each cluster assign the control function
-				\item During the work control function will be chosen according to the current robot configuration
-			\end{itemize}
-		\end{block}
-	\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Related work: Rule Based Approach}
-		\begin{block}{Rule Based Approach principle}
-			\begin{itemize}
-				\item
-				Current configuration defines the possible control function
-				\item Fuzzy logic controller is a perspective approach for solving dynamical stability problem
-				\item Fuzzy logic controller divide all the configuration space into the subspaces
-				\item For each subspace control function is defined in an optimal way
-			\end{itemize}
-		\end{block}
 	\end{frame}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -405,7 +187,7 @@ acts on Zero Moment Point
 			\end{minipage}
 		\end{figure}
 	\end{frame}
-	
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}
@@ -413,9 +195,9 @@ acts on Zero Moment Point
 		\begin{block}{Cart table model}
 			\begin{itemize}
 				\item(+)
-					Easy to understand
+				Represents ZMP
 				\item(-)
-					Not precise
+				Doesn't consider additional DoF 
 			\end{itemize}
 		\end{block}
 		
@@ -424,103 +206,6 @@ acts on Zero Moment Point
 				\centering
 				\includegraphics[width=0.5\linewidth]{presentation_images/11}
 				\caption{Cart table model (\cite{kajita2003biped})}
-			\end{minipage}
-		\end{figure}
-	\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Theoretical Aspects of Bipedal Robots Control: cart table model}
-		\begin{block}{Cart table model}
-			\begin{itemize}
-				\item
-					M is cart mass
-				\item
-					x is cart trajectory
-				\item
-					$\ddot{x}$ is cart acceleration
-				\item
-					p is ZMP coordinate
-				\item
-					$Z_c$ is height of cart CoM
-				\item
-					$\tau_{ZMP}$ is rotational moment in ZMP
-				\item
-					Cart table dynamics:
-					\begin{equation}
-						P = x - \dfrac{Z_c}{g} \ddot{x}
-					\end{equation}		
-			\end{itemize}
-		\end{block}
-	\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Theoretical Aspects of Bipedal Robots Control: cart table model}
-		\begin{block}{Proper dynamics of cart table model}
-			\begin{itemize}
-				\item
-					\begin{equation}
-						\dfrac{d}{dt} \begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0& 0 \end{bmatrix}  \begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix} + \begin{bmatrix} 0 \\0 \\ 1 \end{bmatrix} u
-					\end{equation}
-				\item
-					\begin{equation}
-						p = \begin{bmatrix} 1 & 0  & - \dfrac{Z_c}{g} \end{bmatrix}\begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix}
-					\end{equation}
-				\item
-					u is the jerk
-					\begin{equation}
-						u = \dfrac{d^3 x}{dt^3}
-					\end{equation}
-			\end{itemize}
-		\end{block}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Theoretical Aspects of Bipedal Robots Control}
-		\begin{block}{Human planes intersting for locomotion}
-			\begin{itemize}
-				\item
-					Sagittal plane
-				\item
-					Frontal plane
-					
-			\end{itemize}
-		\end{block}
-		
-		\begin{figure}[h!]
-			\begin{minipage}[H]{\linewidth}
-				\centering
-				\includegraphics[width=0.3\linewidth]{presentation_images/12}
-				\caption{Human planes (\cite{medical})}
-			\end{minipage}
-		\end{figure}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Theoretical Aspects of Bipedal Robots Control}
-		\begin{block}{Control principle}
-			\begin{itemize}
-				\item
-				Find ZMP pattern that corresponds to desired robot locomotion direction
-				\item
-				Calculate the cart trajectory to realize the given ZMP pattern
-				\item
-				Apply correction to robot in order to follow pattern
-			\end{itemize}
-		\end{block}
-		
-		\begin{figure}[h!]
-			\begin{minipage}[H]{\linewidth}
-				\centering
-				\includegraphics[width=0.85\linewidth]{presentation_images/13}
-				\caption{ZMP desired trajectory in frontal plane (\cite{kajita2003biped})}
 			\end{minipage}
 		\end{figure}
 	\end{frame}
@@ -536,7 +221,7 @@ acts on Zero Moment Point
 			\item
 			Calculate the cart trajectory to realize the given ZMP pattern
 			\item
-			Apply correction to robot in order to follow pattern
+			Apply correction to a robot in order to follow the pattern
 		\end{itemize}
 	\end{block}
 	
@@ -554,114 +239,6 @@ acts on Zero Moment Point
 		\caption{Inverse control principle (\cite{kajita2003biped})}
 	\end{figure}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Theoretical Aspects of Bipedal Robots Control}
-		\begin{block}{Optimal Control}
-			\begin{itemize}
-				\item
-					State space model
-				\item
-					Transfer function
-				\item
-					Transfer function measures
-			\end{itemize}
-		\end{block}
-		
-		\begin{figure}[h!]
-			\includegraphics[width=0.5\linewidth]{presentation_images/15}
-			\caption{Generalized regulator (\cite{hazell2008discrete})}
-		\end{figure}
-	\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
-		\begin{block}{Optimal Control}
-			\begin{itemize}
-				\item
-					State space model
-					\begin{equation}
-						\begin{split}
-							x(k+1) = Ax(k) + Bu(k)\\
-							y(k) = Cx(k) + Du(k)
-						\end{split}
-					\end{equation}
-					
-					A, B, C, D are parameters matrices.
-					x is a input vector, y is output vector.
-				\item
-					Transfer function
-					\begin{equation}
-						\begin{split}
-							G(Z) = C(ZI - A)^{-1} B + D
-						\end{split}
-					\end{equation}
-					
-					Where Z is Z transform variable
-			\end{itemize}
-		\end{block}
-	\end{frame}
-	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-	\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
-	\begin{block}{Optimal Control}
-		\begin{itemize}
-			\item
-				Transfer function measures
-				
-				\begin{equation}
-					\begin{split}
-						||G(Z)||_2 = Trace\{ B^{T} XB + D^{T} D \}
-					\end{split}
-				\end{equation}
-			\item
-				X should satisfy:
-				\begin{equation}
-					X = A^TXA + C^TC
-				\end{equation}
-			\item
-				Physical meaning is a gain in power from input to output, assuming that the input signal is white noise
-				
-				\begin{figure}[h!]
-					\includegraphics[width=0.1\linewidth]{presentation_images/33}
-					\caption{White noise realisation (\cite{manchester2011stable})}
-				\end{figure}
-		\end{itemize}
-	\end{block}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{frame}
-		\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
-		\begin{block}{Optimal Control}
-			\begin{itemize}
-				\item
-					Transfer function measures
-					
-					\begin{equation}
-						\begin{split}
-							||G(Z)||_\infty = \sup_{\omega} \dfrac{||z||_2}{||\omega||_2}
-						\end{split}
-					\end{equation}
-				\item
-					\begin{equation}
-					z  =G \omega
-					\end{equation}
-				\item
-					$\omega$ is assumed to be a realization of a unit power, Gaussian, white noise
-					process and z is the real values vector of input
-				\item
-					Physical meaning is a maximum possible gain in power from input to output, assuming that the input signal is white noise
-			\end{itemize}
-		\end{block}
-	\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -712,7 +289,7 @@ acts on Zero Moment Point
 				\item
 					Comparison of preview and PID control result
 				\item
-					Preview control was applied to robot model
+					Preview control was applied to a robot model
 			\end{itemize}
 		\end{block}
 	\end{frame}
@@ -967,15 +544,15 @@ acts on Zero Moment Point
 		\frametitle{Summary}
 		\begin{itemize}
 			\item
-				Different approaches to bipedal locomotion
+				Different approaches to bipedal locomotion were considered
 			\item
-				It was implemented solution consisted of Central Pattern Generator approach (preview controller) and Zero Moment Point criterion
+				The solution comprising Central Pattern Generator approach + Adaptive control (preview controller) + Analytical approach (Zero Moment Point criterion) was implemented
 			\item
-				Alternative structure of preview controller
+				Alternative structure of the preview controller was considered and evaluated
 			\item
-				Evaluation of results shows that Preview control is a perspective approach for bipedal locomotion
+				Evaluation of the results shows that the Preview controller is a perspective approach for bipedal locomotion control
 			\item
-				Physical motors restrictions can be applied to the model
+				Physical motors restrictions can were applied to the model, resulting in a more accurate model
 		\end{itemize}
 	\end{frame}
 
@@ -1088,5 +665,353 @@ acts on Zero Moment Point
 			J = \sum^\infty_{i = k} \{e^T(i) Q_e e(i) + \bigtriangleup x^T(i) Q_x \bigtriangleup x(i) + \bigtriangleup u^T(i) R \bigtriangleup u(i) \}
 		\end{equation}
 	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Related work: Analytical approach}
+		\begin{block}{Steps required for bipedal locomotion}
+			\begin{itemize}
+				\item
+				Apply stability constraints
+				\item
+				Design a gait algorithm
+				\item
+				Solve remaining Degrees of Freedom
+			\end{itemize}
+		\end{block}
+		\begin{block}{Stability measures}
+			\begin{itemize}
+				\item
+				Zero Moment Point (ZMP)
+				\item
+				Foot Rotation Indicator (FRI)
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Related work: Analytical approach}
+		\begin{block}{ZMP}
+			\begin{itemize}
+				\item
+				The distributed floor reaction force can be replaced by a single force R
+				acts on Zero Moment Point
+			\end{itemize}
+		\end{block}
 		
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.5\linewidth]{presentation_images/8}
+				\caption{Zero Moment Point (ZMP) (\cite{vukobratovic2004zero})}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Related work: Central Pattern Generator Approach}
+		\begin{block}{Human walking process}
+			\begin{itemize}
+				\item
+				Rhythm generating
+				\item
+				Control and adaptation mechanism
+				
+			\end{itemize}
+		\end{block}
+		\begin{block}{CPG principle}
+			\begin{itemize}
+				\item
+				Biological CPGs are made from pairs of mutually inhibiting neurons
+				\item
+				Pairs of mutually inhibiting neurons are described by systems of differential equations
+				\item
+				CPG is a neural network working without input
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Related work: Neural Networks Approach}
+		\centering
+		Feed-Forward Networks
+		
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{presentation_images/9}
+				\caption{Feed Forward Network (\cite{kim2012zmp})}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Related work: Neural Networks Approach}
+		\centering
+		Recurrent networks 
+		
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.5\linewidth]{presentation_images/10}
+				\caption{Elman Recurrent Network}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Related work: Hidden Markov Model Approach}
+		\begin{block}{HMM for bipedal locomotion algorithm}
+			\begin{itemize}
+				\item
+				A correspondence between the control signal and controller input
+				\item 
+				The control signal depends only on a finite number of previous input signals
+				\item
+				Define a set of patterns
+				\item
+				Set of input signals is mapped to the set of possible control signals
+				\item
+				Train the model by the data describing control signals
+				\item
+				Collect a set of trained models
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Related work: Rule Based Approach}
+		\begin{block}{Rule Based Approach principle}
+			\begin{itemize}
+				\item
+				Divide the set of all possible system configurations into the clusters
+				\item 
+				For each cluster assign the control function
+				\item During the work control function will be chosen according to the current robot configuration
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Related work: Rule Based Approach}
+		\begin{block}{Rule Based Approach principle}
+			\begin{itemize}
+				\item
+				Current configuration defines the possible control function
+				\item Fuzzy logic controller is a perspective approach for solving dynamical stability problem
+				\item Fuzzy logic controller divide all the configuration space into the subspaces
+				\item For each subspace control function is defined in an optimal way
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Introduction and Motivation: humanoid robots development}
+		\begin{figure}[h!]
+			\includegraphics[width=0.8\linewidth]{presentation_images/6}
+			\caption{Evolution of Honda humanoids}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Introduction and Motivation}
+		\begin{block}{What is a robot ?}
+			\begin{itemize}
+				\item
+				Mechanism with body structure resembles that of a human: head, torso, legs, arms, hands (\cite{hirai1998development})
+			\end{itemize}
+		\end{block}
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.3\linewidth]{presentation_images/17}
+				\caption{Humanoid robot}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}[allowframebreaks]
+		\frametitle{Bibliography}    
+		\bibliographystyle{apalike}
+		\bibliography{robotics}
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control}
+		\begin{block}{Optimal Control}
+			\begin{itemize}
+				\item
+				State space model
+				\item
+				Transfer function
+				\item
+				Transfer function measures
+			\end{itemize}
+		\end{block}
+		
+		\begin{figure}[h!]
+			\includegraphics[width=0.5\linewidth]{presentation_images/15}
+			\caption{Generalized regulator (\cite{hazell2008discrete})}
+		\end{figure}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
+		\begin{block}{Optimal Control}
+			\begin{itemize}
+				\item
+				State space model
+				\begin{equation}
+				\begin{split}
+				x(k+1) = Ax(k) + Bu(k)\\
+				y(k) = Cx(k) + Du(k)
+				\end{split}
+				\end{equation}
+				
+				A, B, C, D are parameters matrices.
+				x is a input vector, y is output vector.
+				\item
+				Transfer function
+				\begin{equation}
+				\begin{split}
+				G(Z) = C(ZI - A)^{-1} B + D
+				\end{split}
+				\end{equation}
+				
+				Where Z is Z transform variable
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
+		\begin{block}{Optimal Control}
+			\begin{itemize}
+				\item
+				Transfer function measures
+				
+				\begin{equation}
+				\begin{split}
+				||G(Z)||_2 = Trace\{ B^{T} XB + D^{T} D \}
+				\end{split}
+				\end{equation}
+				\item
+				X should satisfy:
+				\begin{equation}
+				X = A^TXA + C^TC
+				\end{equation}
+				\item
+				Physical meaning is a gain in power from input to output, assuming that the input signal is white noise
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: Optimal Control}
+		\begin{block}{Optimal Control}
+			\begin{itemize}
+				\item
+				Transfer function measures
+				
+				\begin{equation}
+				\begin{split}
+				||G(Z)||_\infty = \sup_{\omega} \dfrac{||z||_2}{||\omega||_2}
+				\end{split}
+				\end{equation}
+				\item
+				\begin{equation}
+				z  =G \omega
+				\end{equation}
+				\item
+				$\omega$ is assumed to be a realization of a unit power, Gaussian, white noise
+				process and z is the real values vector of input
+				\item
+				Physical meaning is a maximum possible gain in power from input to output, assuming that the input signal is white noise
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Theoretical Aspects of Bipedal Robots Control: cart table model}
+	\begin{block}{Cart table model}
+		\begin{itemize}
+			\item
+			M is cart mass
+			\item
+			x is cart trajectory
+			\item
+			$\ddot{x}$ is cart acceleration
+			\item
+			p is ZMP coordinate
+		\end{itemize}
+	\end{block}
+	
+	\begin{figure}[h!]
+		\begin{minipage}[H]{\linewidth}
+			\centering
+			\includegraphics[width=0.4\linewidth]{presentation_images/11}
+			\caption{Cart table model (\cite{kajita2003biped})}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}
+		\frametitle{Theoretical Aspects of Bipedal Robots Control: cart table model}
+		\begin{block}{Cart table model}
+			\begin{itemize}
+				\item
+				$Z_c$ is height of cart CoM
+				\item
+				$\tau_{ZMP}$ is rotational moment in ZMP
+				\item
+				Cart table dynamics:
+				\begin{equation}
+				P = x - \dfrac{Z_c}{g} \ddot{x}
+				\end{equation}		
+			\end{itemize}
+		\end{block}
+		
+		\begin{figure}[h!]
+			\begin{minipage}[H]{\linewidth}
+				\centering
+				\includegraphics[width=0.4\linewidth]{presentation_images/11}
+				\caption{Cart table model (\cite{kajita2003biped})}
+			\end{minipage}
+		\end{figure}
+	\end{frame}
+			
 \end{document}
+
