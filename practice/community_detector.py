@@ -1,6 +1,5 @@
 import math
 import random
-import ipdb
 
 class CommunityDetector():
     def __init__(self, graph):

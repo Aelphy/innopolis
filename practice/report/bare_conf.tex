@@ -1,0 +1,76 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[]{algorithm2e}
+
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+\title{Community privacy preservation}
+
+\author{
+\IEEEauthorblockN{Prof. Qiang Qu}
+\IEEEauthorblockA{Innopolis University\\
+	Kazan, Russia\\
+	Email: q.qu@innopolis.ru}
+\and
+\IEEEauthorblockN{Dr. Sadegh Nobari}
+\IEEEauthorblockA{Innopolis University\\
+	Kazan, Russia\\
+	Email: nobari@innopolis.ru}
+\and
+\IEEEauthorblockN{Usvyatsov Mikhail}
+\IEEEauthorblockA{Innopolis University\\
+Kazan, Russia\\
+Email: m.usvyatsov@gmail.com}
+}
+
+\maketitle
+
+
+\begin{abstract}
+	The abstract goes here.
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+	Nowadays there is a lot of information that cannot be distributed as is. Increasing popularity of social networks, p2p networks and other communication networks motivates research on the restrictions that should be applied to the data that is available. User agreements also restricts resources with sharing their data.\\
+	The most common representation of a network is graph. Graph represents the structure and relationships between objects and thus, it should be preprocessed before it can be published due to restrictions that do not allow publish such information as is. There are works that study graph anonymization problem. This method proposes the property that no one node in a graph can be distinguished with the probability 1. Although it prevents the information about users interconnections to be distributes knowing the community structure of the network it is possible to distinguish one community from another.\\
+	The goal of this work is to propose the method to maintain anonymization property of graph itself and moreover to keep the structure anonymized. 
+
+\subsection{Subsection Heading Here}
+	Subsection text here.
+
+\subsubsection{Subsubsection Heading Here}
+	Subsubsection text here.
+
+\section{Conclusion}
+	The conclusion goes here.
+
+\section*{Acknowledgment}
+	The authors would like to thank...
+
+\bibliographystyle{unsrtnat}
+\bibliography{graph_anonim}
+
+\end{document}
+
+
