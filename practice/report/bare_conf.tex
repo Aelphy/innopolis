@@ -65,8 +65,59 @@ Email: m.usvyatsov@gmail.com}
 	Our goal is given the graph G transform it to G$^\prime$ to make it not only k-anonymous but also its community graph $k_1$-anonymous.\\
 	Division of graph into communities is a very big problem. First of all the definition of community is very inaccurate. For example, every clique is obviously a community, but not every community is a clique. Different algorithms of communities detection use different interpretation of a word "community". Newman introduced the idea to use modularity as an objective function in \cite{newman2012communities}. And in \cite{sobolevsky2014general} COMBO algorithm was introduced. It optimizes the function of graph modularity and tries to perform three possible operation: merge two communities into one, divide the community into two and to move nodes from one community to another until the modularity gain grater a very small limit. In another words, while algorithm converges the modularity change is big from iteration to iteration.\\
 	After the devision initial graph into communities there are several ways to build community graph. Each of them incorporates different opposition attack model. The first community graph construction can be done via algorithm 1.
+	
+	\begin{algorithm}
+		\KwData{communities - list of communites sorted in order of n verticies definition}
+		\KwResult{G - community graph}
+		G = new empty graph\\
+		D = empty dictionary\\
 
-\subsection{Our Contributions}
+		\For{i = 1 to n} {
+			add $vertex_i$ to $D[communities_i ]$\\
+		}
+		
+		\For{$community_i$, $community_j$  in each of $C^2_{communities}$}{
+			\For{edge in dot\_product($D[community_i]$, $D[community_j]$)}{
+				G.add\_edge($community_i$, $community_j$)
+			}
+		}
+		
+		return G
+		\caption{Build communities multi-graph}
+	\end{algorithm}
+	
+	Such graph will have a lot of edges between several communities because for every communities interconnections it will create a new edge between this communities. On the other hand algorithm 2 builds another form of community graph that makes an edge only once.
+	
+		\begin{algorithm}
+			\KwData{communities - list of communites sorted in order of n verticies definition}
+			\KwResult{G - community graph}
+			G = new empty graph\\
+			D = empty dictionary\\
+			edges = empty dictionary\\
+			
+			\For{i = 1 to n} {
+				add $vertex_i$ to $D[communities_i ]$\\
+			}
+			
+			\For{$community_i$, $community_j$  in each of $C^2_{communities}$}{
+				\For{edge in dot\_product($D[community_i]$, $D[community_j]$)}{
+					\If{($community_i$, $community_j$) not in edges}{
+						edges[($community_i$, $community_j$)] = 0
+					}
+					
+					edges[($community_i$, $community_j$)] += 1
+				}
+			}
+			
+			\For{i = 1 to edges.length} {
+				G.add\_edge($edge_i$)
+			}
+			
+			return G
+			\caption{Build communities single-graph}
+		\end{algorithm}
+		
+	Thus single-graph can be defined as a graph where two vertices have at most one edge between them and multi-graph is not limited by the number of edges between each two nodes. 
 
 \section{Conclusion}
 	The conclusion goes here.

@@ -28,7 +28,7 @@ class Anonimizer():
             return n - i + 1
 
 
-    def relaxed edge creation(self, v, i, j):
+    def relaxed_edge_creation(self, v, i, j):
         l = len(v)
 
         while l >= 1:
