@@ -1,5 +1,7 @@
 \documentclass[conference]{IEEEtran}
 \usepackage[]{algorithm2e}
+\usepackage[square,numbers]{natbib}
+\usepackage{float}
 
 \ifCLASSINFOpdf
   % \usepackage[pdftex]{graphicx}
@@ -52,15 +54,19 @@ Email: m.usvyatsov@gmail.com}
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-	Nowadays there is a lot of information that cannot be distributed as is. Increasing popularity of social networks, p2p networks and other communication networks motivates research on the restrictions that should be applied to the data that is available. User agreements also restricts resources with sharing their data.\\
-	The most common representation of a network is graph. Graph represents the structure and relationships between objects and thus, it should be preprocessed before it can be published due to restrictions that do not allow publish such information as is. There are works that study graph anonymization problem. This method proposes the property that no one node in a graph can be distinguished with the probability 1. Although it prevents the information about users interconnections to be distributes knowing the community structure of the network it is possible to distinguish one community from another.\\
-	The goal of this work is to propose the method to maintain anonymization property of graph itself and moreover to keep the structure anonymized. 
+	Nowadays there is a lot of information that cannot be distributed as is. Increasing popularity of social networks, p2p networks and other communication networks motivates research on the restrictions that should be applied to the data that is available.\\
+	The most common representation of a network is graph. Graph represents the structure and relationships between objects and thus, it should be preprocessed before it can be published due to privacy restrictions that do not allow publish such information as is. There are a lot of works that study graph anonymization problem. This method proposes the property that no one node in a graph can be distinguished with the probability 1. Although it prevents the information about users interconnections to be distributed, knowing the community structure of the network it is possible to distinguish one community from another. It means that the person itself cannot be compromised but all the group of people can be.\\
+	The goal of this work is to propose the method to maintain anonymization property of graph itself and moreover to keep the community structure to be anonymized.
 
-\subsection{Subsection Heading Here}
-	Subsection text here.
+\subsection{Preliminaries}
+	We define network as $<V, E>$, where V is a set of graph vertices and E is a set of edges between these vertices.
+	According to \cite{cheng2010k}, k-degree anonymity is the property that each vertex in a graph has at least k - 1 other vertices with the same degree.\\
+	The problem of graph anonymization is solved and one of the solution is FKD algorithm defined in \cite{lu2012fast}.\\
+	Our goal is given the graph G transform it to G$^\prime$ to make it not only k-anonymous but also its community graph $k_1$-anonymous.\\
+	Division of graph into communities is a very big problem. First of all the definition of community is very inaccurate. For example, every clique is obviously a community, but not every community is a clique. Different algorithms of communities detection use different interpretation of a word "community". Newman introduced the idea to use modularity as an objective function in \cite{newman2012communities}. And in \cite{sobolevsky2014general} COMBO algorithm was introduced. It optimizes the function of graph modularity and tries to perform three possible operation: merge two communities into one, divide the community into two and to move nodes from one community to another until the modularity gain grater a very small limit. In another words, while algorithm converges the modularity change is big from iteration to iteration.\\
+	After the devision initial graph into communities there are several ways to build community graph. Each of them incorporates different opposition attack model. The first community graph construction can be done via algorithm 1.
 
-\subsubsection{Subsubsection Heading Here}
-	Subsubsection text here.
+\subsection{Our Contributions}
 
 \section{Conclusion}
 	The conclusion goes here.
